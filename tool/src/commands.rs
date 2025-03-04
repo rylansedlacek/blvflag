@@ -1,4 +1,4 @@
-use std::io::{self, Read};
+use std::io::{self};
 use std::process::{Command, Stdio};
 
 pub enum OutputType {
@@ -6,27 +6,22 @@ pub enum OutputType {
     Stderr,
 }
 
-pub fn run_python_script(script_path: &str) -> io::Result<(OutputType, String)> {
-    let output = Command::new("python3") // run
+pub fn runScript(script_path: &str) -> io::Result<(OutputType, String)> {
+    let output = Command::new("python3") // use python 3 
         .arg(script_path)
-        .stdout(Stdio::piped()) // pipe
-        //.stderr(Stdio::piped())
+        .stdout(Stdio::piped()) // for stduout
+        .stderr(Stdio::piped()) // for stderr
         .output()?;
 
-    let out = if output.status.success() {
-        (OutputType::Stdout,format!("{}", 
-        String::from_utf8_lossy(&output.stdout)),)
-    }; 
-    
-    /* TODO for ERROR 
-    else {
-        (OutputType::Stderr,format!("{}", 
-        String::from_utf8_lossy(&output.stderr)),)
-    };
-    */
+    let out; // null decl
+    if output.status.success() {
+        out = (OutputType::Stdout, String::from_utf8_lossy(&output.stdout).to_string());
+    } else {
+        out  = (OutputType::Stderr, String::from_utf8_lossy(&output.stderr).to_string());
+    }
 
-    Ok(out)
-}
+    Ok(out) // return the output converted to string format
 
+} // end run script
 
-//TODO add starting of ollama server 
+// TODO add logic to start the ollama server once we figure out how to do that
