@@ -3,13 +3,8 @@ import torch
 from peft import LoraConfig, get_peft_model # for peft and QLoRa later
 
 tokenizer = AutoTokenizer.from_pretrained("meta-llama/Llama-2-7b-chat-hf") # load tokenizer
-model_name = AutoModelForCausalLM.from_pretrained("meta-llama/Llama-2-7b-chat-hf") # load model
-
-model = AutoModelForCausalLM.from_pretrained(
-    model_name,
-    load_in_4bit=True,  
-    torch_dtype=torch.float16,
-)
+model_name = "meta-llama/Llama-2-7b-chat-hf"
+model = AutoModelForCausalLM.from_pretrained( "meta-llama/Llama-2-7b-chat-hf",torch_dtype=torch.float16,  device_map="auto" )
 
 # test to see if model works
 print("works") # TODO REMOVE
@@ -19,7 +14,7 @@ lora_config = LoraConfig( # basic config
     lora_alpha = 32,
     lora_dropout = 0.05,
     bias = "none",
-    task_type = "CASUAL_LM"
+    task_type = "CAUSAL_LM"
 )
 
 peft_model = get_peft_model(model, lora_config) # paramater efficient 
