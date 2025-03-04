@@ -6,9 +6,6 @@ tokenizer = AutoTokenizer.from_pretrained("meta-llama/Llama-2-7b-chat-hf") # loa
 model_name = "meta-llama/Llama-2-7b-chat-hf"
 model = AutoModelForCausalLM.from_pretrained( "meta-llama/Llama-2-7b-chat-hf",torch_dtype=torch.float16,  device_map="auto" )
 
-# test to see if model works
-print("works") # TODO REMOVE
-
 lora_config = LoraConfig( # basic config
     r = 16, 
     lora_alpha = 32,
