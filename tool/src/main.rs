@@ -43,40 +43,6 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
 } // end main
 
 
-/*
-async fn doScript(script_path: &str, matches: &clap::ArgMatches) -> Result<(), Box<dyn std::error::Error>> {
-    // start_ollama_server()?; // TODO once we know how
-
-    let output = commands::runScript(script_path)?;
-
-    match output {
-        Ok((commands::OutputType::Stdout, out)) => {
-            println!("{}", out);
-            Ok(())  
-        }
-
-        Ok((commands::OutputType::Stderr, out)) => {
-            let out = format!("Error was: {}", out);
-            /*
-            let ollama = Ollama::default();
-            let mut stdout = stdout();
-            let pb = setup_progress_bar(400);
-            process_loop(&mut stdout, &ollama, &pb, false, &out, "Error output").await?;
-            */
-
-            // just print the error output for now
-            println!("{}", out);
-            Ok(())
-        }
-
-        Err(e) => {
-            eprintln!("Error here was: {}", e);
-            Ok(()) 
-        }
-    }  // close match
-}  // end do
-*/
-
 async fn doScript(script_path: &str) -> Result<(), Box<dyn std::error::Error>> {
     //commands::start_ollama_server()?; // TODO LATER
 
