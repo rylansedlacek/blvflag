@@ -1,9 +1,9 @@
 mod generate;
 mod commands;
 
- // same imports as blvrun for now
-//use generate::{process_loop, setup_progress_bar};
- // TODO add ollama server start here
+use tokio::io::{stdout};
+use ollama_rs::Ollama;
+use setup::setup_model;
 use clap::{App, Arg, SubCommand};
 
 #[tokio::main]
