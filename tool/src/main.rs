@@ -26,7 +26,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
         .get_matches();
     
     if let Some(script) = matches.value_of("script") { // cant use -- because of .long
-        doScript(script).await?;
+        doScript(script, &matches).await?;
     } else if let Some(ex) = matches.value_of("explain") {
         println!("--explain place holder");
     } else if let Some(dif) = matches.value_of("diff") {
@@ -40,13 +40,13 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
     Ok(())
 } // end main
 
-async fn do_script(script_path: &str, matches: &clap::ArgMatches) -> Result<(), Box<dyn std::error::Error>> {
+async fn doScript(script_path: &str, matches: &clap::ArgMatches) -> Result<(), Box<dyn std::error::Error>> {
     
-    let out = commands::run_script(script_path);
+    let out = commands::runScript(script_path);
     match out {
         Ok((commands::OutputType::Stdout, out)) => {
             println!("{}", out);
-            Ok(())
+            //Ok()
         }
         Ok((commands::OutputType::Stderr, out)) => {
             let out = format!("{}", out);
@@ -66,11 +66,11 @@ async fn do_script(script_path: &str, matches: &clap::ArgMatches) -> Result<(), 
                 println!("{}", script_path);
                 //TODO here we will have the diff stuff using autosave stuf TBD
             }
-            Ok(())
+            //Ok()
         }
         Err(e) => {
             eprintln!("Error {}", e);
-            Ok(())
+           // Ok()
         }
     }
     Ok(())
