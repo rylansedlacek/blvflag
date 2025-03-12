@@ -32,17 +32,35 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
     } else if let Some(dif) = matches.value_of("diff") {
         println!("--diff place holder");
     } else if let Some(matches) = matches.subcommand_matches("setup") {
-        println!("setup place holder"); 
-        // TODO add getting the model directly from hugging face once trained
+      
+        let model_file = matches.value_of("MODEL_FILE_LINK") // do we need both? 
+        .unwrap_or("TBD")
+        .to_string(); 
+        let model_link = matches.value_of("MODEL_LINK")
+        .unwrap_or("TBD")
+        .to_string();
+         let directory = matches.value_of("DIRECTORY").map(PathBuf::from);
+
+         // ADD CHECK if we need both
+
+         let file_urls = vec![ // store in vector
+            ("model_file".to_string(), model_file_link), 
+            ("model_link".to_string(), model_link) 
+        ];
+
+        setup::setup_model(&file_urls, directory).await?; // set up the model using setup.rs
+
     } else {
-        eprintln!("No valid script passed");
+        eprintln!("No valid command passed");
     }
     Ok(())
 } // end main
 
 async fn doScript(script_path: &str, matches: &clap::ArgMatches) -> Result<(), Box<dyn std::error::Error>> {
     
+    commands::start_ollama_server()?; // start the server
     let out = commands::runScript(script_path);
+
     match out {
         Ok((commands::OutputType::Stdout, out)) => {
             println!("{}", out);

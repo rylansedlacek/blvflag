@@ -24,4 +24,12 @@ pub fn runScript(script_path: &str) -> io::Result<(OutputType, String)> {
 
 } // end run script
 
-// TODO add logic to start the ollama server once we figure out how to do that
+pub fn start_ollama_server() -> io::Result<()> { // this code from blvrun should work fine
+    Command::new("ollama")
+        .arg("serve")
+        .stdout(Stdio::piped())
+        .stderr(Stdio::piped())
+        .spawn()?;
+
+    Ok(())
+}
