@@ -93,3 +93,7 @@ async fn doScript(script_path: &str, matches: &clap::ArgMatches) -> Result<(), B
     }
     Ok(())
 } //  end do script
+
+// get base model make sure everything works
+// host model on ollama
+// ensure that reference model and print something using model output
