@@ -1,10 +1,9 @@
-use std::fs; // file stuff
-use std::path::PathBuf; // file path
-use std::process::Command; // need command.rs stuff
-use reqwest::blocking::get; // think this works for HTTP
-
-use std::io::{self, Write};
-use tokio::fs as async_fs;
+//use std::fs; // file stuff
+//use std::path::PathBuf; // file path
+//use std::process::Command; // need command.rs stuff
+//use reqwest::blocking::get; // think this works for HTTP
+//use std::io;
+//use tokio::fs as async_fs;
 
 
 /*
@@ -43,7 +42,8 @@ pub async fn setup_model(file_urls: &Vec<(String, String)>, directory: Option<Pa
 
 // TODO remove once finetuned model uploaded to hugging face:
 
-pub fn basicSetup() -> io::Result<()> { // just set up the ollama server for testing
+/*
+pub fn basic_setup() -> io::Result<()> { // just set up the ollama server for testing
     println!("download success, adding to ollama.");
 
     Command::new("ollama")
@@ -56,3 +56,4 @@ pub fn basicSetup() -> io::Result<()> { // just set up the ollama server for tes
     println!("import successful.");
     Ok(())
 } // end func
+ */
