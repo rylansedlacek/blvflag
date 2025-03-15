@@ -6,26 +6,26 @@ pub enum OutputType {
     Stderr,
 }
 
-pub fn runScript(script_path: &str) -> io::Result<(OutputType, String)> {
+pub fn runScript(script_path: &str) -> io::Result<(OutputType, String)> { // to pipe the script given
     let output = Command::new("python3") // use python 3 
         .arg(script_path)
-        .stdout(Stdio::piped()) // for stduout
+        .stdout(Stdio::piped()) // for stdout
         .stderr(Stdio::piped()) // for stderr
         .output()?;
 
-    let out; // null decl
+    let out; 
     if output.status.success() {
-        out = (OutputType::Stdout, String::from_utf8_lossy(&output.stdout).to_string());
+        out = (OutputType::Stdout, String::from_utf8_lossy(&output.stdout).to_string()); // standard out
     } else {
-        out  = (OutputType::Stderr, String::from_utf8_lossy(&output.stderr).to_string());
+        out = (OutputType::Stderr, String::from_utf8_lossy(&output.stderr).to_string()); // stand error out
     }
+    Ok(out) // return out as string back to main for model processing.
+} // end runScript
 
-    Ok(out) // return the output converted to string format
 
-} // end run script
 
-pub fn start_ollama_server() -> io::Result<()> {
-    let server = Command::new("ollama")
+pub fn start_ollama_server() -> io::Result<()> { // to start the ollama server
+    let _server = Command::new("ollama") 
         .arg("serve")
         .stdout(Stdio::piped())
         .stderr(Stdio::piped())
