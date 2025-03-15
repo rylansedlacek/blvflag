@@ -7,7 +7,8 @@ pub enum OutputType {
 }
 
 pub fn run_script(script_path: &str) -> io::Result<(OutputType, String)> { // to pipe the script given
-    let output = Command::new("python3") // use python 3 
+
+    let output = Command::new("python3") 
         .arg(script_path)
         .stdout(Stdio::piped()) // for stdout
         .stderr(Stdio::piped()) // for stderr
@@ -20,13 +21,14 @@ pub fn run_script(script_path: &str) -> io::Result<(OutputType, String)> { // to
         out = (OutputType::Stderr, String::from_utf8_lossy(&output.stderr).to_string()); // stand error out
     }
     Ok(out) // return out as string back to main for model processing.
+
 } // end runScript
 
 
 
 pub fn start_ollama_server() -> io::Result<()> { // to start the ollama server
     let _server = Command::new("ollama") 
-        .arg("serve")
+        .arg("serve") 
         .stdout(Stdio::piped())
         .stderr(Stdio::piped())
         .spawn()?;
