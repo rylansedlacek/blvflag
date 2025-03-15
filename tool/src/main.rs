@@ -38,6 +38,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
         println!("--diff place holder");
     } else if let Some(matches) = matches.subcommand_matches("setup") {
       
+        /*
         let model_file = matches.value_of("MODEL_FILE_LINK") // do we need both? 
         .unwrap_or("TBD")
         .to_string(); 
@@ -54,6 +55,9 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
         ];
 
         setup::setup_model(&file_urls, directory).await?; // set up the model using setup.rs
+        */
+
+        commands::start_ollama_server()?; // for now just run manually 
 
     } else {
         eprintln!("No valid command passed");
@@ -62,39 +66,39 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
 } // end main
 
 async fn doScript(script_path: &str, matches: &clap::ArgMatches) -> Result<(), Box<dyn std::error::Error>> {
-    
-    commands::start_ollama_server()?; // start the server
+   
+    commands::start_ollama_server()?; // start
+
     let out = commands::runScript(script_path);
 
     match out {
         Ok((commands::OutputType::Stdout, out)) => {
-            println!("{}", out);
-            //Ok()
+            println!("{}", out); // just print stdout normally
         }
         Ok((commands::OutputType::Stderr, out)) => {
             let out = format!("{}", out);
             let explain_this= matches.is_present("explain"); // check for flags
             let diff_code = matches.is_present("diff");
+            
+            println!("caught the error");
 
             if explain_this {
-                println!("{}", script_path);
-                
-                //let ollama = Ollama::default(); // START OLLAMA HERE TO GET MODEL FOR EXPLAIN
-                // let mut stdout = stdout();
-                // let pb = setup_progress_bar(400);
-                // process_loop(&mut stdout, &ollama, &pb, false, &out, &postfix).await?;
+                let ollama = Ollama::default();
+                let prompt = format!("Explain this Python error: {}", out);
+                let response = ollama.generate("gemma:2b", &prompt).await?;
+
+                println!("Explanation:\n{}", response);
             }
 
             if diff_code {
                 println!("{}", script_path);
                 //TODO here we will have the diff stuff using autosave stuf TBD
             }
-            //Ok()
+
         }
         Err(e) => {
-            eprintln!("Error {}", e);
-           // Ok()
+            eprintln!("execute failed");
         }
     }
     Ok(())
-} //  end do script
+} // end do
