@@ -2,7 +2,7 @@ mod generate;
 mod commands;
 mod setup;
 
-use tokio::io::{stdout};
+//use tokio::io::{stdout};
 use ollama_rs::Ollama;
 use clap::{App, Arg, SubCommand};
 use ollama_rs::generation::completion::request::GenerationRequest; 
@@ -28,13 +28,13 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
         .get_matches();
     
     if let Some(script) = matches.value_of("script") { // cant use -- because of .long
-        doScript(script, &matches).await?;
+        do_script(script, &matches).await?;
     } else if matches.is_present("explain") {
         println!("--explain place holder");
     } else if matches.is_present("diff") {
         println!("--diff place holder");
     } else if matches.subcommand_matches("setup").is_some() {
-        
+
         /*
         TODO add for getting model off web, which will be accomplished in setup.rs
         Plan to fine-tune and push model to hugging face, but model will stay
@@ -48,10 +48,10 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
     Ok(())
 } // end main
 
-async fn doScript(script_path: &str, matches: &clap::ArgMatches) -> Result<(), Box<dyn std::error::Error>> {
+async fn do_script(script_path: &str, matches: &clap::ArgMatches) -> Result<(), Box<dyn std::error::Error>> {
 
     commands::start_ollama_server()?; // start server
-    let out = commands::runScript(script_path);
+    let out = commands::run_script(script_path);
 
     match out {
 

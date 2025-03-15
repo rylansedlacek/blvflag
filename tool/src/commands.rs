@@ -6,7 +6,7 @@ pub enum OutputType {
     Stderr,
 }
 
-pub fn runScript(script_path: &str) -> io::Result<(OutputType, String)> { // to pipe the script given
+pub fn run_script(script_path: &str) -> io::Result<(OutputType, String)> { // to pipe the script given
     let output = Command::new("python3") // use python 3 
         .arg(script_path)
         .stdout(Stdio::piped()) // for stdout
