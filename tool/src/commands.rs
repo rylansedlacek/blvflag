@@ -24,12 +24,13 @@ pub fn runScript(script_path: &str) -> io::Result<(OutputType, String)> {
 
 } // end run script
 
-pub fn start_ollama_server() -> io::Result<()> { // this code from blvrun should work fine
-    Command::new("ollama")
+pub fn start_ollama_server() -> io::Result<()> {
+    let server = Command::new("ollama")
         .arg("serve")
         .stdout(Stdio::piped())
         .stderr(Stdio::piped())
         .spawn()?;
 
+    std::thread::sleep(std::time::Duration::from_secs(3)); // add sleep to give it time to actually start
     Ok(())
 }

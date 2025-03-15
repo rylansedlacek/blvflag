@@ -8,26 +8,30 @@ use tokio::fs as async_fs;
 
 // complete guess and direct modification of blvrun
 pub async fn setup_model(file_urls: &Vec<(String, String)>, directory: Option<PathBuf>) -> io::Result<()> {
-
-    let base = directory.unwrap_or_else( || PathBuf::from("models"));
-
-    fs::create_dir_all(&base_dir)?;
-
-    for (filename, url) in file_urls {
-        let path = base.join(filename);
-        if !file_path.exists() {
-            println!("File exists place holder")
-            // TODO
-        }
-    } //  end for
-
-    //  if we make it here the models are downloaded
-    Command::new("ollama") // want to use ollama now
-        .arg("import") // import based on docs
-        .arg(base.join("modelfile_path").to_str())
-        .output()?;
     
-    println!("model imported right place holder")
-    Ok(()) // ok out
- 
+    let base = directory.unwrap_or_else(|| PathBuf::from("models"));
+
+    fs::create_dir_all(&base)?;
+
+    for (filename, url) in file_urls { // going to loop through each file url
+        let path = base.join(filename); // append
+        if !path.exists() {
+            println!("Downloading {}...", filename)
+            let response = reqwest::blocking::get(urls)?; // get the file
+            let mut file = fs::File::create(&path)?; // get file path
+            io::copy(&mut response.bytes()?.asref(), &mut file)?; //
+        }
+    }
+
+    println!("download success, adding to ollama.");
+
+    Command::new("ollama")
+        .arg("create")
+        .arg("blvflag-model-test")
+        .arg("--model")
+        .arg("gemma:2b")  // use the small test gemma
+        .output()?;
+
+    println!("import successful.");
+    Ok(())
 } // end func
