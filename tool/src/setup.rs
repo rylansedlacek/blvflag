@@ -1,18 +1,19 @@
-//use std::fs; // file stuff
-//use std::path::PathBuf; // file path
-//use std::process::Command; // need command.rs stuff
-//use reqwest::blocking::get; // think this works for HTTP
-//use std::io;
-//use tokio::fs as async_fs;
-
-
 /*
 Eventually once a model is finetuned this will be used to get the model off of hugging face.
 Additionally, changes will be made to allow users to run a "setup" command in order to
 accomplish this and run this function. 
 */
 
-/*
+/* IMPORTS:
+use std::fs; // file stuff
+use std::path::PathBuf; // file path
+use std::process::Command; // need command.rs stuff
+use reqwest::blocking::get; // think this works for HTTP
+use std::io;
+use tokio::fs as async_fs;
+*/
+
+/* SET UP MODEL FROM URL LINK
 pub async fn setup_model(file_urls: &Vec<(String, String)>, directory: Option<PathBuf>) -> io::Result<()> {
     let base = directory.unwrap_or_else(|| PathBuf::from("models"));
     fs::create_dir_all(&base)?;
@@ -31,29 +32,11 @@ pub async fn setup_model(file_urls: &Vec<(String, String)>, directory: Option<Pa
         .arg("create")
         .arg("blvflag-model-test")
         .arg("--model")
-        .arg("gemma:2b")  // use the small test gemma
+        .arg("gemma:2b")  // TODO eventually changes this to be the actual model we download
+        //.arg("path")
         .output()?;
 
     println!("import successful.");
     Ok(())
 }
 */
-
-
-// TODO remove once finetuned model uploaded to hugging face:
-
-/*
-pub fn basic_setup() -> io::Result<()> { // just set up the ollama server for testing
-    println!("download success, adding to ollama.");
-
-    Command::new("ollama")
-        .arg("create")
-        .arg("blvflag-model-test")
-        .arg("--model")
-        .arg("gemma:2b")  // use the small test gemma
-        .output()?;
-
-    println!("import successful.");
-    Ok(())
-} // end func
- */

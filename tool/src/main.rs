@@ -3,10 +3,10 @@ mod commands;
 mod setup;
 
 //use tokio::io::{stdout};
+//use setup::setup_model;
 use ollama_rs::Ollama;
 use clap::{App, Arg, SubCommand};
 use ollama_rs::generation::completion::request::GenerationRequest; 
-//use setup::setup_model;
 
 #[tokio::main]
 async fn main() -> Result<(), Box<dyn std::error::Error>> {
