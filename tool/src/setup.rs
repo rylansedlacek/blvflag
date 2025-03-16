@@ -14,8 +14,8 @@ use tokio::fs as async_fs;
 */
 
 /* SET UP MODEL FROM URL LINK
-pub async fn setup_model(file_urls: &Vec<(String, String)>, directory: Option<PathBuf>) -> io::Result<()> {
-    let base = directory.unwrap_or_else(|| PathBuf::from("models"));
+pub async fn setup_model(file_urls: &Vec<(String, String)>, dir: Option<PathBuf>) -> io::Result<()> {
+    let base = dir.unwrap_or_else(|| PathBuf::from("models"));
     fs::create_dir_all(&base)?;
 
     for (filename, url) in file_urls { // going to loop through each file url
