@@ -30,22 +30,42 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
     if let Some(script) = matches.value_of("script") { // cant use -- because of .long
         do_script(script, &matches).await?;
     } else if matches.is_present("explain") {
-        println!("--explain place holder");
+        println!("--explain place holder"); // do we even need ask PC?
     } else if matches.is_present("diff") {
-        println!("--diff place holder");
-    } else if matches.subcommand_matches("setup").is_some() {
+        println!("--diff place holder"); // do we even need ask PC?
+    } else if matches.subcommand_matches("setup") {
 
-        /*
-        TODO add for getting model off web, which will be accomplished in setup.rs
-        Plan to fine-tune and push model to hugging face, but model will stay
-        small enough that the setup will actually download and run the model locally,
-        using ollama server.
+        let model_file = matches.value_of("MODEL_FILE_LINK")
+            .unwrap_or("the link")
+            .to_string(); 
+
+        let model_link = matches.value_of("MODEL_LINK")
+            .unwrap_or("the link")
+            .to_string();
+
+        let dir = matches.value_of("DIRECTORY") //.map(PathBuf::from); //remove map stuff for now
+
+        /* ASSUME CORRECT USAGE FOR NOW
+        if (matches.value_of("MODEL_FILE_LINK").is_some() && matches.value_of("MODEL_LINK").is_none())
+            || (matches.value_of("MODEL_LINK").is_some() && matches.value_of("MODEL_FILE_LINK").is_none()) {
+            eprintln!("Both model file link and model link need to be specified if one is provided.");
+            return Ok(());
+        }
         */
 
+        let file_urls = vec![ // store both in vec
+            ("modelfile_path".to_string(), model_file), 
+            ("model_path".to_string(), model_link) 
+        ];
+
+        setup_model(&file_urls, dir).await?; // pass this to the function
+
     } else {
-        eprintln!("Error, invalid usage.");
-    }
+        eprintln!("Error, invalid usage."); // add more verbose explanation
+    } // end of matches
+
     Ok(())
+
 } // end main
 
 async fn do_script(script_path: &str, matches: &clap::ArgMatches) -> Result<(), Box<dyn std::error::Error>> {
