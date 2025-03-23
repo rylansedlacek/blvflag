@@ -34,6 +34,9 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
         } else if matches.is_present("diff") {
             println!("--diff place holder");
         } else if matches.subcommand_matches("setup").is_some() {
+
+            println!("setting up the model...");
+            setup::setup_model()?;
     
             /*
             TODO add for getting model off web, which will be accomplished in setup.rs
@@ -46,34 +49,6 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
             eprintln!("Error, invalid usage.");
         }
 
-        /*
-        let model_file = matches.value_of("MODEL_FILE_LINK")
-            .unwrap_or("the link")
-            .to_string(); 
-
-        let model_link = matches.value_of("MODEL_LINK")
-            .unwrap_or("the link")
-            .to_string();
-
-        let dir = matches.value_of("DIRECTORY") //.map(PathBuf::from); //remove map stuff for now
-
-        /* ASSUME CORRECT USAGE FOR NOW
-        if (matches.value_of("MODEL_FILE_LINK").is_some() && matches.value_of("MODEL_LINK").is_none())
-            || (matches.value_of("MODEL_LINK").is_some() && matches.value_of("MODEL_FILE_LINK").is_none()) {
-            eprintln!("Both model file link and model link need to be specified if one is provided.");
-            return Ok(());
-        }
-        */
-
-        let file_urls = vec![ // store both in vec
-            ("modelfile_path".to_string(), model_file), 
-            ("model_path".to_string(), model_link) 
-        ];
-
-        setup_model(&file_urls, dir).await?; // pass this to the function
-        */
-
-   
     Ok(())
 
 } // end main
@@ -93,6 +68,13 @@ async fn do_script(script_path: &str, matches: &clap::ArgMatches) -> Result<(), 
             let ollama = Ollama::default(); // get the error
             let prompt = format!("provider error line number. explain this error in 3-4 bullet points. 
             just provide the bullet points and line number. :\n{}", error_output); // to mock our goal output for fine-tuned model
+
+
+            /*
+                Once we've gotten the model to actually download within the setup file
+                we NEED to change this section to utilize the model that we download. 
+                this way we will be good to go.
+            */
 
             if matches.is_present("explain") { // explain flag present
                 let request = GenerationRequest::new("gemma:2b".to_string(), prompt.to_string());

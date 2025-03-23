@@ -1,42 +1,100 @@
+use std::fs::{self, File};  // 
+use std::io::{self, Write};
+use std::path::PathBuf;
+use std::process::Command;
+use std::io::copy;
+use reqwest::blocking::Client; // use a blocking approach
+
 /*
-Eventually once a model is finetuned this will be used to get the model off of hugging face.
-Additionally, changes will be made to allow users to run a "setup" command in order to
-accomplish this and run this function. 
+use std::path::Path;
+use tokio::fs::File;
+use tokio::io::{AsyncWriteExt, copy};
+use reqwest::Client;
+use indicatif::{ProgressBar, ProgressStyle};
 */
 
-/* IMPORTS:
-use std::fs; // file stuff
-use std::path::PathBuf; // file path
-use std::process::Command; // need command.rs stuff
-use reqwest::blocking::get; // think this works for HTTP
-use std::io;
-use tokio::fs as async_fs;
+/*
+    For right now, this seems to work. Though I'm unsure about the async download_model
+    stuff. I think that if we can ge the "worked" print to show up then I'd feel more 
+    confident in the actual model being downloaded. Don't think it is because when I 
+    run ollama list on cl it doesn't show as listed.
+
 */
 
-/* SET UP MODEL FROM URL LINK
-pub async fn setup_model(file_urls: &Vec<(String, String)>, dir: Option<PathBuf>) -> io::Result<()> {
-    let base = dir.unwrap_or_else(|| PathBuf::from("models"));
-    fs::create_dir_all(&base)?;
+const MODEL_URL: &str = "https://huggingface.co/rylansed/finetunedTest/resolve/main/model.bin"; // constant model url as string
+const MODEL_PATH: &str = "models/finetunedTest.bin";  // path
 
-    for (filename, url) in file_urls { // going to loop through each file url
-        let path = base.join(filename); // append
-        if !path.exists() {
-            println!("downloading {}...", filename); 
-            let response = get(url)?; 
-            let mut file = fs::File::create(&path)?; // get file path
-            io::copy(&mut response.bytes()?.as_ref(), &mut file)?; //
-        }
-    }
+pub fn setup_model() -> io::Result<()> {
 
-    Command::new("ollama")
-        .arg("create")
-        .arg("blvflag-model-test")
+    let model_dir = PathBuf::from("models");
+    fs::create_dir_all(&model_dir)?; // get access to model folder on our build
+
+    let model_path = model_dir.join("finetunedTest.bin"); // and path here
+
+    if model_path.exists() {
+        println!(""); // do nothing cause it exists
+    } else {
+        println!("downloading model... \n");
+        download_model(MODEL_URL, &model_path);
+        println!("model download completed! \n")
+    } 
+
+    //TOOD ADD AUTO START OF OLLAMA SERVER WHEN COMMAND RAN
+    Command::new("ollama") // import it into ollama 
+        .arg("import")
+        .arg("finetunedTest")
         .arg("--model")
-        .arg("gemma:2b")  // TODO eventually changes this to be the actual model we download
-        //.arg("path")
+        .arg(model_path.display().to_string())
         .output()?;
 
-    println!("import successful.");
+    println!("started ollama");
+    Ok(()) // ok out
+}
+
+async fn download_model(url: &str, path: &PathBuf) -> io::Result<()> { // actual download it off hugging face now
+
+    let client = Client::new();
+    let response = client.get(url).send().expect("Failed to send request"); 
+
+    if !response.status().is_success() { // if not a success alert
+        println!("failed to donwload the model");
+    }
+
+    let total_size = response.content_length().unwrap_or(0); // get the size
+
+    let mut file = File::create(path)?; // create model file
+    let mut downloaded: u64 = 0;
+
+    let content = response.bytes().expect("Failed to get bytes");
+    let mut content_ref = content.as_ref();
+    copy(&mut content_ref, &mut file)?;
+
+    println!("worked");
+    Ok(())
+}
+
+
+/*
+pub async fn download_model(url: &str, path: &Path) -> Result<(), Box<dyn std::error::Error>> {
+
+    let client = Client::new();
+    let response = client.get(url).send().await?;
+
+    let total_size = response.content_length().unwrap_or(0);
+    let mut file = File::create(path);
+
+    let mut stream = response.bytes_stream();
+    let mut downloaded: u64 = 0;
+
+    while let Some(chunk) = stream.next().await {
+        let chunk = chunk?;
+        file.write_all(&chunk).await?;
+        downloaded += chunk.len() as u64;
+       // pb.set_position(downloaded);
+    }
+
+    println!("model downloaded successfully");
+
     Ok(())
 }
 */
