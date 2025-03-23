@@ -21,7 +21,7 @@ use indicatif::{ProgressBar, ProgressStyle};
 
 */
 
-const MODEL_URL: &str = "https://huggingface.co/rylansed/finetunedTest/resolve/main/model.bin"; // constant model url as string
+const MODEL_URL: &str = "https://huggingface.co/rylansed/finetunedTest/"; // constant model url as string
 const MODEL_PATH: &str = "models/finetunedTest.bin";  // path
 
 pub fn setup_model() -> io::Result<()> {
