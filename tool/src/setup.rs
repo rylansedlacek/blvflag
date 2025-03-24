@@ -1,100 +1,70 @@
-use std::fs::{self, File};  // 
-use std::io::{self, Write};
-use std::path::PathBuf;
-use std::process::Command;
-use std::io::copy;
-use reqwest::blocking::Client; // use a blocking approach
-
-/*
-use std::path::Path;
-use tokio::fs::File;
-use tokio::io::{AsyncWriteExt, copy};
+use std::fs;
+use std::path::{Path};
+use std::error::Error;
 use reqwest::Client;
-use indicatif::{ProgressBar, ProgressStyle};
-*/
+use tokio::fs::File;
+use tokio::io::AsyncWriteExt;
+use ollama_rs::{Ollama, models::create::CreateModelRequest};
+use std::env;
 
-/*
-    For right now, this seems to work. Though I'm unsure about the async download_model
-    stuff. I think that if we can ge the "worked" print to show up then I'd feel more 
-    confident in the actual model being downloaded. Don't think it is because when I 
-    run ollama list on cl it doesn't show as listed.
+const HF_TOKEN: &str = "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"; // the token
 
-*/
+pub async fn setup_model() -> Result<(), Box<dyn Error>> {
+    println!("Setting up model...");
 
-const MODEL_URL: &str = "https://huggingface.co/rylansed/finetunedTest/"; // constant model url as string
-const MODEL_PATH: &str = "models/finetunedTest.bin";  // path
+    let model_url = "https://huggingface.co/rylansed/finetunedTest/resolve/main/model.safetensors"; 
+    let model_name = "rylansed/finetunedTest";
+    let model_dir = env::current_dir()?.join("models");
 
-pub fn setup_model() -> io::Result<()> {
+    if !model_dir.exists() {
+        fs::create_dir_all(&model_dir)?;
+    }
 
-    let model_dir = PathBuf::from("models");
-    fs::create_dir_all(&model_dir)?; // get access to model folder on our build
+    let model_path = model_dir.join("model.safetensors"); // fix
 
-    let model_path = model_dir.join("finetunedTest.bin"); // and path here
+    download_file(model_url, &model_path).await?;
+ 
+    let ollama = Ollama::default();
+    let modelfile_path = model_dir.join("/Users/rylan/blvflag/tool/models/Modelfile"); // TODO fix
 
-    if model_path.exists() {
-        println!(""); // do nothing cause it exists
+    /*
+        The contents that it's writing here seems to be cause the overall issue. It says Cant find from or 
+        file stuff which is literally in there not sure what the problem is
+    */
+
+    let modelfile_contents = format!( "from \"{}\"",model_path.display());
+
+    fs::write(&modelfile_path, modelfile_contents)?;
+
+    let response = ollama.create_model(CreateModelRequest::path("model".into(), modelfile_path.display().to_string().into())).await?;
+
+    if response.message == "success" {
+        println!("good run");
     } else {
-        println!("downloading model... \n");
-        download_model(MODEL_URL, &model_path);
-        println!("model download completed! \n")
-    } 
+        println!("bad run");
+    }
+    Ok(())
+} // end setup
 
-    //TOOD ADD AUTO START OF OLLAMA SERVER WHEN COMMAND RAN
-    Command::new("ollama") // import it into ollama 
-        .arg("import")
-        .arg("finetunedTest")
-        .arg("--model")
-        .arg(model_path.display().to_string())
-        .output()?;
-
-    println!("started ollama");
-    Ok(()) // ok out
-}
-
-async fn download_model(url: &str, path: &PathBuf) -> io::Result<()> { // actual download it off hugging face now
-
-    let client = Client::new();
-    let response = client.get(url).send().expect("Failed to send request"); 
-
-    if !response.status().is_success() { // if not a success alert
-        println!("failed to donwload the model");
+pub async fn download_file(url: &str, path: &Path) -> Result<(), Box<dyn Error>> {
+    if path.exists() {
+        println!("model has already been downloaded at {:?}", path);
+        return Ok(());
     }
 
-    let total_size = response.content_length().unwrap_or(0); // get the size
-
-    let mut file = File::create(path)?; // create model file
-    let mut downloaded: u64 = 0;
-
-    let content = response.bytes().expect("Failed to get bytes");
-    let mut content_ref = content.as_ref();
-    copy(&mut content_ref, &mut file)?;
-
-    println!("worked");
-    Ok(())
-}
-
-
-/*
-pub async fn download_model(url: &str, path: &Path) -> Result<(), Box<dyn std::error::Error>> {
-
+    println!("downloading model from {}", url);
+    
     let client = Client::new();
-    let response = client.get(url).send().await?;
+    let mut response = client.get(url)
+        .header("Authorization", format!("Bearer {}", HF_TOKEN))
+        .send()
+        .await?
+        .bytes()
+        .await?;
+    
+    let mut file = File::create(path).await?;
+    file.write_all(&response).await?;
 
-    let total_size = response.content_length().unwrap_or(0);
-    let mut file = File::create(path);
-
-    let mut stream = response.bytes_stream();
-    let mut downloaded: u64 = 0;
-
-    while let Some(chunk) = stream.next().await {
-        let chunk = chunk?;
-        file.write_all(&chunk).await?;
-        downloaded += chunk.len() as u64;
-       // pb.set_position(downloaded);
-    }
-
-    println!("model downloaded successfully");
-
+    println!("mdel downloaded successfully to {:?}", path);
     Ok(())
 }
-*/

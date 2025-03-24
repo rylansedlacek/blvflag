@@ -35,15 +35,8 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
             println!("--diff place holder");
         } else if matches.subcommand_matches("setup").is_some() {
 
-            println!("setting up the model...");
+            ommands::start_ollama_server()?; // start server
             setup::setup_model()?;
-    
-            /*
-            TODO add for getting model off web, which will be accomplished in setup.rs
-            Plan to fine-tune and push model to hugging face, but model will stay
-            small enough that the setup will actually download and run the model locally,
-            using ollama server.
-            */
     
         } else {
             eprintln!("Error, invalid usage.");
@@ -66,18 +59,14 @@ async fn do_script(script_path: &str, matches: &clap::ArgMatches) -> Result<(), 
 
         Ok((commands::OutputType::Stderr, error_output)) => {
             let ollama = Ollama::default(); // get the error
+
+            let model_name = "blvflag"; // TODO change this TO CURRENT
+
             let prompt = format!("provider error line number. explain this error in 3-4 bullet points. 
             just provide the bullet points and line number. :\n{}", error_output); // to mock our goal output for fine-tuned model
 
-
-            /*
-                Once we've gotten the model to actually download within the setup file
-                we NEED to change this section to utilize the model that we download. 
-                this way we will be good to go.
-            */
-
             if matches.is_present("explain") { // explain flag present
-                let request = GenerationRequest::new("gemma:2b".to_string(), prompt.to_string());
+                let request = GenerationRequest::new(model_name.to_string(), prompt);
                 let response = ollama.generate(request).await?;
                 println!("Explanation:\n{}", response.response); 
             } 
