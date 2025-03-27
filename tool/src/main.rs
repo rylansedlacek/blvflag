@@ -34,10 +34,8 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
         } else if matches.is_present("diff") {
             println!("--diff place holder");
         } else if matches.subcommand_matches("setup").is_some() {
-
-            ommands::start_ollama_server()?; // start server
-            setup::setup_model()?;
-    
+            commands::start_ollama_server()?; // Start Ollama server
+            setup::setup_model().await?;
         } else {
             eprintln!("Error, invalid usage.");
         }

@@ -6,11 +6,12 @@ use tokio::fs::File;
 use tokio::io::AsyncWriteExt;
 use ollama_rs::{Ollama, models::create::CreateModelRequest};
 use std::env;
+use std::process::{Command, Stdio};
 
 const HF_TOKEN: &str = "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"; // the token
 
 pub async fn setup_model() -> Result<(), Box<dyn Error>> {
-    println!("Setting up model...");
+    println!("Setting up model... \n");
 
     let model_url = "https://huggingface.co/rylansed/finetunedTest/resolve/main/model.safetensors"; 
     let model_name = "rylansed/finetunedTest";
@@ -25,6 +26,7 @@ pub async fn setup_model() -> Result<(), Box<dyn Error>> {
     download_file(model_url, &model_path).await?;
  
     let ollama = Ollama::default();
+    //
     let modelfile_path = model_dir.join("/Users/rylan/blvflag/tool/models/Modelfile"); // TODO fix
 
     /*
@@ -48,7 +50,7 @@ pub async fn setup_model() -> Result<(), Box<dyn Error>> {
 
 pub async fn download_file(url: &str, path: &Path) -> Result<(), Box<dyn Error>> {
     if path.exists() {
-        println!("model has already been downloaded at {:?}", path);
+        println!("Oops!, the model has already been downloaded at {:?} \n", path);
         return Ok(());
     }
 
