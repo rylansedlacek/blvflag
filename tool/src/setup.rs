@@ -6,45 +6,41 @@ use tokio::fs::File;
 use tokio::io::AsyncWriteExt;
 use ollama_rs::{Ollama, models::create::CreateModelRequest};
 use std::env;
-use std::process::{Command, Stdio};
+use std::process::Command;
+
 
 const HF_TOKEN: &str = "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"; // the token
 
 pub async fn setup_model() -> Result<(), Box<dyn Error>> {
     println!("Setting up model... \n");
 
-    let model_url = "https://huggingface.co/rylansed/finetunedTest/resolve/main/model.safetensors"; 
-    let model_name = "rylansed/finetunedTest";
-    let model_dir = env::current_dir()?.join("models");
+    let model_url = "https://huggingface.co/TheBloke/TinyLlama-1.1B-intermediate-step-1431k-3T-GGUF/resolve/main/tinyllama-1.1b-intermediate-step-1431k-3t.Q2_K.gguf";
+    let model_name = "test_model";
+
+    let model_dir = env::current_dir()?.join("model_download");
 
     if !model_dir.exists() {
         fs::create_dir_all(&model_dir)?;
     }
 
-    let model_path = model_dir.join("model.safetensors"); // fix
+    let model_path = model_dir.join("tinyllama-1.1b-intermediate-step-1431k-3t.Q2_K.gguf");
 
     download_file(model_url, &model_path).await?;
  
     let ollama = Ollama::default();
-    //
-    let modelfile_path = model_dir.join("/Users/rylan/blvflag/tool/models/Modelfile"); // TODO fix
-
-    /*
-        The contents that it's writing here seems to be cause the overall issue. It says Cant find from or 
-        file stuff which is literally in there not sure what the problem is
-    */
-
-    let modelfile_contents = format!( "from \"{}\"",model_path.display());
-
+    let modelfile_path = "/Users/rylan/blvflag/tool/model_download/Modelfile"; // TODO
+    let modelfile_contents = format!( "FROM {}",model_path.display());
     fs::write(&modelfile_path, modelfile_contents)?;
 
-    let response = ollama.create_model(CreateModelRequest::path("model".into(), modelfile_path.display().to_string().into())).await?;
+    let output = Command::new("ollama")
+        .arg("create")
+        .arg("test") // todo change
+        .arg("-f")
+        .arg(modelfile_path)
+        .output()?;
 
-    if response.message == "success" {
-        println!("good run");
-    } else {
-        println!("bad run");
-    }
+        // TODO ADD ERR CATCH FOR INVALID DOWNLAOD HERE
+    
     Ok(())
 } // end setup
 
@@ -54,7 +50,7 @@ pub async fn download_file(url: &str, path: &Path) -> Result<(), Box<dyn Error>>
         return Ok(());
     }
 
-    println!("downloading model from {}", url);
+    println!("Downloading model...");
     
     let client = Client::new();
     let mut response = client.get(url)
@@ -67,6 +63,6 @@ pub async fn download_file(url: &str, path: &Path) -> Result<(), Box<dyn Error>>
     let mut file = File::create(path).await?;
     file.write_all(&response).await?;
 
-    println!("mdel downloaded successfully to {:?}", path);
+    println!("Model download successful. \n Downloaded to {:?}", path);
     Ok(())
 }

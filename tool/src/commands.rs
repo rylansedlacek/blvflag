@@ -33,7 +33,6 @@ pub fn run_script(script_path: &str) -> io::Result<(OutputType, String)> { // to
 
 
 pub fn start_ollama_server() -> io::Result<()> {
-    println!("Starting Server... \n");
 
     let mut process = Command::new("ollama")
         .arg("serve")
