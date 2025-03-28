@@ -2,8 +2,6 @@ mod generate;
 mod commands;
 mod setup;
 
-//use tokio::io::{stdout};
-//use setup::setup_model;
 use ollama_rs::Ollama;
 use clap::{App, Arg, SubCommand};
 use ollama_rs::generation::completion::request::GenerationRequest; 
@@ -58,7 +56,7 @@ async fn do_script(script_path: &str, matches: &clap::ArgMatches) -> Result<(), 
         Ok((commands::OutputType::Stderr, error_output)) => {
             let ollama = Ollama::default(); // get the error
 
-           let model_name = "tiny"; // TODO change this TO CURRENT
+           let model_name = "test"; // TODO change this TO CURRENT
 
             let prompt = format!("provider error line number. explain this error in 3-4 bullet points. 
             just provide the bullet points and line number. :\n{}", error_output); // to mock our goal output for fine-tuned model
