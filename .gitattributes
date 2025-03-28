@@ -1,1 +1,5 @@
-~/blvflag/tool/target/* linguist-vendored=true
+# If you want to completely hide Makefiles
+Makefile linguist-documentation
+
+# If you want to specify your primary language
+*.rs linguist-language=Rust
