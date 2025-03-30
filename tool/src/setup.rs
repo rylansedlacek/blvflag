@@ -6,23 +6,33 @@ use tokio::fs::File;
 use tokio::io::AsyncWriteExt;
 use std::env;
 use std::process::Command;
+use indicatif::{ProgressBar, ProgressStyle};
+use reqwest::header;
 
-
-const HF_TOKEN: &str = "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"; // the token
-//let access_token = "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";
-//https://huggingface.co/umwCopilot/blvrun/blob/main/ggml-model-Q2_K_v2.gguf
+const HF_TOKEN: &str = "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"; // rylans token
+//const HF_TOKEN: &str = "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"; // clark's token
 
 pub async fn setup_model() -> Result<(), Box<dyn Error>> {
     println!("Setting up model... \n");
 
+    //test model url:
     let model_url = "https://huggingface.co/TheBloke/TinyLlama-1.1B-intermediate-step-1431k-3T-GGUF/resolve/main/tinyllama-1.1b-intermediate-step-1431k-3t.Q2_K.gguf";
+
+    // clark's model url:
+    //let model_url = "https://huggingface.co/umwCopilot/blvrun/blob/main/ggml-model-Q2_K_v2.gguf";
+
     let model_dir = env::current_dir()?.join("model_download");
 
     if !model_dir.exists() {
         fs::create_dir_all(&model_dir)?;
     }
 
-    let model_path = model_dir.join("tinyllama-1.1b-intermediate-step-1431k-3t.Q2_K.gguf");
+    /* Names thus far:
+    //ggml-model-Q2_K_v2.gguf
+    //tinyllama-1.1b-intermediate-step-1431k-3t.Q2_K.gguf
+    */
+
+    let model_path = model_dir.join("tinyllama-1.1b-intermediate-step-1431k-3t.Q2_K.gguf"); // name of model.gguf here
 
     download_file(model_url, &model_path).await?;
  
@@ -32,7 +42,7 @@ pub async fn setup_model() -> Result<(), Box<dyn Error>> {
 
     let _output = Command::new("ollama")
         .arg("create")
-        .arg("test") // todo change
+        .arg("test4") // todo change
         .arg("-f")
         .arg(modelfile_path)
         .output()?;
@@ -50,6 +60,39 @@ pub async fn download_file(url: &str, path: &Path) -> Result<(), Box<dyn Error>>
 
     println!("Downloading model...");
     
+    // based from blv run complex so will explain
+    let client = Client::new();
+    let response = client.head(url).send().await?; 
+    let total_size = response 
+        .headers()
+        .get(header::CONTENT_LENGTH) 
+        .and_then(|val| val.to_str().ok()) // make content string
+        .and_then(|s| s.parse::<u64>().ok()) // make it 64 bit int
+        .unwrap_or(0); // if fails just go for 0
+
+    let pb = ProgressBar::new(total_size); // styling
+    pb.set_style(ProgressStyle::default_bar()
+        .template("[{bar:40.orange/green}] {bytes}/{total_bytes} ({eta})")? // default from the lib
+        .progress_chars(">="));
+
+    let mut res = client.get(url).header("Authorization", format!("Bearer {}", HF_TOKEN)).send().await?; // sent a get request for hf url
+    let mut file = File::create(path).await?; 
+    let mut downloaded: u64 = 0; // track how much we've gotten
+    let _buf = vec![0; 8192]; // create a buffer via rust docs
+
+    while let Some(chunk) = res.chunk().await? {
+        file.write_all(&chunk).await?; // write chunks
+        downloaded += chunk.len() as u64;
+        pb.set_position(downloaded); // update 
+    }
+    
+    println!("Model download successful! Path: {:?}\n", path); // confirm
+    Ok(())
+} // end dl
+
+
+// TODO REMOVE once tested.
+  /* DOWNLOAD WITHOUT BAR
     let client = Client::new();
     let response = client.get(url)
         .header("Authorization", format!("Bearer {}", HF_TOKEN))
@@ -60,7 +103,8 @@ pub async fn download_file(url: &str, path: &Path) -> Result<(), Box<dyn Error>>
     
     let mut file = File::create(path).await?;
     file.write_all(&response).await?;
+    
 
     println!("Model download successful. \n Downloaded to {:?}", path);
     Ok(())
-}
+    */
