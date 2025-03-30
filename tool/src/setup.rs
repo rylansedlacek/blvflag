@@ -63,6 +63,7 @@ pub async fn download_file(url: &str, path: &Path) -> Result<(), Box<dyn Error>>
     // based from blv run complex so will explain
     let client = Client::new();
     let response = client.head(url).send().await?; 
+
     let total_size = response 
         .headers()
         .get(header::CONTENT_LENGTH) 
@@ -76,7 +77,9 @@ pub async fn download_file(url: &str, path: &Path) -> Result<(), Box<dyn Error>>
         .progress_chars(">="));
 
     let mut res = client.get(url).header("Authorization", format!("Bearer {}", HF_TOKEN)).send().await?; // sent a get request for hf url
+
     let mut file = File::create(path).await?; 
+    
     let mut downloaded: u64 = 0; // track how much we've gotten
     let _buf = vec![0; 8192]; // create a buffer via rust docs
 
@@ -89,22 +92,3 @@ pub async fn download_file(url: &str, path: &Path) -> Result<(), Box<dyn Error>>
     println!("Model download successful! Path: {:?}\n", path); // confirm
     Ok(())
 } // end dl
-
-
-// TODO REMOVE once tested.
-  /* DOWNLOAD WITHOUT BAR
-    let client = Client::new();
-    let response = client.get(url)
-        .header("Authorization", format!("Bearer {}", HF_TOKEN))
-        .send()
-        .await?
-        .bytes()
-        .await?;
-    
-    let mut file = File::create(path).await?;
-    file.write_all(&response).await?;
-    
-
-    println!("Model download successful. \n Downloaded to {:?}", path);
-    Ok(())
-    */
