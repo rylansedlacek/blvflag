@@ -45,6 +45,10 @@ pub async fn process_script(script_path: &str, explain: bool, diff: bool) -> Res
                             break; // for now break, later prompt for input
                         }
                     */
+                    let old_path = Path::new("history/example_old.py");
+                    let new_path = Path::new("script.py");
+                
+                    let diff_output = diff::compare_files(old_path, new_path)?;
                 }
             } // end error block
 

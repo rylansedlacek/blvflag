@@ -6,6 +6,7 @@ edition = "2021"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
+similar = "2.2"
 ollama-rs = { version = "0.1", features = ["stream"] }
 tokio = { version = "1.12", features = ["full"] }
 tokio-stream = { version = "0.1", features = ["full"] }
