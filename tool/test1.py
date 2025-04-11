@@ -3,4 +3,4 @@ def greet(name):
 
 greet()  
 
-print("The result is: " + 5)  
+print("The result testing: " + 5)  

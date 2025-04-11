@@ -1,23 +1,29 @@
 use std::fs;
 use std::path::Path;
-use similar::{ChangeTag, TextDiff};
+use similar::{TextDiff, ChangeTag};
 
-pub fn compare_files(old_path: &Path, new_path: &Path) -> Result<String, std::io::Error> { 
-    let old_content = fs::read_to_string(old_path)?; // store the old a new path
-    let new_content = fs::read_to_string(new_path)?;
+/*
+    This is a very basic version of diff that I believe will work for now for testing
 
-    let diff = TextDiff::from_lines(&old_content, &new_content); // use this library that I found
+*/
+pub fn compare_files(old: &Path, new: &Path) -> std::io::Result<String> {
+    let old_contents = fs::read_to_string(old)?; // string-ify
+    let new_contents = fs::read_to_string(new)?;
 
-    let mut result = String::new();
+    let diff = TextDiff::from_lines(&old_contents, &new_contents); // use this library found on google
+    let mut output = String::new();
 
-    for change in diff.iter_all_changes() { // iterate through the chages
-        let sign = match change.tag() {
-            ChangeTag::Delete => "- ",
-            ChangeTag::Insert => "+ ",
-            ChangeTag::Equal => "  ",
-        };
-        result.push_str(&format!("{}{}", sign, change)); // push the changes with signs to output
+    for change in diff.iter_all_changes() { // iterate and add tags for changes literally same as docs
+        match change.tag() {
+            ChangeTag::Delete => {
+                output.push_str(&format!("- {}", change));
+            }
+            ChangeTag::Insert => {
+                output.push_str(&format!("+ {}", change));
+            }
+            ChangeTag::Equal => {}
+        }
     }
 
-    Ok(result) // and return result
+    Ok(output)
 }

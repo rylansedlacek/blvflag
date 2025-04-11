@@ -1,9 +1,12 @@
 use crate::commands;
+use crate::diff;
 use indicatif::{ProgressBar, ProgressStyle};
 use ollama_rs::{generation::completion::{request::GenerationRequest, GenerationContext, GenerationResponseStream,},Ollama,};
 use std::error::Error;
 use tokio::io::{AsyncWriteExt, Stdout};
 use tokio_stream::StreamExt;
+use std::path::Path;
+
 
 pub async fn process_script(script_path: &str, explain: bool, diff: bool) -> Result<(), Box<dyn Error>> {
     commands::start_ollama_server()?; // start the Ollama server
@@ -33,22 +36,29 @@ pub async fn process_script(script_path: &str, explain: bool, diff: bool) -> Res
                 }
 
                 if diff { // diff flag
-                    println!("diff place holder")
-                    /*
-                        loop {
-                            let prompt = format!(
-                                "Provide the error line number and explain the error in 3-4 bullet points. \
-                                Just provide the bullet points and line number:\n{}",
-                                error_output
-                            );
-                            process_loop(&mut stdout, &ollama, &pb, false, &prompt, "", &mut context).await?;
-                            break; // for now break, later prompt for input
+
+                    let script_name = Path::new(script_path) // get the path and unwrap it just like in generate
+                            .file_name()
+                            .unwrap()
+                            .to_string_lossy()
+                            .to_string();
+
+                        let history_path = format!("/Users/rylan/blvflag/tool/history/{}", script_name);
+                        let history_path = Path::new(&history_path);
+
+                        if !history_path.exists() { // if it doestn exiist
+                            std::fs::create_dir_all("/Users/rylan/blvflag/tool/history")?; // create our dir
+                           // std::fs::copy(script_path, history_path)?;
+                            std::fs::copy(script_path, history_path)?;
+                            println!("worked and created");
+                        } else {
+                            let diff_output = diff::compare_files(history_path, Path::new(script_path))?; // grabs the versions for comapres
+                            println!("\n===== changes =====");
+                            println!("{}", diff_output);
+                            println!("=================================\n");
+    
+                            std::fs::copy(script_path, history_path)?; //overwrites the change remove
                         }
-                    */
-                    let old_path = Path::new("history/example_old.py");
-                    let new_path = Path::new("script.py");
-                
-                    let diff_output = diff::compare_files(old_path, new_path)?;
                 }
             } // end error block
 
