@@ -2,6 +2,7 @@ use std::fs;
 use std::path::Path;
 use similar::{TextDiff, ChangeTag};
 
+
 /*
     This is a very basic version of diff that I believe will work for now for testing
 

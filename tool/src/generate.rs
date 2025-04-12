@@ -5,7 +5,10 @@ use ollama_rs::{generation::completion::{request::GenerationRequest, GenerationC
 use std::error::Error;
 use tokio::io::{AsyncWriteExt, Stdout};
 use tokio_stream::StreamExt;
-use std::path::Path;
+use time::OffsetDateTime;
+use std::fs;
+use std::path::{Path, PathBuf};
+use chrono::Local;
 
 
 pub async fn process_script(script_path: &str, explain: bool, diff: bool) -> Result<(), Box<dyn Error>> {
@@ -18,11 +21,55 @@ pub async fn process_script(script_path: &str, explain: bool, diff: bool) -> Res
             }
 
             Ok((commands::OutputType::Stderr, error_output)) => { // error
+                commands::start_ollama_server()?; // start the Ollama server
                 let ollama = Ollama::default();
                 let mut context: Option<GenerationContext> = None; // store conversation context
                 let pb = setup_progress_bar(100); // and also set up progress tracking
                 let mut stdout = tokio::io::stdout(); // output
 
+                let script_name = Path::new(script_path) // save a script name in string format
+                    .file_name()
+                    .unwrap()
+                    .to_string_lossy()
+                    .to_string();
+        
+                let date_stamp = Local::now().format("%Y-%m-%d").to_string(); // date stamp YYYY-MM-DD
+                let history_dir = Path::new("/Users/rylan/blvflag/tool/history/"); // TODO CHANGE FOR GENERALIZED
+                fs::create_dir_all(&history_dir)?;
+        
+                let json_name = format!("{}_{}.json", script_name.trim_end_matches(".py"), date_stamp); // if its a .py save it in json
+                let full_path = history_dir.join(&json_name);
+                let current_script_content = fs::read_to_string(script_path)?;
+        
+                if diff { // diff flag
+                    let prefix = script_name.trim_end_matches(".py");
+            
+                    let mut previous_versions: Vec<PathBuf> = fs::read_dir(history_dir)? // read the directly
+                        .filter_map(|entry| {
+                            let entry = entry.ok()?;
+                            let path = entry.path();
+                            let filename = path.file_name()?.to_string_lossy(); // get the file
+            
+                            if filename.starts_with(prefix) && path != full_path { // only include the same file base not the one we will write
+                                Some(path)
+                            } else {
+                                None // TODO ugly fix
+                            }
+                        })
+                        .collect(); // TODO not needed
+            
+                    previous_versions.sort(); // TODO not needed
+            
+                    if let Some(last_version) = previous_versions.last() { // uses diff.rs
+                        let diff_output = diff::compare_files(last_version, Path::new(script_path))?;
+                        println!("changes:");
+                        println!("{}", diff_output);
+                        println!("======");
+                    } else {
+                        println!("No version found to 'diff' agaainst."); // if no other
+                    }
+                }
+        
                 if explain { // explain flag
                     loop {
                         let prompt = format!(
@@ -35,31 +82,9 @@ pub async fn process_script(script_path: &str, explain: bool, diff: bool) -> Res
                     }
                 }
 
-                if diff { // diff flag
+                fs::write(&full_path, &current_script_content)?; // save file only after we do diffing stuff 
+                println!("saved script version: {:?}", full_path); // EVERYTIME
 
-                    let script_name = Path::new(script_path) // get the path and unwrap it just like in generate
-                            .file_name()
-                            .unwrap()
-                            .to_string_lossy()
-                            .to_string();
-
-                        let history_path = format!("/Users/rylan/blvflag/tool/history/{}", script_name);
-                        let history_path = Path::new(&history_path);
-
-                        if !history_path.exists() { // if it doestn exiist
-                            std::fs::create_dir_all("/Users/rylan/blvflag/tool/history")?; // create our dir
-                           // std::fs::copy(script_path, history_path)?;
-                            std::fs::copy(script_path, history_path)?;
-                            println!("worked and created");
-                        } else {
-                            let diff_output = diff::compare_files(history_path, Path::new(script_path))?; // grabs the versions for comapres
-                            println!("\n===== changes =====");
-                            println!("{}", diff_output);
-                            println!("=================================\n");
-    
-                            std::fs::copy(script_path, history_path)?; //overwrites the change remove
-                        }
-                }
             } // end error block
 
         Err(_) => {
