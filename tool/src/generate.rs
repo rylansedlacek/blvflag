@@ -1,5 +1,6 @@
 use crate::commands;
 use crate::diff;
+
 use indicatif::{ProgressBar, ProgressStyle};
 use ollama_rs::{generation::completion::{request::GenerationRequest, GenerationContext, GenerationResponseStream,},Ollama,};
 use std::error::Error;
@@ -16,59 +17,74 @@ pub async fn process_script(script_path: &str, explain: bool, diff: bool) -> Res
     let out = commands::run_script(script_path);
 
     match out {
-            Ok((commands::OutputType::Stdout, output)) => { // basic output
+
+            Ok((commands::OutputType::Stdout, output)) => { // STANDARD OUT
                 println!("{}", output);
             }
 
-            Ok((commands::OutputType::Stderr, error_output)) => { // error
-                commands::start_ollama_server()?; // start the Ollama server
+            Ok((commands::OutputType::Stderr, error_output)) => { // STANDARD ERROR
+                commands::start_ollama_server()?;
                 let ollama = Ollama::default();
-                let mut context: Option<GenerationContext> = None; // store conversation context
-                let pb = setup_progress_bar(100); // and also set up progress tracking
-                let mut stdout = tokio::io::stdout(); // output
+                let mut context: Option<GenerationContext> = None;
+                let pb = setup_progress_bar(100); 
+                let mut stdout = tokio::io::stdout(); 
+                let mut should_save = true;
 
-                let script_name = Path::new(script_path) // save a script name in string format
-                    .file_name()
-                    .unwrap()
-                    .to_string_lossy()
-                    .to_string();
+                let script_name = Path::new(script_path).file_name().unwrap().to_string_lossy().to_string();
         
-                let date_stamp = Local::now().format("%Y-%m-%d").to_string(); // date stamp YYYY-MM-DD
+                let date_stamp = Local::now().to_string();
                 let history_dir = Path::new("/Users/rylan/blvflag/tool/history/"); // TODO CHANGE FOR GENERALIZED
                 fs::create_dir_all(&history_dir)?;
         
-                let json_name = format!("{}_{}.json", script_name.trim_end_matches(".py"), date_stamp); // if its a .py save it in json
+                let json_name = format!("{}_{}.json", script_name.trim_end_matches(".py"), date_stamp); // if its a .py save it in json with date
                 let full_path = history_dir.join(&json_name);
                 let current_script_content = fs::read_to_string(script_path)?;
         
+                /*explanation for this confusing mess:
+                    - The trim just gets the script name, like script.py = script
+                    - Then we make a vec to store our previous version from reading the dir
+
+                    - Reading the dir:
+                        - we get into it
+                        - Get the path
+                        - Get the actual file name
+
+                    - We only include the same file base not the one we are actually going to write
+                    - The else { None } is probably not needed
+
+                    - Finally we collect the versions and sort them so we find the MOST RECENT for "diffing."
+                */
+
                 if diff { // diff flag
                     let prefix = script_name.trim_end_matches(".py");
-            
-                    let mut previous_versions: Vec<PathBuf> = fs::read_dir(history_dir)? // read the directly
-                        .filter_map(|entry| {
-                            let entry = entry.ok()?;
-                            let path = entry.path();
-                            let filename = path.file_name()?.to_string_lossy(); // get the file
-            
-                            if filename.starts_with(prefix) && path != full_path { // only include the same file base not the one we will write
+                    let mut previous_versions: Vec<PathBuf> = fs::read_dir(history_dir)? // read the directory
+                        .filter_map(|entry| { let entry = entry.ok()?; let path = entry.path(); let filename = path.file_name()?.to_string_lossy(); 
+                            if filename.starts_with(prefix) && path != full_path { 
                                 Some(path)
                             } else {
-                                None // TODO ugly fix
+                                None 
                             }
-                        })
-                        .collect(); // TODO not needed
-            
-                    previous_versions.sort(); // TODO not needed
-            
-                    if let Some(last_version) = previous_versions.last() { // uses diff.rs
+                        }).collect(); 
+                    previous_versions.sort(); 
+
+                   if let Some(last_version) = previous_versions.last() { // uses diff.rs
+                        let previous_content = fs::read_to_string(last_version)?;
+
+                            if previous_content == current_script_content {
+                                should_save = false; // No changes, skip saving
+                            }
+
                         let diff_output = diff::compare_files(last_version, Path::new(script_path))?;
-                        println!("changes:");
-                        println!("{}", diff_output);
-                        println!("======");
-                    } else {
-                        println!("No version found to 'diff' agaainst."); // if no other
-                    }
-                }
+
+                            if diff_output.is_empty() {
+                                println!("No changes made.")
+                            } else {
+                                println!("------changes------");
+                                println!("{}", diff_output);
+                                println!("-------------------");
+                            }
+                    } 
+                } // end diff
         
                 if explain { // explain flag
                     loop {
@@ -82,20 +98,19 @@ pub async fn process_script(script_path: &str, explain: bool, diff: bool) -> Res
                     }
                 }
 
-                fs::write(&full_path, &current_script_content)?; // save file only after we do diffing stuff 
-                println!("saved script version: {:?}", full_path); // EVERYTIME
-
-            } // end error block
-
+                if should_save { // this is for file tracking
+                    fs::write(&full_path, &current_script_content)?; 
+                    println!("saved most recent version at: {:?}", full_path); 
+                }
+            } // end standard error
         Err(_) => {
             eprintln!("Failed to execute the script");
         }
-
     } // match
-    Ok(())
-}
+    Ok(()) 
+} // end processing script
 
-pub fn setup_progress_bar(max_tokens: u64) -> ProgressBar { // same as used in setup
+pub fn setup_progress_bar(max_tokens: u64) -> ProgressBar { // same as used in setup from blvrun
     let pb = ProgressBar::new(max_tokens);
     pb.set_style(
         ProgressStyle::default_bar()

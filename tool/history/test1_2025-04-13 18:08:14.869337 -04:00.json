@@ -3,4 +3,4 @@ def greet(name):
 
 greet()  
 
-print("The result no!!: " + 5)  
+print("The result yes!!: " + 5)  
