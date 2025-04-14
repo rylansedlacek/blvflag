@@ -4,8 +4,6 @@ use std::io::{BufRead};
 use std::thread;
 use std::time::Duration;
 
-
-
 pub enum OutputType {
     Stdout,
     Stderr,

@@ -6,11 +6,10 @@ use ollama_rs::{generation::completion::{request::GenerationRequest, GenerationC
 use std::error::Error;
 use tokio::io::{AsyncWriteExt, Stdout};
 use tokio_stream::StreamExt;
-use time::OffsetDateTime;
 use std::fs;
 use std::path::{Path, PathBuf};
 use chrono::Local;
-
+use dirs;
 
 pub async fn process_script(script_path: &str, explain: bool, diff: bool) -> Result<(), Box<dyn Error>> {
     commands::start_ollama_server()?; // start the Ollama server
@@ -33,7 +32,9 @@ pub async fn process_script(script_path: &str, explain: bool, diff: bool) -> Res
                 let script_name = Path::new(script_path).file_name().unwrap().to_string_lossy().to_string();
         
                 let date_stamp = Local::now().to_string();
-                let history_dir = Path::new("/Users/rylan/blvflag/tool/history/"); // TODO CHANGE FOR GENERALIZED
+                let mut history_dir: PathBuf = dirs::home_dir().expect("Failed to get home directory");
+                history_dir.push("blvflag/tool/history");
+
                 fs::create_dir_all(&history_dir)?;
         
                 let json_name = format!("{}_{}.json", script_name.trim_end_matches(".py"), date_stamp); // if its a .py save it in json with date

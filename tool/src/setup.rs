@@ -1,5 +1,5 @@
 use std::fs;
-use std::path::{Path};
+use std::path::{Path, PathBuf};
 use std::error::Error;
 use reqwest::Client;
 use tokio::fs::File;
@@ -8,19 +8,15 @@ use std::env;
 use std::process::Command;
 use indicatif::{ProgressBar, ProgressStyle};
 use reqwest::header;
+use dirs;
 
 const HF_TOKEN: &str = "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"; // rylans token
-//const HF_TOKEN: &str = "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"; // clark's token
 
 pub async fn setup_model() -> Result<(), Box<dyn Error>> {
     println!("Setting up model... \n");
 
     //test model url:
     let model_url = "https://huggingface.co/TheBloke/TinyLlama-1.1B-intermediate-step-1431k-3T-GGUF/resolve/main/tinyllama-1.1b-intermediate-step-1431k-3t.Q2_K.gguf";
-
-    // clark's model url:
-    //let model_url = "https://huggingface.co/umwCopilot/blvrun/blob/main/ggml-model-Q2_K_v2.gguf";
-
     let model_dir = env::current_dir()?.join("model_download");
 
     if !model_dir.exists() {
@@ -33,10 +29,11 @@ pub async fn setup_model() -> Result<(), Box<dyn Error>> {
     */
 
     let model_path = model_dir.join("tinyllama-1.1b-intermediate-step-1431k-3t.Q2_K.gguf"); // name of model.gguf here
-
     download_file(model_url, &model_path).await?;
+    let mut modelfile_path: PathBuf = dirs::home_dir().expect("Failed to get home directory");
+    modelfile_path.push("blvflag/tool/model_download/Modelfile");
  
-    let modelfile_path = "/Users/rylan/blvflag/tool/model_download/Modelfile"; // TODO
+    //let modelfile_path = "/Users/rylan/blvflag/tool/model_download/Modelfile"; // TODO
     let modelfile_contents = format!( "FROM {}",model_path.display());
     fs::write(&modelfile_path, modelfile_contents)?;
 
@@ -48,7 +45,6 @@ pub async fn setup_model() -> Result<(), Box<dyn Error>> {
         .output()?;
 
         // TODO ADD ERR CATCH FOR INVALID DOWNLAOD HERE
-    
     Ok(())
 } // end setup
 
@@ -77,7 +73,6 @@ pub async fn download_file(url: &str, path: &Path) -> Result<(), Box<dyn Error>>
         .progress_chars(">="));
 
     let mut res = client.get(url).header("Authorization", format!("Bearer {}", HF_TOKEN)).send().await?; // sent a get request for hf url
-
     let mut file = File::create(path).await?; 
     
     let mut downloaded: u64 = 0; // track how much we've gotten

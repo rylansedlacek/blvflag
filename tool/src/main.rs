@@ -8,6 +8,7 @@ use clap::{App, Arg, SubCommand};
 #[tokio::main]
 async fn main() -> Result<(), Box<dyn std::error::Error>> {
     let matches = App::new("blvflag")
+        .usage("blvflag [script] [--flag]")
         .arg(Arg::new("script")  
             .help("The script to run.")
             .required(false)
@@ -24,7 +25,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
             .help("Run this command to download model to user machine.")
             .about("Downloads model to machine."))
         .get_matches();
-    
+
         if let Some(script) = matches.value_of("script") { 
             let explain = matches.is_present("explain"); // booleans
             let diff = matches.is_present("diff");
