@@ -30,7 +30,7 @@ pub async fn setup_model() -> Result<(), Box<dyn Error>> {
 
     let model_path = model_dir.join("tinyllama-1.1b-intermediate-step-1431k-3t.Q2_K.gguf"); // name of model.gguf here
     download_file(model_url, &model_path).await?;
-    let mut modelfile_path: PathBuf = dirs::home_dir().expect("Failed to get home directory");
+    let mut modelfile_path: PathBuf = dirs::home_dir().expect("Failed to get home directory"); // TODO NOT WORKING!
     modelfile_path.push("blvflag/tool/model_download/Modelfile");
  
     //let modelfile_path = "/Users/rylan/blvflag/tool/model_download/Modelfile"; // TODO
