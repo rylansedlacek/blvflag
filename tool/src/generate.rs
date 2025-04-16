@@ -101,7 +101,7 @@ pub async fn process_script(script_path: &str, explain: bool, diff: bool) -> Res
 
                 if should_save { // this is for file tracking
                     fs::write(&full_path, &current_script_content)?; 
-                    println!("saved most recent version at: {:?}", full_path); 
+                    println!("\n Saved most recent version at: {:?}", full_path); 
                 }
             } // end standard error
         Err(_) => {
@@ -115,7 +115,7 @@ pub fn setup_progress_bar(max_tokens: u64) -> ProgressBar { // same as used in s
     let pb = ProgressBar::new(max_tokens);
     pb.set_style(
         ProgressStyle::default_bar()
-            .template("[{elapsed_precise}] [{bar:40.red/red] {pos:>7}/{len:7} {msg}")
+            .template("[{elapsed_precise}] [{bar:40.green/white] {pos:>7}/{len:7} {msg}")
             .expect("Failed to set progress bar template")
             .progress_chars("#>-"),
     );
@@ -128,7 +128,7 @@ pub async fn process_loop(stdout: &mut Stdout, ollama: &Ollama, pb: &ProgressBar
 
     stdout.flush().await?; // overwrite past output
 
-    let mut request = GenerationRequest::new("test".into(), query.to_string()); // create the request
+    let mut request = GenerationRequest::new("test4".into(), query.to_string()); // create the request
     if let Some(ctx) = context.clone() { // additional context
         request = request.context(ctx);
     }

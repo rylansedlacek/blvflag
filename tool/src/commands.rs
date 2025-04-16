@@ -3,6 +3,7 @@ use std::process::{Command, Stdio};
 use std::io::{BufRead};
 use std::thread;
 use std::time::Duration;
+use tokio::time::sleep;
 
 pub enum OutputType {
     Stdout,
@@ -58,5 +59,45 @@ pub fn start_ollama_server() -> io::Result<()> {
     }
 
     thread::sleep(Duration::from_secs(5));
+    Ok(())
+}
+
+
+//TOOD CLEAN THIS UP FOR REPLACEMENT ^^^
+pub async fn ensure_ollama() -> Result<(), Box<dyn std::error::Error>> { // to replace start_ollama server!
+    let resp = reqwest::get("http://localhost:11434").await;
+
+    if resp.is_err() {
+
+            let mut process = Command::new("ollama")
+                .arg("serve")
+                .stdout(Stdio::piped())
+                .stderr(Stdio::piped())
+                .spawn()?; 
+
+
+        if let Some(stdout) = process.stdout.take() {
+            let reader = io::BufReader::new(stdout);
+            thread::spawn(move || {
+                for _line in reader.lines().flatten() {
+                    thread::sleep(Duration::from_secs(5));
+                    continue;
+                }
+            });
+        }
+
+        if let Some(stderr) = process.stderr.take() { // for DEBUG only
+            let reader = io::BufReader::new(stderr);
+            thread::spawn(move || {
+                for _line in reader.lines().flatten() {
+                    //eprintln!("[OLLAMA ERROR] {}", line); 
+                    thread::sleep(Duration::from_secs(5));
+                    continue;
+                }
+            });
+        }
+
+            thread::sleep(Duration::from_secs(5));   
+    }
     Ok(())
 }
