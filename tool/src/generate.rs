@@ -111,6 +111,8 @@ pub async fn process_script(script_path: &str, explain: bool, diff: bool) -> Res
     Ok(()) 
 } // end processing script
 
+
+
 pub fn setup_progress_bar(max_tokens: u64) -> ProgressBar { // same as used in setup from blvrun
     let pb = ProgressBar::new(max_tokens);
     pb.set_style(
@@ -120,7 +122,9 @@ pub fn setup_progress_bar(max_tokens: u64) -> ProgressBar { // same as used in s
             .progress_chars("#>-"),
     );
     pb // return the bar
-}
+} // end setup
+
+
 
 pub async fn process_loop(stdout: &mut Stdout, ollama: &Ollama, pb: &ProgressBar, show_stream: bool, query: &str, postfix: &str, context: &mut Option<GenerationContext>,) -> Result<(), Box<dyn std::error::Error>> {
     commands::start_ollama_server()?; // always start server
