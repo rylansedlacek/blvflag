@@ -3,7 +3,6 @@ use std::process::{Command, Stdio};
 use std::io::{BufRead};
 use std::thread;
 use std::time::Duration;
-use tokio::time::sleep;
 
 pub enum OutputType {
     Stdout,
