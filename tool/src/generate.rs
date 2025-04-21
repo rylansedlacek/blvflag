@@ -19,6 +19,80 @@ pub async fn process_script(script_path: &str, explain: bool, diff: bool) -> Res
 
             Ok((commands::OutputType::Stdout, output)) => { // STANDARD OUT
                 println!("{}", output);
+
+                let mut should_save = true;
+                let script_name = Path::new(script_path).file_name().unwrap().to_string_lossy().to_string();
+        
+                let date_stamp = Local::now().to_string();
+                let mut history_dir: PathBuf = dirs::home_dir().expect("Failed to get home directory");
+                history_dir.push("blvflag/tool/history/std_history");
+
+                let mut err_dir: PathBuf = dirs::home_dir().expect("Failed to get home directory"); // TODO
+                err_dir.push("blvflag/tool/history/err_history");
+
+                fs::create_dir_all(&history_dir)?;
+        
+                let json_name = format!("{}_{}.json", script_name.trim_end_matches(".py"), date_stamp); // if its a .py save it in json with date
+                let full_path = history_dir.join(&json_name);
+                let current_script_content = fs::read_to_string(script_path)?;
+        
+                /*
+                    FOR BOTH STDERR and STDOUT we need to have the diff flag per pc
+                    This works
+                    But we need to make sure it checks both of the sub folders for the MOST recent change
+                    places marked with TODO are todo. 
+
+                */
+
+
+                if diff { // diff flag
+                    let prefix = script_name.trim_end_matches(".py");
+
+                    let mut previous_versions: Vec<PathBuf> = fs::read_dir(history_dir)? // TODO
+                        .filter_map(|entry| { let entry = entry.ok()?; let path = entry.path(); let filename = path.file_name()?.to_string_lossy(); 
+                            if filename.starts_with(prefix) && path != full_path { 
+                                Some(path)
+                            } else {
+                                None 
+                            }
+                        }).collect(); 
+
+                    previous_versions.push(fs::read_dir(err_dir)? // TODO
+                    .filter_map(|entry| { let entry = entry.ok()?; let path = entry.path(); let filename = path.file_name()?.to_string_lossy(); 
+                        if filename.starts_with(prefix) && path != full_path { 
+                            Some(path)
+                        } else {
+                            None 
+                        }
+                    }).collect());
+
+                    previous_versions.sort(); 
+
+                   if let Some(last_version) = previous_versions.last() { // uses diff.rs
+                        let previous_content = fs::read_to_string(last_version)?;
+
+                            if previous_content == current_script_content {
+                                should_save = false; // No changes, skip saving
+                            }
+
+                        let diff_output = diff::compare_files(last_version, Path::new(script_path))?;
+
+                            if diff_output.is_empty() {
+                                println!("No changes made.")
+                            } else {
+                                println!("------changes------");
+                                println!("{}", diff_output);
+                                println!("-------------------");
+                            }
+                    } 
+                } // end diff
+                
+                if should_save { // this is for file tracking
+                    fs::write(&full_path, &current_script_content)?; 
+                    println!("\n Saved most recent version at: {:?}", full_path); 
+                }
+
+
             }
 
             Ok((commands::OutputType::Stderr, error_output)) => { // STANDARD ERROR
@@ -27,13 +101,13 @@ pub async fn process_script(script_path: &str, explain: bool, diff: bool) -> Res
                 let mut context: Option<GenerationContext> = None;
                 let pb = setup_progress_bar(100); 
                 let mut stdout = tokio::io::stdout(); 
-                let mut should_save = true;
 
+                let mut should_save = true;
                 let script_name = Path::new(script_path).file_name().unwrap().to_string_lossy().to_string();
         
                 let date_stamp = Local::now().to_string();
                 let mut history_dir: PathBuf = dirs::home_dir().expect("Failed to get home directory");
-                history_dir.push("blvflag/tool/history");
+                history_dir.push("blvflag/tool/history/err_history");
 
                 fs::create_dir_all(&history_dir)?;
         
@@ -57,7 +131,7 @@ pub async fn process_script(script_path: &str, explain: bool, diff: bool) -> Res
                 */
 
                 if diff { // diff flag
-                    let prefix = script_name.trim_end_matches(".py");
+                    let prefix = script_name.trim_end_matches(".py"); //  TODO
                     let mut previous_versions: Vec<PathBuf> = fs::read_dir(history_dir)? // read the directory
                         .filter_map(|entry| { let entry = entry.ok()?; let path = entry.path(); let filename = path.file_name()?.to_string_lossy(); 
                             if filename.starts_with(prefix) && path != full_path { 
