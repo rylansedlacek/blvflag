@@ -40,6 +40,7 @@ pub async fn process_script(script_path: &str, explain: bool, diff: bool) -> Res
                 let full_path = history_dir.join(&json_name);
                 let current_script_content = fs::read_to_string(script_path)?;
         
+                
                 if diff { // diff flag
                     let prefix = script_name.trim_end_matches(".py");
                     let mut all_versions: Vec<PathBuf> = vec![];
@@ -102,7 +103,7 @@ pub async fn process_script(script_path: &str, explain: bool, diff: bool) -> Res
                 
                 if should_save { // this is for file tracking
                     fs::write(&full_path, &current_script_content)?; 
-                    println!("\n Saved most recent version at: {:?}", full_path); 
+                    println!("\nSaved most recent version at: {:?}", full_path); 
                 }
             } // end stdout
 
