@@ -16,170 +16,214 @@ pub async fn process_script(script_path: &str, explain: bool, diff: bool) -> Res
     let out = commands::run_script(script_path);
 
     match out {
+            //Standard Out
+            Ok((commands::OutputType::Stdout, output)) => { 
 
-            Ok((commands::OutputType::Stdout, output)) => { // STANDARD OUT
-
-                if !diff {
-                    println!("{}", output);
-                }
-            
-            let script_name = Path::new(script_path).file_name().unwrap().to_string_lossy().to_string();
-            let date_stamp = Local::now().to_string();
-                let mut history_dir: PathBuf = dirs::home_dir().expect("Failed to get home directory");
-                history_dir.push("blvflag/tool/history/std_history");
-                fs::create_dir_all(&history_dir)?;
-            
-                let json_name = format!("{}_{}.json", script_name.trim_end_matches(".py"), date_stamp);
-                let full_path = history_dir.join(&json_name);
-                let current_script_content = fs::read_to_string(script_path)?;
-            
-
-                let prefix = script_name.trim_end_matches(".py"); // check across boths dirs BEFORE THE DIFF
-                let mut all_versions: Vec<PathBuf> = vec![];
-            
-                let std_history_dir = dirs::home_dir().unwrap().join("blvflag/tool/history/std_history");
-                let std_versions = fs::read_dir(&std_history_dir)?
-                    .filter_map(|entry| {
-                        let path = entry.ok()?.path();
-                        let fname = path.file_name()?.to_string_lossy();
-                        if fname.starts_with(prefix) {Some(path) } else{ None }
-                    });
-            
-                let err_history_dir = dirs::home_dir().unwrap().join("blvflag/tool/history/err_history");
-                let err_versions = fs::read_dir(&err_history_dir)?
-                    .filter_map(|entry| {
-                        let path = entry.ok()?.path();
-                        let fname = path.file_name()?.to_string_lossy();
-                        if fname.starts_with(prefix) { Some(path) } else{ None }
-                    });
-            
-                    all_versions.extend(std_versions);
-                all_versions.extend(err_versions);
-                        all_versions.sort();
-            
-                let mut should_save = true;
-                if let Some(last_version) = all_versions.last() {
-            let previous_content = fs::read_to_string(last_version)?;
-                    should_save = previous_content != current_script_content;
-                }
-            
-                if diff {
-                    if let Some(last_version) = all_versions.last() {
-                        let diff_output = diff::compare_files(last_version, Path::new(script_path))?;
-                        if diff_output.is_empty() {
-                            println!("No changes made.");
-                        } else {
-                            println!("------changes------");
-                                println!("{}", diff_output);
-                            println!("-------------------");
-                        }
-                    } else {
-                        println!("No prior version found to diff against.");
-                    }
-                }
-            
-                if should_save {
-                    fs::write(&full_path, &current_script_content)?;
-                    println!("\nSaved most recent version at: {:?}", full_path);
-                }
-            }
-            
-
-             Ok((commands::OutputType::Stderr, error_output)) => { // STANDARD ERROR
-                if !diff && !explain {
-                    println!("Error Caught! Use --explain OR --diff for help.\n");
-                    println!("{}", error_output);
-                }
-            
-            commands::start_ollama_server()?;
-            let ollama = Ollama::default();
-            let mut context: Option<GenerationContext> = None;
-            let pb = setup_progress_bar(100); 
-            let mut stdout = tokio::io::stdout(); 
-            
+                if !diff { println!("{}", output); } // if we dont have a flag just give back
+        
                 let script_name = Path::new(script_path).file_name().unwrap().to_string_lossy().to_string();
                 let date_stamp = Local::now().to_string();
-            
+
                 let mut history_dir: PathBuf = dirs::home_dir().expect("Failed to get home directory");
-                history_dir.push("blvflag/tool/history/err_history");
+                history_dir.push("blvflag/tool/history/err_history"); // create the std_history dir if it DOESNT EXIST
                 fs::create_dir_all(&history_dir)?;
             
-                let json_name = format!("{}_{}.json", script_name.trim_end_matches(".py"), date_stamp);
-                let full_path = history_dir.join(&json_name);
-                let current_script_content = fs::read_to_string(script_path)?;
-            
+                let json_name = format!("{}_{}.json", script_name.trim_end_matches(".py"), date_stamp); // dating format
+                let full_path = history_dir.join(&json_name); 
+                let current_script_content = fs::read_to_string(script_path)?; // stringify all contents 
+
+                /*
+                    Here we are going to read through both of the history sub dirs, std_history & err_history.
+                    This allows use to get the MOST recent file that has been saved from our check. It's going
+                    to save regardless of std_out or std_err.
+
+                    TODO, make the search and saving happen only once above the match block!
+                */
+
                 let prefix = script_name.trim_end_matches(".py");
                 let mut all_versions: Vec<PathBuf> = vec![];
             
-                let std_history_dir = dirs::home_dir().unwrap().join("blvflag/tool/history/std_history");
-                let std_versions = fs::read_dir(&std_history_dir)?
-                    .filter_map(|entry| {
-                        let path = entry.ok()?.path();
-                        let fname = path.file_name()?.to_string_lossy();
-                        if fname.starts_with(prefix) { 
-                            Some(path) 
-                        } else { 
-                            None 
-                        }
-                    });
+                    let std_history_dir = dirs::home_dir().unwrap().join("blvflag/tool/history/std_history");
+                    let std_versions = fs::read_dir(&std_history_dir)? // read the users std dir
+                        .filter_map(|entry| {
+                            let path = entry.ok()?.path();
+                            let fname = path.file_name()?.to_string_lossy();
+                            if fname.starts_with(prefix) {
+                                Some(path) 
+                            } else { 
+                                None // TODO unsure if this is good practice.
+                            }
+                        }); // end std read
             
-                let err_history_dir = dirs::home_dir().unwrap().join("blvflag/tool/history/err_history");
-                let err_versions = fs::read_dir(&err_history_dir)?
-                    .filter_map(|entry| {
-                        let path = entry.ok()?.path();
-                        let fname = path.file_name()?.to_string_lossy();
-                        if fname.starts_with(prefix) { 
-                            Some(path) 
-                        } else { 
-                            None 
-                        }
-                    });
+                    let err_history_dir = dirs::home_dir().unwrap().join("blvflag/tool/history/err_history");
+                    let err_versions = fs::read_dir(&err_history_dir)? // read the users std out dir
+                        .filter_map(|entry| {
+                            let path = entry.ok()?.path();
+                            let fname = path.file_name()?.to_string_lossy();
+                            if fname.starts_with(prefix) { 
+                                Some(path) 
+                            } else { 
+                                None 
+                            }
+                        }); // end err read
             
-                all_versions.extend(std_versions);
-                all_versions.extend(err_versions);
-                all_versions.sort();
+                    all_versions.extend(std_versions); // append std
+                    all_versions.extend(err_versions); // append err
+                    all_versions.sort(); // sort to get the most recent
             
-                let mut should_save = true;
-                if let Some(last_version) = all_versions.last() {
-                    let previous_content = fs::read_to_string(last_version)?;
-                    should_save = previous_content != current_script_content;
-            
-                    if diff {
-                        let diff_output = diff::compare_files(last_version, Path::new(script_path))?;
-                        if diff_output.is_empty() {
-                            println!("No changes made.");
-                        } else {
-                            println!("------changes------");
-                            println!("{}", diff_output);
-                            println!("-------------------");
-                        }
-                    }
-                } else if diff {
-                    println!("No prior version found to diff against.");
-                }
-            
-                if explain {
-                    loop {
-                        let prompt = format!(
-                            "Provide the error line number and explain the error in 3-4 bullet points. \
-                            Just provide the bullet points and line number:\n{}",
-                            error_output
-                        );
-                        process_loop(&mut stdout, &ollama, &pb, false, &prompt, "", &mut context).await?;
-                        break;
-                    }
-                }
-            
-                if should_save {
-                    fs::write(&full_path, &current_script_content)?;
-                    println!("\nSaved most recent version at: {:?}", full_path);
-                }
-            } // end stderr
-            
-        Err(_) => {
-            eprintln!("Failed to execute the script");
-        }
+                    let mut should_save = true;
+                    if let Some(last_version) = all_versions.last() {
+                        let previous_content = fs::read_to_string(last_version)?; // stringify for compare
+                        //should_save = previous_content != current_script_content;
 
+                        if previous_content != current_script_content {
+                            should_save = true;
+                        } else {
+                            should_save = false;
+                        }
+                    } 
+                    
+                    if should_save { // write to the path the contents, love this C like syntax
+                        fs::write(&full_path, &current_script_content)?;
+                        println!("\nAuto-Saving contents to: {:?}", full_path);
+                    }
+                
+                    //FLAGS:
+                    if diff {
+                        if let Some(last_version) = all_versions.last() {
+                           // let diff_output = diff::compare_files(last_version, &full_path)?;
+                            let previous_content = fs::read_to_string(last_version)?;
+                            let diff_output = diff::compare_strs(&previous_content, &current_script_content)?;
+                            if diff_output.is_empty() {
+                                println!("No changes made.");
+                            } else {
+                                println!("------changes------");
+                                    println!("{}", diff_output);
+                                println!("-------------------");
+                            }
+                        } else {
+                            println!("No prior version found to diff against.");
+                        }
+                    }
+            
+            } // end Standard Out
+            
+            // Standard Error
+             Ok((commands::OutputType::Stderr, error_output)) => { 
+
+                if !diff && !explain {
+                    println!("Error Caught! Use --explain OR --diff for help.\n"); // TODO might change
+                    println!("{}", error_output);
+                }
+            
+                //commands::start_ollama_server()?;
+                let ollama = Ollama::default();
+
+                let mut context: Option<GenerationContext> = None; // TODO for later
+                let pb = setup_progress_bar(100); // get the bar for explain
+                let mut stdout = tokio::io::stdout(); 
+            
+                let script_name = Path::new(script_path).file_name().unwrap().to_string_lossy().to_string();
+                let date_stamp = Local::now().to_string();
+
+                let mut history_dir: PathBuf = dirs::home_dir().expect("Failed to get home directory");
+                history_dir.push("blvflag/tool/history/std_history"); // create the std_history dir if it DOESNT EXIST
+                fs::create_dir_all(&history_dir)?;
+            
+                let json_name = format!("{}_{}.json", script_name.trim_end_matches(".py"), date_stamp); // dating format
+                let full_path = history_dir.join(&json_name); 
+                let current_script_content = fs::read_to_string(script_path)?; // stringify all contents 
+
+                /*
+                    Here we are going to read through both of the history sub dirs, std_history & err_history.
+                    This allows use to get the MOST recent file that has been saved from our check. It's going
+                    to save regardless of std_out or std_err.
+
+                    TODO, make the search and saving happen only once above the match block!
+                */
+
+                let prefix = script_name.trim_end_matches(".py");
+                let mut all_versions: Vec<PathBuf> = vec![];
+            
+                    let std_history_dir = dirs::home_dir().unwrap().join("blvflag/tool/history/std_history");
+                    let std_versions = fs::read_dir(&std_history_dir)? // read the users std dir
+                        .filter_map(|entry| {
+                            let path = entry.ok()?.path();
+                            let fname = path.file_name()?.to_string_lossy();
+                            if fname.starts_with(prefix) {
+                                Some(path) 
+                            } else { 
+                                None // TODO unsure if this is good practice.
+                            }
+                        }); // end std read
+            
+                    let err_history_dir = dirs::home_dir().unwrap().join("blvflag/tool/history/err_history");
+                    let err_versions = fs::read_dir(&err_history_dir)? // read the users std out dir
+                        .filter_map(|entry| {
+                            let path = entry.ok()?.path();
+                            let fname = path.file_name()?.to_string_lossy();
+                            if fname.starts_with(prefix) { 
+                                Some(path) 
+                            } else { 
+                                None 
+                            }
+                        }); // end err read
+            
+                    all_versions.extend(std_versions); // append std
+                    all_versions.extend(err_versions); // append err
+                    all_versions.sort(); // sort to get the most recent
+            
+                    let mut should_save = true;
+                    if let Some(last_version) = all_versions.last() {
+                        let previous_content = fs::read_to_string(last_version)?; // stringify for compare
+                        //should_save = previous_content != current_script_content;
+                        if previous_content != current_script_content {
+                            should_save = true;
+                        } else {
+                            should_save = false;
+                        }
+                    } 
+                    
+                    if should_save { // write to the path the contents, love this C like syntax
+                        fs::write(&full_path, &current_script_content)?;
+                        println!("\nAuto-Saving contents to: {:?}", full_path);
+                    }
+                
+                    //FLAGS:
+                    if diff {
+                        if let Some(last_version) = all_versions.last() {
+                           // let diff_output = diff::compare_files(last_version, &full_path)?;
+                            let previous_content = fs::read_to_string(last_version)?;
+                            let diff_output = diff::compare_strs(&previous_content, &current_script_content)?;
+                            if diff_output.is_empty() {
+                                println!("No changes made.");
+                            } else {
+                                println!("------changes------");
+                                    println!("{}", diff_output);
+                                println!("-------------------");
+                            }
+                        } else {
+                            println!("No prior version found to diff against.");
+                        }
+                    }
+
+                    if explain {
+                        loop {
+                            let prompt = format!(
+                                "Provide the error line number and explain the error in 3-4 bullet points. \
+                                Just provide the bullet points and line number:\n{}",
+                                error_output
+                            );
+                            process_loop(&mut stdout, &ollama, &pb, false, &prompt, "", &mut context).await?;
+                            break;
+                        }
+                    }
+            
+                    
+            } // end stderr
+        Err(_) => {
+            eprintln!("\nFailed to execute the script. Use -help for help");
+        }
     } // match
     Ok(()) 
 } // end processing script
