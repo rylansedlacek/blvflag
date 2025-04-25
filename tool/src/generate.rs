@@ -15,169 +15,136 @@ pub async fn process_script(script_path: &str, explain: bool, diff: bool) -> Res
     commands::start_ollama_server()?; // start the Ollama server
     let out = commands::run_script(script_path);
 
-    /*
-        TODO, gotta fix the should save stuff its driving me crazy
-        just wont seem to work but thats ok stuff to work on. Probably need to rework
-        the logic to just be better
-    */
-
     match out {
+
             Ok((commands::OutputType::Stdout, output)) => { // STANDARD OUT
-                
+
                 if !diff {
                     println!("{}", output);
                 }
-
-                let mut should_save = true;
-                let script_name = Path::new(script_path).file_name().unwrap().to_string_lossy().to_string();
-        
-                let date_stamp = Local::now().to_string();
+            
+            let script_name = Path::new(script_path).file_name().unwrap().to_string_lossy().to_string();
+            let date_stamp = Local::now().to_string();
                 let mut history_dir: PathBuf = dirs::home_dir().expect("Failed to get home directory");
                 history_dir.push("blvflag/tool/history/std_history");
                 fs::create_dir_all(&history_dir)?;
-        
-                let json_name = format!("{}_{}.json", script_name.trim_end_matches(".py"), date_stamp); // if its a .py save it in json with date
+            
+                let json_name = format!("{}_{}.json", script_name.trim_end_matches(".py"), date_stamp);
                 let full_path = history_dir.join(&json_name);
                 let current_script_content = fs::read_to_string(script_path)?;
-        
-                
-                if diff { // diff flag
-                    let prefix = script_name.trim_end_matches(".py");
-                    let mut all_versions: Vec<PathBuf> = vec![];
-                    
-                    // get all the stuff from stdout history
-                    let mut std_history_dir: PathBuf = dirs::home_dir().expect("Failed to get home directory");
-                    std_history_dir.push("blvflag/tool/history/std_history");
-                    let std_versions = fs::read_dir(&std_history_dir)?
-                        .filter_map(|entry| {
-                            let entry = entry.ok()?;
-                            let path = entry.path();
-                            let filename = path.file_name()?.to_string_lossy();
-                            if filename.starts_with(prefix) && path != full_path {
-                                Some(path)
-                            } else {
-                                None
-                            }
-                        });
-                    all_versions.extend(std_versions);
-                    
-                    // get all the stuff from the stderr history same diff
-                    let mut err_history_dir: PathBuf = dirs::home_dir().expect("Failed to get home directory");
-                    err_history_dir.push("blvflag/tool/history/err_history");
-                    let err_versions = fs::read_dir(&err_history_dir)?
-                        .filter_map(|entry| {
-                            let entry = entry.ok()?;
-                            let path = entry.path();
-                            let filename = path.file_name()?.to_string_lossy();
-                            if filename.starts_with(prefix) && path != full_path {
-                                Some(path)
-                            } else {
-                                None
-                            }
-                        });
-                    all_versions.extend(err_versions);
-                    
-                    all_versions.sort();
-                    
-                    if let Some(last_version) = all_versions.last() {
-                        let previous_content = fs::read_to_string(last_version)?;
-                    
-                        //if previous_content == current_script_content {
-                        //    should_save = false;
-                        //}
+            
 
-                        should_save = previous_content != current_script_content; // TODO!!
-                    
-                    let diff_output = diff::compare_files(last_version, Path::new(script_path))?;
+                let prefix = script_name.trim_end_matches(".py"); // check across boths dirs BEFORE THE DIFF
+                let mut all_versions: Vec<PathBuf> = vec![];
+            
+                let std_history_dir = dirs::home_dir().unwrap().join("blvflag/tool/history/std_history");
+                let std_versions = fs::read_dir(&std_history_dir)?
+                    .filter_map(|entry| {
+                        let path = entry.ok()?.path();
+                        let fname = path.file_name()?.to_string_lossy();
+                        if fname.starts_with(prefix) {Some(path) } else{ None }
+                    });
+            
+                let err_history_dir = dirs::home_dir().unwrap().join("blvflag/tool/history/err_history");
+                let err_versions = fs::read_dir(&err_history_dir)?
+                    .filter_map(|entry| {
+                        let path = entry.ok()?.path();
+                        let fname = path.file_name()?.to_string_lossy();
+                        if fname.starts_with(prefix) { Some(path) } else{ None }
+                    });
+            
+                    all_versions.extend(std_versions);
+                all_versions.extend(err_versions);
+                        all_versions.sort();
+            
+                let mut should_save = true;
+                if let Some(last_version) = all_versions.last() {
+            let previous_content = fs::read_to_string(last_version)?;
+                    should_save = previous_content != current_script_content;
+                }
+            
+                if diff {
+                    if let Some(last_version) = all_versions.last() {
+                        let diff_output = diff::compare_files(last_version, Path::new(script_path))?;
                         if diff_output.is_empty() {
                             println!("No changes made.");
                         } else {
                             println!("------changes------");
-                            println!("{}", diff_output);
+                                println!("{}", diff_output);
                             println!("-------------------");
                         }
                     } else {
                         println!("No prior version found to diff against.");
                     }
-                } // end diff
-                
-                if should_save { // this is for file tracking
-                    fs::write(&full_path, &current_script_content)?; 
-                    println!("\nSaved most recent version at: {:?}", full_path); 
                 }
-            } // end stdout
+            
+                if should_save {
+                    fs::write(&full_path, &current_script_content)?;
+                    println!("\nSaved most recent version at: {:?}", full_path);
+                }
+            }
+            
 
-            Ok((commands::OutputType::Stderr, error_output)) => { // STANDARD ERROR
+             Ok((commands::OutputType::Stderr, error_output)) => { // STANDARD ERROR
                 if !diff && !explain {
                     println!("Error Caught! Use --explain OR --diff for help.\n");
                     println!("{}", error_output);
                 }
-
-                commands::start_ollama_server()?;
-                let ollama = Ollama::default();
-                let mut context: Option<GenerationContext> = None;
-                let pb = setup_progress_bar(100); 
-                let mut stdout = tokio::io::stdout(); 
-
-                let mut should_save = true;
+            
+            commands::start_ollama_server()?;
+            let ollama = Ollama::default();
+            let mut context: Option<GenerationContext> = None;
+            let pb = setup_progress_bar(100); 
+            let mut stdout = tokio::io::stdout(); 
+            
                 let script_name = Path::new(script_path).file_name().unwrap().to_string_lossy().to_string();
-        
                 let date_stamp = Local::now().to_string();
+            
                 let mut history_dir: PathBuf = dirs::home_dir().expect("Failed to get home directory");
                 history_dir.push("blvflag/tool/history/err_history");
                 fs::create_dir_all(&history_dir)?;
-        
-                let json_name = format!("{}_{}.json", script_name.trim_end_matches(".py"), date_stamp); // if its a .py save it in json with date
+            
+                let json_name = format!("{}_{}.json", script_name.trim_end_matches(".py"), date_stamp);
                 let full_path = history_dir.join(&json_name);
                 let current_script_content = fs::read_to_string(script_path)?;
-
-                if diff { // diff flag
-                    let prefix = script_name.trim_end_matches(".py");
-                    let mut all_versions: Vec<PathBuf> = vec![];
-                    
-                // get all the stuff from stdout history
-                    let mut std_history_dir: PathBuf = dirs::home_dir().expect("Failed to get home directory");
-                    std_history_dir.push("blvflag/tool/history/std_history");
-                    let std_versions = fs::read_dir(&std_history_dir)?
-                        .filter_map(|entry| {
-                            let entry = entry.ok()?;
-                            let path = entry.path();
-                            let filename = path.file_name()?.to_string_lossy();
-                            if filename.starts_with(prefix) && path != full_path {
-                                Some(path)
-                            } else {
-                                None
-                            }
-                        });
-                    all_versions.extend(std_versions);
-                    
-                   // get all the stuff from stderr history
-                    let mut err_history_dir: PathBuf = dirs::home_dir().expect("Failed to get home directory");
-                    err_history_dir.push("blvflag/tool/history/err_history");
-                    let err_versions = fs::read_dir(&err_history_dir)?
-                        .filter_map(|entry| {
-                            let entry = entry.ok()?;
-                            let path = entry.path();
-                            let filename = path.file_name()?.to_string_lossy();
-                            if filename.starts_with(prefix) && path != full_path {
-                                Some(path)
-                            } else {
-                                None
-                            }
-                        });
-                    all_versions.extend(err_versions);
-                    
-                    all_versions.sort();
-                    
-                    if let Some(last_version) = all_versions.last() {
-                        let previous_content = fs::read_to_string(last_version)?;
-                    
-                        //if previous_content == current_script_content {
-                        //    should_save = false;
-                        //}
-
-                        should_save = previous_content != current_script_content; // TODO!!
-                    
+            
+                let prefix = script_name.trim_end_matches(".py");
+                let mut all_versions: Vec<PathBuf> = vec![];
+            
+                let std_history_dir = dirs::home_dir().unwrap().join("blvflag/tool/history/std_history");
+                let std_versions = fs::read_dir(&std_history_dir)?
+                    .filter_map(|entry| {
+                        let path = entry.ok()?.path();
+                        let fname = path.file_name()?.to_string_lossy();
+                        if fname.starts_with(prefix) { 
+                            Some(path) 
+                        } else { 
+                            None 
+                        }
+                    });
+            
+                let err_history_dir = dirs::home_dir().unwrap().join("blvflag/tool/history/err_history");
+                let err_versions = fs::read_dir(&err_history_dir)?
+                    .filter_map(|entry| {
+                        let path = entry.ok()?.path();
+                        let fname = path.file_name()?.to_string_lossy();
+                        if fname.starts_with(prefix) { 
+                            Some(path) 
+                        } else { 
+                            None 
+                        }
+                    });
+            
+                all_versions.extend(std_versions);
+                all_versions.extend(err_versions);
+                all_versions.sort();
+            
+                let mut should_save = true;
+                if let Some(last_version) = all_versions.last() {
+                    let previous_content = fs::read_to_string(last_version)?;
+                    should_save = previous_content != current_script_content;
+            
+                    if diff {
                         let diff_output = diff::compare_files(last_version, Path::new(script_path))?;
                         if diff_output.is_empty() {
                             println!("No changes made.");
@@ -186,12 +153,12 @@ pub async fn process_script(script_path: &str, explain: bool, diff: bool) -> Res
                             println!("{}", diff_output);
                             println!("-------------------");
                         }
-                    } else {
-                        println!("No prior version found to diff against.");
                     }
-                } // end diff
-        
-                if explain { // explain flag
+                } else if diff {
+                    println!("No prior version found to diff against.");
+                }
+            
+                if explain {
                     loop {
                         let prompt = format!(
                             "Provide the error line number and explain the error in 3-4 bullet points. \
@@ -199,18 +166,20 @@ pub async fn process_script(script_path: &str, explain: bool, diff: bool) -> Res
                             error_output
                         );
                         process_loop(&mut stdout, &ollama, &pb, false, &prompt, "", &mut context).await?;
-                        break; // for now break, later prompt for input
+                        break;
                     }
                 }
-
-                if should_save { // this is for file tracking
-                    fs::write(&full_path, &current_script_content)?; 
-                    println!("\n Saved most recent version at: {:?}", full_path); 
+            
+                if should_save {
+                    fs::write(&full_path, &current_script_content)?;
+                    println!("\nSaved most recent version at: {:?}", full_path);
                 }
-            } // end standard error
+            } // end stderr
+            
         Err(_) => {
             eprintln!("Failed to execute the script");
         }
+
     } // match
     Ok(()) 
 } // end processing script
