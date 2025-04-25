@@ -74,8 +74,6 @@ pub async fn process_script(script_path: &str, explain: bool, diff: bool) -> Res
                     let mut should_save = true;
                     if let Some(last_version) = all_versions.last() {
                         let previous_content = fs::read_to_string(last_version)?; // stringify for compare
-                        //should_save = previous_content != current_script_content;
-
                         if previous_content != current_script_content {
                             should_save = true;
                         } else {
@@ -127,20 +125,12 @@ pub async fn process_script(script_path: &str, explain: bool, diff: bool) -> Res
                 let date_stamp = Local::now().to_string();
 
                 let mut history_dir: PathBuf = dirs::home_dir().expect("Failed to get home directory");
-                history_dir.push("blvflag/tool/history/std_history"); // create the std_history dir if it DOESNT EXIST
+                history_dir.push("blvflag/tool/history/std_history"); // create the err_history dir if it DOESNT EXIST
                 fs::create_dir_all(&history_dir)?;
             
                 let json_name = format!("{}_{}.json", script_name.trim_end_matches(".py"), date_stamp); // dating format
                 let full_path = history_dir.join(&json_name); 
                 let current_script_content = fs::read_to_string(script_path)?; // stringify all contents 
-
-                /*
-                    Here we are going to read through both of the history sub dirs, std_history & err_history.
-                    This allows use to get the MOST recent file that has been saved from our check. It's going
-                    to save regardless of std_out or std_err.
-
-                    TODO, make the search and saving happen only once above the match block!
-                */
 
                 let prefix = script_name.trim_end_matches(".py");
                 let mut all_versions: Vec<PathBuf> = vec![];
@@ -176,7 +166,6 @@ pub async fn process_script(script_path: &str, explain: bool, diff: bool) -> Res
                     let mut should_save = true;
                     if let Some(last_version) = all_versions.last() {
                         let previous_content = fs::read_to_string(last_version)?; // stringify for compare
-                        //should_save = previous_content != current_script_content;
                         if previous_content != current_script_content {
                             should_save = true;
                         } else {
@@ -192,7 +181,6 @@ pub async fn process_script(script_path: &str, explain: bool, diff: bool) -> Res
                     //FLAGS:
                     if diff {
                         if let Some(last_version) = all_versions.last() {
-                           // let diff_output = diff::compare_files(last_version, &full_path)?;
                             let previous_content = fs::read_to_string(last_version)?;
                             let diff_output = diff::compare_strs(&previous_content, &current_script_content)?;
                             if diff_output.is_empty() {
