@@ -88,16 +88,31 @@ pub async fn process_script(script_path: &str, explain: bool, diff: bool) -> Res
                 
                     //FLAGS:
                     if diff {
-                        if let Some(last_version) = all_versions.last() {
-                           // let diff_output = diff::compare_files(last_version, &full_path)?;
-                            let previous_content = fs::read_to_string(last_version)?;
-                            let diff_output = diff::compare_strs(&previous_content, &current_script_content)?;
+                        if !all_versions.is_empty() {
+                            let last_version = all_versions.last().unwrap();
+                            let last_content = fs::read_to_string(last_version)?;
+                            let mut diff_output = diff::compare_strs(&last_content, &current_script_content)?;
+                        
+                            if diff_output.is_empty() && all_versions.len() >= 2 {
+                                let second_last_version = &all_versions[all_versions.len() - 2];
+                                let second_last_content = fs::read_to_string(second_last_version)?;
+                                diff_output = diff::compare_strs(&second_last_content, &current_script_content)?;
+                            }
+                        
                             if diff_output.is_empty() {
                                 println!("No changes made.");
                             } else {
                                 println!("------changes------");
-                                    println!("{}", diff_output);
+                                println!("{}", diff_output);
                                 println!("-------------------");
+                                
+                                fs::write(&full_path, &current_script_content)?;
+    
+                                let second_date_stamp = Local::now().to_string(); 
+                                let second_json_name = format!("{}_{}.json", script_name.trim_end_matches(".py"), second_date_stamp);
+                                let second_full_path = history_dir.join(&second_json_name);
+                                fs::write(&second_full_path, &current_script_content)?;
+                
                             }
                         } else {
                             println!("No prior version found to diff against.");
@@ -125,7 +140,7 @@ pub async fn process_script(script_path: &str, explain: bool, diff: bool) -> Res
                 let date_stamp = Local::now().to_string();
 
                 let mut history_dir: PathBuf = dirs::home_dir().expect("Failed to get home directory");
-                history_dir.push("blvflag/tool/history/std_history"); // create the err_history dir if it DOESNT EXIST
+                history_dir.push("blvflag/tool/history/err_history"); // create the err_history dir if it DOESNT EXIST
                 fs::create_dir_all(&history_dir)?;
             
                 let json_name = format!("{}_{}.json", script_name.trim_end_matches(".py"), date_stamp); // dating format
@@ -179,22 +194,39 @@ pub async fn process_script(script_path: &str, explain: bool, diff: bool) -> Res
                     }
                 
                     //FLAGS:
+
                     if diff {
-                        if let Some(last_version) = all_versions.last() {
-                            let previous_content = fs::read_to_string(last_version)?;
-                            let diff_output = diff::compare_strs(&previous_content, &current_script_content)?;
+                        if !all_versions.is_empty() {
+                            let last_version = all_versions.last().unwrap();
+                            let last_content = fs::read_to_string(last_version)?;
+                            let mut diff_output = diff::compare_strs(&last_content, &current_script_content)?;
+                        
+                            if diff_output.is_empty() && all_versions.len() >= 2 {
+                                let second_last_version = &all_versions[all_versions.len() - 2];
+                                let second_last_content = fs::read_to_string(second_last_version)?;
+                                diff_output = diff::compare_strs(&second_last_content, &current_script_content)?;
+                            }
+                        
                             if diff_output.is_empty() {
                                 println!("No changes made.");
                             } else {
                                 println!("------changes------");
-                                    println!("{}", diff_output);
+                                println!("{}", diff_output);
                                 println!("-------------------");
+                                
+                                fs::write(&full_path, &current_script_content)?;
+    
+                                let second_date_stamp = Local::now().to_string(); 
+                                let second_json_name = format!("{}_{}.json", script_name.trim_end_matches(".py"), second_date_stamp);
+                                let second_full_path = history_dir.join(&second_json_name);
+                                fs::write(&second_full_path, &current_script_content)?;
+                
                             }
                         } else {
                             println!("No prior version found to diff against.");
                         }
                     }
-
+                    
                     if explain {
                         loop {
                             let prompt = format!(
