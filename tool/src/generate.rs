@@ -11,7 +11,7 @@ use std::path::{Path, PathBuf};
 use chrono::Local;
 use dirs;
 
-pub async fn process_script(script_path: &str, explain: bool, diff: bool) -> Result<(), Box<dyn Error>> {
+pub async fn process_script(script_paxth: &str, explain: bool, diff: bool) -> Result<(), Box<dyn Error>> {
     commands::start_ollama_server()?; // start the Ollama server
     let out = commands::run_script(script_path);
 
