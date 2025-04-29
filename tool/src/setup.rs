@@ -40,7 +40,7 @@ pub async fn setup_model() -> Result<(), Box<dyn Error>> {
 
     let _output = Command::new("ollama")
         .arg("create")
-        .arg("test4") // todo change
+        .arg("gemma:2b") // todo change
         .arg("-f")
         .arg(modelfile_path)
         .output()?;
