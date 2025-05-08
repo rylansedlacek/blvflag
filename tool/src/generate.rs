@@ -10,10 +10,19 @@ use std::fs;
 use std::path::{Path, PathBuf};
 use chrono::Local;
 use dirs;
+use std::time::Instant;
+use std::fs::OpenOptions;
+use std::io::Write;
+use serde_json::json;
 
 pub async fn process_script(script_path: &str, explain: bool, diff: bool) -> Result<(), Box<dyn Error>> {
     commands::start_ollama_server()?; // start the Ollama server
     let out = commands::run_script(script_path);
+
+    //-------------------------
+    //TODO REMOVE AFTER TESTING
+    let start = Instant::now();
+    //-------------------------
 
     match out {
             //Standard Out
@@ -273,6 +282,27 @@ pub async fn process_script(script_path: &str, explain: bool, diff: bool) -> Res
             eprintln!("\nFailed to execute the script. Use -help for help");
         }
     } // match
+
+
+    //-------------------------
+    //TODO remove after testing!
+    // TODO TODO TODO
+    let duration = start.elapsed().as_secs_f64();
+    let log_path = "/Users/rylan/blvflag/tool/logs/timings.jsonl";
+    let log_entry = json!({
+        "timestamp": chrono::Utc::now().to_rfc3339(),
+        "script": script_path,
+        "duration_sec": duration
+    });
+
+    let mut file = OpenOptions::new()
+        .create(true)
+        .append(true)
+        .open(log_path)
+        .expect("Failed to open timing log");
+    writeln!(file, "{}", log_entry).unwrap();
+    //-------------------------
+
     Ok(()) 
 } // end processing script
 
