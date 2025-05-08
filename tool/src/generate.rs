@@ -227,19 +227,47 @@ pub async fn process_script(script_path: &str, explain: bool, diff: bool) -> Res
                         }
                     }
                     
-                    if explain {
-                        loop {
-                            let prompt = format!(
-                                "Provide the error line number and explain the error in 3-4 bullet points. \
-                                Just provide the bullet points and line number:\n{}",
+                    if explain { // updated this to if user makes the same change twice give different ERROR
+                        let mut identical_diff_count = 0;
+                        let mut prev_diff: Option<String> = None;
+                    
+                        let num_versions = all_versions.len();
+                        let max_checks = 3.min(num_versions.saturating_sub(1)); // max checks are three back
+                    
+                        for i in (num_versions - max_checks)..(num_versions - 1) {
+                            let older = fs::read_to_string(&all_versions[i])?; // oldest
+                            let newer = fs::read_to_string(&all_versions[i + 1])?; // newest
+                            let diff_result = diff::compare_strs(&older, &newer)?; // compare
+                    
+                            if let Some(prev) = &prev_diff { // if the diffs are the same
+                                if diff_result == *prev { 
+                                    identical_diff_count += 1; // add count + 1
+                                } else { 
+                                    break;
+                                }
+                            } else {
+                                prev_diff = Some(diff_result); // and then store while we go through all three
+                            }
+                        }
+                    
+                        let prompt = if identical_diff_count >= 2 { // if we have more than 2 repeats, we give this prompt
+                            format!( 
+                                "This script has failed multiple times with the same changes. Offer an alternative solution or suggest a different debugging approach. Here is the error:\n{}",
+                                error_output 
+                            )
+                        } else { // else give the original prompt
+                            format!( 
+                                "Provide the error line number and explain the error in 3-4 bullet points. Just provide the bullet points and line number:\n{}",
                                 error_output
-                            );
+                            )
+                        };
+                    
+                        // then finally give it over to the loop
+                        loop { 
                             process_loop(&mut stdout, &ollama, &pb, false, &prompt, "", &mut context).await?;
                             break;
                         }
-                    }
-            
-                    
+                    } // end explain
             } // end stderr
         Err(_) => {
             eprintln!("\nFailed to execute the script. Use -help for help");
