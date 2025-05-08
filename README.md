@@ -2,8 +2,8 @@
 
 <h2>About:</h2>
 
-- Individual study project at the University of Mary Washington.
-- based off of blvrun: <i>TODO LINK</i>
+- An individual study project at the <i> University of Mary Washington </i>
+- based off of blvrun: https://arxiv.org/pdf/2401.16654
 
 <h2>Features:</h2>
 
