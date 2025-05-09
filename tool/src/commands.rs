@@ -41,7 +41,7 @@ pub fn start_ollama_server() -> io::Result<()> {
         let reader = io::BufReader::new(stdout);
         thread::spawn(move || {
             for _line in reader.lines().flatten() {
-                thread::sleep(Duration::from_secs(5));
+                thread::sleep(Duration::from_secs(8));
                 continue;
             }
         });
@@ -52,7 +52,7 @@ pub fn start_ollama_server() -> io::Result<()> {
         thread::spawn(move || {
             for _line in reader.lines().flatten() {
                 //eprintln!("[OLLAMA ERROR] {}", line); 
-                thread::sleep(Duration::from_secs(5));
+                thread::sleep(Duration::from_secs(8));
                 continue;
             }
         });

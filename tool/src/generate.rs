@@ -237,25 +237,28 @@ pub async fn process_script(script_path: &str, explain: bool, diff: bool) -> Res
                     }
                     
                     if explain { // updated this to if user makes the same change twice give different ERROR
+                        commands::start_ollama_server()?; // start the Ollama server
                         let mut identical_diff_count = 0;
                         let mut prev_diff: Option<String> = None;
                     
                         let num_versions = all_versions.len();
                         let max_checks = 3.min(num_versions.saturating_sub(1)); // max checks are three back
                     
-                        for i in (num_versions - max_checks)..(num_versions - 1) {
-                            let older = fs::read_to_string(&all_versions[i])?; // oldest
-                            let newer = fs::read_to_string(&all_versions[i + 1])?; // newest
-                            let diff_result = diff::compare_strs(&older, &newer)?; // compare
-                    
-                            if let Some(prev) = &prev_diff { // if the diffs are the same
-                                if diff_result == *prev { 
-                                    identical_diff_count += 1; // add count + 1
-                                } else { 
-                                    break;
+                       if num_versions >= 2 {
+                            for i in (num_versions - max_checks)..(num_versions - 1) {
+                                let older = fs::read_to_string(&all_versions[i])?;
+                                let newer = fs::read_to_string(&all_versions[i + 1])?;
+                                let diff_result = diff::compare_strs(&older, &newer)?;
+
+                                if let Some(prev) = &prev_diff {
+                                    if diff_result == *prev {
+                                        identical_diff_count += 1;
+                                    } else {
+                                        break;
+                                    }
+                                } else {
+                                    prev_diff = Some(diff_result);
                                 }
-                            } else {
-                                prev_diff = Some(diff_result); // and then store while we go through all three
                             }
                         }
                     
@@ -276,6 +279,12 @@ pub async fn process_script(script_path: &str, explain: bool, diff: bool) -> Res
                             process_loop(&mut stdout, &ollama, &pb, false, &prompt, "", &mut context).await?;
                             break;
                         }
+
+                        let _ = std::process::Command::new("pkill")
+                            .arg("-f")
+                            .arg("ollama serve")
+                            .status();
+                            
                     } // end explain
             } // end stderr
         Err(_) => {
