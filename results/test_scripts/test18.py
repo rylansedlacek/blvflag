@@ -1,3 +1,3 @@
-with open("/wrong/path/file.txt", "w") as f:
+# MODIFIED VERSION 18
     f.write("Hello")
 

@@ -1,4 +1,4 @@
-import non_existent_module
+# MODIFIED VERSION 8
 
 print("Module imported")
 

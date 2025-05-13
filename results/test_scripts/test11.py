@@ -1,3 +1,3 @@
-with open("non_existent_file.txt", "r") as file:
+# MODIFIED VERSION 11
     print(file.read())
 

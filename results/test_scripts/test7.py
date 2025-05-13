@@ -1,4 +1,4 @@
-def get_value(d, key):
+# MODIFIED VERSION 7
     return d[key]
 
 my_dict = {"a": 1, "b": 2}
