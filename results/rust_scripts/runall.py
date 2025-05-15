@@ -9,8 +9,8 @@ def modify_script(filepath, j):
     with open(filepath, 'r') as file:
         lines = file.readlines()
 
-    # modify first line we find from StackOverflow
-    for idx, line in enumerate(lines):
+    
+    for idx, line in enumerate(lines): # modify first line we find from StackOverflow
         if line.strip():
             lines[idx] = f'# MODIFIED VERSION {j}\n'
             break
@@ -23,16 +23,12 @@ for i in range(5):
     for j in range(1, 21): 
         script_path = os.path.join(script_dir, f"test{j}.py")
 
-        # first run (unmodified)
-        print(f"Running original test{j}.py")
         subprocess.run(["cargo", "run", script_path, "--diff"])
 
         # call and modify with stack overflow boilder
         modify_script(script_path, j)
 
-        # second run
-        print(f"Running modified test{j}.py")
-        subprocess.run(["cargo", "run", script_path, "--diff"])
+        subprocess.run(["cargo", "run", script_path, "--diff"])    # second run
 
 '''
 

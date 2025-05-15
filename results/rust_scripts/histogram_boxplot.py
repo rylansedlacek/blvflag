@@ -2,9 +2,8 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
 
-# load timing log
-df = pd.read_json("/Users/rylan/blvflag/tool/logs/timings.jsonl", lines=True)
-df['timestamp'] = pd.to_datetime(df['timestamp'])
+df = pd.read_json("/Users/rylan/blvflag/tool/logs/timings.jsonl", lines=True) # load timing log
+df['timestamp'] = pd.to_datetime(df['timestamp']) # read just the time stamp and translate it to python readable
 
 sns.histplot(df['duration_sec'], bins=20, kde=True)
 plt.title("Runtime Distribution With --diff")
