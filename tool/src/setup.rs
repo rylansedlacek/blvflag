@@ -18,7 +18,7 @@ pub async fn setup_model() -> Result<(), Box<dyn Error>> {
     //test model url:
     //let model_url = "https://huggingface.co/TheBloke/TinyLlama-1.1B-intermediate-step-1431k-3T-GGUF/resolve/main/tinyllama-1.1b-intermediate-step-1431k-3t.Q2_K.gguf";
 
-    let model_url = "https://huggingface.co/rylansed/Llama-3.2-1B-GGUF/raw/main/llama-3.2-1b.Q2_K.gguf"
+    let model_url = "https://huggingface.co/rylansed/blvflag_llama-GGUF/raw/main/blvflag_llama.Q3_K_M.gguf"
     let model_dir = env::current_dir()?.join("model_download");
 
     if !model_dir.exists() {
@@ -29,9 +29,10 @@ pub async fn setup_model() -> Result<(), Box<dyn Error>> {
     //ggml-model-Q2_K_v2.gguf
     //tinyllama-1.1b-intermediate-step-1431k-3t.Q2_K.gguf
     //llama-3.2-1b.Q2_K.gguf
+    //blvflag_llama.Q3_K_M.gguf
     */
 
-    let model_path = model_dir.join("llama-3.2-1b.Q2_K.gguf"); // name of model.gguf here
+    let model_path = model_dir.join("blvflag_llama.Q3_K_M.gguf"); // name of model.gguf here
     download_file(model_url, &model_path).await?;
     
     let mut modelfile_path: PathBuf = dirs::home_dir().expect("Failed to get home directory"); // TODO NOT WORKING!
