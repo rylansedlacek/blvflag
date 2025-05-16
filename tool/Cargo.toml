@@ -8,12 +8,12 @@ edition = "2021"
 [dependencies]
 similar = "2.2"
 ollama-rs = { version = "0.1", features = ["stream"] }
-tokio = { version = "1.12", features = ["full"] }
+tokio = { version = "1.12", features = ["full", "macros", "rt-multi-thread"] }
 tokio-stream = { version = "0.1", features = ["full"] }
 serde = { version = "1.0", features = ["derive"] }
 serde_json = "1.0"
 clap = { version = "3", features = ["derive"] }
-reqwest = { version = "0.11", features = ["json", "blocking"] } # Added `blocking`
+reqwest = { version = "0.11", features = ["json", "blocking"] } 
 regex = "1.5.4"
 indicatif = "0.17"
 directories = "5.0"
