@@ -1,8 +1,5 @@
 use std::io::{self};
 use std::process::{Command, Stdio};
-use std::io::{BufRead};
-use std::thread;
-use std::time::Duration;
 
 pub enum OutputType {
     Stdout,
@@ -26,38 +23,3 @@ pub fn run_script(script_path: &str) -> io::Result<(OutputType, String)> { // to
     Ok(out) // return out as string back to main for model processing.
 
 } // end runScript
-
-
-pub fn start_ollama_server() -> io::Result<()> {
-
-    let mut process = Command::new("ollama")
-        .arg("serve")
-        .stdout(Stdio::piped())
-        .stderr(Stdio::piped())
-        .spawn()?; 
-
-
-    if let Some(stdout) = process.stdout.take() {
-        let reader = io::BufReader::new(stdout);
-        thread::spawn(move || {
-            for _line in reader.lines().flatten() {
-                thread::sleep(Duration::from_secs(8));
-                continue;
-            }
-        });
-    }
-
-    if let Some(stderr) = process.stderr.take() { // for DEBUG only
-        let reader = io::BufReader::new(stderr);
-        thread::spawn(move || {
-            for _line in reader.lines().flatten() {
-                //eprintln!("[OLLAMA ERROR] {}", line); 
-                thread::sleep(Duration::from_secs(8));
-                continue;
-            }
-        });
-    }
-
-    thread::sleep(Duration::from_secs(5));
-    Ok(())
-} // end start

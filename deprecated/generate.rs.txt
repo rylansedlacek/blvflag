@@ -1,7 +1,11 @@
 use crate::commands;
 use crate::diff;
 
+use indicatif::{ProgressBar, ProgressStyle};
+use ollama_rs::{generation::completion::{request::GenerationRequest, GenerationContext, GenerationResponseStream,},Ollama,};
 use std::error::Error;
+use tokio::io::{AsyncWriteExt, Stdout};
+use tokio_stream::StreamExt;
 use std::fs;
 use std::path::{Path, PathBuf};
 use chrono::Local;
@@ -14,13 +18,12 @@ use serde_json::json;
 pub async fn process_script(script_path: &str, explain: bool, diff: bool) -> Result<(), Box<dyn Error>> {
     let out = commands::run_script(script_path);
 
-                    //-------------------------
-                    //TODO REMOVE AFTER TESTING
-                    let start = Instant::now();
-                    //-------------------------
+    //-------------------------
+    //TODO REMOVE AFTER TESTING
+    let start = Instant::now();
+    //-------------------------
 
     match out {
-
             //Standard Out
             Ok((commands::OutputType::Stdout, output)) => { 
 
@@ -124,7 +127,7 @@ pub async fn process_script(script_path: &str, explain: bool, diff: bool) -> Res
                         }
                     }
             
-            } // end Standard Out -------------------------------
+            } // end Standard Out
             
             // Standard Error
              Ok((commands::OutputType::Stderr, error_output)) => { 
@@ -133,6 +136,13 @@ pub async fn process_script(script_path: &str, explain: bool, diff: bool) -> Res
                     println!("Error Caught! Use --explain OR --diff for help.\n"); // TODO might change
                     println!("{}", error_output);
                 }
+            
+                //commands::start_ollama_server()?;
+                //let ollama = Ollama::default();
+
+                let mut context: Option<GenerationContext> = None; // TODO for later
+                //let pb = setup_progress_bar(100); // get the bar for explain
+                let mut stdout = tokio::io::stdout(); 
             
                 let script_name = Path::new(script_path).file_name().unwrap().to_string_lossy().to_string();
                 let date_stamp = Local::now().to_string();
@@ -192,7 +202,8 @@ pub async fn process_script(script_path: &str, explain: bool, diff: bool) -> Res
                     }
                 
                     //FLAGS:
-                    if diff { 
+
+                    if diff {
                         if !all_versions.is_empty() {
                             let last_version = all_versions.last().unwrap();
                             let last_content = fs::read_to_string(last_version)?;
@@ -226,6 +237,7 @@ pub async fn process_script(script_path: &str, explain: bool, diff: bool) -> Res
                     
                     if explain { 
 
+                        //commands::start_ollama_server()?; // start the Ollama server
                         let mut identical_diff_count = 0;
                         let mut prev_diff: Option<String> = None;
                     
@@ -249,80 +261,132 @@ pub async fn process_script(script_path: &str, explain: bool, diff: bool) -> Res
                                 }
                             }
                         }
-
+                    
                         let prompt = if identical_diff_count >= 2 { // if we have more than 2 repeats, we give this prompt
                             format!( 
-                                "This script has failed multiple times even with the same changes. Please Provide the error line number, \
-                                and offer an alternative solution or suggest a different debugging approach in a compact screen readable format for \
-                                blind-low-vision programmers. Here is the error:\n{}",
+                                "This script has failed multiple times with the same changes. Offer an alternative solution or suggest a different debugging approach. Here is the error:\n{}",
                                 error_output 
                             )
                         } else { // else give the original prompt
-                            format!(
-                                "Provide the error line number and explain in a compact screen readable format for \
-                                blind-low-vision programmers. Here is the error:\n{}",
+                            format!( 
+                                "Provide the error line number and explain the error in 3-4 bullet points. Just provide the bullet points and line number:\n{}",
                                 error_output
                             )
                         };
                     
                         let api_key_path: PathBuf = dirs::home_dir()
-                            .expect("Could not find home dir") // first we get the api key from the folder we setup
+                            .expect("Could not find home dir")
                             .join("blvflag/tool/key/api_key");
 
-                        let llama_api_key = fs::read_to_string(&api_key_path) 
+                        let llama_api_key = fs::read_to_string(&api_key_path)
                             .expect("Failed to read LLaMA API key")
                             .trim()
-                            .to_string(); 
+                            .to_string();
 
                             let client = reqwest::Client::new();
-                            let response = client // set up like in docuemntations, did have to modify for HTTP requests
-                                .post("https://api.llama.com/v1/chat/completions") 
+                            let response = client
+                                .post("https://api.llama.com/v1/chat/completions")
                                 .header("Authorization", format!("Bearer {}", llama_api_key))
-                                .header("Content-Type", "application/json") // its a JSON format
+                                .header("Content-Type", "application/json")
                                 .json(&serde_json::json!({
-                                    "model": "Llama-4-Maverick-17B-128E-Instruct-FP8", // same as PC's stuff
+                                    "model": "Llama-4-Maverick-17B-128E-Instruct-FP8",
                                     "messages": [
-                                        { "role": "system", "content": prompt }, // system uses the prompt we generate above
-                                         { "role": "user", "content": error_output } // user gives the error
+                                        { "role": "system", "content": prompt },
+                                         { "role": "user", "content": error_output }
                                     ],
+                                    "temperature": 0.7 // not sure if needed
                                 }))
                                 .send()
                                 .await?;
 
                             let json_response: serde_json::Value = response.json().await?;
 
-                            let explanation = json_response["completion_message"]["content"]["text"] // now we parse the json in this format
+                            let explanation = json_response["completion_message"]["content"]["text"]
                                 .as_str()
-                                .unwrap_or("Error communicating with Llama! \n Check ~/blvflag/tool/key/api_key OR run setup.") // incase we recieve nothing we alert
+                                .unwrap_or("No explanation received.")
                                 .to_string();
 
                             println!("Error Explanation:\n{}", explanation);
                     } // end explain
 
-            } // end stderr match block -------------------------------
+            } // end stderr
         Err(_) => {
             eprintln!("\nFailed to execute the script. Use -help for help");
         }
     } // match
 
-                            //-------------------------
-                            //TODO remove after testing!
-                            // TODO TODO TODO
-                            let duration = start.elapsed().as_secs_f64();
-                            let log_path = "/Users/rylan/blvflag/tool/logs/timings.jsonl";
-                            let log_entry = json!({
-                                "timestamp": chrono::Utc::now().to_rfc3339(),
-                                "script": script_path,
-                                "duration_sec": duration
-                            });
 
-                            let mut file = OpenOptions::new()
-                                .create(true)
-                                .append(true)
-                                .open(log_path)
-                                .expect("Failed to open timing log");
-                            writeln!(file, "{}", log_entry).unwrap();
-                            //-------------------------
+    //-------------------------
+    //TODO remove after testing!
+    // TODO TODO TODO
+    let duration = start.elapsed().as_secs_f64();
+    let log_path = "/Users/rylan/blvflag/tool/logs/timings.jsonl";
+    let log_entry = json!({
+        "timestamp": chrono::Utc::now().to_rfc3339(),
+        "script": script_path,
+        "duration_sec": duration
+    });
+
+    let mut file = OpenOptions::new()
+        .create(true)
+        .append(true)
+        .open(log_path)
+        .expect("Failed to open timing log");
+    writeln!(file, "{}", log_entry).unwrap();
+    //-------------------------
 
     Ok(()) 
 } // end processing script
+
+/*
+pub fn setup_progress_bar(max_tokens: u64) -> ProgressBar { // same as used in setup from blvrun
+    let pb = ProgressBar::new(max_tokens);
+    pb.set_style(
+        ProgressStyle::default_bar()
+            .template("[{elapsed_precise}] [{bar:40.green/white] {pos:>7}/{len:7} {msg}")
+            .expect("Failed to set progress bar template")
+            .progress_chars("#>-"),
+    );
+    pb // return the bar
+} // end setup
+
+pub async fn process_loop(stdout: &mut Stdout, ollama: &Ollama, pb: &ProgressBar, show_stream: bool, query: &str, postfix: &str, context: &mut Option<GenerationContext>,) -> Result<(), Box<dyn std::error::Error>> {
+    commands::start_ollama_server()?; // always start server
+    let mut final_output = Vec::new(); // store responses
+
+    stdout.flush().await?; // overwrite past output
+
+    let mut request = GenerationRequest::new("thisModel".into(), query.to_string()); // create the request
+    if let Some(ctx) = context.clone() { // additional context
+        request = request.context(ctx);
+    }
+    let mut stream: GenerationResponseStream = ollama.generate_stream(request).await?; // begin streaming
+
+    while let Some(Ok(res)) = stream.next().await { // loop through the response strem
+        for ele in res {
+            if show_stream {
+                stdout.write_all(ele.response.as_bytes()).await?; // print
+                stdout.flush().await?;
+            } else {
+                final_output.push(ele.response);
+                pb.inc(1); // increment progress bar
+            }
+
+            if let Some(final_data) = ele.final_data {
+                *context = Some(final_data.context); // TODO this is where we will store context, overwrite once convo is done
+            }
+        }
+    } // end while
+
+    let full_output = final_output.join(""); // TODO combine stored and current for final output
+    let full_output = format!("{}{}", postfix, full_output); // append postfix, depricated from blv run
+
+    if !show_stream {
+        pb.finish_with_message("generation complete"); // what it says
+        stdout.write_all(full_output.as_bytes()).await?;
+        stdout.flush().await?;
+    }
+
+    Ok(())
+} // end loop
+*/

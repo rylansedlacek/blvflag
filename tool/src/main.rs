@@ -22,8 +22,8 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
             .help("Utilized to compare code changes for debugging.")
             .takes_value(false))  
         .subcommand(SubCommand::with_name("setup")
-            .help("Run this command to download model to user machine.")
-            .about("Downloads model to machine."))
+            .help("Run this command to link your key to the Llama API.")
+            .about("Prompts for API key to use Llama."))
         .get_matches();
 
         if let Some(script) = matches.value_of("script") { 
@@ -31,8 +31,6 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
             let diff = matches.is_present("diff");
             generate::process_script(script, explain, diff).await?;
         } else if matches.subcommand_matches("setup").is_some() {
-            println!("Starting Server... \n");
-            commands::start_ollama_server()?; // start the server
             setup::setup_model().await?;
         } else {
             eprintln!("Invalid usage: blvflag (script.py) (--flag)");
