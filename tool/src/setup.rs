@@ -17,8 +17,9 @@ pub async fn setup_model() -> Result<(), Box<dyn Error>> {
 
     //test model url:
     //let model_url = "https://huggingface.co/TheBloke/TinyLlama-1.1B-intermediate-step-1431k-3T-GGUF/resolve/main/tinyllama-1.1b-intermediate-step-1431k-3t.Q2_K.gguf";
+    //let model_url = "https://huggingface.co/rylansed/blvflag_llama2.0-GGUF/resolve/main/blvflag_llama2.0.Q3_K_M.gguf";
 
-    let model_url = "https://huggingface.co/rylansed/blvflag_llama2.0-GGUF/raw/main/blvflag_llama2.0.Q3_K_M.gguf";
+    let model_url = "https://huggingface.co/rylansed/blvflag_llama2.0-GGUF/resolve/main/blvflag_llama2.0.Q6_K.gguf";
     let model_dir = env::current_dir()?.join("model_download");
 
     if !model_dir.exists() {
@@ -40,7 +41,7 @@ pub async fn setup_model() -> Result<(), Box<dyn Error>> {
     modelfile_path.push("blvflag/tool/model_download/Modelfile");
  
     let modelfile_path = "/Users/rylan/blvflag/tool/model_download/Modelfile"; // TODO
-    let modelfile_contents = format!( "FROM {}",model_path.display());
+    let modelfile_contents = format!("FROM {}\nTYPE chat\nSYSTEM\nyou are a python expert.\n", model_path.display());
     fs::write(&modelfile_path, modelfile_contents)?;
 
     let _output = Command::new("ollama")

@@ -332,7 +332,7 @@ pub async fn process_loop(stdout: &mut Stdout, ollama: &Ollama, pb: &ProgressBar
 
     stdout.flush().await?; // overwrite past output
 
-    let mut request = GenerationRequest::new("test4".into(), query.to_string()); // create the request
+    let mut request = GenerationRequest::new("thisModel".into(), query.to_string()); // create the request
     if let Some(ctx) = context.clone() { // additional context
         request = request.context(ctx);
     }
