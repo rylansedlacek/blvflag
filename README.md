@@ -15,6 +15,42 @@
 
   - <code>--explain</code> flag: feeds error tracebacks into an LLM powered by <a href="https://www.llama.com/">Meta Llama</a>. Outputs an error explanation in a <i>screen-readable</i> format.
   - <code>--diff</code> flag: Utilizes previously saved script versions to generate a <i>screen-readable</i> display of changes made. Similiar functionality to that of vim-diff, but with automatic versioning.
+ 
+
+<h2>Install:</h2>
+
+Note only for <b>Linux</b> and <b>MacOs</b>.
+
+<h3>Steps:</h3>
+
+- Install <a href="https://doc.rust-lang.org/cargo/getting-started/installation.html">Cargo</a>
+- Get a Meta Llama API <a href="https://llama.developer.meta.com/join_waitlist">key</a>
+
+- In your <b>home</b> directory, on your command line type,
+  
+<code>cargo install --git https://github.com/rylansedlacek/blvflag</code>
+
+- Next, ensure that the tool has installed by typing,
+
+<code>blvflag</code>
+
+- You should get back a help screen, next type,
+
+<code>blvflag setup</code> and enter your key from above
+
+- You are now ready to use the flags described above.
+- Write a python script and run it with
+  
+<code>blvflag yourScriptName.py </code>
+
+OR
+
+<code>blvflag yourScriptName.py --explain </code>
+
+OR
+
+<code>blvflag yourScriptName.py --diff </code>
+
 
 ---------------------------------------------------------------
 <h2>Winter 2025 to ...</h2>
