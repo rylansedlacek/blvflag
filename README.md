@@ -3,7 +3,7 @@
 <h2>About:</h2>
 
 - An on-going individual study project at the <i> University of Mary Washington </i>
-- Parts of the Rust structure is based from blvrun: https://arxiv.org/pdf/2401.16654
+- Parts of the Rust structure based from blvrun: https://arxiv.org/pdf/2401.16654
 - Designed to <b>improve</b> debugging directly on the command line for blind and low-vision (blv) developers.
 
 <h2>Features:</h2>
@@ -32,7 +32,7 @@ Note only for <b>Linux</b> and <b>MacOs</b>.
 
 - Next, ensure that the tool has installed by typing,
 
-<code>blvflag</code>
+<code>blvflag help</code>
 
 - You should get back a help screen, next type,
 
