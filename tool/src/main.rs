@@ -8,7 +8,7 @@ use clap::{App, Arg, SubCommand};
 #[tokio::main]
 async fn main() -> Result<(), Box<dyn std::error::Error>> {
     let matches = App::new("blvflag")
-        .usage("blvflag [script] [--flag]")
+        .usage("blvflag [scriptName.py] [--flag]")
         .arg(Arg::new("script")  
             .help("The script to run.")
             .required(false)
@@ -24,6 +24,9 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
         .subcommand(SubCommand::with_name("setup")
             .help("Run this command to link your key to the Llama API.")
             .about("Prompts for API key to use Llama."))
+        .subcommand(SubCommand::with_name("clear")
+            .help("If directories don't exist, try running a program, or re-install.")
+            .about("Clears history directories except for placeholder.json files."))
         .get_matches();
 
         if let Some(script) = matches.value_of("script") { 
@@ -32,6 +35,8 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
             generate::process_script(script, explain, diff).await?;
         } else if matches.subcommand_matches("setup").is_some() {
             setup::setup_model().await?;
+        } else if matches.subcommand_matches("clear").is_some() {
+            commands::clear_history()?;
         } else {
             eprintln!("Invalid usage: blvflag (script.py) (--flag)");
         }

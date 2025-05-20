@@ -6,18 +6,20 @@ use std::fs;
 use std::path::{Path, PathBuf};
 use chrono::Local;
 use dirs;
+
+/* metric testing
 use std::time::Instant;
 use std::fs::OpenOptions;
 use std::io::Write;
 use serde_json::json;
+*/
 
 pub async fn process_script(script_path: &str, explain: bool, diff: bool) -> Result<(), Box<dyn Error>> {
     let out = commands::run_script(script_path);
 
-                    //-------------------------
-                    //TODO REMOVE AFTER TESTING
-                    let start = Instant::now();
-                    //-------------------------
+    /* metric testing
+    let start = Instant::now();
+    */
 
     match out {
 
@@ -30,7 +32,7 @@ pub async fn process_script(script_path: &str, explain: bool, diff: bool) -> Res
                 let date_stamp = Local::now().to_string();
 
                 let mut history_dir: PathBuf = dirs::home_dir().expect("Failed to get home directory");
-                history_dir.push("blvflag/tool/history/err_history"); // create the std_history dir if it DOESNT EXIST
+                history_dir.push("blvflag/tool/history/std_history"); // create the std_history dir if it DOESNT EXIST
                 fs::create_dir_all(&history_dir)?;
             
                 let json_name = format!("{}_{}.json", script_name.trim_end_matches(".py"), date_stamp); // dating format
@@ -41,8 +43,6 @@ pub async fn process_script(script_path: &str, explain: bool, diff: bool) -> Res
                     Here we are going to read through both of the history sub dirs, std_history & err_history.
                     This allows use to get the MOST recent file that has been saved from our check. It's going
                     to save regardless of std_out or std_err.
-
-                    TODO, make the search and saving happen only once above the match block!
                 */
 
                 let prefix = script_name.trim_end_matches(".py");
@@ -269,6 +269,12 @@ pub async fn process_script(script_path: &str, explain: bool, diff: bool) -> Res
                             .expect("Could not find home dir") // first we get the api key from the folder we setup
                             .join("blvflag/tool/key/api_key");
 
+                        if !api_key_path.exists() {
+                            println!("\nCannot run --explain! Missing API key file at {:?}", api_key_path);
+                            println!("Run `blvflag setup` to initialize API key file. Or help.\n");
+                            return Ok(()); 
+                        }
+                        
                         let llama_api_key = fs::read_to_string(&api_key_path) 
                             .expect("Failed to read LLaMA API key")
                             .trim()
@@ -305,24 +311,22 @@ pub async fn process_script(script_path: &str, explain: bool, diff: bool) -> Res
         }
     } // match
 
-                            //-------------------------
-                            //TODO remove after testing!
-                            // TODO TODO TODO
-                            let duration = start.elapsed().as_secs_f64();
-                            let log_path = "/Users/rylan/blvflag/tool/logs/timings.jsonl";
-                            let log_entry = json!({
-                                "timestamp": chrono::Utc::now().to_rfc3339(),
-                                "script": script_path,
-                                "duration_sec": duration
-                            });
+    /* Metric testing
+    let duration = start.elapsed().as_secs_f64();
+    let log_path = "/Users/rylan/blvflag/tool/logs/timings.jsonl";
+    let log_entry = json!({
+        "timestamp": chrono::Utc::now().to_rfc3339(),
+        "script": script_path,
+        "duration_sec": duration
+    });
 
-                            let mut file = OpenOptions::new()
-                                .create(true)
-                                .append(true)
-                                .open(log_path)
-                                .expect("Failed to open timing log");
-                            writeln!(file, "{}", log_entry).unwrap();
-                            //-------------------------
-
+        let mut file = OpenOptions::new()
+            .create(true)
+            .append(true)
+            .open(log_path)
+            .expect("Failed to open timing log");
+        writeln!(file, "{}", log_entry).unwrap();
+    */            
+                            
     Ok(()) 
-} // end processing script
+} // end processing script and file
