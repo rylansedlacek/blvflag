@@ -276,7 +276,7 @@ pub async fn process_script(script_path: &str, explain: bool, diff: bool) -> Res
                         }
                         
                         let llama_api_key = fs::read_to_string(&api_key_path) 
-                            .expect("Failed to read LLaMA API key")
+                            .expect("Failed to read API key")
                             .trim()
                             .to_string(); 
 
