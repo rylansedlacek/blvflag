@@ -34,7 +34,7 @@ Note only for <b>Linux</b> and <b>MacOs</b>.
 
 <code>blvflag help</code>
 
-- You should get back a help screen, next type,
+- You should get back the help screen, next type,
 
 <code>blvflag setup</code> and enter your key from above
 
@@ -53,5 +53,5 @@ OR
 
 
 ---------------------------------------------------------------
-<h2>Winter 2025 to ...</h2>
+<h2>Winter 2024 to Summer 2025</h2>
 
