@@ -20,7 +20,7 @@ pub async fn setup_model() -> Result<(), Box<dyn std::error::Error>> {
     // makes the request
     println!("\nFetching API key...\n");
     let res = client.get(endpoint).header(AUTHORIZATION, HeaderValue::from_str(&format!("Bearer {}", auth_token))?).send().await?; 
-    if !res.status().is_success() { println!("Error, no API key retrieved!"); return Ok(()); }
+    if !res.status().is_success() { println!("No key found, check Auth Token."); return Ok(()); }
 
     let json: serde_json::Value = res.json().await?; // turn to json
     let api_key = json["api_key"]
