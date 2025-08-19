@@ -1,22 +1,25 @@
 use std::fs::{OpenOptions, self};
-use std::io::Write;
+use std::io::{self, Write};
 use dirs;
 use reqwest::header::{AUTHORIZATION, HeaderValue}; // add for API
 
 //TODO should add a fall back!
 
 pub async fn setup_model() -> Result<(), Box<dyn std::error::Error>> {
-    println!("Welcome to BLVFLAG Setup");
-    println!("Fetching API key...");
+    println!("Welcome to BLVFLAG Setup\n");
+    println!("Please enter Auth Token:");
 
     // TODO ask PC is this hardcodedness is ok.
     let endpoint = "http://3.87.249.63:8080/api/meta-key"; 
-    let auth_token = "full_as_a_tick"; 
+    let mut auth_token = String::new(); 
+
+    io::stdin().read_line(&mut auth_token)?;
+    let auth_token = auth_token.trim();
 
     let client = reqwest::Client::new();
     // makes the request
+    println!("\nFetching API key...\n");
     let res = client.get(endpoint).header(AUTHORIZATION, HeaderValue::from_str(&format!("Bearer {}", auth_token))?).send().await?; 
-
     if !res.status().is_success() { println!("Error, no API key retrieved!"); return Ok(()); }
 
     let json: serde_json::Value = res.json().await?; // turn to json
