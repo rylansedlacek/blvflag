@@ -21,6 +21,10 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
             .long("diff")
             .help("Utilized to compare code changes for debugging.")
             .takes_value(false))  
+        .arg(Arg::new("revert")
+            .long("revert")
+            .help("Revert the script back to the previous saved version.")
+            .takes_value(false))
         .subcommand(SubCommand::with_name("setup")
             .help("Run this command to link your key to the Llama API.")
             .about("Prompts for API key to use Llama."))
@@ -32,7 +36,8 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
         if let Some(script) = matches.value_of("script") { 
             let explain = matches.is_present("explain"); // booleans
             let diff = matches.is_present("diff");
-            generate::process_script(script, explain, diff).await?;
+            let revert = matches.is_present("revert");
+            generate::process_script(script, explain, diff, revert).await?;
         } else if matches.subcommand_matches("setup").is_some() {
             setup::setup_model().await?;
         } else if matches.subcommand_matches("clear").is_some() {

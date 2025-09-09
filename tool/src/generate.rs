@@ -14,7 +14,7 @@ use std::io::Write;
 use serde_json::json;
 */
 
-pub async fn process_script(script_path: &str, explain: bool, diff: bool) -> Result<(), Box<dyn Error>> {
+pub async fn process_script(script_path: &str, explain: bool, diff: bool, revert: bool,) -> Result<(), Box<dyn Error>> {
     let out = commands::run_script(script_path);
 
     /* metric testing
@@ -75,7 +75,25 @@ pub async fn process_script(script_path: &str, explain: bool, diff: bool) -> Res
                     all_versions.extend(std_versions); // append std
                     all_versions.extend(err_versions); // append err
                     all_versions.sort(); // sort to get the most recent
-            
+
+                    // add the revert flag 
+                    if revert {
+                        if all_versions.len() < 2 {
+                            println!("No previous version to revert to!");
+                        } else {
+                            let latest = &all_versions[all_versions.len() - 1];      // this is most recent
+                            let previous = &all_versions[all_versions.len() - 2];    // this is one b4 latest
+
+                            let prev_content = fs::read_to_string(previous)?;
+                            fs::write(script_path, &prev_content)?; // write back revert
+
+                            fs::remove_file(latest)?; // delete most recent
+
+                            println!( "Reverted script {} to {:?} and removed {:?}", script_path, previous, latest);
+                        }
+                        return Ok(()); // stop
+                    }
+
                     let mut should_save = true;
                     if let Some(last_version) = all_versions.last() {
                         let previous_content = fs::read_to_string(last_version)?; // stringify for compare
@@ -175,7 +193,25 @@ pub async fn process_script(script_path: &str, explain: bool, diff: bool) -> Res
                     all_versions.extend(std_versions); // append std
                     all_versions.extend(err_versions); // append err
                     all_versions.sort(); // sort to get the most recent
-            
+
+                    // add the revert flag
+                    if revert {
+                        if all_versions.len() < 2 {
+                            println!("No previous version to revert to!");
+                        } else {
+                            let latest = &all_versions[all_versions.len() - 1];      // this is most recent
+                            let previous = &all_versions[all_versions.len() - 2];    // this is one b4 latest
+
+                            let prev_content = fs::read_to_string(previous)?;
+                            fs::write(script_path, &prev_content)?; // write back revert
+
+                            fs::remove_file(latest)?; // delete most recent
+
+                            println!( "Reverted script {} to {:?} and removed {:?}", script_path, previous, latest);
+                        }
+                        return Ok(()); // stop
+                    }
+
                     let mut should_save = true;
                     if let Some(last_version) = all_versions.last() {
                         let previous_content = fs::read_to_string(last_version)?; // stringify for compare
