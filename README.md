@@ -4,7 +4,7 @@
 
 - An on-going individual study project at the <i> University of Mary Washington </i>
 - Parts of the Rust structure based from blvrun: https://arxiv.org/pdf/2401.16654
-- Designed to <b>improve</b> debugging directly on the command line for blind and low-vision (blv) developers.
+- Designed to <b>improve</b> debugging directly on the command line for blind and low-vision (blv) developers. :)
 
 <h2>Features:</h2>
 
