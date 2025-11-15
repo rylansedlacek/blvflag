@@ -1,61 +1,130 @@
 use serde::{Serialize, Deserialize};
 use regex::Regex;
 use std::fs;
-use std::path::PathBuf;
 use chrono::Local;
 use dirs;
 
+#[derive(Serialize, Deserialize)]
 pub struct Node {
+    pub state: String,     // s0, ERROR, FIXED >> may eventually change ERROR to be the exact type of ERROR.
     pub file: String,
     pub line: usize,
     pub function: String,
-}
-
-pub struct Graph {
-    pub error_type: String,
     pub message: String,
-    pub nodes: Vec<ErrorNode>,
-    pub edges: Vec<(usize, usize)>,
     pub timestamp: String,
 }
 
-impl Graph {
-      pub fn new(error_output: &str) -> Self {
-        let re = Regex::new(r#"File "(.+)", line (\d+), in (.+)"#).unwrap();
-        let mut nodes = Vec::new();
+#[derive(Serialize, Deserialize)]
+pub struct ErrorGraph {
+    pub script_name: String,
+    pub error_type: String,
+    pub nodes: Vec<Node>,
+    pub edges: Vec<(usize, usize)>,
+}
 
-        for cap in re.captures_iter(error_output) {
-            nodes.push(Node {
-                file: cap[1].to_string(),
-                line: cap[2].parse::<usize>().unwrap_or(0),
-                function: cap[3].to_string(),
-            });
+impl ErrorGraph {
+
+    pub fn load_or_new(script_name: &str) -> Self {
+        // creates or get the graphs dir 
+        let mut graph_path = dirs::home_dir().unwrap();
+        graph_path.push("blvflag/tool/history/graphs");
+        fs::create_dir_all(&graph_path).unwrap();
+
+        // set up the file
+        let graph_file = graph_path.join(format!("{}_graph.json",
+            script_name.trim_end_matches(".py")
+        ));
+
+        // load
+        if graph_file.exists() {
+            if let Ok(contents) = fs::read_to_string(&graph_file) {
+                if let Ok(graph) = serde_json::from_str::<ErrorGraph>(&contents) {
+                    return graph; // return out dont make new
+                }
+            }
         }
-
-        let (error_type, message) = Self::extract_error_type(error_output);
-        let edges: Vec<(usize, usize)> = (0..nodes.len().saturating_sub(1)).map(|i| (i, i + 1)).collect();
-
+        
+        // new
         ErrorGraph {
-            error_type,
-            message,
-            nodes,
-            edges,
-            timestamp: Local::now().to_rfc3339(),
+            script_name: script_name.to_string(),
+            error_type: "ROOT".into(),
+            nodes: vec![Node {
+                state: "s0".into(),
+                file: script_name.into(),
+                line: 0,
+                function: "main".into(), // assume main
+                message: "Initial state".into(),
+                timestamp: Local::now().to_rfc3339(),
+            }],
+            edges: vec![], // s0 has no outgoing edges yet so empty
         }
     }
 
-      fn extract_error_type(stderr: &str) -> (String, String) {
+    pub fn add_state(&mut self, stderr_or_out: &str, fixed: bool) {
+        // get the error type
+        let (etype, msg) = Self::extract_error_type(stderr_or_out);
+        let re = Regex::new(r#"File "(.+)", line (\d+), in (.+)"#).unwrap();
 
+        let mut file = self.script_name.clone(); // default to script name for now, will look later
+        let mut line = 0; // default to 0 will look later
+        let mut function = "main".into(); // defualt to main, we look at it later
 
+        // iterate through regex stuff
+        for cap in re.captures_iter(stderr_or_out) {
+            file = cap[1].to_string();
+            line = cap[2].parse::<usize>().unwrap_or(0);
+            function = cap[3].to_string();
+        }
 
-      }
+        let state = if fixed {"FIXED"} else {"ERROR"};
 
-      pub fn save(&self) -> std::io::Result<()> {
+        // put it all together
+        let new_node = Node {
+            state: state.into(),
+            file,
+            line,
+            function,
+            message: msg,
+            timestamp: Local::now().to_rfc3339(),
+        };
 
+        // and add it to our Nodes vector
+        let preva = self.nodes.len() - 1;
+        self.nodes.push(new_node);
+        let newa = self.nodes.len() - 1;
+        
+        // TODO make more intuitive
+        // make the simple edges 
+        self.edges.push((preva, newa)); 
+        self.error_type = etype;
+    }
 
+    // is this name obvious enough?
+    fn extract_error_type(stderr: &str) -> (String, String) {
+        if let Some(last_line) = stderr.lines().last() {
+            if let Some((etype, msg)) = last_line.split_once(": ") {
+                return (etype.trim().to_string(), msg.trim().to_string()); // ok
+            }
+        }
+        // probably need to avoid this more
+        ("UnknownError".into(), stderr.trim().to_string())
+    }
+
+    pub fn save(&self) -> std::io::Result<()> {
+        // create or get the graphs dir
+        let mut graph_dir = dirs::home_dir().unwrap();
+        graph_dir.push("blvflag/tool/history/graphs");
+        fs::create_dir_all(&graph_dir)?;
+
+        let file_name = format!(
+            "{}_graph.json",
+            self.script_name.trim_end_matches(".py")
+        );
+        let full_path = graph_dir.join(file_name);
+
+        let serialized = serde_json::to_string_pretty(&self)?;
+        fs::write(&full_path, serialized)?;
 
         Ok(())
-      }
+    }
 }
-
-
