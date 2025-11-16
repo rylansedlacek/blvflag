@@ -1,8 +1,8 @@
-use serde::{Serialize, Deserialize};
-use regex::Regex;
-use std::fs;
-use chrono::Local;
-use dirs;
+use serde::{Serialize, Deserialize}; // json writes
+use regex::Regex; 
+use std::fs; // files
+use chrono::Local; // time
+use dirs; // files
 
 #[derive(Serialize, Deserialize)]
 pub struct Node {
@@ -31,9 +31,7 @@ impl ErrorGraph {
         fs::create_dir_all(&graph_path).unwrap();
 
         // set up the file
-        let graph_file = graph_path.join(format!("{}_graph.json",
-            script_name.trim_end_matches(".py")
-        ));
+        let graph_file = graph_path.join(format!("{}_graph.json", script_name.trim_end_matches(".py")));
 
         // load
         if graph_file.exists() {
@@ -62,7 +60,10 @@ impl ErrorGraph {
 
     pub fn add_state(&mut self, stderr_or_out: &str, fixed: bool) {
         // get the error type
+        
         let (etype, msg) = Self::extract_error_type(stderr_or_out);
+        
+            
         let re = Regex::new(r#"File "(.+)", line (\d+), in (.+)"#).unwrap();
 
         let mut file = self.script_name.clone(); // default to script name for now, will look later
@@ -96,7 +97,14 @@ impl ErrorGraph {
         // TODO make more intuitive
         // make the simple edges 
         self.edges.push((preva, newa)); 
-        self.error_type = etype;
+
+        // TODO ADD ERROR STACKING TO THIS
+        // note &etype to add to it 
+        // note want to check if its ROOT error and clear that out completley though
+        if !fixed {
+            self.error_type = etype;
+        }
+        
     }
 
     // is this name obvious enough?
