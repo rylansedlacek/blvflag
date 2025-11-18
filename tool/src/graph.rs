@@ -1,3 +1,6 @@
+// TODO: Need bucket searching logic in here somewhere
+// FINAL STEP: combine with bucket.rs to make context.rs file
+
 use serde::{Serialize, Deserialize}; // json writes
 use regex::Regex; 
 use std::fs; // files
@@ -18,12 +21,13 @@ pub struct Node {
 pub struct ErrorGraph {
     pub script_name: String,
     pub error_type: String,
+    pub error_list: String,
     pub nodes: Vec<Node>,
     pub edges: Vec<(usize, usize)>,
 }
 
-impl ErrorGraph {
 
+impl ErrorGraph {
     pub fn load_or_new(script_name: &str) -> Self {
         // creates or get the graphs dir 
         let mut graph_path = dirs::home_dir().unwrap();
@@ -46,6 +50,7 @@ impl ErrorGraph {
         ErrorGraph {
             script_name: script_name.to_string(),
             error_type: "ROOT".into(),
+            error_list: "".into(),
             nodes: vec![Node {
                 state: "s0".into(),
                 file: script_name.into(),
@@ -56,14 +61,11 @@ impl ErrorGraph {
             }],
             edges: vec![], // s0 has no outgoing edges yet so empty
         }
-    }
+    } // end load_new
 
     pub fn add_state(&mut self, stderr_or_out: &str, fixed: bool) {
         // get the error type
-        
         let (etype, msg) = Self::extract_error_type(stderr_or_out);
-        
-            
         let re = Regex::new(r#"File "(.+)", line (\d+), in (.+)"#).unwrap();
 
         let mut file = self.script_name.clone(); // default to script name for now, will look later
@@ -98,14 +100,16 @@ impl ErrorGraph {
         // make the simple edges 
         self.edges.push((preva, newa)); 
 
-        // TODO ADD ERROR STACKING TO THIS
-        // note &etype to add to it 
-        // note want to check if its ROOT error and clear that out completley though
         if !fixed {
+            if !self.error_list.contains(&etype) {
+                if !self.error_list.is_empty() {
+                    self.error_list.push_str(" | ");
+                }
+                self.error_list.push_str(&etype);
+            }
             self.error_type = etype;
         }
-        
-    }
+    } // end add state
 
     // is this name obvious enough?
     fn extract_error_type(stderr: &str) -> (String, String) {
@@ -114,7 +118,7 @@ impl ErrorGraph {
                 return (etype.trim().to_string(), msg.trim().to_string()); // ok
             }
         }
-        // probably need to avoid this more
+        // Will need a bucket for this consider
         ("UnknownError".into(), stderr.trim().to_string())
     }
 
@@ -130,9 +134,10 @@ impl ErrorGraph {
         );
         let full_path = graph_dir.join(file_name);
 
+        // this is beautiful..
         let serialized = serde_json::to_string_pretty(&self)?;
         fs::write(&full_path, serialized)?;
-
         Ok(())
     }
-}
+
+} // end class
