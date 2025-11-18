@@ -2,6 +2,8 @@ mod generate;
 mod commands;
 mod setup;
 mod diff;
+mod graph;
+
 
 use clap::{App, Arg, SubCommand};
 
