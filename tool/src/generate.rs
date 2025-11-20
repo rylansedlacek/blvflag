@@ -6,7 +6,7 @@ use std::error::Error;
 use std::fs;
 use std::path::{Path, PathBuf};
 use chrono::Local;
-use dirs;
+use dirs_next;
 
 /* metric testing
 use std::time::Instant;
@@ -37,7 +37,7 @@ pub async fn process_script(script_path: &str, explain: bool, diff: bool, revert
                 let script_name = Path::new(script_path).file_name().unwrap().to_string_lossy().to_string();
                 let date_stamp = Local::now().to_string();
 
-                let mut history_dir: PathBuf = dirs::home_dir().expect("Failed to get home directory");
+                let mut history_dir: PathBuf = dirs_next::home_dir().expect("Failed to get home directory");
                 history_dir.push("blvflag/tool/history/std_history"); // create the std_history dir if it DOESNT EXIST
                 fs::create_dir_all(&history_dir)?;
             
@@ -54,7 +54,7 @@ pub async fn process_script(script_path: &str, explain: bool, diff: bool, revert
                 let prefix = script_name.trim_end_matches(".py");
                 let mut all_versions: Vec<PathBuf> = vec![];
             
-                    let std_history_dir = dirs::home_dir().unwrap().join("blvflag/tool/history/std_history");
+                    let std_history_dir = dirs_next::home_dir().unwrap().join("blvflag/tool/history/std_history");
                     let std_versions = fs::read_dir(&std_history_dir)? // read the users std dir
                         .filter_map(|entry| {
                             let path = entry.ok()?.path();
@@ -66,7 +66,7 @@ pub async fn process_script(script_path: &str, explain: bool, diff: bool, revert
                             }
                         }); // end std read
             
-                    let err_history_dir = dirs::home_dir().unwrap().join("blvflag/tool/history/err_history");
+                    let err_history_dir = dirs_next::home_dir().unwrap().join("blvflag/tool/history/err_history");
                     let err_versions = fs::read_dir(&err_history_dir)? // read the users std out dir
                         .filter_map(|entry| {
                             let path = entry.ok()?.path();
@@ -166,7 +166,7 @@ pub async fn process_script(script_path: &str, explain: bool, diff: bool, revert
                 let script_name = Path::new(script_path).file_name().unwrap().to_string_lossy().to_string();
                 let date_stamp = Local::now().to_string();
 
-                let mut history_dir: PathBuf = dirs::home_dir().expect("Failed to get home directory");
+                let mut history_dir: PathBuf = dirs_next::home_dir().expect("Failed to get home directory");
                 history_dir.push("blvflag/tool/history/err_history"); // create the err_history dir if it DOESNT EXIST
                 fs::create_dir_all(&history_dir)?;
             
@@ -177,7 +177,7 @@ pub async fn process_script(script_path: &str, explain: bool, diff: bool, revert
                 let prefix = script_name.trim_end_matches(".py");
                 let mut all_versions: Vec<PathBuf> = vec![];
             
-                    let std_history_dir = dirs::home_dir().unwrap().join("blvflag/tool/history/std_history");
+                    let std_history_dir = dirs_next::home_dir().unwrap().join("blvflag/tool/history/std_history");
                     let std_versions = fs::read_dir(&std_history_dir)? // read the users std dir
                         .filter_map(|entry| {
                             let path = entry.ok()?.path();
@@ -189,7 +189,7 @@ pub async fn process_script(script_path: &str, explain: bool, diff: bool, revert
                             }
                         }); // end std read
             
-                    let err_history_dir = dirs::home_dir().unwrap().join("blvflag/tool/history/err_history");
+                    let err_history_dir = dirs_next::home_dir().unwrap().join("blvflag/tool/history/err_history");
                     let err_versions = fs::read_dir(&err_history_dir)? // read the users std out dir
                         .filter_map(|entry| {
                             let path = entry.ok()?.path();
@@ -312,7 +312,7 @@ pub async fn process_script(script_path: &str, explain: bool, diff: bool, revert
                             )
                         };
                     
-                        let api_key_path: PathBuf = dirs::home_dir()
+                        let api_key_path: PathBuf = dirs_next::home_dir()
                             .expect("Could not find home dir") // first we get the api key from the folder we setup
                             .join("blvflag/tool/key/api_key");
 

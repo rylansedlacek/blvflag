@@ -1,6 +1,6 @@
 use std::fs::{OpenOptions, self};
 use std::io::{self, Write};
-use dirs;
+use dirs_next;
 use reqwest::header::{AUTHORIZATION, HeaderValue}; // add for API
 
 //TODO should add a fall back!
@@ -28,7 +28,7 @@ pub async fn setup_model() -> Result<(), Box<dyn std::error::Error>> {
         .ok_or("API key not found in response")?; // fall back
 
         // same as before here:
-    let mut key_dir = dirs::home_dir().expect("Failed to get home directory"); // grab home dir
+    let mut key_dir = dirs_next::home_dir().expect("Failed to get home directory"); // grab home dir
     key_dir.push("blvflag/tool/key");
     fs::create_dir_all(&key_dir)?;
     let key_file_path = key_dir.join("api_key");

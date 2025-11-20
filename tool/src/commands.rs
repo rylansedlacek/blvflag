@@ -25,7 +25,7 @@ pub fn run_script(script_path: &str) -> io::Result<(OutputType, String)> { // to
 } // end runScript
 
 pub fn clear_history() -> Result<(), Box<dyn std::error::Error>> {
-    let home_dir = dirs::home_dir().ok_or("Unable to get home directory")?; // first get the users home dir
+    let home_dir = dirs_next::home_dir().ok_or("Unable to get home directory")?; // first get the users home dir
    
     let dirs_to_clear = vec![
         home_dir.join("blvflag/tool/history/std_history"), 

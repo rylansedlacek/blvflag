@@ -5,7 +5,7 @@ use serde::{Serialize, Deserialize}; // json writes
 use regex::Regex; 
 use std::fs; // files
 use chrono::Local; // time
-use dirs; // files
+use dirs_next; // files
 
 #[derive(Serialize, Deserialize)]
 pub struct Node {
@@ -30,7 +30,7 @@ pub struct ErrorGraph {
 impl ErrorGraph {
     pub fn load_or_new(script_name: &str) -> Self {
         // creates or get the graphs dir 
-        let mut graph_path = dirs::home_dir().unwrap();
+        let mut graph_path = dirs_next::home_dir().unwrap();
         graph_path.push("blvflag/tool/history/graphs");
         fs::create_dir_all(&graph_path).unwrap();
 
@@ -124,7 +124,7 @@ impl ErrorGraph {
 
     pub fn save(&self) -> std::io::Result<()> {
         // create or get the graphs dir
-        let mut graph_dir = dirs::home_dir().unwrap();
+        let mut graph_dir = dirs_next::home_dir().unwrap();
         graph_dir.push("blvflag/tool/history/graphs");
         fs::create_dir_all(&graph_dir)?;
 
