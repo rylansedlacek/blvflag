@@ -25,7 +25,6 @@ Note only for <b>Linux</b> and <b>MacOs</b>.
 <h3>Steps:</h3>
 
 - Install <a href="https://doc.rust-lang.org/cargo/getting-started/installation.html">Cargo</a>
-- Get a Meta Llama API <a href="https://llama.developer.meta.com/join_waitlist">key</a>
 
 - In your <b>home</b> directory, on your command line type,
   
@@ -37,7 +36,7 @@ Note only for <b>Linux</b> and <b>MacOs</b>.
 
 - You should get back the help screen, next type,
 
-<code>blvflag setup</code> and enter your key from above
+<code>blvflag setup</code> and enter the auth key.
 
 - You are now ready to use the flags described above.
 - Write a python script and run it with
@@ -52,7 +51,14 @@ OR
 
 <code>blvflag yourScriptName.py --diff </code>
 
+OR
+
+<code>blvflag yourScriptName.py --revert </code>
+
+Note: to clear history directories, type,
+
+<code>blvflag clear </code>
 
 ---------------------------------------------------------------
-<h2>Winter 2024 to Summer 2025</h2>
+<h2>Winter 2024 to ...</h2>
 
