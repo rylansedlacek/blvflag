@@ -24,40 +24,32 @@ Note only for <b>Linux</b> and <b>MacOs</b>.
 
 <h3>Steps:</h3>
 
-- Install <a href="https://doc.rust-lang.org/cargo/getting-started/installation.html">Cargo</a>
+1) Install <a href="https://doc.rust-lang.org/cargo/getting-started/installation.html">Cargo</a>
 
-- In your <b>home</b> directory, on your command line type,
+2) In your <b>home</b> directory, on your command line type,
   
-<code>cargo install --git https://github.com/rylansedlacek/blvflag</code>
+- <code>cargo install --git https://github.com/rylansedlacek/blvflag</code>
 
-- Next, ensure that the tool has installed by typing,
+3) Next, ensure that the tool has installed by typing,
 
-<code>blvflag help</code>
+- <code>blvflag help</code>
+- You should get back the help screen upon typing this.
 
-- You should get back the help screen, next type,
+4) Next type,
+- <code>blvflag setup</code> and enter the auth key.
 
-<code>blvflag setup</code> and enter the auth key.
+You are now ready to use the flags described above.
 
-- You are now ready to use the flags described above.
-- Write a python script and run it with
+Write a python script and run it with
   
-<code>blvflag yourScriptName.py </code>
+- <code>blvflag yourScriptName.py </code>
+- <code>blvflag yourScriptName.py --explain </code>
+- <code>blvflag yourScriptName.py --diff </code>
+- <code>blvflag yourScriptName.py --revert </code>
 
-OR
+Note: to clear history directories,
 
-<code>blvflag yourScriptName.py --explain </code>
-
-OR
-
-<code>blvflag yourScriptName.py --diff </code>
-
-OR
-
-<code>blvflag yourScriptName.py --revert </code>
-
-Note: to clear history directories, type,
-
-<code>blvflag clear </code>
+- <code>blvflag clear </code>
 
 ---------------------------------------------------------------
 <h2>Winter 2024 to ...</h2>
