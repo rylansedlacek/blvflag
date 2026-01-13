@@ -2,7 +2,9 @@ mod generate;
 mod commands;
 mod setup;
 mod diff;
-mod graph;
+
+//Old Graphing Approach
+//mod graph;
 
 
 use clap::{App, Arg, SubCommand};

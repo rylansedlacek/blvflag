@@ -1,6 +1,8 @@
 use crate::commands;
 use crate::diff;
-use crate::graph::ErrorGraph;
+
+//Old Graphing Approach
+//use crate::graph::ErrorGraph; 
 
 use std::error::Error;
 use std::fs;
@@ -29,10 +31,10 @@ pub async fn process_script(script_path: &str, explain: bool, diff: bool, revert
 
                 if !diff { println!("{}", output); } // if we dont have a flag just give back
         
-                // Create or update the graph upon run
-                let mut graph = ErrorGraph::load_or_new(script_path);
-                graph.add_state(&output, true);  
-                graph.save()?;
+                // Old Graphing Approach
+                //let mut graph = ErrorGraph::load_or_new(script_path);
+                //graph.add_state(&output, true);  
+                //graph.save()?;
 
                 let script_name = Path::new(script_path).file_name().unwrap().to_string_lossy().to_string();
                 let date_stamp = Local::now().to_string();
@@ -158,10 +160,10 @@ pub async fn process_script(script_path: &str, explain: bool, diff: bool, revert
                     println!("{}", error_output);
                 }
 
-                // Create or update the graph upon run
-                let mut graph = ErrorGraph::load_or_new(script_path);
-                graph.add_state(&error_output, false);
-                graph.save()?;
+                // Old Graphing Approach
+                //let mut graph = ErrorGraph::load_or_new(script_path);
+                //graph.add_state(&error_output, false);
+                //graph.save()?;
             
                 let script_name = Path::new(script_path).file_name().unwrap().to_string_lossy().to_string();
                 let date_stamp = Local::now().to_string();
