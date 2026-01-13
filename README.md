@@ -1,10 +1,11 @@
-<h1><u>blvflag</u></h1>
+<h1><u>blvdiff (formerly blvflag)</u></h1>
 
 <h2>About:</h2>
 
 - An on-going individual study project at the <i> University of Mary Washington </i>
 - Parts of the Rust structure based from blvrun: https://arxiv.org/pdf/2401.16654
-- Designed to <b>improve</b> debugging directly on the command line for blind and low-vision (blv) developers. :)
+- Designed to <b>improve</b> debugging directly on the command line for blind and low-vision (blv) developers.
+- The associated paper for this project can be found here: https://dl.acm.org/doi/10.1145/3663547.3759716
 
 <h2>Features:</h2>
 
