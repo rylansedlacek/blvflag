@@ -10,7 +10,7 @@ pub async fn setup_model() -> Result<(), Box<dyn std::error::Error>> {
     println!("Please enter Auth Token:");
 
     // TODO ask PC is this hardcodedness is ok.
-    let endpoint = "http://100.48.3.96:8080/api/meta-key"; 
+    let endpoint = "http://34.238.139.12:8080/api/meta-key"; 
     let mut auth_token = String::new(); 
 
     io::stdin().read_line(&mut auth_token)?;
