@@ -3,10 +3,6 @@ mod commands;
 mod setup;
 mod diff;
 
-//Old Graphing Approach
-//mod graph;
-
-
 use clap::{App, Arg, SubCommand};
 
 #[tokio::main]

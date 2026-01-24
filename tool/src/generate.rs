@@ -30,11 +30,6 @@ pub async fn process_script(script_path: &str, explain: bool, diff: bool, revert
             Ok((commands::OutputType::Stdout, output)) => { 
 
                 if !diff { println!("{}", output); } // if we dont have a flag just give back
-        
-                // Old Graphing Approach
-                //let mut graph = ErrorGraph::load_or_new(script_path);
-                //graph.add_state(&output, true);  
-                //graph.save()?;
 
                 let script_name = Path::new(script_path).file_name().unwrap().to_string_lossy().to_string();
                 let date_stamp = Local::now().to_string();
@@ -159,11 +154,6 @@ pub async fn process_script(script_path: &str, explain: bool, diff: bool, revert
                     println!("Error Caught! Use --explain OR --diff for help.\n"); // TODO might change
                     println!("{}", error_output);
                 }
-
-                // Old Graphing Approach
-                //let mut graph = ErrorGraph::load_or_new(script_path);
-                //graph.add_state(&error_output, false);
-                //graph.save()?;
             
                 let script_name = Path::new(script_path).file_name().unwrap().to_string_lossy().to_string();
                 let date_stamp = Local::now().to_string();
