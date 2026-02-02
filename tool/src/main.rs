@@ -18,6 +18,10 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
             .long("explain")      
             .help("Utlized to explain error messages in more verbose manner.")
             .takes_value(false))  
+        .arg(Arg::new("context")
+            .long("context")
+            .help("Utilized to explain error messages using stored development cycles for added context.")
+            .takes_value(false))  
         .arg(Arg::new("diff")
             .long("diff")
             .help("Utilized to compare code changes for debugging.")
@@ -35,10 +39,11 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
         .get_matches();
 
         if let Some(script) = matches.value_of("script") { 
-            let explain = matches.is_present("explain"); // booleans
+            let explain = matches.is_present("explain");
             let diff = matches.is_present("diff");
             let revert = matches.is_present("revert");
-            generate::process_script(script, explain, diff, revert).await?;
+            let context = matches.is_present("context");
+            generate::process_script(script, explain, diff, revert, context).await?;
         } else if matches.subcommand_matches("setup").is_some() {
             setup::setup_model().await?;
         } else if matches.subcommand_matches("clear").is_some() {

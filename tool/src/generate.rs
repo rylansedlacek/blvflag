@@ -15,7 +15,7 @@ use std::io::Write;
 use serde_json::json;
 */
 
-pub async fn process_script(script_path: &str, explain: bool, diff: bool, revert: bool,) -> Result<(), Box<dyn Error>> {
+pub async fn process_script(script_path: &str, explain: bool, diff: bool, revert: bool, context: bool,) -> Result<(), Box<dyn Error>> {
     let out = commands::run_script(script_path);
 
     /* metric testing
@@ -369,6 +369,43 @@ pub async fn process_script(script_path: &str, explain: bool, diff: bool, revert
 
                             println!("Error Explanation:\n{}", explanation);
                     } // end explain
+
+
+                    if context {
+                        /*
+                            1. Hash to get context
+                            2. Pass to LLM like above
+                        */
+
+                        /*
+                            let prompt = 
+                                format!(
+                                "A blind low-vision developer is struggling to fix an error. If they have fixed this error before 
+                                development steps will be provided. If they have not fixed this error before this will be labeled below.
+                                
+                                CURRENT ERROR:
+                                Error Type: {{CURRENT_ERROR_TYPE}}
+                                Error Message: {{CURRENT_ERROR_MESSAGE}}
+
+                                CURRENT SCRIPT CONTENTS:
+                                {{FULL SCRIPT CONTENTS}}
+
+                                PREVIOUSLY FIXED SCRIPTS
+                                Below is a list of development cycles where this user fixed, {{CURRENT_ERROR_TYPE}}
+                                CYCLES:
+                                {{HISTORICAL_FIXED_RUN_CONTENTS}} 
+                                {{HISTORICAL_FIXED_RUN_CONTENTS}}  
+                                    . . . 
+
+                                YOUR TASK
+                                * IN A SCREEN-READER FRIENDLY FORMAT, speaking to the USER (you did this , you should do this)* 
+                                * IN SIMPLE & SHORT BULLET POINTS *
+                                1. Explain what is causing the current error.
+                                2. Describe how the user fixed this error in previous scripts (IF APPLICABLE)
+                                3. Suggest hints in order to fix the CURRENT ERROR PRODUCING SCRIPT, without providing the answer."    
+                                );
+                        */
+                    } // end context
 
             } // end stderr match block -------------------------------
         Err(_) => {
