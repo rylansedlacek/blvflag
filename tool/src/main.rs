@@ -2,6 +2,7 @@ mod generate;
 mod commands;
 mod setup;
 mod diff;
+mod buckets;
 
 use clap::{App, Arg, SubCommand};
 

@@ -1,8 +1,6 @@
 use crate::commands;
 use crate::diff;
-
-//Old Graphing Approach
-//use crate::graph::ErrorGraph; 
+use crate::buckets;
 
 use std::error::Error;
 use std::fs;
@@ -25,7 +23,6 @@ pub async fn process_script(script_path: &str, explain: bool, diff: bool, revert
     */
 
     match out {
-
             //Standard Out
             Ok((commands::OutputType::Stdout, output)) => { 
 
@@ -41,6 +38,19 @@ pub async fn process_script(script_path: &str, explain: bool, diff: bool, revert
                 let json_name = format!("{}_{}.json", script_name.trim_end_matches(".py"), date_stamp); // dating format
                 let full_path = history_dir.join(&json_name); 
                 let current_script_content = fs::read_to_string(script_path)?; // stringify all contents 
+
+                 // Hashing Logic
+                if let Some(error_type) = find_last_error_type(&script_name) { // matches to write to proper cycle
+                    let _ = buckets::record_run(
+                        &error_type,
+                        &script_name,
+                        &current_script_content,
+                        false, // is_error
+                        true,  // is_fixed
+                    );
+                 }
+                 // ---
+
 
                 /*
                     Here we are going to read through both of the history sub dirs, std_history & err_history.
@@ -144,7 +154,6 @@ pub async fn process_script(script_path: &str, explain: bool, diff: bool, revert
                             println!("No prior version found to diff against.");
                         }
                     }
-            
             } // end Standard Out -------------------------------
             
             // Standard Error
@@ -165,6 +174,23 @@ pub async fn process_script(script_path: &str, explain: bool, diff: bool, revert
                 let json_name = format!("{}_{}.json", script_name.trim_end_matches(".py"), date_stamp); // dating format
                 let full_path = history_dir.join(&json_name); 
                 let current_script_content = fs::read_to_string(script_path)?; // stringify all contents 
+
+                // Hashing Logic ---
+                fn get_error(stderr: &str) -> String {
+                    stderr.lines().rev().find(|line| line.contains(':')).and_then(|line| line
+                        .split(':').next()).unwrap_or("UnknownError").trim().to_string()
+                }                                  // TODO - Bucket.rs
+                                                    
+                let error_type = get_error(&error_output); // find what we've got
+
+                let _ = buckets::record_run(
+                    &error_type,
+                    &script_name,
+                    &current_script_content,
+                    true,   // is_error
+                    false,  // is_fixed
+                );
+                // ---
 
                 let prefix = script_name.trim_end_matches(".py");
                 let mut all_versions: Vec<PathBuf> = vec![];
@@ -368,4 +394,48 @@ pub async fn process_script(script_path: &str, explain: bool, diff: bool, revert
     */            
                             
     Ok(()) 
-} // end processing script and file
+} // end processing script
+
+ // Error Collection & Hashing
+fn find_last_error_type(script_name: &str) -> Option<String> {
+    let mut root = dirs_next::home_dir()?;
+    root.push("blvflag/tool/buckets");
+
+    // get all error types within the bucket dir
+    let entries = fs::read_dir(&root).ok()?;
+
+    for entry in entries.flatten() {
+        let error_type = entry.file_name().to_string_lossy().to_string();
+        // find the associated script
+        let script_dir = entry.path().join(script_name.trim_end_matches(".py")); 
+
+        if !script_dir.exists() {
+            continue;
+        }
+
+        // collect all developmetn cycles for the script
+        let mut cycles: Vec<PathBuf> = fs::read_dir(&script_dir)
+            .ok()?
+            .flatten()
+            .map(|e| e.path())
+            .filter(|p| p.extension().map(|e| e == "json").unwrap_or(false))
+            .collect();
+
+        cycles.sort();
+
+        // find the last, this is the one to be udpated
+        if let Some(last_cycle) = cycles.last() {
+            let data = fs::read_to_string(last_cycle).ok()?;
+            let runs: Vec<buckets::RunRecord> =
+                serde_json::from_str(&data).ok()?;
+
+            if runs.last().map(|r| !r.is_fixed).unwrap_or(false) {
+                return Some(error_type);
+            }
+        }
+    }
+    None // either no cycles or all cycles are in a FIXED state. 
+         // (logic in buckets.rs will create new cycle in this case)
+} // end error type
+
+// end file.
