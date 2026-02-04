@@ -40,7 +40,7 @@ pub async fn process_script(script_path: &str, explain: bool, diff: bool, revert
                 let current_script_content = fs::read_to_string(script_path)?; // stringify all contents 
 
                  // Hashing Logic
-                if let Some(error_type) = find_last_error_type(&script_name) { // matches to write to proper cycle
+                if let Some(error_type) = buckets::find_last_error_type(&script_name) { // matches to write to proper cycle
                     let _ = buckets::record_run(
                         &error_type,
                         &script_name,
@@ -372,6 +372,9 @@ pub async fn process_script(script_path: &str, explain: bool, diff: bool, revert
 
 
                     if context {
+
+                        //let cycles = buckets::fixed_cycles(&current_error_type);
+
                         /*
                             1. Hash to get context
                             2. Pass to LLM like above
@@ -432,47 +435,4 @@ pub async fn process_script(script_path: &str, explain: bool, diff: bool, revert
                             
     Ok(()) 
 } // end processing script
-
- // Error Collection & Hashing
-fn find_last_error_type(script_name: &str) -> Option<String> {
-    let mut root = dirs_next::home_dir()?;
-    root.push("blvflag/tool/buckets");
-
-    // get all error types within the bucket dir
-    let entries = fs::read_dir(&root).ok()?;
-
-    for entry in entries.flatten() {
-        let error_type = entry.file_name().to_string_lossy().to_string();
-        // find the associated script
-        let script_dir = entry.path().join(script_name.trim_end_matches(".py")); 
-
-        if !script_dir.exists() {
-            continue;
-        }
-
-        // collect all developmetn cycles for the script
-        let mut cycles: Vec<PathBuf> = fs::read_dir(&script_dir)
-            .ok()?
-            .flatten()
-            .map(|e| e.path())
-            .filter(|p| p.extension().map(|e| e == "json").unwrap_or(false))
-            .collect();
-
-        cycles.sort();
-
-        // find the last, this is the one to be udpated
-        if let Some(last_cycle) = cycles.last() {
-            let data = fs::read_to_string(last_cycle).ok()?;
-            let runs: Vec<buckets::RunRecord> =
-                serde_json::from_str(&data).ok()?;
-
-            if runs.last().map(|r| !r.is_fixed).unwrap_or(false) {
-                return Some(error_type);
-            }
-        }
-    }
-    None // either no cycles or all cycles are in a FIXED state. 
-         // (logic in buckets.rs will create new cycle in this case)
-} // end error type
-
 // end file.
