@@ -1,6 +1,7 @@
 use crate::commands;
 use crate::diff;
 use crate::buckets;
+use crate::model;
 
 use std::error::Error;
 use std::fs;
@@ -159,7 +160,7 @@ pub async fn process_script(script_path: &str, explain: bool, diff: bool, revert
             // Standard Error
              Ok((commands::OutputType::Stderr, error_output)) => { 
 
-                if !diff && !explain {
+                if !diff && !explain && !context {
                     println!("Error Caught! Use --explain OR --diff for help.\n"); // TODO might change
                     println!("{}", error_output);
                 }
@@ -329,88 +330,88 @@ pub async fn process_script(script_path: &str, explain: bool, diff: bool, revert
                                 error_output
                             )
                         };
-                    
-                        let api_key_path: PathBuf = dirs_next::home_dir()
-                            .expect("Could not find home dir") // first we get the api key from the folder we setup
-                            .join("blvflag/tool/key/api_key");
-
-                        if !api_key_path.exists() {
-                            println!("\nCannot run --explain! Missing API key file at {:?}", api_key_path);
-                            println!("Run `blvflag setup` to initialize API key file. Or help.\n");
-                            return Ok(()); 
-                        }
-                        
-                        let llama_api_key = fs::read_to_string(&api_key_path) 
-                            .expect("Failed to read API key")
-                            .trim()
-                            .to_string(); 
-
-                            let client = reqwest::Client::new();
-                            let response = client // set up like in docuemntations, did have to modify for HTTP requests
-                                .post("https://api.llama.com/v1/chat/completions") 
-                                .header("Authorization", format!("Bearer {}", llama_api_key))
-                                .header("Content-Type", "application/json") // its a JSON format
-                                .json(&serde_json::json!({
-                                    "model": "Llama-4-Maverick-17B-128E-Instruct-FP8", // same as PC's stuff
-                                    "messages": [
-                                        { "role": "system", "content": prompt }, // system uses the prompt we generate above
-                                         { "role": "user", "content": error_output } // user gives the error
-                                    ],
-                                }))
-                                .send()
-                                .await?;
-
-                            let json_response: serde_json::Value = response.json().await?;
-
-                            let explanation = json_response["completion_message"]["content"]["text"] // now we parse the json in this format
-                                .as_str()
-                                .unwrap_or("Error communicating with Llama! \n Check ~/blvflag/tool/key/api_key OR run setup.") // incase we recieve nothing we alert
-                                .to_string();
-
+                            // call model
+                            let explanation = model::call_llm(prompt).await?;
                             println!("Error Explanation:\n{}", explanation);
+
                     } // end explain
 
-
+                    // context flag
                     if context {
 
-                        //let cycles = buckets::fixed_cycles(&current_error_type);
+                        let current_error_type = error_type.clone(); // error type we have
+                        let current_error_message = error_output.clone(); // error message we have
+                        let current_script_contents = current_script_content.clone();
 
-                        /*
-                            1. Hash to get context
-                            2. Pass to LLM like above
-                        */
+                        let fixed_cycles = buckets::fixed_cycles(&current_error_type);
 
-                        /*
-                            let prompt = 
-                                format!(
-                                "A blind low-vision developer is struggling to fix an error. If they have fixed this error before 
-                                development steps will be provided. If they have not fixed this error before this will be labeled below.
-                                
+                        if fixed_cycles.is_empty() {
+                            // FALL BACK TO BASIC --explain LOGIC
+                           let prompt = format!(
+                                "Provide the error line number and explain in a compact screen readable format for \
+                                blind-low-vision programmers. Here is the error:\n{}",
+                                error_output
+                            );
+                            let explanation = model::call_llm(prompt).await?;
+                            println!("Error Explanation:\n{}", explanation);
+                        } else {
+                            // assemble the development cycles for context
+                            let mut historical_fixed_run_contents = String::new();
+                            for (cycle_idx, cycle) in fixed_cycles.iter().enumerate() {
+                                for run in cycle {
+                                    historical_fixed_run_contents.push_str(
+                                        &format!(
+                                            "\n[Run | is_error: {} | is_fixed: {}]\n{}\n",
+                                            run.is_error,
+                                            run.is_fixed,
+                                            run.run_contents
+                                        )
+                                    );
+                                }
+                            }
+
+                            // build out the LLM prompt
+                            // TODO THIS THING IS NOT GOOD!
+                            let prompt = format!(
+                                "A blind low-vision developer is struggling to fix an error. If they have fixed this error before, \
+                                development steps will be provided. If they have not fixed this error before, this will be labeled below.
+
                                 CURRENT ERROR:
-                                Error Type: {{CURRENT_ERROR_TYPE}}
-                                Error Message: {{CURRENT_ERROR_MESSAGE}}
+                                Error Type: {error_type}
+                                Error Message:
+                                {error_message}
 
                                 CURRENT SCRIPT CONTENTS:
-                                {{FULL SCRIPT CONTENTS}}
+                                {current_script}
 
                                 PREVIOUSLY FIXED SCRIPTS
-                                Below is a list of development cycles where this user fixed, {{CURRENT_ERROR_TYPE}}
+                                Below is a list of development cycles where this user fixed {error_type}
+
                                 CYCLES:
-                                {{HISTORICAL_FIXED_RUN_CONTENTS}} 
-                                {{HISTORICAL_FIXED_RUN_CONTENTS}}  
-                                    . . . 
+                                {historical_cycles}
 
                                 YOUR TASK
-                                * IN A SCREEN-READER FRIENDLY FORMAT, speaking to the USER (you did this , you should do this)* 
+                                * IN A SCREEN-READER FRIENDLY FORMAT, speaking to the USER (\"you did this\", \"you should do this\") *
                                 * IN SIMPLE & SHORT BULLET POINTS *
+
                                 1. Explain what is causing the current error.
-                                2. Describe how the user fixed this error in previous scripts (IF APPLICABLE)
-                                3. Suggest hints in order to fix the CURRENT ERROR PRODUCING SCRIPT, without providing the answer."    
-                                );
-                        */
-                    } // end context
+                                2. Describe how the user fixed this error in previous scripts (IF APPLICABLE).
+                                3. Suggest hints to fix the CURRENT ERROR PRODUCING SCRIPT, without providing the answer.",
+                                            error_type = current_error_type,
+                                            error_message = current_error_message,
+                                            current_script = current_script_contents,
+                                            historical_cycles = historical_fixed_run_contents
+                            );
+
+                            // call model
+                            let explanation = model::call_llm(prompt).await?;
+                            println!("Contextual Error Guidance:\n{}", explanation);
+                        }
+                    }
+
 
             } // end stderr match block -------------------------------
+
         Err(_) => {
             eprintln!("\nFailed to execute the script. Use -help for help");
         }
