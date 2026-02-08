@@ -336,7 +336,6 @@ pub async fn process_script(script_path: &str, explain: bool, diff: bool, revert
 
                     } // end explain
 
-                    // context flag
                     if context {
 
                         let current_error_type = error_type.clone(); // error type we have
@@ -353,65 +352,83 @@ pub async fn process_script(script_path: &str, explain: bool, diff: bool, revert
                                 error_output
                             );
                             let explanation = model::call_llm(prompt).await?;
-                            println!("Error Explanation:\n{}", explanation);
+                            println!("No Context Found!\n\nFalling Back to --explain:\n{}", explanation);
                         } else {
                             // assemble the development cycles for context
                             let mut historical_fixed_run_contents = String::new();
-                            for (cycle_idx, cycle) in fixed_cycles.iter().enumerate() {
+                            for (_cycle_idx, cycle) in fixed_cycles.iter().enumerate() {
                                 for run in cycle {
                                     historical_fixed_run_contents.push_str(
-                                        &format!(
-                                            "\n[Run | is_error: {} | is_fixed: {}]\n{}\n",
-                                            run.is_error,
-                                            run.is_fixed,
-                                            run.run_contents
-                                        )
+                                        &format!("\n[Run | is_error: {} | is_fixed: {}]\n{}\n",
+                                            run.is_error, run.is_fixed, run.run_contents)
                                     );
                                 }
                             }
 
                             // build out the LLM prompt
-                            // TODO THIS THING IS NOT GOOD!
-                            let prompt = format!(
-                                "A blind low-vision developer is struggling to fix an error. If they have fixed this error before, \
-                                development steps will be provided. If they have not fixed this error before, this will be labeled below.
+                           let prompt = format!(
+                                "You are assisting a blind or low-vision programmer.
 
-                                CURRENT ERROR:
-                                Error Type: {error_type}
-                                Error Message:
+                                IMPORTANT OUTPUT RULES (MUST FOLLOW):
+                                - Use CLEAR SECTION HEADERS
+                                - Use SHORT BULLET POINTS (1 sentence each)
+                                - NO PARAGRAPHS
+                                - Speak directly to the user (\"you did\", \"you should\")
+                                - Do NOT repeat the full script unless necessary
+                                - Do NOT provide the full solution, only hints
+
+                                ====================
+                                CURRENT ERROR
+                                ====================
+                                Error type:
+                                {error_type}
+
+                                Error message:
                                 {error_message}
 
-                                CURRENT SCRIPT CONTENTS:
+                                ====================
+                                CURRENT SCRIPT
+                                ====================
                                 {current_script}
 
-                                PREVIOUSLY FIXED SCRIPTS
-                                Below is a list of development cycles where this user fixed {error_type}
+                                ====================
+                                PREVIOUS FIXED CYCLES
+                                ====================
+                                Below are past development cycles where you successfully fixed this SAME error type.
+                                Each cycle shows your changes over time.
 
-                                CYCLES:
                                 {historical_cycles}
 
-                                YOUR TASK
-                                * IN A SCREEN-READER FRIENDLY FORMAT, speaking to the USER (\"you did this\", \"you should do this\") *
-                                * IN SIMPLE & SHORT BULLET POINTS *
+                                ====================
+                                RESPONSE FORMAT
+                                ====================
 
-                                1. Explain what is causing the current error.
-                                2. Describe how the user fixed this error in previous scripts (IF APPLICABLE).
-                                3. Suggest hints to fix the CURRENT ERROR PRODUCING SCRIPT, without providing the answer.",
-                                            error_type = current_error_type,
-                                            error_message = current_error_message,
-                                            current_script = current_script_contents,
-                                            historical_cycles = historical_fixed_run_contents
+                                WHAT IS GOING WRONG
+                                - Explain the root cause in simple terms
+                                - Focus on *why* Python is raising this error
+
+                                WHAT YOU DID BEFORE
+                                - Summarize how you fixed this error in past scripts
+                                - If no past fix exists, say: \"You have not fixed this error before.\"
+
+                                WHAT TO TRY NEXT
+                                - Give 2–4 short hints
+                                - Do NOT give the final answer
+                                - Focus on reasoning, not syntax
+
+                                BEGIN RESPONSE NOW.",
+                                        error_type = current_error_type,
+                                        error_message = current_error_message,
+                                        current_script = current_script_contents,
+                                        historical_cycles = historical_fixed_run_contents
                             );
 
                             // call model
-                            let explanation = model::call_llm(prompt).await?;
-                            println!("Contextual Error Guidance:\n{}", explanation);
+                            let context = model::call_llm(prompt).await?;
+                            println!("{}", context);
                         }
-                    }
-
-
+                    } // end context
             } // end stderr match block -------------------------------
-
         Err(_) => {
             eprintln!("\nFailed to execute the script. Use -help for help");
         }
