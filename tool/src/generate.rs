@@ -344,7 +344,7 @@ pub async fn process_script(script_path: &str, explain: bool, diff: bool, revert
 
                         let fixed_cycles = buckets::fixed_cycles(&current_error_type);
 
-                        if fixed_cycles.is_empty() {
+                            if fixed_cycles.is_empty() {
                             // FALL BACK TO BASIC --explain LOGIC
                            let prompt = format!(
                                 "Provide the error line number and explain in a compact screen readable format for \
@@ -357,13 +357,34 @@ pub async fn process_script(script_path: &str, explain: bool, diff: bool, revert
                             // assemble the development cycles for context
                             let mut historical_fixed_run_contents = String::new();
                             for (_cycle_idx, cycle) in fixed_cycles.iter().enumerate() {
-                                for run in cycle {
-                                    historical_fixed_run_contents.push_str(
-                                        &format!("\n[Run | is_error: {} | is_fixed: {}]\n{}\n",
-                                            run.is_error, run.is_fixed, run.run_contents)
-                                    );
+                            
+                                if cycle.len() < 2 {
+                                    continue;
                                 }
-                            }
+
+                                let pre_fix = &cycle[cycle.len() - 2];
+                                let fixed = &cycle[cycle.len() - 1];
+                                
+                                // pass state before fix
+                                historical_fixed_run_contents.push_str(
+                                    &format!(
+                                        "\n[before fix | is_error: {} | is_fixed: {}]\n{}\n",
+                                        pre_fix.is_error,
+                                        pre_fix.is_fixed,
+                                        pre_fix.run_contents
+                                    )
+                                );
+
+                                // pass fixed state
+                                historical_fixed_run_contents.push_str(
+                                    &format!(
+                                        "\n[after fix | is_error: {} | is_fixed: {}]\n{}\n",
+                                        fixed.is_error,
+                                        fixed.is_fixed,
+                                        fixed.run_contents
+                                    )
+                                );
+                             }
 
                             // build out the LLM prompt
                            let prompt = format!(
@@ -394,9 +415,17 @@ pub async fn process_script(script_path: &str, explain: bool, diff: bool, revert
                                 ====================
                                 PREVIOUS FIXED CYCLES
                                 ====================
-                                Below are past development cycles where you successfully fixed this SAME error type.
-                                Each cycle shows your changes over time.
+                                Below are past development cycles where you fixed this SAME error type.
+                                Each cycle shows:
+                                - The state BEFORE the fix
+                                - The state AFTER the fix
 
+                                IMPORTANT:
+                                - Compare the CURRENT SCRIPT to the *BEFORE* state of each cycle
+                                - Identify which cycle is MOST SIMILAR to the current script
+                                - Prefer fixes that required the SMALLEST conceptual change
+                                - Ignore fixes that involve unrelated variables or logic
+                                
                                 {historical_cycles}
 
                                 ====================
