@@ -191,6 +191,9 @@ pub async fn process_script(script_path: &str, explain: bool, diff: bool, revert
                     true,   // is_error
                     false,  // is_fixed
                 );
+
+                let auto_context = buckets::identical_error(&error_type, &script_name);
+
                 // ---
 
                 let prefix = script_name.trim_end_matches(".py");
@@ -290,8 +293,7 @@ pub async fn process_script(script_path: &str, explain: bool, diff: bool, revert
                         }
                     }
                     
-                    if explain { 
-
+                    if explain {         
                         let mut identical_diff_count = 0;
                         let mut prev_diff: Option<String> = None;
                     
@@ -336,7 +338,12 @@ pub async fn process_script(script_path: &str, explain: bool, diff: bool, revert
 
                     } // end explain
 
-                    if context {
+                    let fixed_cycles = buckets::fixed_cycles(&error_type);
+
+                    let manual_context = context;
+                    let automatic_context = auto_context && !fixed_cycles.is_empty();
+
+                    if manual_context || automatic_context {
 
                         let current_error_type = error_type.clone(); // error type we have
                         let current_error_message = error_output.clone(); // error message we have
@@ -344,7 +351,7 @@ pub async fn process_script(script_path: &str, explain: bool, diff: bool, revert
 
                         let fixed_cycles = buckets::fixed_cycles(&current_error_type);
 
-                            if fixed_cycles.is_empty() {
+                        if fixed_cycles.is_empty() && manual_context {
                             // FALL BACK TO BASIC --explain LOGIC
                            let prompt = format!(
                                 "Provide the error line number and explain in a compact screen readable format for \
@@ -454,7 +461,11 @@ pub async fn process_script(script_path: &str, explain: bool, diff: bool, revert
 
                             // call model
                             let context = model::call_llm(prompt).await?;
-                            println!("{}", context);
+                            if auto_context && !manual_context {
+                                println!("AUTO CONTEXT:\n\n {}", context);
+                            } else {
+                                println!("{}", context);
+                            }
                         }
                     } // end context
             } // end stderr match block -------------------------------
