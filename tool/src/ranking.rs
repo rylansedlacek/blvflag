@@ -19,8 +19,8 @@ fn error_line_score(current_line: &str, historical_line: & str) -> f64 {
     let overlap = current_tokens.iter().filter(|t| historical_tokens.contains(t)).count();
     if current_tokens.is_empty() {return 0.0;}
 
-    let mut over2 = overlap as f64;
-    let mut cur2 = current_tokens.len() as f64;
+    let over2 = overlap as f64;
+    let cur2 = current_tokens.len() as f64;
 
     over2 / cur2
 }
@@ -41,8 +41,8 @@ fn compute_patch_score(pre_fix: &str, post_fix: &str, current_script: &str,) -> 
 
     if hist_changes == 0 { return 0.0; }
 
-    let mut hist = hist_changes as f64;
-    let mut curr = curr_changes as f64;
+    let hist = hist_changes as f64;
+    let curr = curr_changes as f64;
 
     1.0 / (1.0 + (hist-curr).abs())
 }
@@ -61,48 +61,28 @@ fn dot_product(a: &[f64], b: &[f64]) -> f64 {
     a.iter().zip(b.iter()).map(|(x,y)| x*y).sum()
 }
 
+fn euclidean_distance(a: &[f64], b: &[f64]) -> f64 {
+    if a.len() != b.len() { return f64::MAX; }
 
-
-
-
-
-// TODO
-pub fn euclidean_distance(a: &[f64], b: &[f64]) -> f64 {
-    if a.len() != b.len() {
-        return f64::MAX;
-    }
-
-    a.iter()
-        .zip(b.iter())
-        .map(|(x, y)| (x - y).powi(2))
-        .sum::<f64>()
-        .sqrt()
+    a.iter().zip(b.iter()).map(|(x,y)| (x-y).powi(2)).sum::<f64>().sqrt()
 }
 
-// TODO
-pub fn cosine_similarity(a: &[f64], b: &[f64]) -> f64 {
-    if a.len() != b.len() {
-        return 0.0;
-    }
+fn cosine_similarity(a: &[f64], b: &[f64]) -> f64 {
+    if a.len() != b.len() { return 0.0; }
 
-    let dot = dot_product(a, b);
-
+    let dot = dot_product(a,b);
     let norm_a = a.iter().map(|x| x * x).sum::<f64>().sqrt();
     let norm_b = b.iter().map(|x| x * x).sum::<f64>().sqrt();
 
-    if norm_a == 0.0 || norm_b == 0.0 {
-        return 0.0;
-    }
+    if norm_a == 0.0 || norm_b == 0.0 { return 0.0; }
 
     dot / (norm_a * norm_b)
 }
 // math Related ****
-
-
 
 /*
 // MASTER PIPELINE
 pub fn select_best_cycles(current_error_line: &str,current_script: &str, 
     cycles: Vec<Vec<RunRecord>>,) -> Vec<Vec<RunRecord>> {
 }
-    */
+*/
