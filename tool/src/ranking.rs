@@ -24,14 +24,14 @@ pub fn extract_error_line_number(stderr: &str) -> Option<usize> {
         }
     }
     None
-}
+} // end extract
 
 pub fn get_line_from_script(script: &str, line_number: usize) -> Option<String> {
      script
         .lines()
         .nth(line_number.saturating_sub(1))
         .map(|s| s.to_string())
-}
+} // end get_line_from_script
 
 fn error_line_score(current_line: &str, historical_script: &str) -> f64 {
     if current_line.trim().is_empty() { return 0.0; }
@@ -46,7 +46,7 @@ fn error_line_score(current_line: &str, historical_script: &str) -> f64 {
     let overlap = current_tokens.iter().filter(|t| historical_tokens.contains(t)).count();
 
     overlap  as f64 / current_tokens.len() as f64
-}
+} // end error_line
 
 fn compute_patch_score(pre_fix: &str, post_fix: &str, current_script: &str) -> f64 {
     let hist_changes = diff::count_changes(pre_fix, post_fix);
@@ -55,7 +55,7 @@ fn compute_patch_score(pre_fix: &str, post_fix: &str, current_script: &str) -> f
     if hist_changes == 0 { return 0.0;}
 
     1.0 / (1.0 + (hist_changes as f64 - curr_changes as f64).abs())
-}
+} // end patch
 
 fn extract_vector(script: &str) -> Vec<f64> {
     vec![
@@ -64,12 +64,12 @@ fn extract_vector(script: &str) -> Vec<f64> {
         script.matches("if ").count() as f64,
         script.len() as f64,
     ]
-}
+} // end vector
 
 fn dot_product(a: &[f64], b: &[f64]) -> f64 {
     if a.len() != b.len() { return 0.0; }
     a.iter().zip(b.iter()).map(|(x, y)| x * y).sum()
-}
+} // end dot
 
 fn cosine_similarity(a: &[f64], b: &[f64]) -> f64 {
     if a.len() != b.len() { return 0.0; }
@@ -81,8 +81,8 @@ fn cosine_similarity(a: &[f64], b: &[f64]) -> f64 {
     if norm_a == 0.0 || norm_b == 0.0 { return 0.0; }
 
     dot / (norm_a * norm_b)
-}
-
+} // end cosine
+ 
 pub fn generate_ranking(current_error_line: &str, current_script: &str, 
     cycles: Vec<Vec<RunRecord>>,) -> Vec<Vec<RunRecord>> {
 
@@ -126,4 +126,4 @@ pub fn generate_ranking(current_error_line: &str, current_script: &str,
     );
 
     ranked_cycles.into_iter().take(2).map(|r| r.cycle).collect()
-}
+} // end generate

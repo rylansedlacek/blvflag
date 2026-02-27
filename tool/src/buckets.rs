@@ -74,16 +74,13 @@ pub fn find_last_error_type(script_name: &str) -> Option<String> {
     // get all error types within the bucket dir
     let entries = fs::read_dir(&root).ok()?;
 
-    
     for entry in entries.flatten() {
         let error_type = entry.file_name().to_string_lossy().to_string();
         let script_dir = entry
             .path()
             .join(script_name.trim_end_matches(".py"));
 
-        if !script_dir.exists() {
-            continue;
-        }
+        if !script_dir.exists() { continue; }
 
         let mut cycles: Vec<PathBuf> = fs::read_dir(&script_dir)
             .ok()?
@@ -188,6 +185,3 @@ pub fn identical_error (error_type: &str, script_name: &str) -> bool {
 
     last.is_error && prev.is_error && last.run_contents == prev.run_contents
 }
-
-
-// end file.

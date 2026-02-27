@@ -8,20 +8,20 @@ pub enum OutputType {
     Stderr,
 }
 
-pub fn run_script(script_path: &str) -> io::Result<(OutputType, String)> { // to pipe the script given
+pub fn run_script(script_path: &str) -> io::Result<(OutputType, String)> { 
     let output = Command::new("python3") 
         .arg(script_path)
-        .stdout(Stdio::piped()) // for stdout
-        .stderr(Stdio::piped()) // for stderr
+        .stdout(Stdio::piped()) 
+        .stderr(Stdio::piped()) 
         .output()?;
 
     let out; 
     if output.status.success() {
-        out = (OutputType::Stdout, String::from_utf8_lossy(&output.stdout).to_string()); // standard out
+        out = (OutputType::Stdout, String::from_utf8_lossy(&output.stdout).to_string());
     } else {
-        out = (OutputType::Stderr, String::from_utf8_lossy(&output.stderr).to_string()); // stand error out
+        out = (OutputType::Stderr, String::from_utf8_lossy(&output.stderr).to_string()); 
     }
-    Ok(out) // return out as string back to main for model processing.
+    Ok(out)
 } // end runScript
 
 pub fn clear_history() -> Result<(), Box<dyn std::error::Error>> {
@@ -43,10 +43,6 @@ pub fn clear_history() -> Result<(), Box<dyn std::error::Error>> {
         println!("Aborted action.");
         return Ok(());
      }
-
-    // for each dir
-    // check that it exists, enter, get file name,
-    // if its not our placeholder.json -> remove
 
     for dir in dirs_to_clear { 
         if dir.exists() {

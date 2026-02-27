@@ -3,13 +3,10 @@ use std::io::{self, Write};
 use dirs_next;
 use reqwest::header::{AUTHORIZATION, HeaderValue}; // add for API
 
-//TODO should add a fall back!
-
 pub async fn setup_model() -> Result<(), Box<dyn std::error::Error>> {
     println!("Welcome to BLVFLAG Setup\n");
     println!("Please enter Auth Token:");
 
-    // TODO ask PC is this hardcodedness is ok.
     let endpoint = "http://34.238.139.12:8080/api/meta-key"; 
     let mut auth_token = String::new(); 
 
@@ -27,7 +24,6 @@ pub async fn setup_model() -> Result<(), Box<dyn std::error::Error>> {
         .as_str()
         .ok_or("API key not found in response")?; // fall back
 
-        // same as before here:
     let mut key_dir = dirs_next::home_dir().expect("Failed to get home directory"); // grab home dir
     key_dir.push("blvflag/tool/key");
     fs::create_dir_all(&key_dir)?;
@@ -38,4 +34,4 @@ pub async fn setup_model() -> Result<(), Box<dyn std::error::Error>> {
 
     println!("Success! API key saved at {:?}", key_file_path);
     Ok(())
-}
+} // end setup model

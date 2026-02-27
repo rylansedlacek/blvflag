@@ -37,9 +37,9 @@ pub async fn process_script(script_path: &str, explain: bool, diff: bool, revert
                 history_dir.push("blvflag/tool/history/std_history"); // create the std_history dir if it DOESNT EXIST
                 fs::create_dir_all(&history_dir)?;
             
-                let json_name = format!("{}_{}.json", script_name.trim_end_matches(".py"), date_stamp); // dating format
+                let json_name = format!("{}_{}.json", script_name.trim_end_matches(".py"), date_stamp);
                 let full_path = history_dir.join(&json_name); 
-                let current_script_content = fs::read_to_string(script_path)?; // stringify all contents 
+                let current_script_content = fs::read_to_string(script_path)?;
 
                  // Hashing Logic
                 if let Some(error_type) = buckets::find_last_error_type(&script_name) { // matches to write to proper cycle
@@ -52,7 +52,6 @@ pub async fn process_script(script_path: &str, explain: bool, diff: bool, revert
                     );
                  }
                  // ---
-
 
                 /*
                     Here we are going to read through both of the history sub dirs, std_history & err_history.
@@ -71,7 +70,7 @@ pub async fn process_script(script_path: &str, explain: bool, diff: bool, revert
                             if fname.starts_with(prefix) {
                                 Some(path) 
                             } else { 
-                                None // TODO unsure if this is good practice.
+                                None 
                             }
                         }); // end std read
             
@@ -91,7 +90,7 @@ pub async fn process_script(script_path: &str, explain: bool, diff: bool, revert
                     all_versions.extend(err_versions); // append err
                     all_versions.sort(); // sort to get the most recent
 
-                    // add the revert flag 
+                    // revert flag
                     if revert {
                         if all_versions.len() < 2 {
                             println!("No previous version to revert to!");
@@ -119,7 +118,7 @@ pub async fn process_script(script_path: &str, explain: bool, diff: bool, revert
                         }
                     } 
                     
-                    if should_save { // write to the path the contents, love this C like syntax
+                    if should_save { // write to the path the contents
                         fs::write(&full_path, &current_script_content)?;
                         println!("\nAuto-Saving contents to: {:?}", full_path);
                     }
@@ -208,7 +207,7 @@ pub async fn process_script(script_path: &str, explain: bool, diff: bool, revert
                             if fname.starts_with(prefix) {
                                 Some(path) 
                             } else { 
-                                None // TODO unsure if this is good practice.
+                                None 
                             }
                         }); // end std read
             
@@ -228,7 +227,7 @@ pub async fn process_script(script_path: &str, explain: bool, diff: bool, revert
                     all_versions.extend(err_versions); // append err
                     all_versions.sort(); // sort to get the most recent
 
-                    // add the revert flag
+                    // Revert Flag
                     if revert {
                         if all_versions.len() < 2 {
                             println!("No previous version to revert to!");
@@ -256,7 +255,7 @@ pub async fn process_script(script_path: &str, explain: bool, diff: bool, revert
                         }
                     } 
                     
-                    if should_save { // write to the path the contents, love this C like syntax
+                    if should_save { // write to the path the contents
                         fs::write(&full_path, &current_script_content)?;
                         println!("\nAuto-Saving contents to: {:?}", full_path);
                     }
@@ -459,7 +458,7 @@ pub async fn process_script(script_path: &str, explain: bool, diff: bool, revert
         Err(_) => {
             eprintln!("\nFailed to execute the script. Use -help for help");
         }
-    } // match
+    } // end match
 
     /* Metric testing
     let duration = start.elapsed().as_secs_f64();
@@ -480,4 +479,4 @@ pub async fn process_script(script_path: &str, explain: bool, diff: bool, revert
                             
     Ok(()) 
 } // end processing script
-// end file.
+
