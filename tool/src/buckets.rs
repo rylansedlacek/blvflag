@@ -6,11 +6,21 @@ use serde::{Deserialize, Serialize};
 
 #[derive(Debug, Serialize, Deserialize, Clone)]
 pub struct RunRecord {
+    pub script_id: String,
     pub run_id: String,
     pub timestamp: String,
     pub run_contents: String,
     pub is_error: bool,
     pub is_fixed: bool,
+}
+
+fn generate_script_id(script_name: &str) -> String {
+    use std::collections::hash_map::DefaultHasher;
+    use std::hash::{Hash, Hasher};
+
+    let mut hasher = DefaultHasher::new();
+    script_name.trim_end_matches(".py").hash(&mut hasher);
+    format!("script_{:x}", hasher.finish())
 }
 
 pub fn record_run(error_type: &str, script_name: &str, run_contents: &str, 
@@ -54,8 +64,11 @@ pub fn record_run(error_type: &str, script_name: &str, run_contents: &str,
         vec![]
     };
 
+    let script_id = generate_script_id(script_name);
+
     // append new run to the cycle
     runs.push(RunRecord {
+        script_id: script_id.clone(),
         run_id: format!("run_{}", Local::now().timestamp()),
         timestamp: Local::now().to_rfc3339(),
         run_contents: run_contents.to_string(),
