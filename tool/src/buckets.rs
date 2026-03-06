@@ -3,7 +3,10 @@ use std::path::PathBuf;
 use chrono::Local;
 use dirs_next;
 use serde::{Deserialize, Serialize};
+use std::collections::hash_map::DefaultHasher;
+use std::hash::{Hash, Hasher};
 
+// fields displayed in a recorded runs json entry
 #[derive(Debug, Serialize, Deserialize, Clone)]
 pub struct RunRecord {
     pub script_id: String,
@@ -15,14 +18,12 @@ pub struct RunRecord {
 }
 
 fn generate_script_id(script_name: &str) -> String {
-    use std::collections::hash_map::DefaultHasher;
-    use std::hash::{Hash, Hasher};
-
     let mut hasher = DefaultHasher::new();
     script_name.trim_end_matches(".py").hash(&mut hasher);
     format!("script_{:x}", hasher.finish())
 }
 
+// record development cycles
 pub fn record_run(error_type: &str, script_name: &str, run_contents: &str, 
     is_error: bool, is_fixed: bool,) -> std::io::Result<()> {
 
@@ -30,8 +31,7 @@ pub fn record_run(error_type: &str, script_name: &str, run_contents: &str,
     base.push("blvflag/tool/buckets");
     base.push(error_type);
     base.push(script_name.trim_end_matches(".py"));
-
-    fs::create_dir_all(&base)?;
+    fs::create_dir_all(&base)?; // make the buckets dir if it does not exist
 
     // collect existing cycles
     let mut cycles: Vec<PathBuf> = fs::read_dir(&base)?
@@ -42,29 +42,31 @@ pub fn record_run(error_type: &str, script_name: &str, run_contents: &str,
     cycles.sort();
 
     // determine which cycle we want
-    let cycle_path = if let Some(last_cycle) = cycles.last() {
-        let data = fs::read_to_string(last_cycle)?;
-        let runs: Vec<RunRecord> = serde_json::from_str(&data).unwrap_or_default();
+    let cycle_path = 
+        if let Some(last_cycle) = cycles.last() {
+            let data = fs::read_to_string(last_cycle)?;
+            let runs: Vec<RunRecord> = serde_json::from_str(&data).unwrap_or_default();
 
-        if runs.last().map(|r| r.is_fixed).unwrap_or(false) {
-            // last cycle is FIXED?
-            let idx = cycles.len() + 1;
-            base.join(format!("cycle_{}.json", idx))
-        } else {
-            last_cycle.clone()
-        }
-    } else { // or make a new one
-        base.join("cycle_1.json")
-    };
+            if runs.last().map(|r| r.is_fixed).unwrap_or(false) {
+                // last cycle is FIXED?
+                let idx = cycles.len() + 1;
+                base.join(format!("cycle_{}.json", idx))
+            } else {
+                last_cycle.clone() // existing is our path and we write to that
+            }
+        } else { // or make a new one if none exist for a script
+            base.join("cycle_1.json")
+        };
 
     // load existing runs or start again
-    let mut runs: Vec<RunRecord> = if cycle_path.exists() {
-        serde_json::from_str(&fs::read_to_string(&cycle_path)?)?
-    } else {
-        vec![]
-    };
+    let mut runs: Vec<RunRecord> = 
+        if cycle_path.exists() {
+            serde_json::from_str(&fs::read_to_string(&cycle_path)?)?
+        } else {
+            vec![]
+        };
 
-    let script_id = generate_script_id(script_name);
+    let script_id = generate_script_id(script_name); // hash a script id unique to the script name
 
     // append new run to the cycle
     runs.push(RunRecord {
@@ -80,6 +82,7 @@ pub fn record_run(error_type: &str, script_name: &str, run_contents: &str,
     Ok(())
 }
 
+// find last error to write to relevant cycle
 pub fn find_last_error_type(script_name: &str) -> Option<String> {
     let mut root = dirs_next::home_dir()?;
     root.push("blvflag/tool/buckets");
@@ -117,6 +120,7 @@ pub fn find_last_error_type(script_name: &str) -> Option<String> {
     None
 }
 
+// retrive all fixed cycles for an error type -> see ranking.rs
 pub fn fixed_cycles(error_type: &str) -> Vec<Vec<RunRecord>> {
     let mut recovered = Vec::new();
 
@@ -155,6 +159,7 @@ pub fn fixed_cycles(error_type: &str) -> Vec<Vec<RunRecord>> {
     recovered
 }
 
+// used for automatic context generation in -> generate.rs
 pub fn identical_error (error_type: &str, script_name: &str) -> bool {
     let mut base = match dirs_next::home_dir() {
         Some(p) => p,
