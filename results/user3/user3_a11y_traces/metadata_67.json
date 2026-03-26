@@ -1,0 +1,444 @@
+{
+  "task": {
+    "task_id": 67,
+    "task_title": "Get traveling distance from Maps and save to Notepad",
+    "instruction": "Visit maps.google.com. Check for how long it takes to start from The Domain and reach Austin Airport using public transport. \nAdd the different buses/trains to be taken and time each of them takes they cover in the route to Notepad.",
+    "task": "Visit maps.google.com. Check for how long it takes to start from The Domain and reach Austin Airport using public transport. \nAdd the different buses/trains to be taken and time each of them takes they cover in the route to Notepad.",
+    "context": "I want to know the distance and time needed to cover different sections of the route from The Domain to Austin Airport if I were to take public transport all the way.",
+    "rand_id_column": "Rand ID 16",
+    "rand_order": 42,
+    "task_group": "Workflow",
+    "interactions": "",
+    "applications": "Chrome, Notepad",
+    "familiarity": "High",
+    "difficulty_before": "Low",
+    "difficulty_after": "Hard",
+    "success": false,
+    "failure_reason": "Couldn't find the required info"
+  },
+  "session": {
+    "started_at": 1756404729.957629,
+    "last_event_at": 1756405202628,
+    "folder": "task_logs\\User 16\\67",
+    "apps_by_order": [
+      {
+        "order": 1,
+        "app": "explorer.exe",
+        "log_file": "1_explorer.exe.json"
+      },
+      {
+        "order": 2,
+        "app": "chrome.exe",
+        "log_file": "2_chrome.exe.json"
+      }
+    ],
+    "ended_at": 1756405224.9766653
+  },
+  "apps": {
+    "explorer.exe": {
+      "order": 1,
+      "log_file": "1_explorer.exe.json",
+      "a11y_tree_files": [
+        "1_explorer.exe_1756404736040_a11y_tree.json"
+      ],
+      "events": 2,
+      "by_type": {
+        "mouse_click": 0,
+        "mouse_up": 0,
+        "mouse_move": 0,
+        "drag_drop": 0,
+        "key_press": 2,
+        "hotkey": 0,
+        "scroll": 0
+      },
+      "display_name": "explorer.exe",
+      "windows_seen": [
+        {
+          "title": "Program Manager",
+          "bounds": {
+            "left": 0,
+            "top": 0,
+            "right": 1920,
+            "bottom": 1080
+          },
+          "state": null,
+          "hwnd": 1968060,
+          "pid": 8492,
+          "ts": 1756404736.0400977
+        }
+      ],
+      "last_window": {
+        "title": "Program Manager",
+        "bounds": {
+          "left": 0,
+          "top": 0,
+          "right": 1920,
+          "bottom": 1080
+        },
+        "state": null,
+        "hwnd": 1968060,
+        "pid": 8492,
+        "ts": 1756404737.290014
+      },
+      "keystrokes": {
+        "hotkeys": {},
+        "screen_reader_commands": {},
+        "other_keys": {
+          "Enter": 1,
+          "g": 1
+        },
+        "totals": {
+          "hotkeys": 0,
+          "screen_reader_commands": 0,
+          "other_keys": 2
+        },
+        "intents_by_hotkey": {}
+      }
+    },
+    "chrome.exe": {
+      "order": 2,
+      "log_file": "2_chrome.exe.json",
+      "a11y_tree_files": [
+        "2_chrome.exe_1756404740485_a11y_tree.json"
+      ],
+      "events": 373,
+      "by_type": {
+        "mouse_click": 1,
+        "mouse_up": 1,
+        "mouse_move": 9,
+        "drag_drop": 0,
+        "key_press": 307,
+        "hotkey": 55,
+        "scroll": 0
+      },
+      "display_name": "chrome.exe",
+      "windows_seen": [
+        {
+          "title": "New Tab - Google Chrome",
+          "bounds": {
+            "left": -9,
+            "top": -9,
+            "right": 1929,
+            "bottom": 1029
+          },
+          "state": null,
+          "hwnd": 30802686,
+          "pid": 4840,
+          "ts": 1756404740.484996
+        },
+        {
+          "title": "Google Maps - Google Chrome",
+          "bounds": {
+            "left": -9,
+            "top": -9,
+            "right": 1929,
+            "bottom": 1029
+          },
+          "state": null,
+          "hwnd": 30802686,
+          "pid": 4840,
+          "ts": 1756404757.0635087
+        },
+        {
+          "title": "Austin-Bergstrom International Airport - Google Maps - Google Chrome",
+          "bounds": {
+            "left": -9,
+            "top": -9,
+            "right": 1929,
+            "bottom": 1029
+          },
+          "state": null,
+          "hwnd": 30802686,
+          "pid": 4840,
+          "ts": 1756404780.2335057
+        },
+        {
+          "title": "Google Maps - Google Chrome",
+          "bounds": {
+            "left": -9,
+            "top": -9,
+            "right": 1929,
+            "bottom": 1029
+          },
+          "state": null,
+          "hwnd": 30802686,
+          "pid": 4840,
+          "ts": 1756404819.074345
+        },
+        {
+          "title": "The Domain to Austin-Bergstrom International Airport - Google Maps - Google Chrome",
+          "bounds": {
+            "left": -9,
+            "top": -9,
+            "right": 1929,
+            "bottom": 1029
+          },
+          "state": null,
+          "hwnd": 30802686,
+          "pid": 4840,
+          "ts": 1756404829.9391356
+        }
+      ],
+      "last_window": {
+        "title": "The Domain to Austin-Bergstrom International Airport - Google Maps - Google Chrome",
+        "bounds": {
+          "left": -9,
+          "top": -9,
+          "right": 1929,
+          "bottom": 1029
+        },
+        "state": null,
+        "hwnd": 30802686,
+        "pid": 4840,
+        "ts": 1756405202.5219865
+      },
+      "keystrokes": {
+        "hotkeys": {
+          "Ctrl+Home": 2
+        },
+        "screen_reader_commands": {},
+        "other_keys": {
+          "Tab": 127,
+          "Down": 92,
+          "Up": 41,
+          "Backspace": 14,
+          "b": 10,
+          "Enter": 10,
+          "Shift": 9,
+          "a": 5,
+          "o": 5,
+          "e": 4,
+          "m": 4,
+          ".": 3,
+          "h": 3,
+          "i": 3,
+          "p": 3,
+          "Space": 3,
+          "g": 2,
+          "n": 2,
+          "r": 2,
+          "s": 2,
+          "t": 2,
+          "c": 1,
+          "d": 1,
+          "Esc": 1,
+          "l": 1,
+          "u": 1
+        },
+        "totals": {
+          "hotkeys": 2,
+          "screen_reader_commands": 0,
+          "other_keys": 351
+        },
+        "intents_by_hotkey": {}
+      }
+    }
+  },
+  "web": {
+    "tabs_by_order": [
+      {
+        "order": 1,
+        "first_ts": 1756404751401,
+        "url": "https://www.google.com/maps",
+        "title": "Google Maps",
+        "file": "/task_logs/67/web_logs/web_tab1_1756404751401.json",
+        "dom_url": "/task_logs/User 16/67/web_logs/web_tab1_1756404751401.html",
+        "a11y_url": "/task_logs/User 16/67/web_logs/web_tab1_1756404751401_a11y_tree.json"
+      },
+      {
+        "order": 2,
+        "first_ts": 1756404770228,
+        "url": "https://www.google.com/maps/@37.3489664,-121.9559424,14z?entry=ttu&g_ep=EgoyMDI1MDgyNS4wIKXMDSoASAFQAw%3D%3D",
+        "title": "austin airport - Google Maps",
+        "file": "/task_logs/67/web_logs/web_tab2_1756404770228.json",
+        "dom_url": "/task_logs/User 16/67/web_logs/web_tab2_1756404770228.html",
+        "a11y_url": "/task_logs/User 16/67/web_logs/web_tab2_1756404770228_a11y_tree.json"
+      },
+      {
+        "order": 3,
+        "first_ts": 1756404777879,
+        "url": "https://www.google.com/maps/place/Austin-Bergstrom+International+Airport/@30.1978172,-97.6722114,16z/data=!3m1!4b1!4m6!3m5!1s0x8644b13b8b4aff45:0x1ca7fca8c9dc2768!8m2!3d30.194085!4d-97.6710889!16zL20vMDFtejJ4?entry=ttu&g_ep=EgoyMDI1MDgyNS4wIKXMDSoASAFQAw%3D%3D",
+        "title": "Google Maps",
+        "file": "/task_logs/67/web_logs/web_tab3_1756404777879.json",
+        "dom_url": null,
+        "a11y_url": null
+      },
+      {
+        "order": 4,
+        "first_ts": 1756404819032,
+        "url": "https://www.google.com/maps/dir//Austin-Bergstrom+International+Airport+(AUS),+3600+Presidential+Blvd,+Austin,+TX+78719/@30.1978172,-97.6722114,16z/data=!4m8!4m7!1m0!1m5!1m1!1s0x8644b13b8b4aff45:0x1ca7fca8c9dc2768!2m2!1d-97.6710889!2d30.194085?entry=ttu&g_ep=EgoyMDI1MDgyNS4wIKXMDSoASAFQAw%3D%3D",
+        "title": "Google Maps",
+        "file": "/task_logs/67/web_logs/web_tab4_1756404819032.json",
+        "dom_url": null,
+        "a11y_url": null
+      },
+      {
+        "order": 5,
+        "first_ts": 1756404892145,
+        "url": "https://www.google.com/maps/dir/The+Domain,+11410+Century+Oaks+Terrace,+Austin,+TX+78758/Austin-Bergstrom+International+Airport+(AUS),+3600+Presidential+Blvd,+Austin,+TX+78719/@30.3014527,-97.897748,11z/data=!3m1!4b1!4m13!4m12!1m5!1m1!1s0x8644cc71ec3d3b05:0x77c4a76c643f0420!2m2!1d-97.7258829!2d30.4020649!1m5!1m1!1s0x8644b13b8b4aff45:0x1ca7fca8c9dc2768!2m2!1d-97.6710889!2d30.194085?entry=ttu&g_ep=EgoyMDI1MDgyNS4wIKXMDSoASAFQAw%3D%3D",
+        "title": "The Domain to Austin-Bergstrom International Airport - Google Maps",
+        "file": "/task_logs/67/web_logs/web_tab5_1756404892145.json",
+        "dom_url": null,
+        "a11y_url": null
+      },
+      {
+        "order": 6,
+        "first_ts": 1756405145249,
+        "url": "https://www.google.com/maps/dir/The+Domain,+11410+Century+Oaks+Terrace,+Austin,+TX+78758/Austin-Bergstrom+International+Airport+(AUS),+3600+Presidential+Blvd,+Austin,+TX+78719/@30.3014527,-97.897748,11z/data=!4m14!4m13!1m5!1m1!1s0x8644cc71ec3d3b05:0x77c4a76c643f0420!2m2!1d-97.7258829!2d30.4020649!1m5!1m1!1s0x8644b13b8b4aff45:0x1ca7fca8c9dc2768!2m2!1d-97.6710889!2d30.194085!5i1?entry=ttu&g_ep=EgoyMDI1MDgyNS4wIKXMDSoASAFQAw%3D%3D",
+        "title": "The Domain to Austin-Bergstrom International Airport - Google Maps",
+        "file": "/task_logs/67/web_logs/web_tab6_1756405145249.json",
+        "dom_url": null,
+        "a11y_url": null
+      },
+      {
+        "order": 7,
+        "first_ts": 1756405185790,
+        "url": "https://www.google.com/maps/dir/The+Domain,+11410+Century+Oaks+Terrace,+Austin,+TX+78758/Austin-Bergstrom+International+Airport+(AUS),+3600+Presidential+Blvd,+Austin,+TX+78719/@30.3014527,-97.897748,11z/data=!4m13!4m12!1m5!1m1!1s0x8644cc71ec3d3b05:0x77c4a76c643f0420!2m2!1d-97.7258829!2d30.4020649!1m5!1m1!1s0x8644b13b8b4aff45:0x1ca7fca8c9dc2768!2m2!1d-97.6710889!2d30.194085?entry=ttu&g_ep=EgoyMDI1MDgyNS4wIKXMDSoASAFQAw%3D%3D",
+        "title": "The Domain to Austin-Bergstrom International Airport - Google Maps",
+        "file": "/task_logs/67/web_logs/web_tab7_1756405185790.json",
+        "dom_url": null,
+        "a11y_url": null
+      }
+    ],
+    "events": 178,
+    "by_tab": {
+      "1::1756404751401": 1,
+      "2::1756404770228": 31,
+      "3::1756404777879": 10,
+      "4::1756404819032": 17,
+      "5::1756404892145": 92,
+      "6::1756405145249": 18,
+      "7::1756405185790": 9
+    }
+  },
+  "summary": {
+    "apps": 2,
+    "events": 553,
+    "by_type": {
+      "key_press": 309,
+      "hotkey": 55,
+      "mouse_move": 9,
+      "mouse_click": 1,
+      "mouse_up": 1
+    },
+    "by_app": {
+      "explorer.exe": 2,
+      "chrome.exe": 373
+    },
+    "keystrokes": {
+      "hotkeys": {
+        "Ctrl+Home": 2
+      },
+      "screen_reader_commands": {},
+      "other_keys": {
+        "Tab": 127,
+        "Down": 92,
+        "Up": 41,
+        "Backspace": 14,
+        "Enter": 11,
+        "b": 10,
+        "Shift": 9,
+        "a": 5,
+        "o": 5,
+        "e": 4,
+        "m": 4,
+        ".": 3,
+        "g": 3,
+        "h": 3,
+        "i": 3,
+        "p": 3,
+        "Space": 3,
+        "n": 2,
+        "r": 2,
+        "s": 2,
+        "t": 2,
+        "c": 1,
+        "d": 1,
+        "Esc": 1,
+        "l": 1,
+        "u": 1
+      },
+      "totals": {
+        "hotkeys": 2,
+        "screen_reader_commands": 0,
+        "other_keys": 353
+      },
+      "intents_by_hotkey": {}
+    }
+  },
+  "accessibility": {
+    "baseline": {
+      "os": "Windows",
+      "os_version": "10.0.26100",
+      "python_version": "3.13.6",
+      "narrator": {
+        "enabled": false,
+        "startup_enabled": false
+      },
+      "magnifier": {
+        "enabled": false,
+        "zoom": null
+      },
+      "color_filter": {
+        "enabled": false,
+        "type": "blue-yellow"
+      },
+      "high_contrast": {
+        "enabled": false,
+        "flags": "126"
+      },
+      "sticky_keys": {
+        "flags": "510",
+        "maybe_enabled": true
+      },
+      "toggle_keys": {
+        "flags": "62",
+        "maybe_enabled": true
+      },
+      "filter_keys": {
+        "flags": "126",
+        "maybe_enabled": true
+      },
+      "font_smoothing": "2",
+      "display_scaling": null,
+      "mouse_cursor_scheme": "windows aero"
+    },
+    "last": {
+      "os": "Windows",
+      "os_version": "10.0.26100",
+      "python_version": "3.13.6",
+      "narrator": {
+        "enabled": false,
+        "startup_enabled": false
+      },
+      "magnifier": {
+        "enabled": false,
+        "zoom": null
+      },
+      "color_filter": {
+        "enabled": false,
+        "type": "blue-yellow"
+      },
+      "high_contrast": {
+        "enabled": false,
+        "flags": "126"
+      },
+      "sticky_keys": {
+        "flags": "510",
+        "maybe_enabled": true
+      },
+      "toggle_keys": {
+        "flags": "62",
+        "maybe_enabled": true
+      },
+      "filter_keys": {
+        "flags": "126",
+        "maybe_enabled": true
+      },
+      "font_smoothing": "2",
+      "display_scaling": null,
+      "mouse_cursor_scheme": "windows aero"
+    },
+    "changes": []
+  }
+}

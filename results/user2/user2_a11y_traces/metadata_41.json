@@ -1,0 +1,536 @@
+{
+  "task": {
+    "task_id": 41,
+    "task_title": "Change the theme in Power Point Slide",
+    "instruction": "Open Powerpoint Slide \"Task ID 41.pptx\" in Documents > Task ID 41 folder, and change the presentation theme to \"Gallery\".",
+    "task": "Open Powerpoint Slide \"Task ID 41.pptx\" in Documents > Task ID 41 folder, and change the presentation theme to \"Gallery\".",
+    "context": "I want to change my presentation's theme to a colorful one.",
+    "rand_id_column": "Rand ID 11",
+    "rand_order": 32,
+    "task_group": "Document Editing",
+    "interactions": "",
+    "applications": "PowerPoint",
+    "familiarity": "Low",
+    "difficulty_before": "Low",
+    "difficulty_after": "Low",
+    "success": false,
+    "failure_reason": "App crashed/froze"
+  },
+  "session": {
+    "started_at": 1755886194.7576182,
+    "last_event_at": 1755886457.716669,
+    "folder": "task_logs\\User 11\\41",
+    "apps_by_order": [
+      {
+        "order": 1,
+        "app": "explorer.exe",
+        "log_file": "1_explorer.exe.json"
+      },
+      {
+        "order": 2,
+        "app": "POWERPNT.EXE",
+        "log_file": "2_POWERPNT.EXE.json"
+      },
+      {
+        "order": 3,
+        "app": "nvda.exe",
+        "log_file": "3_nvda.exe.json"
+      }
+    ],
+    "ended_at": 1755886481.4334078
+  },
+  "apps": {
+    "explorer.exe": {
+      "order": 1,
+      "log_file": "1_explorer.exe.json",
+      "a11y_tree_files": [
+        "1_explorer.exe_1755886206569_a11y_tree.json",
+        "1_explorer.exe_1755886210558_a11y_tree.json",
+        "1_explorer.exe_1755886374785_a11y_tree.json"
+      ],
+      "events": 229,
+      "by_type": {
+        "mouse_click": 1,
+        "mouse_up": 1,
+        "mouse_move": 8,
+        "drag_drop": 0,
+        "key_press": 216,
+        "hotkey": 3,
+        "scroll": 0
+      },
+      "display_name": "explorer.exe",
+      "windows_seen": [
+        {
+          "title": "Run",
+          "bounds": {
+            "left": 9,
+            "top": 736,
+            "right": 481,
+            "bottom": 1016
+          },
+          "state": "normal",
+          "hwnd": 3018688,
+          "pid": 9812,
+          "ts": 1755886206.5688877
+        },
+        {
+          "title": "",
+          "bounds": {
+            "left": 0,
+            "top": 1020,
+            "right": 40,
+            "bottom": 1060
+          },
+          "state": "normal",
+          "hwnd": 21037220,
+          "pid": 9812,
+          "ts": 1755886208.9725986
+        },
+        {
+          "title": "Documents - File Explorer",
+          "bounds": {
+            "left": 934,
+            "top": 191,
+            "right": 1822,
+            "bottom": 941
+          },
+          "state": "normal",
+          "hwnd": 1707862,
+          "pid": 9812,
+          "ts": 1755886210.5584364
+        },
+        {
+          "title": "Task 41 - File Explorer",
+          "bounds": {
+            "left": 934,
+            "top": 191,
+            "right": 1822,
+            "bottom": 941
+          },
+          "state": "normal",
+          "hwnd": 1707862,
+          "pid": 9812,
+          "ts": 1755886217.498508
+        },
+        {
+          "title": "Program Manager",
+          "bounds": {
+            "left": 0,
+            "top": 0,
+            "right": 1920,
+            "bottom": 1080
+          },
+          "state": "normal",
+          "hwnd": 65964,
+          "pid": 9812,
+          "ts": 1755886374.7849104
+        }
+      ],
+      "last_window": {
+        "title": "Program Manager",
+        "bounds": {
+          "left": 0,
+          "top": 0,
+          "right": 1920,
+          "bottom": 1080
+        },
+        "state": "normal",
+        "hwnd": 65964,
+        "pid": 9812,
+        "ts": 1755886398.378858
+      },
+      "keystrokes": {
+        "hotkeys": {
+          "Win+<255>": 1,
+          "Win+D": 1,
+          "Win+Down": 1
+        },
+        "screen_reader_commands": {},
+        "other_keys": {
+          "Down": 184,
+          "Up": 8,
+          "t": 6,
+          "Enter": 4,
+          "Right": 2,
+          "c": 1,
+          "d": 1,
+          "e": 1,
+          "m": 1,
+          "n": 1,
+          "o": 1,
+          "s": 1,
+          "u": 1
+        },
+        "totals": {
+          "hotkeys": 3,
+          "screen_reader_commands": 0,
+          "other_keys": 212
+        },
+        "intents_by_hotkey": {
+          "show_desktop": 1
+        }
+      }
+    },
+    "POWERPNT.EXE": {
+      "order": 2,
+      "log_file": "2_POWERPNT.EXE.json",
+      "a11y_tree_files": [
+        "2_POWERPNT.EXE_1755886226281_a11y_tree.json",
+        "2_POWERPNT.EXE_1755886226803_a11y_tree.json",
+        "2_POWERPNT.EXE_1755886234715_a11y_tree.json"
+      ],
+      "events": 824,
+      "by_type": {
+        "mouse_click": 1,
+        "mouse_up": 1,
+        "mouse_move": 5,
+        "drag_drop": 0,
+        "key_press": 779,
+        "hotkey": 38,
+        "scroll": 0
+      },
+      "display_name": "POWERPNT.EXE",
+      "windows_seen": [
+        {
+          "title": "Task ID 41  -  Protected View - PowerPoint",
+          "bounds": {
+            "left": -9,
+            "top": -9,
+            "right": 1929,
+            "bottom": 1029
+          },
+          "state": "maximized",
+          "hwnd": 1708172,
+          "pid": 18244,
+          "ts": 1755886226.2806444
+        },
+        {
+          "title": "Microsoft PowerPoint",
+          "bounds": {
+            "left": 588,
+            "top": 470,
+            "right": 1350,
+            "bottom": 623
+          },
+          "state": "normal",
+          "hwnd": 7933126,
+          "pid": 18244,
+          "ts": 1755886226.8033898
+        },
+        {
+          "title": "Task ID 41 - PowerPoint",
+          "bounds": {
+            "left": -9,
+            "top": -9,
+            "right": 1929,
+            "bottom": 1029
+          },
+          "state": "maximized",
+          "hwnd": 7998662,
+          "pid": 18244,
+          "ts": 1755886234.7148898
+        }
+      ],
+      "last_window": {
+        "title": "Task ID 41 - PowerPoint",
+        "bounds": {
+          "left": -9,
+          "top": -9,
+          "right": 1929,
+          "bottom": 1029
+        },
+        "state": "maximized",
+        "hwnd": 7998662,
+        "pid": 18244,
+        "ts": 1755886374.6158395
+      },
+      "keystrokes": {
+        "hotkeys": {
+          "Alt+Down": 2,
+          "Win+U": 2,
+          "Alt+D": 1,
+          "Ctrl+\u0001": 1,
+          "Ctrl+S": 1
+        },
+        "screen_reader_commands": {},
+        "other_keys": {
+          "Down": 671,
+          "Tab": 90,
+          "Left": 11,
+          "Right": 6,
+          "Shift": 5,
+          "Esc": 4,
+          "Enter": 2,
+          "Up": 2,
+          "Delete": 1,
+          "t": 1
+        },
+        "totals": {
+          "hotkeys": 7,
+          "screen_reader_commands": 0,
+          "other_keys": 793
+        },
+        "intents_by_hotkey": {
+          "save": 1
+        }
+      }
+    },
+    "nvda.exe": {
+      "order": 3,
+      "log_file": "3_nvda.exe.json",
+      "a11y_tree_files": [
+        "3_nvda.exe_1755886317626_a11y_tree.json",
+        "3_nvda.exe_1755886339548_a11y_tree.json",
+        "3_nvda.exe_1755886410491_a11y_tree.json",
+        "3_nvda.exe_1755886419196_a11y_tree.json",
+        "3_nvda.exe_1755886440691_a11y_tree.json"
+      ],
+      "events": 585,
+      "by_type": {
+        "mouse_click": 15,
+        "mouse_up": 14,
+        "mouse_move": 52,
+        "drag_drop": 1,
+        "key_press": 500,
+        "hotkey": 3,
+        "scroll": 0
+      },
+      "display_name": "nvda.exe",
+      "windows_seen": [
+        {
+          "title": "Exit NVDA",
+          "bounds": {
+            "left": 634,
+            "top": 443,
+            "right": 1285,
+            "bottom": 576
+          },
+          "state": "normal",
+          "hwnd": 4395200,
+          "pid": 22176,
+          "ts": 1755886317.6257956
+        },
+        {
+          "title": "Welcome to NVDA",
+          "bounds": {
+            "left": 85,
+            "top": 55,
+            "right": 585,
+            "bottom": 368
+          },
+          "state": "normal",
+          "hwnd": 5115340,
+          "pid": 22164,
+          "ts": 1755886339.547745
+        },
+        {
+          "title": "Exit NVDA",
+          "bounds": {
+            "left": 634,
+            "top": 443,
+            "right": 1285,
+            "bottom": 576
+          },
+          "state": "normal",
+          "hwnd": 21303038,
+          "pid": 22164,
+          "ts": 1755886410.4907234
+        },
+        {
+          "title": "NVDA",
+          "bounds": {
+            "left": 224,
+            "top": 224,
+            "right": 390,
+            "bottom": 271
+          },
+          "state": "normal",
+          "hwnd": 6950194,
+          "pid": 20892,
+          "ts": 1755886418.8187592
+        },
+        {
+          "title": "Welcome to NVDA",
+          "bounds": {
+            "left": 583,
+            "top": 300,
+            "right": 1336,
+            "bottom": 719
+          },
+          "state": "normal",
+          "hwnd": 1510478,
+          "pid": 20892,
+          "ts": 1755886419.1964796
+        },
+        {
+          "title": "",
+          "bounds": {
+            "left": 960,
+            "top": 540,
+            "right": 1460,
+            "bottom": 853
+          },
+          "state": "normal",
+          "hwnd": 22155254,
+          "pid": 20892,
+          "ts": 1755886434.1147037
+        },
+        {
+          "title": "Exit NVDA",
+          "bounds": {
+            "left": 634,
+            "top": 443,
+            "right": 1285,
+            "bottom": 576
+          },
+          "state": "normal",
+          "hwnd": 16910704,
+          "pid": 20892,
+          "ts": 1755886440.6914828
+        }
+      ],
+      "last_window": {
+        "title": "Exit NVDA",
+        "bounds": {
+          "left": 634,
+          "top": 443,
+          "right": 1285,
+          "bottom": 576
+        },
+        "state": "normal",
+        "hwnd": 16910704,
+        "pid": 20892,
+        "ts": 1755886457.716669
+      },
+      "keystrokes": {
+        "hotkeys": {},
+        "screen_reader_commands": {
+          "Insert+Down": 4,
+          "Insert+Insert": 1,
+          "Insert+q": 1,
+          "Insert+Q": 1
+        },
+        "other_keys": {
+          "Down": 464,
+          "Left": 20,
+          "Up": 11,
+          "Enter": 1
+        },
+        "totals": {
+          "hotkeys": 0,
+          "screen_reader_commands": 7,
+          "other_keys": 496
+        },
+        "intents_by_hotkey": {}
+      }
+    }
+  },
+  "web": {
+    "tabs_by_order": [],
+    "events": 0,
+    "by_tab": {}
+  },
+  "summary": {
+    "apps": 3,
+    "events": 1638,
+    "by_type": {
+      "key_press": 1495,
+      "hotkey": 44,
+      "mouse_move": 65,
+      "mouse_click": 17,
+      "mouse_up": 16,
+      "drag_drop": 1
+    },
+    "by_app": {
+      "explorer.exe": 229,
+      "POWERPNT.EXE": 824,
+      "nvda.exe": 585
+    },
+    "keystrokes": {
+      "hotkeys": {
+        "Alt+Down": 2,
+        "Win+U": 2,
+        "Alt+D": 1,
+        "Ctrl+\u0001": 1,
+        "Ctrl+S": 1,
+        "Win+<255>": 1,
+        "Win+D": 1,
+        "Win+Down": 1
+      },
+      "screen_reader_commands": {
+        "Insert+Down": 4,
+        "Insert+Insert": 1,
+        "Insert+q": 1,
+        "Insert+Q": 1
+      },
+      "other_keys": {
+        "Down": 1319,
+        "Tab": 90,
+        "Left": 31,
+        "Up": 21,
+        "Right": 8,
+        "Enter": 7,
+        "t": 7,
+        "Shift": 5,
+        "Esc": 4,
+        "c": 1,
+        "d": 1,
+        "Delete": 1,
+        "e": 1,
+        "m": 1,
+        "n": 1,
+        "o": 1,
+        "s": 1,
+        "u": 1
+      },
+      "totals": {
+        "hotkeys": 10,
+        "screen_reader_commands": 7,
+        "other_keys": 1501
+      },
+      "intents_by_hotkey": {
+        "save": 1,
+        "show_desktop": 1
+      }
+    }
+  },
+  "accessibility": {
+    "baseline": {
+      "os": "Windows",
+      "os_version": "10.0.26100",
+      "python_version": "3.13.6",
+      "narrator": {
+        "enabled": false,
+        "startup_enabled": false
+      },
+      "magnifier": {
+        "enabled": false,
+        "zoom": null
+      },
+      "color_filter": {
+        "enabled": false,
+        "type": "blue-yellow"
+      },
+      "high_contrast": {
+        "enabled": false,
+        "flags": "126"
+      },
+      "sticky_keys": {
+        "flags": "510",
+        "maybe_enabled": true
+      },
+      "toggle_keys": {
+        "flags": "62",
+        "maybe_enabled": true
+      },
+      "filter_keys": {
+        "flags": "126",
+        "maybe_enabled": true
+      },
+      "font_smoothing": "2",
+      "display_scaling": null,
+      "mouse_cursor_scheme": "windows aero"
+    },
+    "changes": []
+  }
+}

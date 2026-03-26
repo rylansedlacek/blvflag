@@ -1,0 +1,474 @@
+{
+  "task": {
+    "task_id": 48,
+    "task_title": "Change slide orientation in Powerpoint.",
+    "instruction": "Open Task ID 48.pptx in Documents > Task 48 folder. Orient the slide to vertical so that my photo can fit well.",
+    "task": "Open Task ID 48.pptx in Documents > Task 48 folder. Orient the slide to vertical so that my photo can fit well.",
+    "context": "I'm working on an introduction PowerPoint for my new job. I pasted a photo of myself in one of the slides but because the photo is vertically aligned, it doesn't fit the landscape orientation the slide. I want to make the slide vertically aligned so that photo can fit.",
+    "rand_id_column": "Rand ID 11",
+    "rand_order": 31,
+    "task_group": "Document Editing",
+    "interactions": "",
+    "applications": "PowerPoint",
+    "familiarity": "Low",
+    "difficulty_before": "Medium",
+    "difficulty_after": "Medium",
+    "success": false,
+    "failure_reason": "Couldn't find the required info"
+  },
+  "session": {
+    "started_at": 1755885747.0700142,
+    "last_event_at": 1755886136.8574011,
+    "folder": "task_logs\\User 11\\48",
+    "apps_by_order": [
+      {
+        "order": 1,
+        "app": "explorer.exe",
+        "log_file": "1_explorer.exe.json"
+      },
+      {
+        "order": 2,
+        "app": "POWERPNT.EXE",
+        "log_file": "2_POWERPNT.EXE.json"
+      }
+    ],
+    "ended_at": 1755886147.0054967
+  },
+  "apps": {
+    "explorer.exe": {
+      "order": 1,
+      "log_file": "1_explorer.exe.json",
+      "a11y_tree_files": [
+        "1_explorer.exe_1755885759246_a11y_tree.json",
+        "1_explorer.exe_1755885763528_a11y_tree.json",
+        "1_explorer.exe_1755886136857_a11y_tree.json"
+      ],
+      "events": 116,
+      "by_type": {
+        "mouse_click": 0,
+        "mouse_up": 1,
+        "mouse_move": 0,
+        "drag_drop": 0,
+        "key_press": 113,
+        "hotkey": 2,
+        "scroll": 0
+      },
+      "display_name": "explorer.exe",
+      "windows_seen": [
+        {
+          "title": "Run",
+          "bounds": {
+            "left": 9,
+            "top": 736,
+            "right": 481,
+            "bottom": 1016
+          },
+          "state": "normal",
+          "hwnd": 17829046,
+          "pid": 9812,
+          "ts": 1755885759.2458875
+        },
+        {
+          "title": "",
+          "bounds": {
+            "left": 0,
+            "top": 1020,
+            "right": 40,
+            "bottom": 1060
+          },
+          "state": "normal",
+          "hwnd": 4394450,
+          "pid": 9812,
+          "ts": 1755885761.5618162
+        },
+        {
+          "title": "Documents - File Explorer",
+          "bounds": {
+            "left": 934,
+            "top": 191,
+            "right": 1822,
+            "bottom": 941
+          },
+          "state": "normal",
+          "hwnd": 22086046,
+          "pid": 9812,
+          "ts": 1755885763.5275216
+        },
+        {
+          "title": "Task 48 - File Explorer",
+          "bounds": {
+            "left": 934,
+            "top": 191,
+            "right": 1822,
+            "bottom": 941
+          },
+          "state": "normal",
+          "hwnd": 22086046,
+          "pid": 9812,
+          "ts": 1755885816.6301749
+        },
+        {
+          "title": "",
+          "bounds": {
+            "left": 0,
+            "top": 1020,
+            "right": 1920,
+            "bottom": 1080
+          },
+          "state": "normal",
+          "hwnd": 65916,
+          "pid": 9812,
+          "ts": 1755886136.8574011
+        }
+      ],
+      "last_window": {
+        "title": "",
+        "bounds": {
+          "left": 0,
+          "top": 1020,
+          "right": 1920,
+          "bottom": 1080
+        },
+        "state": "normal",
+        "hwnd": 65916,
+        "pid": 9812,
+        "ts": 1755886136.8574011
+      },
+      "keystrokes": {
+        "hotkeys": {
+          "Ctrl+Home": 2
+        },
+        "screen_reader_commands": {},
+        "other_keys": {
+          "Down": 32,
+          "Left": 30,
+          "t": 17,
+          "Right": 16,
+          "Enter": 4,
+          "c": 1,
+          "d": 1,
+          "e": 1,
+          "m": 1,
+          "n": 1,
+          "o": 1,
+          "s": 1,
+          "u": 1,
+          "Up": 1,
+          "y": 1
+        },
+        "totals": {
+          "hotkeys": 2,
+          "screen_reader_commands": 0,
+          "other_keys": 109
+        },
+        "intents_by_hotkey": {}
+      }
+    },
+    "POWERPNT.EXE": {
+      "order": 2,
+      "log_file": "2_POWERPNT.EXE.json",
+      "a11y_tree_files": [
+        "2_POWERPNT.EXE_1755885826192_a11y_tree.json",
+        "2_POWERPNT.EXE_1755885826849_a11y_tree.json",
+        "2_POWERPNT.EXE_1755885834810_a11y_tree.json",
+        "2_POWERPNT.EXE_1755885961046_a11y_tree.json",
+        "2_POWERPNT.EXE_1755885964588_a11y_tree.json",
+        "2_POWERPNT.EXE_1755886017459_a11y_tree.json",
+        "2_POWERPNT.EXE_1755886080875_a11y_tree.json",
+        "2_POWERPNT.EXE_1755886114456_a11y_tree.json"
+      ],
+      "events": 317,
+      "by_type": {
+        "mouse_click": 1,
+        "mouse_up": 0,
+        "mouse_move": 7,
+        "drag_drop": 0,
+        "key_press": 305,
+        "hotkey": 4,
+        "scroll": 0
+      },
+      "display_name": "POWERPNT.EXE",
+      "windows_seen": [
+        {
+          "title": "",
+          "bounds": {
+            "left": 333,
+            "top": 269,
+            "right": 612,
+            "bottom": 622
+          },
+          "state": "normal",
+          "hwnd": 48434470,
+          "pid": 16936,
+          "ts": 1755885961.0464466
+        },
+        {
+          "title": "",
+          "bounds": {
+            "left": 610,
+            "top": 395,
+            "right": 1040,
+            "bottom": 893
+          },
+          "state": "normal",
+          "hwnd": 8851624,
+          "pid": 16936,
+          "ts": 1755885964.58801
+        },
+        {
+          "title": "",
+          "bounds": {
+            "left": 333,
+            "top": 269,
+            "right": 612,
+            "bottom": 622
+          },
+          "state": "normal",
+          "hwnd": 48434470,
+          "pid": 16936,
+          "ts": 1755885986.1402864
+        },
+        {
+          "title": "Task ID 48 - PowerPoint",
+          "bounds": {
+            "left": -9,
+            "top": -9,
+            "right": 1929,
+            "bottom": 1029
+          },
+          "state": "maximized",
+          "hwnd": 2625188,
+          "pid": 16936,
+          "ts": 1755886002.8660004
+        },
+        {
+          "title": "",
+          "bounds": {
+            "left": 214,
+            "top": 132,
+            "right": 644,
+            "bottom": 630
+          },
+          "state": "normal",
+          "hwnd": 6557820,
+          "pid": 16936,
+          "ts": 1755886017.4586542
+        },
+        {
+          "title": "Task ID 48 - PowerPoint",
+          "bounds": {
+            "left": -9,
+            "top": -9,
+            "right": 1929,
+            "bottom": 1029
+          },
+          "state": "maximized",
+          "hwnd": 2625188,
+          "pid": 16936,
+          "ts": 1755886019.990453
+        },
+        {
+          "title": "",
+          "bounds": {
+            "left": 740,
+            "top": 50,
+            "right": 1200,
+            "bottom": 452
+          },
+          "state": "normal",
+          "hwnd": 7475160,
+          "pid": 16936,
+          "ts": 1755886080.8750641
+        },
+        {
+          "title": "Task ID 48 - PowerPoint",
+          "bounds": {
+            "left": -9,
+            "top": -9,
+            "right": 1929,
+            "bottom": 1029
+          },
+          "state": "maximized",
+          "hwnd": 2625188,
+          "pid": 16936,
+          "ts": 1755886114.4560792
+        },
+        {
+          "title": "",
+          "bounds": {
+            "left": 740,
+            "top": 50,
+            "right": 1200,
+            "bottom": 452
+          },
+          "state": "normal",
+          "hwnd": 7475160,
+          "pid": 16936,
+          "ts": 1755886114.94969
+        },
+        {
+          "title": "Task ID 48 - PowerPoint",
+          "bounds": {
+            "left": -9,
+            "top": -9,
+            "right": 1929,
+            "bottom": 1029
+          },
+          "state": "maximized",
+          "hwnd": 2625188,
+          "pid": 16936,
+          "ts": 1755886119.5236886
+        }
+      ],
+      "last_window": {
+        "title": "Task ID 48 - PowerPoint",
+        "bounds": {
+          "left": -9,
+          "top": -9,
+          "right": 1929,
+          "bottom": 1029
+        },
+        "state": "maximized",
+        "hwnd": 2625188,
+        "pid": 16936,
+        "ts": 1755886136.6279173
+      },
+      "keystrokes": {
+        "hotkeys": {
+          "Ctrl+\u0001": 1,
+          "Ctrl+S": 1
+        },
+        "screen_reader_commands": {},
+        "other_keys": {
+          "Tab": 99,
+          "Down": 93,
+          "Left": 47,
+          "Right": 23,
+          "Up": 9,
+          "Esc": 8,
+          "Delete": 2,
+          "F10": 2,
+          "i": 2,
+          "n": 2,
+          "o": 2,
+          "Shift": 2,
+          "t": 2,
+          "a": 1,
+          "e": 1,
+          "Enter": 1,
+          "r": 1,
+          "Space": 1
+        },
+        "totals": {
+          "hotkeys": 2,
+          "screen_reader_commands": 0,
+          "other_keys": 298
+        },
+        "intents_by_hotkey": {
+          "save": 1
+        }
+      }
+    }
+  },
+  "web": {
+    "tabs_by_order": [],
+    "events": 0,
+    "by_tab": {}
+  },
+  "summary": {
+    "apps": 2,
+    "events": 433,
+    "by_type": {
+      "key_press": 418,
+      "hotkey": 6,
+      "mouse_move": 7,
+      "mouse_click": 1,
+      "mouse_up": 1
+    },
+    "by_app": {
+      "explorer.exe": 116,
+      "POWERPNT.EXE": 317
+    },
+    "keystrokes": {
+      "hotkeys": {
+        "Ctrl+Home": 2,
+        "Ctrl+\u0001": 1,
+        "Ctrl+S": 1
+      },
+      "screen_reader_commands": {},
+      "other_keys": {
+        "Down": 125,
+        "Tab": 99,
+        "Left": 77,
+        "Right": 39,
+        "t": 19,
+        "Up": 10,
+        "Esc": 8,
+        "Enter": 5,
+        "n": 3,
+        "o": 3,
+        "Delete": 2,
+        "e": 2,
+        "F10": 2,
+        "i": 2,
+        "Shift": 2,
+        "a": 1,
+        "c": 1,
+        "d": 1,
+        "m": 1,
+        "r": 1,
+        "s": 1,
+        "Space": 1,
+        "u": 1,
+        "y": 1
+      },
+      "totals": {
+        "hotkeys": 4,
+        "screen_reader_commands": 0,
+        "other_keys": 407
+      },
+      "intents_by_hotkey": {
+        "save": 1
+      }
+    }
+  },
+  "accessibility": {
+    "baseline": {
+      "os": "Windows",
+      "os_version": "10.0.26100",
+      "python_version": "3.13.6",
+      "narrator": {
+        "enabled": false,
+        "startup_enabled": false
+      },
+      "magnifier": {
+        "enabled": false,
+        "zoom": null
+      },
+      "color_filter": {
+        "enabled": false,
+        "type": "blue-yellow"
+      },
+      "high_contrast": {
+        "enabled": false,
+        "flags": "126"
+      },
+      "sticky_keys": {
+        "flags": "510",
+        "maybe_enabled": true
+      },
+      "toggle_keys": {
+        "flags": "62",
+        "maybe_enabled": true
+      },
+      "filter_keys": {
+        "flags": "126",
+        "maybe_enabled": true
+      },
+      "font_smoothing": "2",
+      "display_scaling": null,
+      "mouse_cursor_scheme": "windows aero"
+    },
+    "changes": []
+  }
+}

@@ -1,0 +1,387 @@
+{
+  "task": {
+    "task_id": 62,
+    "task_title": "Adding an image to a PowerPoint Presentation Slide",
+    "instruction": "Add the photo Task ID 62.jpg to Task ID 62.pptx, both in Document > Task 62 folder.",
+    "task": "Add the photo Task ID 62.jpg to Task ID 62.pptx, both in Document > Task 62 folder.",
+    "context": "I want to add a picture of myself to the presentation",
+    "rand_id_column": "Rand ID 11",
+    "rand_order": 41,
+    "task_group": "Workflow",
+    "interactions": "",
+    "applications": "PowerPoint",
+    "familiarity": "High",
+    "difficulty_before": "Low",
+    "difficulty_after": "Low",
+    "success": true
+  },
+  "session": {
+    "started_at": 1755953672.4600558,
+    "last_event_at": 1755953840.5588784,
+    "folder": "task_logs\\User 11\\62",
+    "apps_by_order": [
+      {
+        "order": 1,
+        "app": "explorer.exe",
+        "log_file": "1_explorer.exe.json"
+      },
+      {
+        "order": 2,
+        "app": "Photos.exe",
+        "log_file": "2_Photos.exe.json"
+      },
+      {
+        "order": 3,
+        "app": "POWERPNT.EXE",
+        "log_file": "3_POWERPNT.EXE.json"
+      }
+    ],
+    "ended_at": 1755953845.189399
+  },
+  "apps": {
+    "explorer.exe": {
+      "order": 1,
+      "log_file": "1_explorer.exe.json",
+      "a11y_tree_files": [
+        "1_explorer.exe_1755953701065_a11y_tree.json",
+        "1_explorer.exe_1755953721728_a11y_tree.json",
+        "1_explorer.exe_1755953779970_a11y_tree.json"
+      ],
+      "events": 48,
+      "by_type": {
+        "mouse_click": 2,
+        "mouse_up": 2,
+        "mouse_move": 4,
+        "drag_drop": 0,
+        "key_press": 39,
+        "hotkey": 1,
+        "scroll": 0
+      },
+      "display_name": "explorer.exe",
+      "windows_seen": [
+        {
+          "title": "Run",
+          "bounds": {
+            "left": 9,
+            "top": 736,
+            "right": 481,
+            "bottom": 1016
+          },
+          "state": "normal",
+          "hwnd": 1315734,
+          "pid": 9812,
+          "ts": 1755953701.065015
+        },
+        {
+          "title": "",
+          "bounds": {
+            "left": 0,
+            "top": 1020,
+            "right": 40,
+            "bottom": 1060
+          },
+          "state": "normal",
+          "hwnd": 9767824,
+          "pid": 9812,
+          "ts": 1755953717.1348984
+        },
+        {
+          "title": "Documents - File Explorer",
+          "bounds": {
+            "left": 933,
+            "top": 75,
+            "right": 1821,
+            "bottom": 825
+          },
+          "state": "normal",
+          "hwnd": 4329236,
+          "pid": 9812,
+          "ts": 1755953721.7276018
+        },
+        {
+          "title": "Task 62 - File Explorer",
+          "bounds": {
+            "left": 933,
+            "top": 75,
+            "right": 1821,
+            "bottom": 825
+          },
+          "state": "normal",
+          "hwnd": 4329236,
+          "pid": 9812,
+          "ts": 1755953764.903498
+        }
+      ],
+      "last_window": {
+        "title": "Task 62 - File Explorer",
+        "bounds": {
+          "left": 933,
+          "top": 75,
+          "right": 1821,
+          "bottom": 825
+        },
+        "state": "normal",
+        "hwnd": 4329236,
+        "pid": 9812,
+        "ts": 1755953790.3782196
+      },
+      "keystrokes": {
+        "hotkeys": {
+          "Ctrl+\u0003": 1
+        },
+        "screen_reader_commands": {},
+        "other_keys": {
+          "t": 20,
+          "Enter": 4,
+          "Down": 2,
+          "Right": 2,
+          "c": 1,
+          "d": 1,
+          "e": 1,
+          "Left": 1,
+          "m": 1,
+          "n": 1,
+          "o": 1,
+          "s": 1,
+          "u": 1
+        },
+        "totals": {
+          "hotkeys": 1,
+          "screen_reader_commands": 0,
+          "other_keys": 37
+        },
+        "intents_by_hotkey": {}
+      }
+    },
+    "Photos.exe": {
+      "order": 2,
+      "log_file": "2_Photos.exe.json",
+      "a11y_tree_files": [
+        "2_Photos.exe_1755953773056_a11y_tree.json"
+      ],
+      "events": 6,
+      "by_type": {
+        "mouse_click": 1,
+        "mouse_up": 1,
+        "mouse_move": 4,
+        "drag_drop": 0,
+        "key_press": 0,
+        "hotkey": 0,
+        "scroll": 0
+      },
+      "display_name": "Photos.exe",
+      "windows_seen": [
+        {
+          "title": "Task ID 48.jpg",
+          "bounds": {
+            "left": 192,
+            "top": 192,
+            "right": 1632,
+            "bottom": 932
+          },
+          "state": "normal",
+          "hwnd": 7015434,
+          "pid": 10924,
+          "ts": 1755953773.0560412
+        }
+      ],
+      "last_window": {
+        "title": "Task ID 48.jpg",
+        "bounds": {
+          "left": 192,
+          "top": 192,
+          "right": 1632,
+          "bottom": 932
+        },
+        "state": "normal",
+        "hwnd": 7015434,
+        "pid": 10924,
+        "ts": 1755953774.5949695
+      },
+      "keystrokes": {
+        "hotkeys": {},
+        "screen_reader_commands": {},
+        "other_keys": {},
+        "totals": {
+          "hotkeys": 0,
+          "screen_reader_commands": 0,
+          "other_keys": 0
+        },
+        "intents_by_hotkey": {}
+      }
+    },
+    "POWERPNT.EXE": {
+      "order": 3,
+      "log_file": "3_POWERPNT.EXE.json",
+      "a11y_tree_files": [
+        "3_POWERPNT.EXE_1755953796933_a11y_tree.json",
+        "3_POWERPNT.EXE_1755953804304_a11y_tree.json"
+      ],
+      "events": 54,
+      "by_type": {
+        "mouse_click": 2,
+        "mouse_up": 2,
+        "mouse_move": 11,
+        "drag_drop": 0,
+        "key_press": 32,
+        "hotkey": 7,
+        "scroll": 0
+      },
+      "display_name": "POWERPNT.EXE",
+      "windows_seen": [
+        {
+          "title": "Task ID 48  -  Protected View - PowerPoint",
+          "bounds": {
+            "left": -9,
+            "top": -9,
+            "right": 1929,
+            "bottom": 1029
+          },
+          "state": "maximized",
+          "hwnd": 332810,
+          "pid": 29536,
+          "ts": 1755953797.0528226
+        },
+        {
+          "title": "Task ID 48 - PowerPoint",
+          "bounds": {
+            "left": -9,
+            "top": -9,
+            "right": 1929,
+            "bottom": 1029
+          },
+          "state": "maximized",
+          "hwnd": 5051282,
+          "pid": 29536,
+          "ts": 1755953804.3037689
+        }
+      ],
+      "last_window": {
+        "title": "Task ID 48 - PowerPoint",
+        "bounds": {
+          "left": -9,
+          "top": -9,
+          "right": 1929,
+          "bottom": 1029
+        },
+        "state": "maximized",
+        "hwnd": 5051282,
+        "pid": 29536,
+        "ts": 1755953840.5588784
+      },
+      "keystrokes": {
+        "hotkeys": {
+          "Ctrl+Down": 4,
+          "Ctrl+Right": 2,
+          "Ctrl+\u0016": 1
+        },
+        "screen_reader_commands": {},
+        "other_keys": {
+          "Enter": 6,
+          "Down": 4,
+          "Tab": 4,
+          "Right": 2,
+          "Up": 2
+        },
+        "totals": {
+          "hotkeys": 7,
+          "screen_reader_commands": 0,
+          "other_keys": 18
+        },
+        "intents_by_hotkey": {}
+      }
+    }
+  },
+  "web": {
+    "tabs_by_order": [],
+    "events": 0,
+    "by_tab": {}
+  },
+  "summary": {
+    "apps": 3,
+    "events": 108,
+    "by_type": {
+      "key_press": 71,
+      "mouse_move": 19,
+      "mouse_click": 5,
+      "mouse_up": 5,
+      "hotkey": 8
+    },
+    "by_app": {
+      "explorer.exe": 48,
+      "Photos.exe": 6,
+      "POWERPNT.EXE": 54
+    },
+    "keystrokes": {
+      "hotkeys": {
+        "Ctrl+Down": 4,
+        "Ctrl+Right": 2,
+        "Ctrl+\u0003": 1,
+        "Ctrl+\u0016": 1
+      },
+      "screen_reader_commands": {},
+      "other_keys": {
+        "t": 20,
+        "Enter": 10,
+        "Down": 6,
+        "Right": 4,
+        "Tab": 4,
+        "Up": 2,
+        "c": 1,
+        "d": 1,
+        "e": 1,
+        "Left": 1,
+        "m": 1,
+        "n": 1,
+        "o": 1,
+        "s": 1,
+        "u": 1
+      },
+      "totals": {
+        "hotkeys": 8,
+        "screen_reader_commands": 0,
+        "other_keys": 55
+      },
+      "intents_by_hotkey": {}
+    }
+  },
+  "accessibility": {
+    "baseline": {
+      "os": "Windows",
+      "os_version": "10.0.26100",
+      "python_version": "3.13.6",
+      "narrator": {
+        "enabled": false,
+        "startup_enabled": false
+      },
+      "magnifier": {
+        "enabled": false,
+        "zoom": null
+      },
+      "color_filter": {
+        "enabled": false,
+        "type": "blue-yellow"
+      },
+      "high_contrast": {
+        "enabled": false,
+        "flags": "126"
+      },
+      "sticky_keys": {
+        "flags": "510",
+        "maybe_enabled": true
+      },
+      "toggle_keys": {
+        "flags": "62",
+        "maybe_enabled": true
+      },
+      "filter_keys": {
+        "flags": "126",
+        "maybe_enabled": true
+      },
+      "font_smoothing": "2",
+      "display_scaling": null,
+      "mouse_cursor_scheme": "windows aero"
+    },
+    "changes": []
+  }
+}

@@ -1,0 +1,504 @@
+{
+  "task": {
+    "task_id": 68,
+    "task_title": "Extract text from an image using Snipping Tool and save to Notepad",
+    "instruction": "Take a screenshot of the desktop window using Snipping Tool and extract all of the text in the image. Paste all the editable text copied to a notepad.",
+    "task": "Take a screenshot of the desktop window using Snipping Tool and extract all of the text in the image. Paste all the editable text copied to a notepad.",
+    "context": "I need to copy all the editable text from the desktop screenshot",
+    "rand_id_column": "Rand ID 11",
+    "rand_order": 44,
+    "task_group": "Workflow",
+    "interactions": "",
+    "applications": "Snipping Tool, Notepad",
+    "familiarity": "High",
+    "difficulty_before": "Low",
+    "difficulty_after": "Low",
+    "success": true
+  },
+  "session": {
+    "started_at": 1755954606.235024,
+    "last_event_at": 1755955028.235493,
+    "folder": "task_logs\\User 11\\68",
+    "apps_by_order": [
+      {
+        "order": 1,
+        "app": "SnippingTool.exe",
+        "log_file": "1_SnippingTool.exe.json"
+      },
+      {
+        "order": 2,
+        "app": "explorer.exe",
+        "log_file": "2_explorer.exe.json"
+      },
+      {
+        "order": 3,
+        "app": "Notepad.exe",
+        "log_file": "3_Notepad.exe.json"
+      }
+    ],
+    "ended_at": 1755955038.7687006
+  },
+  "apps": {
+    "SnippingTool.exe": {
+      "order": 1,
+      "log_file": "1_SnippingTool.exe.json",
+      "a11y_tree_files": [
+        "1_SnippingTool.exe_1755954696360_a11y_tree.json",
+        "1_SnippingTool.exe_1755954719052_a11y_tree.json",
+        "1_SnippingTool.exe_1755954745344_a11y_tree.json",
+        "1_SnippingTool.exe_1755954911352_a11y_tree.json"
+      ],
+      "events": 166,
+      "by_type": {
+        "mouse_click": 0,
+        "mouse_up": 0,
+        "mouse_move": 0,
+        "drag_drop": 0,
+        "key_press": 155,
+        "hotkey": 11,
+        "scroll": 0
+      },
+      "display_name": "SnippingTool.exe",
+      "windows_seen": [
+        {
+          "title": "Snipping Tool",
+          "bounds": {
+            "left": 494,
+            "top": 0,
+            "right": 1137,
+            "bottom": 297
+          },
+          "state": "normal",
+          "hwnd": 659874,
+          "pid": 22524,
+          "ts": 1755954696.3598478
+        },
+        {
+          "title": "Snipping Tool Overlay",
+          "bounds": {
+            "left": 0,
+            "top": 0,
+            "right": 1920,
+            "bottom": 1080
+          },
+          "state": "normal",
+          "hwnd": 5901674,
+          "pid": 22524,
+          "ts": 1755954719.0520356
+        },
+        {
+          "title": "Snipping Tool Overlay",
+          "bounds": {
+            "left": 0,
+            "top": 0,
+            "right": 1920,
+            "bottom": 1080
+          },
+          "state": "normal",
+          "hwnd": 20188414,
+          "pid": 26392,
+          "ts": 1755954745.3439732
+        },
+        {
+          "title": "Snipping Tool",
+          "bounds": {
+            "left": 485,
+            "top": 0,
+            "right": 1685,
+            "bottom": 800
+          },
+          "state": "normal",
+          "hwnd": 1184752,
+          "pid": 22524,
+          "ts": 1755954911.3518896
+        }
+      ],
+      "last_window": {
+        "title": "Snipping Tool",
+        "bounds": {
+          "left": 485,
+          "top": 0,
+          "right": 1685,
+          "bottom": 800
+        },
+        "state": "normal",
+        "hwnd": 1184752,
+        "pid": 22524,
+        "ts": 1755955008.8970122
+      },
+      "keystrokes": {
+        "hotkeys": {
+          "Win+R": 1,
+          "Win+Shift+S": 1
+        },
+        "screen_reader_commands": {},
+        "other_keys": {
+          "Tab": 41,
+          "Left": 10,
+          "Down": 7,
+          "Right": 7,
+          "Shift": 7,
+          "Up": 7,
+          "Enter": 2,
+          "Space": 2
+        },
+        "totals": {
+          "hotkeys": 2,
+          "screen_reader_commands": 0,
+          "other_keys": 83
+        },
+        "intents_by_hotkey": {}
+      }
+    },
+    "explorer.exe": {
+      "order": 2,
+      "log_file": "2_explorer.exe.json",
+      "a11y_tree_files": [
+        "2_explorer.exe_1755954730937_a11y_tree.json",
+        "2_explorer.exe_1755954848335_a11y_tree.json",
+        "2_explorer.exe_1755954885955_a11y_tree.json",
+        "2_explorer.exe_1755955010086_a11y_tree.json",
+        "2_explorer.exe_1755955028235_a11y_tree.json"
+      ],
+      "events": 468,
+      "by_type": {
+        "mouse_click": 0,
+        "mouse_up": 1,
+        "mouse_move": 0,
+        "drag_drop": 0,
+        "key_press": 404,
+        "hotkey": 63,
+        "scroll": 0
+      },
+      "display_name": "explorer.exe",
+      "windows_seen": [
+        {
+          "title": "Program Manager",
+          "bounds": {
+            "left": 0,
+            "top": 0,
+            "right": 1920,
+            "bottom": 1080
+          },
+          "state": "normal",
+          "hwnd": 65964,
+          "pid": 9812,
+          "ts": 1755954730.9366539
+        },
+        {
+          "title": "File Explorer",
+          "bounds": {
+            "left": 933,
+            "top": 75,
+            "right": 1821,
+            "bottom": 825
+          },
+          "state": "normal",
+          "hwnd": 1381550,
+          "pid": 9812,
+          "ts": 1755954841.0117638
+        },
+        {
+          "title": "Home - File Explorer",
+          "bounds": {
+            "left": 933,
+            "top": 75,
+            "right": 1821,
+            "bottom": 825
+          },
+          "state": "normal",
+          "hwnd": 1381550,
+          "pid": 9812,
+          "ts": 1755954842.2455344
+        },
+        {
+          "title": "",
+          "bounds": {
+            "left": 0,
+            "top": 1020,
+            "right": 1920,
+            "bottom": 1080
+          },
+          "state": "normal",
+          "hwnd": 65916,
+          "pid": 9812,
+          "ts": 1755954848.3348062
+        },
+        {
+          "title": "Screenshots - File Explorer",
+          "bounds": {
+            "left": 933,
+            "top": 75,
+            "right": 1821,
+            "bottom": 825
+          },
+          "state": "normal",
+          "hwnd": 2757654,
+          "pid": 9812,
+          "ts": 1755954885.955379
+        },
+        {
+          "title": "Run",
+          "bounds": {
+            "left": 9,
+            "top": 736,
+            "right": 481,
+            "bottom": 1016
+          },
+          "state": "normal",
+          "hwnd": 8326480,
+          "pid": 9812,
+          "ts": 1755955010.0862312
+        },
+        {
+          "title": "Program Manager",
+          "bounds": {
+            "left": 0,
+            "top": 0,
+            "right": 1920,
+            "bottom": 1080
+          },
+          "state": "normal",
+          "hwnd": 65964,
+          "pid": 9812,
+          "ts": 1755955014.2773986
+        },
+        {
+          "title": "",
+          "bounds": {
+            "left": 0,
+            "top": 0,
+            "right": 1920,
+            "bottom": 1080
+          },
+          "state": "normal",
+          "hwnd": 1443236,
+          "pid": 9812,
+          "ts": 1755955028.235493
+        }
+      ],
+      "last_window": {
+        "title": "",
+        "bounds": {
+          "left": 0,
+          "top": 0,
+          "right": 1920,
+          "bottom": 1080
+        },
+        "state": "normal",
+        "hwnd": 1443236,
+        "pid": 9812,
+        "ts": 1755955028.235493
+      },
+      "keystrokes": {
+        "hotkeys": {
+          "Win+Print_Screen": 55,
+          "Win+Home": 2,
+          "Alt+F4": 1,
+          "Win+D": 1,
+          "Win+E": 1,
+          "Win+End": 1,
+          "Win+F9": 1
+        },
+        "screen_reader_commands": {},
+        "other_keys": {
+          "Down": 8,
+          "Esc": 2,
+          "F10": 2,
+          "Num_Lock": 2,
+          "Right": 2,
+          "c": 1,
+          "d": 1,
+          "e": 1,
+          "Enter": 1,
+          "Left": 1,
+          "m": 1,
+          "n": 1,
+          "o": 1,
+          "p": 1,
+          "s": 1,
+          "Shift": 1,
+          "t": 1,
+          "u": 1
+        },
+        "totals": {
+          "hotkeys": 62,
+          "screen_reader_commands": 0,
+          "other_keys": 29
+        },
+        "intents_by_hotkey": {
+          "close_window": 1,
+          "show_desktop": 1
+        }
+      }
+    },
+    "Notepad.exe": {
+      "order": 3,
+      "log_file": "3_Notepad.exe.json",
+      "a11y_tree_files": [
+        "3_Notepad.exe_1755955021764_a11y_tree.json"
+      ],
+      "events": 16,
+      "by_type": {
+        "mouse_click": 1,
+        "mouse_up": 0,
+        "mouse_move": 10,
+        "drag_drop": 0,
+        "key_press": 4,
+        "hotkey": 1,
+        "scroll": 0
+      },
+      "display_name": "Notepad.exe",
+      "windows_seen": [
+        {
+          "title": "*Recycle Bin Visual Studio - Notepad",
+          "bounds": {
+            "left": 713,
+            "top": 64,
+            "right": 1506,
+            "bottom": 804
+          },
+          "state": "normal",
+          "hwnd": 14684986,
+          "pid": 19160,
+          "ts": 1755955021.763886
+        }
+      ],
+      "last_window": {
+        "title": "*Recycle Bin Visual Studio - Notepad",
+        "bounds": {
+          "left": 713,
+          "top": 64,
+          "right": 1506,
+          "bottom": 804
+        },
+        "state": "normal",
+        "hwnd": 14684986,
+        "pid": 19160,
+        "ts": 1755955028.0111094
+      },
+      "keystrokes": {
+        "hotkeys": {
+          "Ctrl+\u0016": 1
+        },
+        "screen_reader_commands": {},
+        "other_keys": {
+          "Up": 2
+        },
+        "totals": {
+          "hotkeys": 1,
+          "screen_reader_commands": 0,
+          "other_keys": 2
+        },
+        "intents_by_hotkey": {}
+      }
+    }
+  },
+  "web": {
+    "tabs_by_order": [],
+    "events": 0,
+    "by_tab": {}
+  },
+  "summary": {
+    "apps": 3,
+    "events": 650,
+    "by_type": {
+      "key_press": 563,
+      "hotkey": 75,
+      "mouse_move": 10,
+      "mouse_click": 1,
+      "mouse_up": 1
+    },
+    "by_app": {
+      "SnippingTool.exe": 166,
+      "explorer.exe": 468,
+      "Notepad.exe": 16
+    },
+    "keystrokes": {
+      "hotkeys": {
+        "Win+Print_Screen": 55,
+        "Win+Home": 2,
+        "Alt+F4": 1,
+        "Ctrl+\u0016": 1,
+        "Win+D": 1,
+        "Win+E": 1,
+        "Win+End": 1,
+        "Win+F9": 1,
+        "Win+R": 1,
+        "Win+Shift+S": 1
+      },
+      "screen_reader_commands": {},
+      "other_keys": {
+        "Tab": 41,
+        "Down": 15,
+        "Left": 11,
+        "Right": 9,
+        "Up": 9,
+        "Shift": 8,
+        "Enter": 3,
+        "Esc": 2,
+        "F10": 2,
+        "Num_Lock": 2,
+        "Space": 2,
+        "c": 1,
+        "d": 1,
+        "e": 1,
+        "m": 1,
+        "n": 1,
+        "o": 1,
+        "p": 1,
+        "s": 1,
+        "t": 1,
+        "u": 1
+      },
+      "totals": {
+        "hotkeys": 65,
+        "screen_reader_commands": 0,
+        "other_keys": 114
+      },
+      "intents_by_hotkey": {
+        "close_window": 1,
+        "show_desktop": 1
+      }
+    }
+  },
+  "accessibility": {
+    "baseline": {
+      "os": "Windows",
+      "os_version": "10.0.26100",
+      "python_version": "3.13.6",
+      "narrator": {
+        "enabled": false,
+        "startup_enabled": false
+      },
+      "magnifier": {
+        "enabled": false,
+        "zoom": null
+      },
+      "color_filter": {
+        "enabled": false,
+        "type": "blue-yellow"
+      },
+      "high_contrast": {
+        "enabled": false,
+        "flags": "126"
+      },
+      "sticky_keys": {
+        "flags": "510",
+        "maybe_enabled": true
+      },
+      "toggle_keys": {
+        "flags": "62",
+        "maybe_enabled": true
+      },
+      "filter_keys": {
+        "flags": "126",
+        "maybe_enabled": true
+      },
+      "font_smoothing": "2",
+      "display_scaling": null,
+      "mouse_cursor_scheme": "windows aero"
+    },
+    "changes": []
+  }
+}

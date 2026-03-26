@@ -1,0 +1,559 @@
+{
+  "task": {
+    "task_id": 70,
+    "task_title": "Create a desktop shortcut to a folder and log its path in Excel",
+    "instruction": "Create new shortcuts to Pictures, Music, and Videos from Desktop and add each of their paths in Task ID 70.xlsx in Documents > Task 70.",
+    "task": "Create new shortcuts to Pictures, Music, and Videos from Desktop and add each of their paths in Task ID 70.xlsx in Documents > Task 70.",
+    "context": "I want quick access to media folders from Desktop",
+    "rand_id_column": "Rand ID 11",
+    "rand_order": 37,
+    "task_group": "Workflow",
+    "interactions": "",
+    "applications": "File Explorer, Excel",
+    "familiarity": "High",
+    "difficulty_before": "Low",
+    "difficulty_after": "Low",
+    "success": false,
+    "failure_reason": "App crashed/froze"
+  },
+  "session": {
+    "started_at": 1755889156.3236024,
+    "last_event_at": 1755889669.208881,
+    "folder": "task_logs\\User 11\\70",
+    "apps_by_order": [
+      {
+        "order": 1,
+        "app": "explorer.exe",
+        "log_file": "1_explorer.exe.json"
+      },
+      {
+        "order": 2,
+        "app": "EXCEL.EXE",
+        "log_file": "2_EXCEL.EXE.json"
+      },
+      {
+        "order": 3,
+        "app": "nvda.exe",
+        "log_file": "3_nvda.exe.json"
+      }
+    ],
+    "ended_at": 1755889683.1655343
+  },
+  "apps": {
+    "explorer.exe": {
+      "order": 1,
+      "log_file": "1_explorer.exe.json",
+      "a11y_tree_files": [
+        "1_explorer.exe_1755889168145_a11y_tree.json",
+        "1_explorer.exe_1755889170608_a11y_tree.json",
+        "1_explorer.exe_1755889184375_a11y_tree.json",
+        "1_explorer.exe_1755889194397_a11y_tree.json",
+        "1_explorer.exe_1755889265557_a11y_tree.json",
+        "1_explorer.exe_1755889270094_a11y_tree.json",
+        "1_explorer.exe_1755889311423_a11y_tree.json",
+        "1_explorer.exe_1755889314117_a11y_tree.json",
+        "1_explorer.exe_1755889404851_a11y_tree.json",
+        "1_explorer.exe_1755889407385_a11y_tree.json",
+        "1_explorer.exe_1755889430705_a11y_tree.json",
+        "1_explorer.exe_1755889444469_a11y_tree.json"
+      ],
+      "events": 412,
+      "by_type": {
+        "mouse_click": 4,
+        "mouse_up": 3,
+        "mouse_move": 13,
+        "drag_drop": 0,
+        "key_press": 357,
+        "hotkey": 35,
+        "scroll": 0
+      },
+      "display_name": "explorer.exe",
+      "windows_seen": [
+        {
+          "title": "Create Shortcut",
+          "bounds": {
+            "left": 598,
+            "top": 210,
+            "right": 1322,
+            "bottom": 811
+          },
+          "state": "normal",
+          "hwnd": 11538514,
+          "pid": 9812,
+          "ts": 1755889419.5282688
+        },
+        {
+          "title": "",
+          "bounds": {
+            "left": 0,
+            "top": 1020,
+            "right": 1920,
+            "bottom": 1080
+          },
+          "state": "normal",
+          "hwnd": 65916,
+          "pid": 9812,
+          "ts": 1755889422.8886147
+        },
+        {
+          "title": "Program Manager",
+          "bounds": {
+            "left": 0,
+            "top": 0,
+            "right": 1920,
+            "bottom": 1080
+          },
+          "state": "normal",
+          "hwnd": 65964,
+          "pid": 9812,
+          "ts": 1755889425.6621294
+        },
+        {
+          "title": "Run",
+          "bounds": {
+            "left": 9,
+            "top": 736,
+            "right": 481,
+            "bottom": 1016
+          },
+          "state": "normal",
+          "hwnd": 11604050,
+          "pid": 9812,
+          "ts": 1755889430.7052805
+        },
+        {
+          "title": "",
+          "bounds": {
+            "left": 0,
+            "top": 1020,
+            "right": 40,
+            "bottom": 1060
+          },
+          "state": "normal",
+          "hwnd": 31329362,
+          "pid": 9812,
+          "ts": 1755889439.625917
+        },
+        {
+          "title": "Documents - File Explorer",
+          "bounds": {
+            "left": 934,
+            "top": 191,
+            "right": 1822,
+            "bottom": 941
+          },
+          "state": "normal",
+          "hwnd": 15536376,
+          "pid": 9812,
+          "ts": 1755889444.4685142
+        },
+        {
+          "title": "Task 70 - File Explorer",
+          "bounds": {
+            "left": 934,
+            "top": 191,
+            "right": 1822,
+            "bottom": 941
+          },
+          "state": "normal",
+          "hwnd": 15536376,
+          "pid": 9812,
+          "ts": 1755889488.7621686
+        },
+        {
+          "title": "Program Manager",
+          "bounds": {
+            "left": 0,
+            "top": 0,
+            "right": 1920,
+            "bottom": 1080
+          },
+          "state": "normal",
+          "hwnd": 65964,
+          "pid": 9812,
+          "ts": 1755889586.0777528
+        },
+        {
+          "title": "",
+          "bounds": {
+            "left": 0,
+            "top": 1020,
+            "right": 1920,
+            "bottom": 1080
+          },
+          "state": "normal",
+          "hwnd": 65916,
+          "pid": 9812,
+          "ts": 1755889611.7677152
+        },
+        {
+          "title": "Program Manager",
+          "bounds": {
+            "left": 0,
+            "top": 0,
+            "right": 1920,
+            "bottom": 1080
+          },
+          "state": "normal",
+          "hwnd": 65964,
+          "pid": 9812,
+          "ts": 1755889613.723356
+        }
+      ],
+      "last_window": {
+        "title": "Program Manager",
+        "bounds": {
+          "left": 0,
+          "top": 0,
+          "right": 1920,
+          "bottom": 1080
+        },
+        "state": "normal",
+        "hwnd": 65964,
+        "pid": 9812,
+        "ts": 1755889669.208881
+      },
+      "keystrokes": {
+        "hotkeys": {
+          "Ctrl+Space": 5,
+          "Win+D": 5,
+          "Win+U": 4,
+          "Ctrl+\u0001": 1,
+          "Win+R": 1
+        },
+        "screen_reader_commands": {
+          "Insert+Insert": 11
+        },
+        "other_keys": {
+          "Down": 107,
+          "Up": 55,
+          "Tab": 41,
+          "Enter": 26,
+          "t": 25,
+          "Left": 22,
+          "Shift": 18,
+          "Right": 12,
+          "F10": 10,
+          "c": 2,
+          "d": 2,
+          "Delete": 2,
+          "Esc": 2,
+          "n": 2,
+          "p": 2,
+          ",": 1,
+          "e": 1,
+          "i": 1,
+          "m": 1,
+          "o": 1,
+          "s": 1,
+          "Space": 1,
+          "u": 1
+        },
+        "totals": {
+          "hotkeys": 16,
+          "screen_reader_commands": 11,
+          "other_keys": 336
+        },
+        "intents_by_hotkey": {
+          "show_desktop": 5
+        }
+      }
+    },
+    "EXCEL.EXE": {
+      "order": 2,
+      "log_file": "2_EXCEL.EXE.json",
+      "a11y_tree_files": [
+        "2_EXCEL.EXE_1755889495231_a11y_tree.json",
+        "2_EXCEL.EXE_1755889496006_a11y_tree.json",
+        "2_EXCEL.EXE_1755889500348_a11y_tree.json"
+      ],
+      "events": 78,
+      "by_type": {
+        "mouse_click": 0,
+        "mouse_up": 0,
+        "mouse_move": 2,
+        "drag_drop": 0,
+        "key_press": 75,
+        "hotkey": 1,
+        "scroll": 0
+      },
+      "display_name": "EXCEL.EXE",
+      "windows_seen": [
+        {
+          "title": "Task ID 70  -  Protected View - Excel",
+          "bounds": {
+            "left": -9,
+            "top": -9,
+            "right": 1929,
+            "bottom": 1029
+          },
+          "state": "maximized",
+          "hwnd": 201116,
+          "pid": 17516,
+          "ts": 1755889495.2309566
+        },
+        {
+          "title": "Microsoft Excel",
+          "bounds": {
+            "left": 588,
+            "top": 470,
+            "right": 1350,
+            "bottom": 623
+          },
+          "state": "normal",
+          "hwnd": 1773238,
+          "pid": 17516,
+          "ts": 1755889496.005978
+        },
+        {
+          "title": "Task ID 70 - Excel",
+          "bounds": {
+            "left": -9,
+            "top": -9,
+            "right": 1929,
+            "bottom": 1029
+          },
+          "state": "maximized",
+          "hwnd": 22417280,
+          "pid": 17516,
+          "ts": 1755889500.3562841
+        }
+      ],
+      "last_window": {
+        "title": "Task ID 70 - Excel",
+        "bounds": {
+          "left": -9,
+          "top": -9,
+          "right": 1929,
+          "bottom": 1029
+        },
+        "state": "maximized",
+        "hwnd": 22417280,
+        "pid": 17516,
+        "ts": 1755889585.9287212
+      },
+      "keystrokes": {
+        "hotkeys": {
+          "Ctrl+S": 1
+        },
+        "screen_reader_commands": {},
+        "other_keys": {
+          "Up": 32,
+          "Down": 16,
+          "Left": 12,
+          "Right": 9,
+          "Space": 1,
+          "Tab": 1
+        },
+        "totals": {
+          "hotkeys": 1,
+          "screen_reader_commands": 0,
+          "other_keys": 71
+        },
+        "intents_by_hotkey": {
+          "save": 1
+        }
+      }
+    },
+    "nvda.exe": {
+      "order": 3,
+      "log_file": "3_nvda.exe.json",
+      "a11y_tree_files": [
+        "3_nvda.exe_1755889609371_a11y_tree.json",
+        "3_nvda.exe_1755889618126_a11y_tree.json",
+        "3_nvda.exe_1755889658294_a11y_tree.json"
+      ],
+      "events": 17,
+      "by_type": {
+        "mouse_click": 1,
+        "mouse_up": 1,
+        "mouse_move": 3,
+        "drag_drop": 0,
+        "key_press": 11,
+        "hotkey": 1,
+        "scroll": 0
+      },
+      "display_name": "nvda.exe",
+      "windows_seen": [
+        {
+          "title": "Exit NVDA",
+          "bounds": {
+            "left": 634,
+            "top": 443,
+            "right": 1285,
+            "bottom": 576
+          },
+          "state": "normal",
+          "hwnd": 10947892,
+          "pid": 15972,
+          "ts": 1755889609.3707952
+        },
+        {
+          "title": "Welcome to NVDA",
+          "bounds": {
+            "left": 583,
+            "top": 300,
+            "right": 1336,
+            "bottom": 719
+          },
+          "state": "normal",
+          "hwnd": 10686110,
+          "pid": 20592,
+          "ts": 1755889618.1257296
+        },
+        {
+          "title": "Welcome to NVDA",
+          "bounds": {
+            "left": 583,
+            "top": 300,
+            "right": 1336,
+            "bottom": 719
+          },
+          "state": "normal",
+          "hwnd": 8851040,
+          "pid": 6172,
+          "ts": 1755889658.2939482
+        }
+      ],
+      "last_window": {
+        "title": "Welcome to NVDA",
+        "bounds": {
+          "left": 583,
+          "top": 300,
+          "right": 1336,
+          "bottom": 719
+        },
+        "state": "normal",
+        "hwnd": 8851040,
+        "pid": 6172,
+        "ts": 1755889658.2939482
+      },
+      "keystrokes": {
+        "hotkeys": {},
+        "screen_reader_commands": {
+          "Insert+Insert": 8,
+          "Insert+q": 1,
+          "Insert+Q": 1
+        },
+        "other_keys": {
+          "Enter": 1
+        },
+        "totals": {
+          "hotkeys": 0,
+          "screen_reader_commands": 10,
+          "other_keys": 1
+        },
+        "intents_by_hotkey": {}
+      }
+    }
+  },
+  "web": {
+    "tabs_by_order": [],
+    "events": 0,
+    "by_tab": {}
+  },
+  "summary": {
+    "apps": 3,
+    "events": 507,
+    "by_type": {
+      "key_press": 443,
+      "hotkey": 37,
+      "mouse_move": 18,
+      "mouse_click": 5,
+      "mouse_up": 4
+    },
+    "by_app": {
+      "explorer.exe": 412,
+      "EXCEL.EXE": 78,
+      "nvda.exe": 17
+    },
+    "keystrokes": {
+      "hotkeys": {
+        "Ctrl+Space": 5,
+        "Win+D": 5,
+        "Win+U": 4,
+        "Ctrl+\u0001": 1,
+        "Ctrl+S": 1,
+        "Win+R": 1
+      },
+      "screen_reader_commands": {
+        "Insert+Insert": 19,
+        "Insert+q": 1,
+        "Insert+Q": 1
+      },
+      "other_keys": {
+        "Down": 123,
+        "Up": 87,
+        "Tab": 42,
+        "Left": 34,
+        "Enter": 27,
+        "t": 25,
+        "Right": 21,
+        "Shift": 18,
+        "F10": 10,
+        "c": 2,
+        "d": 2,
+        "Delete": 2,
+        "Esc": 2,
+        "n": 2,
+        "p": 2,
+        "Space": 2,
+        ",": 1,
+        "e": 1,
+        "i": 1,
+        "m": 1,
+        "o": 1,
+        "s": 1,
+        "u": 1
+      },
+      "totals": {
+        "hotkeys": 17,
+        "screen_reader_commands": 21,
+        "other_keys": 408
+      },
+      "intents_by_hotkey": {
+        "show_desktop": 5,
+        "save": 1
+      }
+    }
+  },
+  "accessibility": {
+    "baseline": {
+      "os": "Windows",
+      "os_version": "10.0.26100",
+      "python_version": "3.13.6",
+      "narrator": {
+        "enabled": false,
+        "startup_enabled": false
+      },
+      "magnifier": {
+        "enabled": false,
+        "zoom": null
+      },
+      "color_filter": {
+        "enabled": false,
+        "type": "blue-yellow"
+      },
+      "high_contrast": {
+        "enabled": false,
+        "flags": "126"
+      },
+      "sticky_keys": {
+        "flags": "510",
+        "maybe_enabled": true
+      },
+      "toggle_keys": {
+        "flags": "62",
+        "maybe_enabled": true
+      },
+      "filter_keys": {
+        "flags": "126",
+        "maybe_enabled": true
+      },
+      "font_smoothing": "2",
+      "display_scaling": null,
+      "mouse_cursor_scheme": "windows aero"
+    },
+    "changes": []
+  }
+}

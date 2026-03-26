@@ -1,0 +1,332 @@
+{
+  "task": {
+    "task_id": 18,
+    "task_title": "Change default search engine",
+    "instruction": "Set DuckDuckGo as the default search engine on Chrome",
+    "task": "Set DuckDuckGo as the default search engine on Chrome",
+    "context": "I prefer a privacy-focused search engine and want to use DuckDuckGo by default.",
+    "rand_id_column": "Rand ID 16",
+    "rand_order": 7,
+    "task_group": "Browsing and Web",
+    "interactions": "key_press, mouse_click, scroll",
+    "applications": "Chrome",
+    "familiarity": "Medium",
+    "difficulty_before": "Low",
+    "difficulty_after": "Low",
+    "success": true
+  },
+  "session": {
+    "started_at": 1756392113.113952,
+    "last_event_at": 1756392340.6360736,
+    "folder": "task_logs\\User 16\\18",
+    "apps_by_order": [
+      {
+        "order": 1,
+        "app": "explorer.exe",
+        "log_file": "1_explorer.exe.json"
+      },
+      {
+        "order": 2,
+        "app": "chrome.exe",
+        "log_file": "2_chrome.exe.json"
+      }
+    ],
+    "ended_at": 1756392343.4801133
+  },
+  "apps": {
+    "explorer.exe": {
+      "order": 1,
+      "log_file": "1_explorer.exe.json",
+      "a11y_tree_files": [
+        "1_explorer.exe_1756392117570_a11y_tree.json",
+        "1_explorer.exe_1756392340636_a11y_tree.json"
+      ],
+      "events": 3,
+      "by_type": {
+        "mouse_click": 0,
+        "mouse_up": 1,
+        "mouse_move": 0,
+        "drag_drop": 0,
+        "key_press": 2,
+        "hotkey": 0,
+        "scroll": 0
+      },
+      "display_name": "explorer.exe",
+      "windows_seen": [
+        {
+          "title": "Program Manager",
+          "bounds": {
+            "left": 0,
+            "top": 0,
+            "right": 1920,
+            "bottom": 1080
+          },
+          "state": null,
+          "hwnd": 1968060,
+          "pid": 8492,
+          "ts": 1756392117.5702145
+        },
+        {
+          "title": "",
+          "bounds": {
+            "left": 0,
+            "top": 1020,
+            "right": 1920,
+            "bottom": 1080
+          },
+          "state": null,
+          "hwnd": 1048756,
+          "pid": 8492,
+          "ts": 1756392340.6360736
+        }
+      ],
+      "last_window": {
+        "title": "",
+        "bounds": {
+          "left": 0,
+          "top": 1020,
+          "right": 1920,
+          "bottom": 1080
+        },
+        "state": null,
+        "hwnd": 1048756,
+        "pid": 8492,
+        "ts": 1756392340.6360736
+      },
+      "keystrokes": {
+        "hotkeys": {},
+        "screen_reader_commands": {},
+        "other_keys": {
+          "Enter": 1,
+          "g": 1
+        },
+        "totals": {
+          "hotkeys": 0,
+          "screen_reader_commands": 0,
+          "other_keys": 2
+        },
+        "intents_by_hotkey": {}
+      }
+    },
+    "chrome.exe": {
+      "order": 2,
+      "log_file": "2_chrome.exe.json",
+      "a11y_tree_files": [
+        "2_chrome.exe_1756392122522_a11y_tree.json"
+      ],
+      "events": 187,
+      "by_type": {
+        "mouse_click": 1,
+        "mouse_up": 0,
+        "mouse_move": 5,
+        "drag_drop": 0,
+        "key_press": 169,
+        "hotkey": 12,
+        "scroll": 0
+      },
+      "display_name": "chrome.exe",
+      "windows_seen": [
+        {
+          "title": "New Tab - Google Chrome",
+          "bounds": {
+            "left": -9,
+            "top": -9,
+            "right": 1929,
+            "bottom": 1029
+          },
+          "state": null,
+          "hwnd": 2493382,
+          "pid": 11456,
+          "ts": 1756392122.5217037
+        },
+        {
+          "title": "Settings - Google Chrome",
+          "bounds": {
+            "left": -9,
+            "top": -9,
+            "right": 1929,
+            "bottom": 1029
+          },
+          "state": null,
+          "hwnd": 2493382,
+          "pid": 11456,
+          "ts": 1756392177.8008256
+        },
+        {
+          "title": "Settings - Search engine - Google Chrome",
+          "bounds": {
+            "left": -9,
+            "top": -9,
+            "right": 1929,
+            "bottom": 1029
+          },
+          "state": null,
+          "hwnd": 2493382,
+          "pid": 11456,
+          "ts": 1756392189.9064484
+        }
+      ],
+      "last_window": {
+        "title": "Settings - Search engine - Google Chrome",
+        "bounds": {
+          "left": -9,
+          "top": -9,
+          "right": 1929,
+          "bottom": 1029
+        },
+        "state": null,
+        "hwnd": 2493382,
+        "pid": 11456,
+        "ts": 1756392340.414572
+      },
+      "keystrokes": {
+        "hotkeys": {
+          "Alt+F": 2
+        },
+        "screen_reader_commands": {},
+        "other_keys": {
+          "Down": 81,
+          "Tab": 33,
+          "Up": 15,
+          "Esc": 14,
+          "b": 9,
+          "Enter": 8,
+          "Space": 5,
+          "Shift": 4,
+          "Left": 1,
+          "p": 1,
+          "Right": 1,
+          "s": 1
+        },
+        "totals": {
+          "hotkeys": 2,
+          "screen_reader_commands": 0,
+          "other_keys": 173
+        },
+        "intents_by_hotkey": {}
+      }
+    }
+  },
+  "web": {
+    "tabs_by_order": [],
+    "events": 0,
+    "by_tab": {}
+  },
+  "summary": {
+    "apps": 2,
+    "events": 190,
+    "by_type": {
+      "key_press": 171,
+      "hotkey": 12,
+      "mouse_move": 5,
+      "mouse_click": 1,
+      "mouse_up": 1
+    },
+    "by_app": {
+      "explorer.exe": 3,
+      "chrome.exe": 187
+    },
+    "keystrokes": {
+      "hotkeys": {
+        "Alt+F": 2
+      },
+      "screen_reader_commands": {},
+      "other_keys": {
+        "Down": 81,
+        "Tab": 33,
+        "Up": 15,
+        "Esc": 14,
+        "b": 9,
+        "Enter": 9,
+        "Space": 5,
+        "Shift": 4,
+        "g": 1,
+        "Left": 1,
+        "p": 1,
+        "Right": 1,
+        "s": 1
+      },
+      "totals": {
+        "hotkeys": 2,
+        "screen_reader_commands": 0,
+        "other_keys": 175
+      },
+      "intents_by_hotkey": {}
+    }
+  },
+  "accessibility": {
+    "baseline": {
+      "os": "Windows",
+      "os_version": "10.0.26100",
+      "python_version": "3.13.6",
+      "narrator": {
+        "enabled": false,
+        "startup_enabled": false
+      },
+      "magnifier": {
+        "enabled": false,
+        "zoom": null
+      },
+      "color_filter": {
+        "enabled": false,
+        "type": "blue-yellow"
+      },
+      "high_contrast": {
+        "enabled": false,
+        "flags": "126"
+      },
+      "sticky_keys": {
+        "flags": "510",
+        "maybe_enabled": true
+      },
+      "toggle_keys": {
+        "flags": "62",
+        "maybe_enabled": true
+      },
+      "filter_keys": {
+        "flags": "126",
+        "maybe_enabled": true
+      },
+      "font_smoothing": "2",
+      "display_scaling": null,
+      "mouse_cursor_scheme": "windows aero"
+    },
+    "last": {
+      "os": "Windows",
+      "os_version": "10.0.26100",
+      "python_version": "3.13.6",
+      "narrator": {
+        "enabled": false,
+        "startup_enabled": false
+      },
+      "magnifier": {
+        "enabled": false,
+        "zoom": null
+      },
+      "color_filter": {
+        "enabled": false,
+        "type": "blue-yellow"
+      },
+      "high_contrast": {
+        "enabled": false,
+        "flags": "126"
+      },
+      "sticky_keys": {
+        "flags": "510",
+        "maybe_enabled": true
+      },
+      "toggle_keys": {
+        "flags": "62",
+        "maybe_enabled": true
+      },
+      "filter_keys": {
+        "flags": "126",
+        "maybe_enabled": true
+      },
+      "font_smoothing": "2",
+      "display_scaling": null,
+      "mouse_cursor_scheme": "windows aero"
+    },
+    "changes": []
+  }
+}

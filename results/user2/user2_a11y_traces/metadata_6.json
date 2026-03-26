@@ -1,0 +1,373 @@
+{
+  "task": {
+    "task_id": 6,
+    "task_title": "Search for a product on an online store",
+    "instruction": "Visit walmart.com on Chrome. Search for a frying pan, then click on the first product with a pan size of exactly 10 inches and add it to cart.",
+    "task": "Visit walmart.com on Chrome. Search for a frying pan, then click on the first product with a pan size of exactly 10 inches and add it to cart.",
+    "context": "I've been getting into cooking recently, so I've decided to upgrade my frying pan.",
+    "rand_id_column": "Rand ID 11",
+    "rand_order": 5,
+    "task_group": "Browsing and Web",
+    "interactions": "key_press, mouse_click, scroll",
+    "applications": "Chrome",
+    "familiarity": "High",
+    "difficulty_before": "Low",
+    "difficulty_after": "Low",
+    "success": true
+  },
+  "session": {
+    "started_at": 1755878961.0631394,
+    "last_event_at": 1755879062109,
+    "folder": "task_logs\\User 11\\6",
+    "apps_by_order": [
+      {
+        "order": 1,
+        "app": "explorer.exe",
+        "log_file": "1_explorer.exe.json"
+      },
+      {
+        "order": 2,
+        "app": "chrome.exe",
+        "log_file": "2_chrome.exe.json"
+      }
+    ],
+    "ended_at": 1755879065.2540066
+  },
+  "apps": {
+    "explorer.exe": {
+      "order": 1,
+      "log_file": "1_explorer.exe.json",
+      "a11y_tree_files": [
+        "1_explorer.exe_1755878970408_a11y_tree.json"
+      ],
+      "events": 1,
+      "by_type": {
+        "mouse_click": 0,
+        "mouse_up": 0,
+        "mouse_move": 0,
+        "drag_drop": 0,
+        "key_press": 1,
+        "hotkey": 0,
+        "scroll": 0
+      },
+      "display_name": "explorer.exe",
+      "windows_seen": [
+        {
+          "title": "Program Manager",
+          "bounds": {
+            "left": 0,
+            "top": 0,
+            "right": 1920,
+            "bottom": 1080
+          },
+          "state": "normal",
+          "hwnd": 65964,
+          "pid": 9812,
+          "ts": 1755878970.4080117
+        }
+      ],
+      "last_window": {
+        "title": "Program Manager",
+        "bounds": {
+          "left": 0,
+          "top": 0,
+          "right": 1920,
+          "bottom": 1080
+        },
+        "state": "normal",
+        "hwnd": 65964,
+        "pid": 9812,
+        "ts": 1755878970.4080117
+      },
+      "keystrokes": {
+        "hotkeys": {},
+        "screen_reader_commands": {},
+        "other_keys": {
+          "Enter": 1
+        },
+        "totals": {
+          "hotkeys": 0,
+          "screen_reader_commands": 0,
+          "other_keys": 1
+        },
+        "intents_by_hotkey": {}
+      }
+    },
+    "chrome.exe": {
+      "order": 2,
+      "log_file": "2_chrome.exe.json",
+      "a11y_tree_files": [
+        "2_chrome.exe_1755878975098_a11y_tree.json"
+      ],
+      "events": 86,
+      "by_type": {
+        "mouse_click": 1,
+        "mouse_up": 1,
+        "mouse_move": 4,
+        "drag_drop": 0,
+        "key_press": 69,
+        "hotkey": 11,
+        "scroll": 0
+      },
+      "display_name": "chrome.exe",
+      "windows_seen": [
+        {
+          "title": "New Tab - Google Chrome",
+          "bounds": {
+            "left": 115,
+            "top": 25,
+            "right": 1515,
+            "bottom": 855
+          },
+          "state": "normal",
+          "hwnd": 16515236,
+          "pid": 16988,
+          "ts": 1755878975.0976682
+        },
+        {
+          "title": "Flash Deals - Walmart.com - Google Chrome",
+          "bounds": {
+            "left": 115,
+            "top": 25,
+            "right": 1515,
+            "bottom": 855
+          },
+          "state": "normal",
+          "hwnd": 16515236,
+          "pid": 16988,
+          "ts": 1755878990.362443
+        },
+        {
+          "title": "walmart.com/search?q=frying+pan+10IN - Google Chrome",
+          "bounds": {
+            "left": 115,
+            "top": 25,
+            "right": 1515,
+            "bottom": 855
+          },
+          "state": "normal",
+          "hwnd": 16515236,
+          "pid": 16988,
+          "ts": 1755879014.8163881
+        },
+        {
+          "title": "frying pan 10IN - Walmart.com - Google Chrome",
+          "bounds": {
+            "left": 115,
+            "top": 25,
+            "right": 1515,
+            "bottom": 855
+          },
+          "state": "normal",
+          "hwnd": 16515236,
+          "pid": 16988,
+          "ts": 1755879016.223593
+        },
+        {
+          "title": "Thyme & Table 10\" Non-Stick Signature Ribbed Fry Pan - Grey - Walmart.com - Google Chrome",
+          "bounds": {
+            "left": 115,
+            "top": 25,
+            "right": 1515,
+            "bottom": 855
+          },
+          "state": "normal",
+          "hwnd": 16515236,
+          "pid": 16988,
+          "ts": 1755879034.298228
+        },
+        {
+          "title": "Added to cart | Relevant recommendations - Google Chrome",
+          "bounds": {
+            "left": 115,
+            "top": 25,
+            "right": 1515,
+            "bottom": 855
+          },
+          "state": "normal",
+          "hwnd": 16515236,
+          "pid": 16988,
+          "ts": 1755879058.868163
+        }
+      ],
+      "last_window": {
+        "title": "Added to cart | Relevant recommendations - Google Chrome",
+        "bounds": {
+          "left": 115,
+          "top": 25,
+          "right": 1515,
+          "bottom": 855
+        },
+        "state": "normal",
+        "hwnd": 16515236,
+        "pid": 16988,
+        "ts": 1755879062.0512865
+      },
+      "keystrokes": {
+        "hotkeys": {
+          "Ctrl+Right": 5,
+          "Ctrl+Left": 2
+        },
+        "screen_reader_commands": {},
+        "other_keys": {
+          "Enter": 7,
+          "h": 5,
+          "k": 5,
+          "b": 4,
+          "n": 4,
+          "Right": 4,
+          "i": 3,
+          "Shift": 3,
+          "a": 2,
+          "m": 2,
+          "o": 2,
+          "r": 2,
+          "Space": 2,
+          ".": 1,
+          "0": 1,
+          "1": 1,
+          "c": 1,
+          "e": 1,
+          "f": 1,
+          "g": 1,
+          "l": 1,
+          "Left": 1,
+          "p": 1,
+          "t": 1,
+          "Up": 1,
+          "w": 1,
+          "y": 1
+        },
+        "totals": {
+          "hotkeys": 7,
+          "screen_reader_commands": 0,
+          "other_keys": 59
+        },
+        "intents_by_hotkey": {}
+      }
+    }
+  },
+  "web": {
+    "tabs_by_order": [
+      {
+        "order": 1,
+        "first_ts": 1755879051962,
+        "url": "https://www.walmart.com/ip/Thyme-Table-Signature-Ribbed-10-Fry-Pan-Non-Stick-Grey/5150283460?classType=REGULAR&adsRedirect=true",
+        "title": "Thyme & Table 10\" Non-Stick Signature Ribbed Fry Pan - Grey - Walmart.com",
+        "file": "/task_logs/6/web_logs/web_tab1_1755879051962.json",
+        "dom_url": null,
+        "a11y_url": null
+      },
+      {
+        "order": 2,
+        "first_ts": 1755879056965,
+        "url": "https://www.walmart.com/pac?id=5150283460&ip=24.36&qt=1&g=FC&oId=3828252908F73A3BB27DF665BB90EA55&fahs=f&facp=f&faacc=f&fshs=f&fscp=f&fsacc=f&cat=4044&po=&csid=0",
+        "title": "Added to cart | Relevant recommendations",
+        "file": "/task_logs/6/web_logs/web_tab2_1755879056965.json",
+        "dom_url": null,
+        "a11y_url": null
+      }
+    ],
+    "events": 9,
+    "by_tab": {
+      "1::1755879051962": 5,
+      "2::1755879056965": 4
+    }
+  },
+  "summary": {
+    "apps": 2,
+    "events": 96,
+    "by_type": {
+      "key_press": 70,
+      "hotkey": 11,
+      "mouse_move": 4,
+      "mouse_click": 1,
+      "mouse_up": 1
+    },
+    "by_app": {
+      "explorer.exe": 1,
+      "chrome.exe": 86
+    },
+    "keystrokes": {
+      "hotkeys": {
+        "Ctrl+Right": 5,
+        "Ctrl+Left": 2
+      },
+      "screen_reader_commands": {},
+      "other_keys": {
+        "Enter": 8,
+        "h": 5,
+        "k": 5,
+        "b": 4,
+        "n": 4,
+        "Right": 4,
+        "i": 3,
+        "Shift": 3,
+        "a": 2,
+        "m": 2,
+        "o": 2,
+        "r": 2,
+        "Space": 2,
+        ".": 1,
+        "0": 1,
+        "1": 1,
+        "c": 1,
+        "e": 1,
+        "f": 1,
+        "g": 1,
+        "l": 1,
+        "Left": 1,
+        "p": 1,
+        "t": 1,
+        "Up": 1,
+        "w": 1,
+        "y": 1
+      },
+      "totals": {
+        "hotkeys": 7,
+        "screen_reader_commands": 0,
+        "other_keys": 60
+      },
+      "intents_by_hotkey": {}
+    }
+  },
+  "accessibility": {
+    "baseline": {
+      "os": "Windows",
+      "os_version": "10.0.26100",
+      "python_version": "3.13.6",
+      "narrator": {
+        "enabled": false,
+        "startup_enabled": false
+      },
+      "magnifier": {
+        "enabled": false,
+        "zoom": null
+      },
+      "color_filter": {
+        "enabled": false,
+        "type": "blue-yellow"
+      },
+      "high_contrast": {
+        "enabled": false,
+        "flags": "126"
+      },
+      "sticky_keys": {
+        "flags": "510",
+        "maybe_enabled": true
+      },
+      "toggle_keys": {
+        "flags": "62",
+        "maybe_enabled": true
+      },
+      "filter_keys": {
+        "flags": "126",
+        "maybe_enabled": true
+      },
+      "font_smoothing": "2",
+      "display_scaling": null,
+      "mouse_cursor_scheme": "windows aero"
+    },
+    "changes": []
+  }
+}

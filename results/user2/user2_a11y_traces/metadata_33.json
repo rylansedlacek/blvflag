@@ -1,0 +1,206 @@
+{
+  "task": {
+    "task_id": 33,
+    "task_title": "Use calculator application to perform multiplication",
+    "instruction": "Compute the product of 20 and 483 on Calculator",
+    "task": "Compute the product of 20 and 483 on Calculator",
+    "context": "I want to do a multiplication calculation using my the calculator application.",
+    "rand_id_column": "Rand ID 11",
+    "rand_order": 16,
+    "task_group": "System Application",
+    "interactions": "",
+    "applications": "Calculator",
+    "familiarity": "High",
+    "difficulty_before": "Low",
+    "difficulty_after": "Low",
+    "success": true
+  },
+  "session": {
+    "started_at": 1755881655.9023807,
+    "last_event_at": 1755881697.546725,
+    "folder": "task_logs\\User 11\\33",
+    "apps_by_order": [
+      {
+        "order": 1,
+        "app": "ApplicationFrameHost.exe",
+        "log_file": "1_ApplicationFrameHost.exe.json"
+      },
+      {
+        "order": 1,
+        "app": "ApplicationFrameHost.exe::Calculator",
+        "log_file": "1_ApplicationFrameHost.exe_Calculator.json"
+      }
+    ],
+    "ended_at": 1755881699.2567277
+  },
+  "apps": {
+    "ApplicationFrameHost.exe": {
+      "order": 1,
+      "log_file": "1_ApplicationFrameHost.exe.json",
+      "a11y_tree_files": [
+        "1_ApplicationFrameHost.exe_1755881664328_a11y_tree.json"
+      ],
+      "events": 0,
+      "by_type": {
+        "mouse_click": 0,
+        "mouse_up": 0,
+        "mouse_move": 0,
+        "drag_drop": 0,
+        "key_press": 0,
+        "hotkey": 0,
+        "scroll": 0
+      },
+      "keystrokes": {
+        "hotkeys": {},
+        "screen_reader_commands": {},
+        "other_keys": {},
+        "totals": {
+          "hotkeys": 0,
+          "screen_reader_commands": 0,
+          "other_keys": 0
+        },
+        "intents_by_hotkey": {}
+      }
+    },
+    "ApplicationFrameHost.exe::Calculator": {
+      "order": 1,
+      "log_file": "1_ApplicationFrameHost.exe_Calculator.json",
+      "a11y_tree_files": [],
+      "events": 19,
+      "by_type": {
+        "mouse_click": 2,
+        "mouse_up": 0,
+        "mouse_move": 1,
+        "drag_drop": 0,
+        "key_press": 16,
+        "hotkey": 0,
+        "scroll": 0
+      },
+      "display_name": "ApplicationFrameHost (Calculator)",
+      "windows_seen": [
+        {
+          "title": "Calculator",
+          "bounds": {
+            "left": 1078,
+            "top": 203,
+            "right": 1496,
+            "bottom": 878
+          },
+          "state": "normal",
+          "hwnd": 4918480,
+          "pid": 6744,
+          "ts": 1755881664.3281877
+        }
+      ],
+      "last_window": {
+        "title": "Calculator",
+        "bounds": {
+          "left": 1078,
+          "top": 203,
+          "right": 1496,
+          "bottom": 878
+        },
+        "state": "normal",
+        "hwnd": 4918480,
+        "pid": 6744,
+        "ts": 1755881697.546725
+      },
+      "keystrokes": {
+        "hotkeys": {},
+        "screen_reader_commands": {},
+        "other_keys": {
+          "*": 2,
+          "0": 2,
+          "2": 2,
+          "3": 2,
+          "4": 2,
+          "8": 2,
+          "Enter": 2,
+          "Num_Lock": 2
+        },
+        "totals": {
+          "hotkeys": 0,
+          "screen_reader_commands": 0,
+          "other_keys": 16
+        },
+        "intents_by_hotkey": {}
+      }
+    }
+  },
+  "web": {
+    "tabs_by_order": [],
+    "events": 0,
+    "by_tab": {}
+  },
+  "summary": {
+    "apps": 2,
+    "events": 19,
+    "by_type": {
+      "key_press": 16,
+      "mouse_click": 2,
+      "mouse_move": 1
+    },
+    "by_app": {
+      "ApplicationFrameHost.exe::Calculator": 19
+    },
+    "keystrokes": {
+      "hotkeys": {},
+      "screen_reader_commands": {},
+      "other_keys": {
+        "*": 2,
+        "0": 2,
+        "2": 2,
+        "3": 2,
+        "4": 2,
+        "8": 2,
+        "Enter": 2,
+        "Num_Lock": 2
+      },
+      "totals": {
+        "hotkeys": 0,
+        "screen_reader_commands": 0,
+        "other_keys": 16
+      },
+      "intents_by_hotkey": {}
+    }
+  },
+  "accessibility": {
+    "baseline": {
+      "os": "Windows",
+      "os_version": "10.0.26100",
+      "python_version": "3.13.6",
+      "narrator": {
+        "enabled": false,
+        "startup_enabled": false
+      },
+      "magnifier": {
+        "enabled": false,
+        "zoom": null
+      },
+      "color_filter": {
+        "enabled": false,
+        "type": "blue-yellow"
+      },
+      "high_contrast": {
+        "enabled": false,
+        "flags": "126"
+      },
+      "sticky_keys": {
+        "flags": "510",
+        "maybe_enabled": true
+      },
+      "toggle_keys": {
+        "flags": "62",
+        "maybe_enabled": true
+      },
+      "filter_keys": {
+        "flags": "126",
+        "maybe_enabled": true
+      },
+      "font_smoothing": "2",
+      "display_scaling": null,
+      "mouse_cursor_scheme": "windows aero"
+    },
+    "changes": []
+  }
+}

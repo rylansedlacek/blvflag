@@ -1,0 +1,650 @@
+{
+  "task": {
+    "task_id": 64,
+    "task_title": "Locate an author on a paper (Word Document) and search for their website",
+    "instruction": "Open Task ID 64.docx in Documents > Task 64 folder, locate its author in this article. \nSearch them on Chrome. Go to their personal website.",
+    "task": "Open Task ID 64.docx in Documents > Task 64 folder, locate its author in this article. \nSearch them on Chrome. Go to their personal website.",
+    "context": "I am enjoying reading an article in a word document. I want to know more about the author.",
+    "rand_id_column": "Rand ID 11",
+    "rand_order": 46,
+    "task_group": "Workflow",
+    "interactions": "",
+    "applications": "Word, Chrome",
+    "familiarity": "High",
+    "difficulty_before": "Low",
+    "difficulty_after": "Low",
+    "success": true
+  },
+  "session": {
+    "started_at": 1755955839.9897223,
+    "last_event_at": 1755956206.65521,
+    "folder": "task_logs\\User 11\\64",
+    "apps_by_order": [
+      {
+        "order": 1,
+        "app": "explorer.exe",
+        "log_file": "1_explorer.exe.json"
+      },
+      {
+        "order": 2,
+        "app": "WINWORD.EXE",
+        "log_file": "2_WINWORD.EXE.json"
+      },
+      {
+        "order": 3,
+        "app": "chrome.exe",
+        "log_file": "3_chrome.exe.json"
+      }
+    ],
+    "ended_at": 1755956210.5457048
+  },
+  "apps": {
+    "explorer.exe": {
+      "order": 1,
+      "log_file": "1_explorer.exe.json",
+      "a11y_tree_files": [
+        "1_explorer.exe_1755955845049_a11y_tree.json",
+        "1_explorer.exe_1755955852734_a11y_tree.json",
+        "1_explorer.exe_1755955925373_a11y_tree.json",
+        "1_explorer.exe_1755955927763_a11y_tree.json",
+        "1_explorer.exe_1755955963185_a11y_tree.json",
+        "1_explorer.exe_1755956206655_a11y_tree.json"
+      ],
+      "events": 71,
+      "by_type": {
+        "mouse_click": 0,
+        "mouse_up": 1,
+        "mouse_move": 0,
+        "drag_drop": 0,
+        "key_press": 57,
+        "hotkey": 13,
+        "scroll": 0
+      },
+      "display_name": "explorer.exe",
+      "windows_seen": [
+        {
+          "title": "Documents - File Explorer",
+          "bounds": {
+            "left": 933,
+            "top": 75,
+            "right": 1821,
+            "bottom": 825
+          },
+          "state": "normal",
+          "hwnd": 2101996,
+          "pid": 9812,
+          "ts": 1755955852.7336068
+        },
+        {
+          "title": "Task 64 - File Explorer",
+          "bounds": {
+            "left": 933,
+            "top": 75,
+            "right": 1821,
+            "bottom": 825
+          },
+          "state": "normal",
+          "hwnd": 2101996,
+          "pid": 9812,
+          "ts": 1755955879.8136885
+        },
+        {
+          "title": "Run",
+          "bounds": {
+            "left": 9,
+            "top": 736,
+            "right": 481,
+            "bottom": 1016
+          },
+          "state": "normal",
+          "hwnd": 1184716,
+          "pid": 9812,
+          "ts": 1755955927.6171544
+        },
+        {
+          "title": "Program Manager",
+          "bounds": {
+            "left": 0,
+            "top": 0,
+            "right": 1920,
+            "bottom": 1080
+          },
+          "state": "normal",
+          "hwnd": 65964,
+          "pid": 9812,
+          "ts": 1755955927.7631202
+        },
+        {
+          "title": "Task Switching",
+          "bounds": {
+            "left": 0,
+            "top": 0,
+            "right": 1920,
+            "bottom": 1020
+          },
+          "state": "normal",
+          "hwnd": 983276,
+          "pid": 9812,
+          "ts": 1755955963.1849234
+        },
+        {
+          "title": "Task 64 - File Explorer",
+          "bounds": {
+            "left": 933,
+            "top": 75,
+            "right": 1821,
+            "bottom": 825
+          },
+          "state": "normal",
+          "hwnd": 2101996,
+          "pid": 9812,
+          "ts": 1755955964.272623
+        },
+        {
+          "title": "Task Switching",
+          "bounds": {
+            "left": 0,
+            "top": 0,
+            "right": 1920,
+            "bottom": 1020
+          },
+          "state": "normal",
+          "hwnd": 983276,
+          "pid": 9812,
+          "ts": 1755955966.1883883
+        },
+        {
+          "title": "Task 64 - File Explorer",
+          "bounds": {
+            "left": 933,
+            "top": 75,
+            "right": 1821,
+            "bottom": 825
+          },
+          "state": "normal",
+          "hwnd": 2101996,
+          "pid": 9812,
+          "ts": 1755955974.5757492
+        },
+        {
+          "title": "Task Switching",
+          "bounds": {
+            "left": 0,
+            "top": 0,
+            "right": 1920,
+            "bottom": 1020
+          },
+          "state": "normal",
+          "hwnd": 983276,
+          "pid": 9812,
+          "ts": 1755955992.9564245
+        },
+        {
+          "title": "",
+          "bounds": {
+            "left": 0,
+            "top": 1020,
+            "right": 1920,
+            "bottom": 1080
+          },
+          "state": "normal",
+          "hwnd": 65916,
+          "pid": 9812,
+          "ts": 1755956206.65521
+        }
+      ],
+      "last_window": {
+        "title": "",
+        "bounds": {
+          "left": 0,
+          "top": 1020,
+          "right": 1920,
+          "bottom": 1080
+        },
+        "state": "normal",
+        "hwnd": 65916,
+        "pid": 9812,
+        "ts": 1755956206.65521
+      },
+      "keystrokes": {
+        "hotkeys": {
+          "Alt+Tab": 9,
+          "Ctrl+Left": 1,
+          "Win+Enter": 1,
+          "Win+Esc": 1,
+          "Win+G": 1
+        },
+        "screen_reader_commands": {},
+        "other_keys": {
+          "t": 16,
+          "Right": 9,
+          "Enter": 5,
+          "Left": 3,
+          "c": 1,
+          "d": 1,
+          "Down": 1,
+          "e": 1,
+          "m": 1,
+          "n": 1,
+          "o": 1,
+          "s": 1,
+          "u": 1
+        },
+        "totals": {
+          "hotkeys": 13,
+          "screen_reader_commands": 0,
+          "other_keys": 42
+        },
+        "intents_by_hotkey": {
+          "task_switch": 9
+        }
+      }
+    },
+    "WINWORD.EXE": {
+      "order": 2,
+      "log_file": "2_WINWORD.EXE.json",
+      "a11y_tree_files": [
+        "2_WINWORD.EXE_1755955890183_a11y_tree.json",
+        "2_WINWORD.EXE_1755955891852_a11y_tree.json",
+        "2_WINWORD.EXE_1755955894124_a11y_tree.json",
+        "2_WINWORD.EXE_1755955982255_a11y_tree.json"
+      ],
+      "events": 127,
+      "by_type": {
+        "mouse_click": 1,
+        "mouse_up": 1,
+        "mouse_move": 5,
+        "drag_drop": 0,
+        "key_press": 69,
+        "hotkey": 51,
+        "scroll": 0
+      },
+      "display_name": "WINWORD.EXE",
+      "windows_seen": [
+        {
+          "title": "",
+          "bounds": {
+            "left": 1528,
+            "top": 94,
+            "right": 1916,
+            "bottom": 279
+          },
+          "state": "normal",
+          "hwnd": 3740734,
+          "pid": 23768,
+          "ts": 1755955890.183151
+        },
+        {
+          "title": "Task ID 64  -  Protected View - Word",
+          "bounds": {
+            "left": -9,
+            "top": -9,
+            "right": 1929,
+            "bottom": 1029
+          },
+          "state": "maximized",
+          "hwnd": 2626584,
+          "pid": 23768,
+          "ts": 1755955891.8515415
+        },
+        {
+          "title": "Task ID 64 - Word",
+          "bounds": {
+            "left": -9,
+            "top": -9,
+            "right": 1929,
+            "bottom": 1029
+          },
+          "state": "maximized",
+          "hwnd": 4853046,
+          "pid": 23768,
+          "ts": 1755955894.1236875
+        },
+        {
+          "title": "Task ID 64 - Word",
+          "bounds": {
+            "left": -9,
+            "top": -9,
+            "right": 1929,
+            "bottom": 1029
+          },
+          "state": "maximized",
+          "hwnd": 12389524,
+          "pid": 16140,
+          "ts": 1755955982.2547703
+        }
+      ],
+      "last_window": {
+        "title": "Task ID 64 - Word",
+        "bounds": {
+          "left": -9,
+          "top": -9,
+          "right": 1929,
+          "bottom": 1029
+        },
+        "state": "maximized",
+        "hwnd": 12389524,
+        "pid": 16140,
+        "ts": 1755955992.839377
+      },
+      "keystrokes": {
+        "hotkeys": {
+          "Ctrl+Left": 14,
+          "Ctrl+Down": 10,
+          "Ctrl+Up": 9,
+          "Ctrl+Right": 8,
+          "Ctrl+Shift+Right": 6,
+          "Ctrl+\u0003": 2,
+          "Alt+Space": 1,
+          "Ctrl+Shift+Up": 1
+        },
+        "screen_reader_commands": {},
+        "other_keys": {
+          "c": 1
+        },
+        "totals": {
+          "hotkeys": 51,
+          "screen_reader_commands": 0,
+          "other_keys": 1
+        },
+        "intents_by_hotkey": {}
+      }
+    },
+    "chrome.exe": {
+      "order": 3,
+      "log_file": "3_chrome.exe.json",
+      "a11y_tree_files": [
+        "3_chrome.exe_1755955936140_a11y_tree.json"
+      ],
+      "events": 360,
+      "by_type": {
+        "mouse_click": 1,
+        "mouse_up": 0,
+        "mouse_move": 5,
+        "drag_drop": 0,
+        "key_press": 261,
+        "hotkey": 93,
+        "scroll": 0
+      },
+      "display_name": "chrome.exe",
+      "windows_seen": [
+        {
+          "title": "New Tab - Google Chrome",
+          "bounds": {
+            "left": -9,
+            "top": -9,
+            "right": 1929,
+            "bottom": 1029
+          },
+          "state": "maximized",
+          "hwnd": 25300796,
+          "pid": 27952,
+          "ts": 1755955936.1401577
+        },
+        {
+          "title": "neil degrasse tyson - Google Search - Google Chrome",
+          "bounds": {
+            "left": -9,
+            "top": -9,
+            "right": 1929,
+            "bottom": 1029
+          },
+          "state": "maximized",
+          "hwnd": 25300796,
+          "pid": 27952,
+          "ts": 1755955999.5790837
+        },
+        {
+          "title": "neil degrasse tyson personal website - Google Search - Google Chrome",
+          "bounds": {
+            "left": -9,
+            "top": -9,
+            "right": 1929,
+            "bottom": 1029
+          },
+          "state": "maximized",
+          "hwnd": 25300796,
+          "pid": 27952,
+          "ts": 1755956190.034372
+        },
+        {
+          "title": "Homepage - Neil deGrasse Tyson : Neil deGrasse Tyson - Google Chrome",
+          "bounds": {
+            "left": -9,
+            "top": -9,
+            "right": 1929,
+            "bottom": 1029
+          },
+          "state": "maximized",
+          "hwnd": 25300796,
+          "pid": 27952,
+          "ts": 1755956203.3148696
+        }
+      ],
+      "last_window": {
+        "title": "Homepage - Neil deGrasse Tyson : Neil deGrasse Tyson - Google Chrome",
+        "bounds": {
+          "left": -9,
+          "top": -9,
+          "right": 1929,
+          "bottom": 1029
+        },
+        "state": "maximized",
+        "hwnd": 25300796,
+        "pid": 27952,
+        "ts": 1755956206.3731973
+      },
+      "keystrokes": {
+        "hotkeys": {
+          "Ctrl+Down": 69,
+          "Ctrl+Right": 8,
+          "Ctrl+Left": 4,
+          "Ctrl+\u0001": 2,
+          "Ctrl+\u0016": 2,
+          "Ctrl+Up": 1,
+          "Ctrl+Win+\u0016": 1,
+          "Win+Enter": 1
+        },
+        "screen_reader_commands": {},
+        "other_keys": {
+          "h": 41,
+          "Backspace": 16,
+          "e": 7,
+          "Enter": 6,
+          "Shift": 5,
+          "Delete": 4,
+          "Left": 4,
+          "Right": 4,
+          "Down": 2,
+          "s": 2,
+          "Space": 2,
+          "a": 1,
+          "b": 1,
+          "i": 1,
+          "l": 1,
+          "n": 1,
+          "o": 1,
+          "p": 1,
+          "r": 1,
+          "t": 1,
+          "Up": 1,
+          "w": 1
+        },
+        "totals": {
+          "hotkeys": 88,
+          "screen_reader_commands": 0,
+          "other_keys": 104
+        },
+        "intents_by_hotkey": {}
+      }
+    }
+  },
+  "web": {
+    "tabs_by_order": [
+      {
+        "order": 1,
+        "first_ts": 1755955998291,
+        "url": "https://www.google.com/search?q=neil+degrasse+tyson&oq=Neil+deGrasse+Tyson&gs_lcrp=EgZjaHJvbWUqDQgAEAAY4wIYsQMYgAQyDQgAEAAY4wIYsQMYgAQyCggBEC4YsQMYgAQyBwgCEAAYgAQyBwgDEAAYgAQyBwgEEAAYgAQyBwgFEAAYgAQyBwgGEAAYgAQyBwgHEAAYgAQyBwgIEAAYgAQyBwgJEAAYgASoAgCwAgA&sourceid=chrome&ie=UTF-8",
+        "title": "neil degrasse tyson - Google Search",
+        "file": "/task_logs/64/web_logs/web_tab1_1755955998291.json",
+        "dom_url": "/task_logs/User 11/64/web_logs/web_tab1_1755955998291.html",
+        "a11y_url": "/task_logs/User 11/64/web_logs/web_tab1_1755955998291_a11y_tree.json"
+      },
+      {
+        "order": 2,
+        "first_ts": 1755956014341,
+        "url": "https://www.google.com/search?q=neil+degrasse+tyson&oq=Neil+deGrasse+Tyson&gs_lcrp=EgZjaHJvbWUqDQgAEAAY4wIYsQMYgAQyDQgAEAAY4wIYsQMYgAQyCggBEC4YsQMYgAQyBwgCEAAYgAQyBwgDEAAYgAQyBwgEEAAYgAQyBwgFEAAYgAQyBwgGEAAYgAQyBwgHEAAYgAQyBwgIEAAYgAQyBwgJEAAYgATSAQgxNzM2ajBqN6gCALACAA&sourceid=chrome&ie=UTF-8",
+        "title": "neil degrasse tyson - Google Search",
+        "file": "/task_logs/64/web_logs/web_tab2_1755956014341.json",
+        "dom_url": "/task_logs/User 11/64/web_logs/web_tab2_1755956014341.html",
+        "a11y_url": "/task_logs/User 11/64/web_logs/web_tab2_1755956014341_a11y_tree.json"
+      },
+      {
+        "order": 3,
+        "first_ts": 1755956163771,
+        "url": "https://www.google.com/search?q=neil+degrasse+tyson&oq=Neil+deGrasse+Tyson&gs_lcrp=EgZjaHJvbWUqDQgAEAAY4wIYsQMYgAQyDQgAEAAY4wIYsQMYgAQyCggBEC4YsQMYgAQyBwgCEAAYgAQyBwgDEAAYgAQyBwgEEAAYgAQyBwgFEAAYgAQyBwgGEAAYgAQyBwgHEAAYgAQyBwgIEAAYgAQyBwgJEAAYgATSAQgxNzM2ajBqN6gCALACAA&sourceid=chrome&ie=UTF-8#cso=_HsOpaKLxCd-Om9cPqriR4Qk_282:1344",
+        "title": "neil degrasse tyson - Google Search",
+        "file": "/task_logs/64/web_logs/web_tab3_1755956163771.json",
+        "dom_url": null,
+        "a11y_url": null
+      },
+      {
+        "order": 4,
+        "first_ts": 1755956172462,
+        "url": "https://www.google.com/search?q=neil+degrasse+tyson&oq=Neil+deGrasse+Tyson&gs_lcrp=EgZjaHJvbWUqDQgAEAAY4wIYsQMYgAQyDQgAEAAY4wIYsQMYgAQyCggBEC4YsQMYgAQyBwgCEAAYgAQyBwgDEAAYgAQyBwgEEAAYgAQyBwgFEAAYgAQyBwgGEAAYgAQyBwgHEAAYgAQyBwgIEAAYgAQyBwgJEAAYgATSAQgxNzM2ajBqN6gCALACAA&sourceid=chrome&ie=UTF-8#cso=_HsOpaKLxCd-Om9cPqriR4Qk_282:1344,_HsOpaKLxCd-Om9cPqriR4Qk_273:896",
+        "title": "neil degrasse tyson - Google Search",
+        "file": "/task_logs/64/web_logs/web_tab4_1755956172462.json",
+        "dom_url": null,
+        "a11y_url": null
+      },
+      {
+        "order": 5,
+        "first_ts": 1755956199846,
+        "url": "https://www.google.com/search?q=neil+degrasse+tyson+personal+website&sca_esv=cc2881f0e79ae444&ei=HsOpaKLxCd-Om9cPqriR4Qk&ved=0ahUKEwii-IvshaGPAxVfx-YEHSpcJJwQ4dUDCBA&uact=5&oq=neil+degrasse+tyson+personal+website&gs_lp=Egxnd3Mtd2l6LXNlcnAiJG5laWwgZGVncmFzc2UgdHlzb24gcGVyc29uYWwgd2Vic2l0ZTIFECEYoAEyBRAhGKABMgUQIRigATIFECEYoAEyBRAhGKABMgUQIRirAjIFECEYqwJItlZQAFiTTXAAeAGQAQCYAV2gAdkKqgECMTe4AQPIAQD4AQGYAhGgAoMMwgIFEAAYgATCAgoQABiABBhDGIoFwgIFEC4YgATCAgsQABiABBiRAhiKBcICBhAAGBYYHsICCxAAGIAEGIYDGIoFwgIIEAAYgAQYogTCAgUQABjvBcICBRAhGJ8FmAMAkgcCMTegB_52sgcCMTe4B4MMwgcFMi04LjnIB44B&sclient=gws-wiz-serp",
+        "title": "neil degrasse tyson personal website - Google Search",
+        "file": "/task_logs/64/web_logs/web_tab5_1755956199846.json",
+        "dom_url": "/task_logs/User 11/64/web_logs/web_tab5_1755956199846.html",
+        "a11y_url": "/task_logs/User 11/64/web_logs/web_tab5_1755956199846_a11y_tree.json"
+      }
+    ],
+    "events": 56,
+    "by_tab": {
+      "1::1755955998291": 1,
+      "2::1755956014341": 7,
+      "3::1755956163771": 1,
+      "4::1755956172462": 44,
+      "5::1755956199846": 3
+    }
+  },
+  "summary": {
+    "apps": 3,
+    "events": 614,
+    "by_type": {
+      "key_press": 387,
+      "mouse_move": 10,
+      "mouse_click": 2,
+      "mouse_up": 2,
+      "hotkey": 157
+    },
+    "by_app": {
+      "explorer.exe": 71,
+      "WINWORD.EXE": 127,
+      "chrome.exe": 360
+    },
+    "keystrokes": {
+      "hotkeys": {
+        "Ctrl+Down": 79,
+        "Ctrl+Left": 19,
+        "Ctrl+Right": 16,
+        "Ctrl+Up": 10,
+        "Alt+Tab": 9,
+        "Ctrl+Shift+Right": 6,
+        "Ctrl+\u0001": 2,
+        "Ctrl+\u0003": 2,
+        "Ctrl+\u0016": 2,
+        "Win+Enter": 2,
+        "Alt+Space": 1,
+        "Ctrl+Shift+Up": 1,
+        "Ctrl+Win+\u0016": 1,
+        "Win+Esc": 1,
+        "Win+G": 1
+      },
+      "screen_reader_commands": {},
+      "other_keys": {
+        "h": 41,
+        "t": 17,
+        "Backspace": 16,
+        "Right": 13,
+        "Enter": 11,
+        "e": 8,
+        "Left": 7,
+        "Shift": 5,
+        "Delete": 4,
+        "Down": 3,
+        "s": 3,
+        "c": 2,
+        "n": 2,
+        "o": 2,
+        "Space": 2,
+        "a": 1,
+        "b": 1,
+        "d": 1,
+        "i": 1,
+        "l": 1,
+        "m": 1,
+        "p": 1,
+        "r": 1,
+        "u": 1,
+        "Up": 1,
+        "w": 1
+      },
+      "totals": {
+        "hotkeys": 152,
+        "screen_reader_commands": 0,
+        "other_keys": 147
+      },
+      "intents_by_hotkey": {
+        "task_switch": 9
+      }
+    }
+  },
+  "accessibility": {
+    "baseline": {
+      "os": "Windows",
+      "os_version": "10.0.26100",
+      "python_version": "3.13.6",
+      "narrator": {
+        "enabled": false,
+        "startup_enabled": false
+      },
+      "magnifier": {
+        "enabled": false,
+        "zoom": null
+      },
+      "color_filter": {
+        "enabled": false,
+        "type": "blue-yellow"
+      },
+      "high_contrast": {
+        "enabled": false,
+        "flags": "126"
+      },
+      "sticky_keys": {
+        "flags": "510",
+        "maybe_enabled": true
+      },
+      "toggle_keys": {
+        "flags": "62",
+        "maybe_enabled": true
+      },
+      "filter_keys": {
+        "flags": "126",
+        "maybe_enabled": true
+      },
+      "font_smoothing": "2",
+      "display_scaling": null,
+      "mouse_cursor_scheme": "windows aero"
+    },
+    "changes": []
+  }
+}

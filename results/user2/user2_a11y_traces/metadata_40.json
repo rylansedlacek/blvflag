@@ -1,0 +1,366 @@
+{
+  "task": {
+    "task_id": 40,
+    "task_title": "Create a new PowerPoint, add slide, add text",
+    "instruction": "Create a new PowerPoint presentation. In the first slide, add the title \"3 Fun Facts About Me\". Create a second slide, and add details of my age, favorite color, and favorite animal. I'm 20, I like red, and sea otters are my favorite animals.",
+    "task": "Create a new PowerPoint presentation. In the first slide, add the title \"3 Fun Facts About Me\". Create a second slide, and add details of my age, favorite color, and favorite animal. I'm 20, I like red, and sea otters are my favorite animals.",
+    "context": "I have to make a presentation slide to introduce myself to my classmates.",
+    "rand_id_column": "Rand ID 11",
+    "rand_order": 29,
+    "task_group": "Document Editing",
+    "interactions": "",
+    "applications": "PowerPoint",
+    "familiarity": "High",
+    "difficulty_before": "Low",
+    "difficulty_after": "Low",
+    "success": true
+  },
+  "session": {
+    "started_at": 1755885198.0002217,
+    "last_event_at": 1755885302.1001556,
+    "folder": "task_logs\\User 11\\40",
+    "apps_by_order": [
+      {
+        "order": 1,
+        "app": "POWERPNT.EXE",
+        "log_file": "1_POWERPNT.EXE.json"
+      },
+      {
+        "order": 2,
+        "app": "explorer.exe",
+        "log_file": "2_explorer.exe.json"
+      },
+      {
+        "order": 3,
+        "app": "Code.exe",
+        "log_file": "3_Code.exe.json"
+      }
+    ],
+    "ended_at": 1755885306.423493
+  },
+  "apps": {
+    "POWERPNT.EXE": {
+      "order": 1,
+      "log_file": "1_POWERPNT.EXE.json",
+      "a11y_tree_files": [
+        "1_POWERPNT.EXE_1755885209582_a11y_tree.json"
+      ],
+      "events": 154,
+      "by_type": {
+        "mouse_click": 2,
+        "mouse_up": 0,
+        "mouse_move": 9,
+        "drag_drop": 0,
+        "key_press": 133,
+        "hotkey": 10,
+        "scroll": 0
+      },
+      "display_name": "POWERPNT.EXE",
+      "windows_seen": [
+        {
+          "title": "PowerPoint",
+          "bounds": {
+            "left": -9,
+            "top": -9,
+            "right": 1929,
+            "bottom": 1029
+          },
+          "state": "maximized",
+          "hwnd": 4066604,
+          "pid": 22236,
+          "ts": 1755885209.582253
+        },
+        {
+          "title": "Presentation1 - PowerPoint",
+          "bounds": {
+            "left": -9,
+            "top": -9,
+            "right": 1929,
+            "bottom": 1029
+          },
+          "state": "maximized",
+          "hwnd": 4066604,
+          "pid": 22236,
+          "ts": 1755885214.0267115
+        }
+      ],
+      "last_window": {
+        "title": "Presentation1 - PowerPoint",
+        "bounds": {
+          "left": -9,
+          "top": -9,
+          "right": 1929,
+          "bottom": 1029
+        },
+        "state": "maximized",
+        "hwnd": 4066604,
+        "pid": 22236,
+        "ts": 1755885301.8592956
+      },
+      "keystrokes": {
+        "hotkeys": {
+          "Ctrl+\r": 1
+        },
+        "screen_reader_commands": {},
+        "other_keys": {
+          "Right": 22,
+          "Space": 13,
+          "a": 10,
+          "Esc": 10,
+          "Backspace": 8,
+          ":": 6,
+          "f": 6,
+          "Left": 6,
+          "Tab": 6,
+          "e": 5,
+          "Enter": 5,
+          "Shift": 5,
+          "o": 4,
+          "t": 4,
+          "v": 4,
+          "r": 3,
+          "c": 2,
+          "Down": 2,
+          "F2": 2,
+          "l": 2,
+          "m": 2,
+          "n": 2,
+          "s": 2,
+          "u": 2,
+          "0": 1,
+          "2": 1,
+          "3": 1,
+          "b": 1,
+          "d": 1,
+          "g": 1,
+          "i": 1
+        },
+        "totals": {
+          "hotkeys": 1,
+          "screen_reader_commands": 0,
+          "other_keys": 140
+        },
+        "intents_by_hotkey": {}
+      }
+    },
+    "explorer.exe": {
+      "order": 2,
+      "log_file": "2_explorer.exe.json",
+      "a11y_tree_files": [
+        "2_explorer.exe_1755885299175_a11y_tree.json"
+      ],
+      "events": 2,
+      "by_type": {
+        "mouse_click": 0,
+        "mouse_up": 2,
+        "mouse_move": 0,
+        "drag_drop": 0,
+        "key_press": 0,
+        "hotkey": 0,
+        "scroll": 0
+      },
+      "display_name": "explorer.exe",
+      "windows_seen": [
+        {
+          "title": "",
+          "bounds": {
+            "left": 0,
+            "top": 1020,
+            "right": 1920,
+            "bottom": 1080
+          },
+          "state": "normal",
+          "hwnd": 65916,
+          "pid": 9812,
+          "ts": 1755885299.1745055
+        }
+      ],
+      "last_window": {
+        "title": "",
+        "bounds": {
+          "left": 0,
+          "top": 1020,
+          "right": 1920,
+          "bottom": 1080
+        },
+        "state": "normal",
+        "hwnd": 65916,
+        "pid": 9812,
+        "ts": 1755885302.1001556
+      },
+      "keystrokes": {
+        "hotkeys": {},
+        "screen_reader_commands": {},
+        "other_keys": {},
+        "totals": {
+          "hotkeys": 0,
+          "screen_reader_commands": 0,
+          "other_keys": 0
+        },
+        "intents_by_hotkey": {}
+      }
+    },
+    "Code.exe": {
+      "order": 3,
+      "log_file": "3_Code.exe.json",
+      "a11y_tree_files": [
+        "3_Code.exe_1755885299835_a11y_tree.json"
+      ],
+      "events": 4,
+      "by_type": {
+        "mouse_click": 1,
+        "mouse_up": 1,
+        "mouse_move": 2,
+        "drag_drop": 0,
+        "key_press": 0,
+        "hotkey": 0,
+        "scroll": 0
+      },
+      "display_name": "Code.exe",
+      "windows_seen": [
+        {
+          "title": "completed_tasks.txt - Computer-Use-Dataset - Visual Studio Code [Administrator]",
+          "bounds": {
+            "left": -9,
+            "top": -9,
+            "right": 1929,
+            "bottom": 1029
+          },
+          "state": "maximized",
+          "hwnd": 11405846,
+          "pid": 1828,
+          "ts": 1755885300.1761334
+        }
+      ],
+      "last_window": {
+        "title": "completed_tasks.txt - Computer-Use-Dataset - Visual Studio Code [Administrator]",
+        "bounds": {
+          "left": -9,
+          "top": -9,
+          "right": 1929,
+          "bottom": 1029
+        },
+        "state": "maximized",
+        "hwnd": 11405846,
+        "pid": 1828,
+        "ts": 1755885299.8345838
+      },
+      "keystrokes": {
+        "hotkeys": {},
+        "screen_reader_commands": {},
+        "other_keys": {},
+        "totals": {
+          "hotkeys": 0,
+          "screen_reader_commands": 0,
+          "other_keys": 0
+        },
+        "intents_by_hotkey": {}
+      }
+    }
+  },
+  "web": {
+    "tabs_by_order": [],
+    "events": 0,
+    "by_tab": {}
+  },
+  "summary": {
+    "apps": 3,
+    "events": 160,
+    "by_type": {
+      "key_press": 133,
+      "hotkey": 10,
+      "mouse_move": 11,
+      "mouse_click": 3,
+      "mouse_up": 3
+    },
+    "by_app": {
+      "POWERPNT.EXE": 154,
+      "explorer.exe": 2,
+      "Code.exe": 4
+    },
+    "keystrokes": {
+      "hotkeys": {
+        "Ctrl+\r": 1
+      },
+      "screen_reader_commands": {},
+      "other_keys": {
+        "Right": 22,
+        "Space": 13,
+        "a": 10,
+        "Esc": 10,
+        "Backspace": 8,
+        ":": 6,
+        "f": 6,
+        "Left": 6,
+        "Tab": 6,
+        "e": 5,
+        "Enter": 5,
+        "Shift": 5,
+        "o": 4,
+        "t": 4,
+        "v": 4,
+        "r": 3,
+        "c": 2,
+        "Down": 2,
+        "F2": 2,
+        "l": 2,
+        "m": 2,
+        "n": 2,
+        "s": 2,
+        "u": 2,
+        "0": 1,
+        "2": 1,
+        "3": 1,
+        "b": 1,
+        "d": 1,
+        "g": 1,
+        "i": 1
+      },
+      "totals": {
+        "hotkeys": 1,
+        "screen_reader_commands": 0,
+        "other_keys": 140
+      },
+      "intents_by_hotkey": {}
+    }
+  },
+  "accessibility": {
+    "baseline": {
+      "os": "Windows",
+      "os_version": "10.0.26100",
+      "python_version": "3.13.6",
+      "narrator": {
+        "enabled": false,
+        "startup_enabled": false
+      },
+      "magnifier": {
+        "enabled": false,
+        "zoom": null
+      },
+      "color_filter": {
+        "enabled": false,
+        "type": "blue-yellow"
+      },
+      "high_contrast": {
+        "enabled": false,
+        "flags": "126"
+      },
+      "sticky_keys": {
+        "flags": "510",
+        "maybe_enabled": true
+      },
+      "toggle_keys": {
+        "flags": "62",
+        "maybe_enabled": true
+      },
+      "filter_keys": {
+        "flags": "126",
+        "maybe_enabled": true
+      },
+      "font_smoothing": "2",
+      "display_scaling": null,
+      "mouse_cursor_scheme": "windows aero"
+    },
+    "changes": []
+  }
+}

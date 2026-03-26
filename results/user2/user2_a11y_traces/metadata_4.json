@@ -1,0 +1,333 @@
+{
+  "task": {
+    "task_id": 4,
+    "task_title": "Bookmark a webpage",
+    "instruction": "Bookmark the Facebook homepage on Chrome",
+    "task": "Bookmark the Facebook homepage on Chrome",
+    "context": "I use Facebook regularly so I want easy access.",
+    "rand_id_column": "Rand ID 11",
+    "rand_order": 8,
+    "task_group": "Browsing and Web",
+    "interactions": "key_press, mouse_click",
+    "applications": "Chrome",
+    "familiarity": "High",
+    "difficulty_before": "Low",
+    "difficulty_after": "Low",
+    "success": true
+  },
+  "session": {
+    "started_at": 1755879646.7221196,
+    "last_event_at": 1755879695.783642,
+    "folder": "task_logs\\User 11\\4",
+    "apps_by_order": [
+      {
+        "order": 1,
+        "app": "explorer.exe",
+        "log_file": "1_explorer.exe.json"
+      },
+      {
+        "order": 2,
+        "app": "chrome.exe",
+        "log_file": "2_chrome.exe.json"
+      }
+    ],
+    "ended_at": 1755879698.4354837
+  },
+  "apps": {
+    "explorer.exe": {
+      "order": 1,
+      "log_file": "1_explorer.exe.json",
+      "a11y_tree_files": [
+        "1_explorer.exe_1755879657695_a11y_tree.json",
+        "1_explorer.exe_1755879695784_a11y_tree.json"
+      ],
+      "events": 2,
+      "by_type": {
+        "mouse_click": 0,
+        "mouse_up": 1,
+        "mouse_move": 0,
+        "drag_drop": 0,
+        "key_press": 1,
+        "hotkey": 0,
+        "scroll": 0
+      },
+      "display_name": "explorer.exe",
+      "windows_seen": [
+        {
+          "title": "Program Manager",
+          "bounds": {
+            "left": 0,
+            "top": 0,
+            "right": 1920,
+            "bottom": 1080
+          },
+          "state": "normal",
+          "hwnd": 65964,
+          "pid": 9812,
+          "ts": 1755879657.6946054
+        },
+        {
+          "title": "",
+          "bounds": {
+            "left": 0,
+            "top": 1020,
+            "right": 1920,
+            "bottom": 1080
+          },
+          "state": "normal",
+          "hwnd": 65916,
+          "pid": 9812,
+          "ts": 1755879695.783642
+        }
+      ],
+      "last_window": {
+        "title": "",
+        "bounds": {
+          "left": 0,
+          "top": 1020,
+          "right": 1920,
+          "bottom": 1080
+        },
+        "state": "normal",
+        "hwnd": 65916,
+        "pid": 9812,
+        "ts": 1755879695.783642
+      },
+      "keystrokes": {
+        "hotkeys": {},
+        "screen_reader_commands": {},
+        "other_keys": {
+          "Enter": 1
+        },
+        "totals": {
+          "hotkeys": 0,
+          "screen_reader_commands": 0,
+          "other_keys": 1
+        },
+        "intents_by_hotkey": {}
+      }
+    },
+    "chrome.exe": {
+      "order": 2,
+      "log_file": "2_chrome.exe.json",
+      "a11y_tree_files": [
+        "2_chrome.exe_1755879659019_a11y_tree.json",
+        "2_chrome.exe_1755879684311_a11y_tree.json",
+        "2_chrome.exe_1755879694197_a11y_tree.json"
+      ],
+      "events": 54,
+      "by_type": {
+        "mouse_click": 1,
+        "mouse_up": 0,
+        "mouse_move": 5,
+        "drag_drop": 0,
+        "key_press": 39,
+        "hotkey": 9,
+        "scroll": 0
+      },
+      "display_name": "chrome.exe",
+      "windows_seen": [
+        {
+          "title": "New Tab - Google Chrome",
+          "bounds": {
+            "left": 115,
+            "top": 25,
+            "right": 1515,
+            "bottom": 855
+          },
+          "state": "normal",
+          "hwnd": 16845600,
+          "pid": 17040,
+          "ts": 1755879659.0194643
+        },
+        {
+          "title": "Facebook - log in or sign up - Google Chrome",
+          "bounds": {
+            "left": 115,
+            "top": 25,
+            "right": 1515,
+            "bottom": 855
+          },
+          "state": "normal",
+          "hwnd": 16845600,
+          "pid": 17040,
+          "ts": 1755879665.5194361
+        },
+        {
+          "title": "Bookmark added",
+          "bounds": {
+            "left": 696,
+            "top": 120,
+            "right": 1274,
+            "bottom": 503
+          },
+          "state": "normal",
+          "hwnd": 10685770,
+          "pid": 17040,
+          "ts": 1755879684.3112633
+        },
+        {
+          "title": "Facebook - log in or sign up - Google Chrome",
+          "bounds": {
+            "left": 115,
+            "top": 25,
+            "right": 1515,
+            "bottom": 855
+          },
+          "state": "normal",
+          "hwnd": 16845600,
+          "pid": 17040,
+          "ts": 1755879694.1974733
+        }
+      ],
+      "last_window": {
+        "title": "Facebook - log in or sign up - Google Chrome",
+        "bounds": {
+          "left": 115,
+          "top": 25,
+          "right": 1515,
+          "bottom": 855
+        },
+        "state": "normal",
+        "hwnd": 16845600,
+        "pid": 17040,
+        "ts": 1755879695.5596251
+      },
+      "keystrokes": {
+        "hotkeys": {
+          "Alt+D": 1
+        },
+        "screen_reader_commands": {},
+        "other_keys": {
+          "Tab": 18,
+          "Esc": 6,
+          "Enter": 4,
+          "Shift": 4,
+          "o": 3,
+          "c": 2,
+          ".": 1,
+          "a": 1,
+          "b": 1,
+          "e": 1,
+          "f": 1,
+          "k": 1,
+          "m": 1
+        },
+        "totals": {
+          "hotkeys": 1,
+          "screen_reader_commands": 0,
+          "other_keys": 44
+        },
+        "intents_by_hotkey": {}
+      }
+    }
+  },
+  "web": {
+    "tabs_by_order": [
+      {
+        "order": 1,
+        "first_ts": 1755879660888,
+        "url": "https://www.google.com/search?q=facebook&oq=facebo&gs_lcrp=EgZjaHJvbWUqEAgAEAAYgwEY4wIYsQMYgAQyEAgAEAAYgwEY4wIYsQMYgAQyEwgBEC4YgwEYxwEYsQMY0QMYgAQyEAgCEAAYgwEYsQMYyQMYgAQyBggDEEUYOTINCAQQABiDARixAxiABDINCAUQABiSAxiABBiKBTIKCAYQABiSAxiABDIGCAcQBRhAqAIAsAIA&sourceid=chrome&ie=UTF-8",
+        "title": "facebook - Google Search",
+        "file": "/task_logs/4/web_logs/web_tab1_1755879660888.json",
+        "dom_url": "/task_logs/User 11/4/web_logs/web_tab1_1755879660888.html",
+        "a11y_url": "/task_logs/User 11/4/web_logs/web_tab1_1755879660888_a11y_tree.json"
+      },
+      {
+        "order": 2,
+        "first_ts": 1755879663928,
+        "url": "https://www.facebook.com/",
+        "title": "Facebook - log in or sign up",
+        "file": "/task_logs/4/web_logs/web_tab2_1755879663928.json",
+        "dom_url": "/task_logs/User 11/4/web_logs/web_tab2_1755879663928.html",
+        "a11y_url": "/task_logs/User 11/4/web_logs/web_tab2_1755879663928_a11y_tree.json"
+      }
+    ],
+    "events": 7,
+    "by_tab": {
+      "1::1755879660888": 1,
+      "2::1755879663928": 6
+    }
+  },
+  "summary": {
+    "apps": 2,
+    "events": 63,
+    "by_type": {
+      "key_press": 40,
+      "hotkey": 9,
+      "mouse_move": 5,
+      "mouse_click": 1,
+      "mouse_up": 1
+    },
+    "by_app": {
+      "explorer.exe": 2,
+      "chrome.exe": 54
+    },
+    "keystrokes": {
+      "hotkeys": {
+        "Alt+D": 1
+      },
+      "screen_reader_commands": {},
+      "other_keys": {
+        "Tab": 18,
+        "Esc": 6,
+        "Enter": 5,
+        "Shift": 4,
+        "o": 3,
+        "c": 2,
+        ".": 1,
+        "a": 1,
+        "b": 1,
+        "e": 1,
+        "f": 1,
+        "k": 1,
+        "m": 1
+      },
+      "totals": {
+        "hotkeys": 1,
+        "screen_reader_commands": 0,
+        "other_keys": 45
+      },
+      "intents_by_hotkey": {}
+    }
+  },
+  "accessibility": {
+    "baseline": {
+      "os": "Windows",
+      "os_version": "10.0.26100",
+      "python_version": "3.13.6",
+      "narrator": {
+        "enabled": false,
+        "startup_enabled": false
+      },
+      "magnifier": {
+        "enabled": false,
+        "zoom": null
+      },
+      "color_filter": {
+        "enabled": false,
+        "type": "blue-yellow"
+      },
+      "high_contrast": {
+        "enabled": false,
+        "flags": "126"
+      },
+      "sticky_keys": {
+        "flags": "510",
+        "maybe_enabled": true
+      },
+      "toggle_keys": {
+        "flags": "62",
+        "maybe_enabled": true
+      },
+      "filter_keys": {
+        "flags": "126",
+        "maybe_enabled": true
+      },
+      "font_smoothing": "2",
+      "display_scaling": null,
+      "mouse_cursor_scheme": "windows aero"
+    },
+    "changes": []
+  }
+}

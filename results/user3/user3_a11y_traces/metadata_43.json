@@ -1,0 +1,488 @@
+{
+  "task": {
+    "task_id": 43,
+    "task_title": "Create a chart in Excel",
+    "instruction": "Open Task ID 43.xlsx in Documents > Task 43 folder, create a bar chart where the x-axis is \"Book Title\" and the y-axis is the \"Days to Finish\". The title of the chart is \"Summer Reading",
+    "task": "Open Task ID 43.xlsx in Documents > Task 43 folder, create a bar chart where the x-axis is \"Book Title\" and the y-axis is the \"Days to Finish\". The title of the chart is \"Summer Reading",
+    "context": "I am tracking all the books I've read in an excel sheet. I have columns for \"Book Title\", \"# Days to Finish\", and \"Rating (1-10)\". I want to make a bar chart for how many days I took to read all the books.",
+    "rand_id_column": "Rand ID 16",
+    "rand_order": 27,
+    "task_group": "Document Editing",
+    "interactions": "",
+    "applications": "Excel",
+    "familiarity": "Low",
+    "difficulty_before": "Medium",
+    "difficulty_after": "Medium",
+    "success": true
+  },
+  "session": {
+    "started_at": 1756395776.9040852,
+    "last_event_at": 1756396038.167615,
+    "folder": "task_logs\\User 16\\43",
+    "apps_by_order": [
+      {
+        "order": 1,
+        "app": "explorer.exe",
+        "log_file": "1_explorer.exe.json"
+      },
+      {
+        "order": 2,
+        "app": "EXCEL.EXE",
+        "log_file": "2_EXCEL.EXE.json"
+      }
+    ],
+    "ended_at": 1756396041.006734
+  },
+  "apps": {
+    "explorer.exe": {
+      "order": 1,
+      "log_file": "1_explorer.exe.json",
+      "a11y_tree_files": [
+        "1_explorer.exe_1756395784710_a11y_tree.json",
+        "1_explorer.exe_1756396038168_a11y_tree.json"
+      ],
+      "events": 23,
+      "by_type": {
+        "mouse_click": 0,
+        "mouse_up": 1,
+        "mouse_move": 0,
+        "drag_drop": 0,
+        "key_press": 22,
+        "hotkey": 0,
+        "scroll": 0
+      },
+      "display_name": "explorer.exe",
+      "windows_seen": [
+        {
+          "title": "Home - File Explorer",
+          "bounds": {
+            "left": 606,
+            "top": 82,
+            "right": 1920,
+            "bottom": 742
+          },
+          "state": null,
+          "hwnd": 56690940,
+          "pid": 8492,
+          "ts": 1756395784.71006
+        },
+        {
+          "title": "Documents - File Explorer",
+          "bounds": {
+            "left": 606,
+            "top": 82,
+            "right": 1920,
+            "bottom": 742
+          },
+          "state": null,
+          "hwnd": 56690940,
+          "pid": 8492,
+          "ts": 1756395787.4490383
+        },
+        {
+          "title": "Task 43 - File Explorer",
+          "bounds": {
+            "left": 606,
+            "top": 82,
+            "right": 1920,
+            "bottom": 742
+          },
+          "state": null,
+          "hwnd": 56690940,
+          "pid": 8492,
+          "ts": 1756395804.7170515
+        },
+        {
+          "title": "",
+          "bounds": {
+            "left": 0,
+            "top": 1020,
+            "right": 1920,
+            "bottom": 1080
+          },
+          "state": null,
+          "hwnd": 1048756,
+          "pid": 8492,
+          "ts": 1756396038.167615
+        }
+      ],
+      "last_window": {
+        "title": "",
+        "bounds": {
+          "left": 0,
+          "top": 1020,
+          "right": 1920,
+          "bottom": 1080
+        },
+        "state": null,
+        "hwnd": 1048756,
+        "pid": 8492,
+        "ts": 1756396038.167615
+      },
+      "keystrokes": {
+        "hotkeys": {},
+        "screen_reader_commands": {},
+        "other_keys": {
+          "t": 14,
+          "Enter": 3,
+          "a": 1,
+          "Backspace": 1,
+          "c": 1,
+          "s": 1,
+          "Space": 1
+        },
+        "totals": {
+          "hotkeys": 0,
+          "screen_reader_commands": 0,
+          "other_keys": 22
+        },
+        "intents_by_hotkey": {}
+      }
+    },
+    "EXCEL.EXE": {
+      "order": 2,
+      "log_file": "2_EXCEL.EXE.json",
+      "a11y_tree_files": [
+        "2_EXCEL.EXE_1756395811647_a11y_tree.json",
+        "2_EXCEL.EXE_1756395820611_a11y_tree.json",
+        "2_EXCEL.EXE_1756395830062_a11y_tree.json",
+        "2_EXCEL.EXE_1756395862311_a11y_tree.json",
+        "2_EXCEL.EXE_1756395897406_a11y_tree.json"
+      ],
+      "events": 100,
+      "by_type": {
+        "mouse_click": 2,
+        "mouse_up": 1,
+        "mouse_move": 13,
+        "drag_drop": 0,
+        "key_press": 77,
+        "hotkey": 7,
+        "scroll": 0
+      },
+      "display_name": "EXCEL.EXE",
+      "windows_seen": [
+        {
+          "title": "Task ID 43  -  Protected View - Excel",
+          "bounds": {
+            "left": 192,
+            "top": 117,
+            "right": 1595,
+            "bottom": 1020
+          },
+          "state": null,
+          "hwnd": 4785878,
+          "pid": 6428,
+          "ts": 1756395812.024779
+        },
+        {
+          "title": "Task ID 43 - Excel",
+          "bounds": {
+            "left": 64,
+            "top": 64,
+            "right": 1467,
+            "bottom": 967
+          },
+          "state": null,
+          "hwnd": 5834830,
+          "pid": 6428,
+          "ts": 1756395820.6108954
+        },
+        {
+          "title": "Go To",
+          "bounds": {
+            "left": 816,
+            "top": 354,
+            "right": 1251,
+            "bottom": 710
+          },
+          "state": null,
+          "hwnd": 10748374,
+          "pid": 6428,
+          "ts": 1756395830.0620153
+        },
+        {
+          "title": "Task ID 43 - Excel",
+          "bounds": {
+            "left": 64,
+            "top": 64,
+            "right": 1467,
+            "bottom": 967
+          },
+          "state": null,
+          "hwnd": 5834830,
+          "pid": 6428,
+          "ts": 1756395833.759673
+        },
+        {
+          "title": "",
+          "bounds": {
+            "left": 465,
+            "top": 197,
+            "right": 749,
+            "bottom": 717
+          },
+          "state": null,
+          "hwnd": 24578402,
+          "pid": 6428,
+          "ts": 1756395857.8278668
+        },
+        {
+          "title": "Task ID 43 - Excel",
+          "bounds": {
+            "left": 64,
+            "top": 64,
+            "right": 1467,
+            "bottom": 967
+          },
+          "state": null,
+          "hwnd": 5834830,
+          "pid": 6428,
+          "ts": 1756395862.310561
+        },
+        {
+          "title": "Chart Elements",
+          "bounds": {
+            "left": 1122,
+            "top": 450,
+            "right": 1328,
+            "bottom": 738
+          },
+          "state": null,
+          "hwnd": 28116640,
+          "pid": 6428,
+          "ts": 1756395874.9549916
+        },
+        {
+          "title": "Task ID 43 - Excel",
+          "bounds": {
+            "left": 64,
+            "top": 64,
+            "right": 1467,
+            "bottom": 967
+          },
+          "state": null,
+          "hwnd": 5834830,
+          "pid": 6428,
+          "ts": 1756395876.78757
+        },
+        {
+          "title": "Chart Elements",
+          "bounds": {
+            "left": 1122,
+            "top": 450,
+            "right": 1328,
+            "bottom": 738
+          },
+          "state": null,
+          "hwnd": 10356810,
+          "pid": 6428,
+          "ts": 1756395897.4056768
+        },
+        {
+          "title": "Task ID 43 - Excel",
+          "bounds": {
+            "left": 64,
+            "top": 64,
+            "right": 1467,
+            "bottom": 967
+          },
+          "state": null,
+          "hwnd": 5834830,
+          "pid": 6428,
+          "ts": 1756395958.1128192
+        }
+      ],
+      "last_window": {
+        "title": "Task ID 43 - Excel",
+        "bounds": {
+          "left": 64,
+          "top": 64,
+          "right": 1467,
+          "bottom": 967
+        },
+        "state": null,
+        "hwnd": 5834830,
+        "pid": 6428,
+        "ts": 1756396037.7729096
+      },
+      "keystrokes": {
+        "hotkeys": {
+          "Ctrl+Home": 2,
+          "Alt+N": 1,
+          "Ctrl+\u0007": 1
+        },
+        "screen_reader_commands": {},
+        "other_keys": {
+          "Tab": 21,
+          "Enter": 10,
+          "Down": 6,
+          "Up": 4,
+          "Shift": 3,
+          "1": 2,
+          ":": 2,
+          "a": 2,
+          "e": 2,
+          "Esc": 2,
+          "m": 2,
+          "r": 2,
+          "2": 1,
+          "b": 1,
+          "d": 1,
+          "g": 1,
+          "i": 1,
+          "Left": 1,
+          "Menu": 1,
+          "n": 1,
+          "Right": 1,
+          "s": 1,
+          "Space": 1,
+          "u": 1
+        },
+        "totals": {
+          "hotkeys": 4,
+          "screen_reader_commands": 0,
+          "other_keys": 70
+        },
+        "intents_by_hotkey": {}
+      }
+    }
+  },
+  "web": {
+    "tabs_by_order": [],
+    "events": 0,
+    "by_tab": {}
+  },
+  "summary": {
+    "apps": 2,
+    "events": 123,
+    "by_type": {
+      "key_press": 99,
+      "mouse_move": 13,
+      "mouse_click": 2,
+      "mouse_up": 2,
+      "hotkey": 7
+    },
+    "by_app": {
+      "explorer.exe": 23,
+      "EXCEL.EXE": 100
+    },
+    "keystrokes": {
+      "hotkeys": {
+        "Ctrl+Home": 2,
+        "Alt+N": 1,
+        "Ctrl+\u0007": 1
+      },
+      "screen_reader_commands": {},
+      "other_keys": {
+        "Tab": 21,
+        "t": 14,
+        "Enter": 13,
+        "Down": 6,
+        "Up": 4,
+        "a": 3,
+        "Shift": 3,
+        "1": 2,
+        ":": 2,
+        "e": 2,
+        "Esc": 2,
+        "m": 2,
+        "r": 2,
+        "s": 2,
+        "Space": 2,
+        "2": 1,
+        "b": 1,
+        "Backspace": 1,
+        "c": 1,
+        "d": 1,
+        "g": 1,
+        "i": 1,
+        "Left": 1,
+        "Menu": 1,
+        "n": 1,
+        "Right": 1,
+        "u": 1
+      },
+      "totals": {
+        "hotkeys": 4,
+        "screen_reader_commands": 0,
+        "other_keys": 92
+      },
+      "intents_by_hotkey": {}
+    }
+  },
+  "accessibility": {
+    "baseline": {
+      "os": "Windows",
+      "os_version": "10.0.26100",
+      "python_version": "3.13.6",
+      "narrator": {
+        "enabled": false,
+        "startup_enabled": false
+      },
+      "magnifier": {
+        "enabled": false,
+        "zoom": null
+      },
+      "color_filter": {
+        "enabled": false,
+        "type": "blue-yellow"
+      },
+      "high_contrast": {
+        "enabled": false,
+        "flags": "126"
+      },
+      "sticky_keys": {
+        "flags": "510",
+        "maybe_enabled": true
+      },
+      "toggle_keys": {
+        "flags": "62",
+        "maybe_enabled": true
+      },
+      "filter_keys": {
+        "flags": "126",
+        "maybe_enabled": true
+      },
+      "font_smoothing": "2",
+      "display_scaling": null,
+      "mouse_cursor_scheme": "windows aero"
+    },
+    "last": {
+      "os": "Windows",
+      "os_version": "10.0.26100",
+      "python_version": "3.13.6",
+      "narrator": {
+        "enabled": false,
+        "startup_enabled": false
+      },
+      "magnifier": {
+        "enabled": false,
+        "zoom": null
+      },
+      "color_filter": {
+        "enabled": false,
+        "type": "blue-yellow"
+      },
+      "high_contrast": {
+        "enabled": false,
+        "flags": "126"
+      },
+      "sticky_keys": {
+        "flags": "510",
+        "maybe_enabled": true
+      },
+      "toggle_keys": {
+        "flags": "62",
+        "maybe_enabled": true
+      },
+      "filter_keys": {
+        "flags": "126",
+        "maybe_enabled": true
+      },
+      "font_smoothing": "2",
+      "display_scaling": null,
+      "mouse_cursor_scheme": "windows aero"
+    },
+    "changes": []
+  }
+}

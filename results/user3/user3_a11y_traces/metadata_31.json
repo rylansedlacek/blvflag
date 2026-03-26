@@ -1,0 +1,327 @@
+{
+  "task": {
+    "task_id": 31,
+    "task_title": "Create and delete a new folder",
+    "instruction": "I want to delete a folder \"Old Assignment\" in Documents > Task 31 folder. Then, create a folder in Documents > Task 31 folder called \"Assignments",
+    "task": "I want to delete a folder \"Old Assignment\" in Documents > Task 31 folder. Then, create a folder in Documents > Task 31 folder called \"Assignments",
+    "context": "I want to stay organized will all my assignment documents and resources.",
+    "rand_id_column": "Rand ID 16",
+    "rand_order": 16,
+    "task_group": "System Operations",
+    "interactions": "",
+    "applications": "File Explorer",
+    "familiarity": "High",
+    "difficulty_before": "Low",
+    "difficulty_after": "Low",
+    "success": true
+  },
+  "session": {
+    "started_at": 1756394235.9760494,
+    "last_event_at": 1756394283.2887814,
+    "folder": "task_logs\\User 16\\31",
+    "apps_by_order": [
+      {
+        "order": 1,
+        "app": "explorer.exe",
+        "log_file": "1_explorer.exe.json"
+      }
+    ],
+    "ended_at": 1756394285.863427
+  },
+  "apps": {
+    "explorer.exe": {
+      "order": 1,
+      "log_file": "1_explorer.exe.json",
+      "a11y_tree_files": [
+        "1_explorer.exe_1756394242455_a11y_tree.json",
+        "1_explorer.exe_1756394271540_a11y_tree.json",
+        "1_explorer.exe_1756394283289_a11y_tree.json"
+      ],
+      "events": 55,
+      "by_type": {
+        "mouse_click": 1,
+        "mouse_up": 1,
+        "mouse_move": 6,
+        "drag_drop": 0,
+        "key_press": 45,
+        "hotkey": 2,
+        "scroll": 0
+      },
+      "display_name": "explorer.exe",
+      "windows_seen": [
+        {
+          "title": "Home - File Explorer",
+          "bounds": {
+            "left": 606,
+            "top": 82,
+            "right": 1920,
+            "bottom": 742
+          },
+          "state": null,
+          "hwnd": 8064094,
+          "pid": 8492,
+          "ts": 1756394242.454968
+        },
+        {
+          "title": "Desktop - File Explorer",
+          "bounds": {
+            "left": 606,
+            "top": 82,
+            "right": 1920,
+            "bottom": 742
+          },
+          "state": null,
+          "hwnd": 8064094,
+          "pid": 8492,
+          "ts": 1756394248.7380512
+        },
+        {
+          "title": "Documents - File Explorer",
+          "bounds": {
+            "left": 606,
+            "top": 82,
+            "right": 1920,
+            "bottom": 742
+          },
+          "state": null,
+          "hwnd": 8064094,
+          "pid": 8492,
+          "ts": 1756394252.9171274
+        },
+        {
+          "title": "Task 31 - File Explorer",
+          "bounds": {
+            "left": 606,
+            "top": 82,
+            "right": 1920,
+            "bottom": 742
+          },
+          "state": null,
+          "hwnd": 8064094,
+          "pid": 8492,
+          "ts": 1756394265.5693614
+        },
+        {
+          "title": "Delete Folder",
+          "bounds": {
+            "left": 677,
+            "top": 396,
+            "right": 1243,
+            "bottom": 623
+          },
+          "state": null,
+          "hwnd": 918726,
+          "pid": 8492,
+          "ts": 1756394270.4842594
+        },
+        {
+          "title": "Task 31 - File Explorer",
+          "bounds": {
+            "left": 606,
+            "top": 82,
+            "right": 1920,
+            "bottom": 742
+          },
+          "state": null,
+          "hwnd": 8064094,
+          "pid": 8492,
+          "ts": 1756394271.5399587
+        },
+        {
+          "title": "",
+          "bounds": {
+            "left": 0,
+            "top": 1020,
+            "right": 1920,
+            "bottom": 1080
+          },
+          "state": null,
+          "hwnd": 1048756,
+          "pid": 8492,
+          "ts": 1756394283.2887814
+        }
+      ],
+      "last_window": {
+        "title": "",
+        "bounds": {
+          "left": 0,
+          "top": 1020,
+          "right": 1920,
+          "bottom": 1080
+        },
+        "state": null,
+        "hwnd": 1048756,
+        "pid": 8492,
+        "ts": 1756394283.2887814
+      },
+      "keystrokes": {
+        "hotkeys": {
+          "Ctrl+Shift+N": 1
+        },
+        "screen_reader_commands": {},
+        "other_keys": {
+          "t": 6,
+          "Down": 5,
+          "Enter": 5,
+          "o": 3,
+          "s": 3,
+          "Up": 3,
+          "d": 2,
+          "Delete": 2,
+          "n": 2,
+          "Shift": 2,
+          "a": 1,
+          "Backspace": 1,
+          "c": 1,
+          "e": 1,
+          "g": 1,
+          "i": 1,
+          "l": 1,
+          "Left": 1,
+          "m": 1,
+          "Right": 1,
+          "Space": 1
+        },
+        "totals": {
+          "hotkeys": 1,
+          "screen_reader_commands": 0,
+          "other_keys": 44
+        },
+        "intents_by_hotkey": {
+          "new": 1
+        }
+      }
+    }
+  },
+  "web": {
+    "tabs_by_order": [],
+    "events": 0,
+    "by_tab": {}
+  },
+  "summary": {
+    "apps": 1,
+    "events": 55,
+    "by_type": {
+      "key_press": 45,
+      "hotkey": 2,
+      "mouse_move": 6,
+      "mouse_click": 1,
+      "mouse_up": 1
+    },
+    "by_app": {
+      "explorer.exe": 55
+    },
+    "keystrokes": {
+      "hotkeys": {
+        "Ctrl+Shift+N": 1
+      },
+      "screen_reader_commands": {},
+      "other_keys": {
+        "t": 6,
+        "Down": 5,
+        "Enter": 5,
+        "o": 3,
+        "s": 3,
+        "Up": 3,
+        "d": 2,
+        "Delete": 2,
+        "n": 2,
+        "Shift": 2,
+        "a": 1,
+        "Backspace": 1,
+        "c": 1,
+        "e": 1,
+        "g": 1,
+        "i": 1,
+        "l": 1,
+        "Left": 1,
+        "m": 1,
+        "Right": 1,
+        "Space": 1
+      },
+      "totals": {
+        "hotkeys": 1,
+        "screen_reader_commands": 0,
+        "other_keys": 44
+      },
+      "intents_by_hotkey": {
+        "new": 1
+      }
+    }
+  },
+  "accessibility": {
+    "baseline": {
+      "os": "Windows",
+      "os_version": "10.0.26100",
+      "python_version": "3.13.6",
+      "narrator": {
+        "enabled": false,
+        "startup_enabled": false
+      },
+      "magnifier": {
+        "enabled": false,
+        "zoom": null
+      },
+      "color_filter": {
+        "enabled": false,
+        "type": "blue-yellow"
+      },
+      "high_contrast": {
+        "enabled": false,
+        "flags": "126"
+      },
+      "sticky_keys": {
+        "flags": "510",
+        "maybe_enabled": true
+      },
+      "toggle_keys": {
+        "flags": "62",
+        "maybe_enabled": true
+      },
+      "filter_keys": {
+        "flags": "126",
+        "maybe_enabled": true
+      },
+      "font_smoothing": "2",
+      "display_scaling": null,
+      "mouse_cursor_scheme": "windows aero"
+    },
+    "last": {
+      "os": "Windows",
+      "os_version": "10.0.26100",
+      "python_version": "3.13.6",
+      "narrator": {
+        "enabled": false,
+        "startup_enabled": false
+      },
+      "magnifier": {
+        "enabled": false,
+        "zoom": null
+      },
+      "color_filter": {
+        "enabled": false,
+        "type": "blue-yellow"
+      },
+      "high_contrast": {
+        "enabled": false,
+        "flags": "126"
+      },
+      "sticky_keys": {
+        "flags": "510",
+        "maybe_enabled": true
+      },
+      "toggle_keys": {
+        "flags": "62",
+        "maybe_enabled": true
+      },
+      "filter_keys": {
+        "flags": "126",
+        "maybe_enabled": true
+      },
+      "font_smoothing": "2",
+      "display_scaling": null,
+      "mouse_cursor_scheme": "windows aero"
+    },
+    "changes": []
+  }
+}

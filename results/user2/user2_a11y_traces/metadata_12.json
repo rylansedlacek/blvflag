@@ -1,0 +1,341 @@
+{
+  "task": {
+    "task_id": 12,
+    "task_title": "Filling a Google Form",
+    "instruction": "Go to https://tinyurl.com/facility-survey and fill up the Google Form and submit.",
+    "task": "Go to https://tinyurl.com/facility-survey and fill up the Google Form and submit.",
+    "context": "I am filling out an anonymous feedback form through Google Form.",
+    "rand_id_column": "Rand ID 11",
+    "rand_order": 7,
+    "task_group": "Browsing and Web",
+    "interactions": "key_press, mouse_click, scroll",
+    "applications": "Chrome",
+    "familiarity": "High",
+    "difficulty_before": "Low",
+    "difficulty_after": "Low",
+    "success": true
+  },
+  "session": {
+    "started_at": 1755879453.3171415,
+    "last_event_at": 1755879538.5244086,
+    "folder": "task_logs\\User 11\\12",
+    "apps_by_order": [
+      {
+        "order": 1,
+        "app": "explorer.exe",
+        "log_file": "1_explorer.exe.json"
+      },
+      {
+        "order": 2,
+        "app": "chrome.exe",
+        "log_file": "2_chrome.exe.json"
+      }
+    ],
+    "ended_at": 1755879541.807014
+  },
+  "apps": {
+    "explorer.exe": {
+      "order": 1,
+      "log_file": "1_explorer.exe.json",
+      "a11y_tree_files": [
+        "1_explorer.exe_1755879462410_a11y_tree.json",
+        "1_explorer.exe_1755879538524_a11y_tree.json"
+      ],
+      "events": 2,
+      "by_type": {
+        "mouse_click": 0,
+        "mouse_up": 1,
+        "mouse_move": 0,
+        "drag_drop": 0,
+        "key_press": 1,
+        "hotkey": 0,
+        "scroll": 0
+      },
+      "display_name": "explorer.exe",
+      "windows_seen": [
+        {
+          "title": "Program Manager",
+          "bounds": {
+            "left": 0,
+            "top": 0,
+            "right": 1920,
+            "bottom": 1080
+          },
+          "state": "normal",
+          "hwnd": 65964,
+          "pid": 9812,
+          "ts": 1755879462.409853
+        },
+        {
+          "title": "",
+          "bounds": {
+            "left": 0,
+            "top": 1020,
+            "right": 1920,
+            "bottom": 1080
+          },
+          "state": "normal",
+          "hwnd": 65916,
+          "pid": 9812,
+          "ts": 1755879538.5244086
+        }
+      ],
+      "last_window": {
+        "title": "",
+        "bounds": {
+          "left": 0,
+          "top": 1020,
+          "right": 1920,
+          "bottom": 1080
+        },
+        "state": "normal",
+        "hwnd": 65916,
+        "pid": 9812,
+        "ts": 1755879538.5244086
+      },
+      "keystrokes": {
+        "hotkeys": {},
+        "screen_reader_commands": {},
+        "other_keys": {
+          "Enter": 1
+        },
+        "totals": {
+          "hotkeys": 0,
+          "screen_reader_commands": 0,
+          "other_keys": 1
+        },
+        "intents_by_hotkey": {}
+      }
+    },
+    "chrome.exe": {
+      "order": 2,
+      "log_file": "2_chrome.exe.json",
+      "a11y_tree_files": [
+        "2_chrome.exe_1755879465778_a11y_tree.json"
+      ],
+      "events": 65,
+      "by_type": {
+        "mouse_click": 1,
+        "mouse_up": 0,
+        "mouse_move": 4,
+        "drag_drop": 0,
+        "key_press": 57,
+        "hotkey": 3,
+        "scroll": 0
+      },
+      "display_name": "chrome.exe",
+      "windows_seen": [
+        {
+          "title": "New Tab - Google Chrome",
+          "bounds": {
+            "left": 115,
+            "top": 25,
+            "right": 1515,
+            "bottom": 855
+          },
+          "state": "normal",
+          "hwnd": 17959334,
+          "pid": 20512,
+          "ts": 1755879465.778468
+        },
+        {
+          "title": "Anonymous Feedback form on School Facility - Google Chrome",
+          "bounds": {
+            "left": 115,
+            "top": 25,
+            "right": 1515,
+            "bottom": 855
+          },
+          "state": "normal",
+          "hwnd": 17959334,
+          "pid": 20512,
+          "ts": 1755879522.4569895
+        }
+      ],
+      "last_window": {
+        "title": "Anonymous Feedback form on School Facility - Google Chrome",
+        "bounds": {
+          "left": 115,
+          "top": 25,
+          "right": 1515,
+          "bottom": 855
+        },
+        "state": "normal",
+        "hwnd": 17959334,
+        "pid": 20512,
+        "ts": 1755879538.2971678
+      },
+      "keystrokes": {
+        "hotkeys": {},
+        "screen_reader_commands": {},
+        "other_keys": {
+          "Enter": 4,
+          "r": 4,
+          "t": 4,
+          "/": 3,
+          "i": 3,
+          "n": 3,
+          "o": 3,
+          "Space": 3,
+          "y": 3,
+          ":": 2,
+          "Backspace": 2,
+          "c": 2,
+          "e": 2,
+          "h": 2,
+          "l": 2,
+          "s": 2,
+          "Shift": 2,
+          "u": 2,
+          "x": 2,
+          "-": 1,
+          ".": 1,
+          "a": 1,
+          "b": 1,
+          "Esc": 1,
+          "f": 1,
+          "m": 1,
+          "p": 1,
+          "v": 1
+        },
+        "totals": {
+          "hotkeys": 0,
+          "screen_reader_commands": 0,
+          "other_keys": 59
+        },
+        "intents_by_hotkey": {}
+      }
+    }
+  },
+  "web": {
+    "tabs_by_order": [
+      {
+        "order": 1,
+        "first_ts": 1755879520756,
+        "url": "https://docs.google.com/forms/d/e/1FAIpQLSfnV36_BPp4mS99Xp_ErwE99sOqydvG2M-HQx8FirW_uI9QVA/viewform?usp=send_form",
+        "title": "Anonymous Feedback form on School Facility",
+        "file": "/task_logs/12/web_logs/web_tab1_1755879520756.json",
+        "dom_url": "/task_logs/User 11/12/web_logs/web_tab1_1755879520756.html",
+        "a11y_url": "/task_logs/User 11/12/web_logs/web_tab1_1755879520756_a11y_tree.json"
+      },
+      {
+        "order": 2,
+        "first_ts": 1755879524347,
+        "url": "https://docs.google.com/forms/d/e/1FAIpQLSfnV36_BPp4mS99Xp_ErwE99sOqydvG2M-HQx8FirW_uI9QVA/viewform",
+        "title": "Anonymous Feedback form on School Facility",
+        "file": "/task_logs/12/web_logs/web_tab2_1755879524347.json",
+        "dom_url": "/task_logs/User 11/12/web_logs/web_tab2_1755879524347.html",
+        "a11y_url": "/task_logs/User 11/12/web_logs/web_tab2_1755879524347_a11y_tree.json"
+      },
+      {
+        "order": 3,
+        "first_ts": 1755879536493,
+        "url": "https://docs.google.com/forms/d/e/1FAIpQLSfnV36_BPp4mS99Xp_ErwE99sOqydvG2M-HQx8FirW_uI9QVA/formResponse",
+        "title": "Anonymous Feedback form on School Facility",
+        "file": "/task_logs/12/web_logs/web_tab3_1755879536493.json",
+        "dom_url": "/task_logs/User 11/12/web_logs/web_tab3_1755879536493.html",
+        "a11y_url": "/task_logs/User 11/12/web_logs/web_tab3_1755879536493_a11y_tree.json"
+      }
+    ],
+    "events": 19,
+    "by_tab": {
+      "1::1755879520756": 1,
+      "2::1755879524347": 17,
+      "3::1755879536493": 1
+    }
+  },
+  "summary": {
+    "apps": 2,
+    "events": 86,
+    "by_type": {
+      "key_press": 58,
+      "hotkey": 3,
+      "mouse_move": 4,
+      "mouse_click": 1,
+      "mouse_up": 1
+    },
+    "by_app": {
+      "explorer.exe": 2,
+      "chrome.exe": 65
+    },
+    "keystrokes": {
+      "hotkeys": {},
+      "screen_reader_commands": {},
+      "other_keys": {
+        "Enter": 5,
+        "r": 4,
+        "t": 4,
+        "/": 3,
+        "i": 3,
+        "n": 3,
+        "o": 3,
+        "Space": 3,
+        "y": 3,
+        ":": 2,
+        "Backspace": 2,
+        "c": 2,
+        "e": 2,
+        "h": 2,
+        "l": 2,
+        "s": 2,
+        "Shift": 2,
+        "u": 2,
+        "x": 2,
+        "-": 1,
+        ".": 1,
+        "a": 1,
+        "b": 1,
+        "Esc": 1,
+        "f": 1,
+        "m": 1,
+        "p": 1,
+        "v": 1
+      },
+      "totals": {
+        "hotkeys": 0,
+        "screen_reader_commands": 0,
+        "other_keys": 60
+      },
+      "intents_by_hotkey": {}
+    }
+  },
+  "accessibility": {
+    "baseline": {
+      "os": "Windows",
+      "os_version": "10.0.26100",
+      "python_version": "3.13.6",
+      "narrator": {
+        "enabled": false,
+        "startup_enabled": false
+      },
+      "magnifier": {
+        "enabled": false,
+        "zoom": null
+      },
+      "color_filter": {
+        "enabled": false,
+        "type": "blue-yellow"
+      },
+      "high_contrast": {
+        "enabled": false,
+        "flags": "126"
+      },
+      "sticky_keys": {
+        "flags": "510",
+        "maybe_enabled": true
+      },
+      "toggle_keys": {
+        "flags": "62",
+        "maybe_enabled": true
+      },
+      "filter_keys": {
+        "flags": "126",
+        "maybe_enabled": true
+      },
+      "font_smoothing": "2",
+      "display_scaling": null,
+      "mouse_cursor_scheme": "windows aero"
+    },
+    "changes": []
+  }
+}

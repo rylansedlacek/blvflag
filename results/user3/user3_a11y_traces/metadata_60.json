@@ -1,0 +1,725 @@
+{
+  "task": {
+    "task_id": 60,
+    "task_title": "Access data from a website and place into a Excel",
+    "instruction": "Visit wikipedia.com and search for the most popular book. Paste in the first two books under the \"Between 50 million and 100 million copies\" into the Excel Task ID 60.xlsx in Documents > Task 60 folder.",
+    "task": "Visit wikipedia.com and search for the most popular book. Paste in the first two books under the \"Between 50 million and 100 million copies\" into the Excel Task ID 60.xlsx in Documents > Task 60 folder.",
+    "context": "I'm making a list of popular books from different online sources into an Excel sheet",
+    "rand_id_column": "Rand ID 16",
+    "rand_order": 47,
+    "task_group": "Workflow",
+    "interactions": "",
+    "applications": "Chrome, Excel",
+    "familiarity": "High",
+    "difficulty_before": "Low",
+    "difficulty_after": "Low",
+    "success": true
+  },
+  "session": {
+    "started_at": 1756406663.533586,
+    "last_event_at": 1756407153.6242843,
+    "folder": "task_logs\\User 16\\60",
+    "apps_by_order": [
+      {
+        "order": 1,
+        "app": "explorer.exe",
+        "log_file": "1_explorer.exe.json"
+      },
+      {
+        "order": 2,
+        "app": "Code.exe",
+        "log_file": "2_Code.exe.json"
+      },
+      {
+        "order": 3,
+        "app": "chrome.exe",
+        "log_file": "3_chrome.exe.json"
+      },
+      {
+        "order": 4,
+        "app": "EXCEL.EXE",
+        "log_file": "4_EXCEL.EXE.json"
+      },
+      {
+        "order": 5,
+        "app": "explorer.exe",
+        "log_file": "1_explorer.exe.json"
+      },
+      {
+        "order": 6,
+        "app": "Code.exe",
+        "log_file": "2_Code.exe.json"
+      }
+    ],
+    "ended_at": 1756407156.7917411
+  },
+  "apps": {
+    "explorer.exe": {
+      "order": 1,
+      "log_file": "1_explorer.exe.json",
+      "a11y_tree_files": [
+        "1_explorer.exe_1756406675848_a11y_tree.json",
+        "1_explorer.exe_1756406692406_a11y_tree.json",
+        "1_explorer.exe_1756406938379_a11y_tree.json",
+        "5_explorer.exe_1756407048491_a11y_tree.json",
+        "5_explorer.exe_1756407153624_a11y_tree.json"
+      ],
+      "events": 71,
+      "by_type": {
+        "mouse_click": 0,
+        "mouse_up": 2,
+        "mouse_move": 6,
+        "drag_drop": 0,
+        "key_press": 49,
+        "hotkey": 14,
+        "scroll": 0
+      },
+      "display_name": "explorer.exe",
+      "windows_seen": [
+        {
+          "title": "Program Manager",
+          "bounds": {
+            "left": 0,
+            "top": 0,
+            "right": 1920,
+            "bottom": 1080
+          },
+          "state": null,
+          "hwnd": 1968060,
+          "pid": 8492,
+          "ts": 1756406675.8480866
+        },
+        {
+          "title": "Task Switching",
+          "bounds": {
+            "left": 0,
+            "top": 0,
+            "right": 1920,
+            "bottom": 1020
+          },
+          "state": null,
+          "hwnd": 264542,
+          "pid": 8492,
+          "ts": 1756406692.4059732
+        },
+        {
+          "title": "Program Manager",
+          "bounds": {
+            "left": 0,
+            "top": 0,
+            "right": 1920,
+            "bottom": 1080
+          },
+          "state": null,
+          "hwnd": 1968060,
+          "pid": 8492,
+          "ts": 1756406695.657598
+        },
+        {
+          "title": "Home - File Explorer",
+          "bounds": {
+            "left": 606,
+            "top": 82,
+            "right": 1920,
+            "bottom": 742
+          },
+          "state": null,
+          "hwnd": 22741138,
+          "pid": 8492,
+          "ts": 1756406938.378982
+        },
+        {
+          "title": "Documents - File Explorer",
+          "bounds": {
+            "left": 606,
+            "top": 82,
+            "right": 1920,
+            "bottom": 742
+          },
+          "state": null,
+          "hwnd": 22741138,
+          "pid": 8492,
+          "ts": 1756406939.7115207
+        },
+        {
+          "title": "Task 60 - File Explorer",
+          "bounds": {
+            "left": 606,
+            "top": 82,
+            "right": 1920,
+            "bottom": 742
+          },
+          "state": null,
+          "hwnd": 22741138,
+          "pid": 8492,
+          "ts": 1756406981.9776285
+        },
+        {
+          "title": "Task Switching",
+          "bounds": {
+            "left": 0,
+            "top": 0,
+            "right": 1920,
+            "bottom": 1020
+          },
+          "state": null,
+          "hwnd": 264542,
+          "pid": 8492,
+          "ts": 1756407039.388154
+        },
+        {
+          "title": "Task 60 - File Explorer",
+          "bounds": {
+            "left": 606,
+            "top": 82,
+            "right": 1920,
+            "bottom": 742
+          },
+          "state": null,
+          "hwnd": 22741138,
+          "pid": 8492,
+          "ts": 1756407048.4912093
+        },
+        {
+          "title": "Task Switching",
+          "bounds": {
+            "left": 0,
+            "top": 0,
+            "right": 1920,
+            "bottom": 1020
+          },
+          "state": null,
+          "hwnd": 264542,
+          "pid": 8492,
+          "ts": 1756407057.7812283
+        },
+        {
+          "title": "",
+          "bounds": {
+            "left": 0,
+            "top": 1020,
+            "right": 1920,
+            "bottom": 1080
+          },
+          "state": null,
+          "hwnd": 1048756,
+          "pid": 8492,
+          "ts": 1756407153.6242843
+        }
+      ],
+      "last_window": {
+        "title": "",
+        "bounds": {
+          "left": 0,
+          "top": 1020,
+          "right": 1920,
+          "bottom": 1080
+        },
+        "state": null,
+        "hwnd": 1048756,
+        "pid": 8492,
+        "ts": 1756407153.6242843
+      },
+      "keystrokes": {
+        "hotkeys": {
+          "Win+D": 3,
+          "Alt+Tab": 2
+        },
+        "screen_reader_commands": {},
+        "other_keys": {
+          "t": 19,
+          "Enter": 6,
+          "Space": 3,
+          "Backspace": 1,
+          "c": 1,
+          "o": 1
+        },
+        "totals": {
+          "hotkeys": 5,
+          "screen_reader_commands": 0,
+          "other_keys": 31
+        },
+        "intents_by_hotkey": {
+          "show_desktop": 3,
+          "task_switch": 2
+        }
+      }
+    },
+    "Code.exe": {
+      "order": 2,
+      "log_file": "2_Code.exe.json",
+      "a11y_tree_files": [
+        "2_Code.exe_1756406694944_a11y_tree.json"
+      ],
+      "events": 18,
+      "by_type": {
+        "mouse_click": 1,
+        "mouse_up": 1,
+        "mouse_move": 4,
+        "drag_drop": 0,
+        "key_press": 10,
+        "hotkey": 2,
+        "scroll": 0
+      },
+      "display_name": "Code.exe",
+      "windows_seen": [
+        {
+          "title": "completed_tasks.txt - Computer-Use-Dataset - Visual Studio Code [Administrator]",
+          "bounds": {
+            "left": -9,
+            "top": -9,
+            "right": 1929,
+            "bottom": 1029
+          },
+          "state": null,
+          "hwnd": 394156,
+          "pid": 2356,
+          "ts": 1756406694.9439328
+        }
+      ],
+      "last_window": {
+        "title": "completed_tasks.txt - Computer-Use-Dataset - Visual Studio Code [Administrator]",
+        "bounds": {
+          "left": -9,
+          "top": -9,
+          "right": 1929,
+          "bottom": 1029
+        },
+        "state": null,
+        "hwnd": 394156,
+        "pid": 2356,
+        "ts": 1756407076.9370313
+      },
+      "keystrokes": {
+        "hotkeys": {
+          "Win+D": 2
+        },
+        "screen_reader_commands": {},
+        "other_keys": {
+          "Enter": 4,
+          "Space": 1
+        },
+        "totals": {
+          "hotkeys": 2,
+          "screen_reader_commands": 0,
+          "other_keys": 5
+        },
+        "intents_by_hotkey": {
+          "show_desktop": 2
+        }
+      }
+    },
+    "chrome.exe": {
+      "order": 3,
+      "log_file": "3_chrome.exe.json",
+      "a11y_tree_files": [
+        "3_chrome.exe_1756406758482_a11y_tree.json",
+        "3_chrome.exe_1756407108576_a11y_tree.json"
+      ],
+      "events": 111,
+      "by_type": {
+        "mouse_click": 0,
+        "mouse_up": 0,
+        "mouse_move": 0,
+        "drag_drop": 0,
+        "key_press": 94,
+        "hotkey": 17,
+        "scroll": 0
+      },
+      "display_name": "chrome.exe",
+      "windows_seen": [
+        {
+          "title": "New Tab - Google Chrome",
+          "bounds": {
+            "left": -9,
+            "top": -9,
+            "right": 1929,
+            "bottom": 1029
+          },
+          "state": null,
+          "hwnd": 4394174,
+          "pid": 21324,
+          "ts": 1756406758.4821353
+        },
+        {
+          "title": "Wikipedia - Google Chrome",
+          "bounds": {
+            "left": -9,
+            "top": -9,
+            "right": 1929,
+            "bottom": 1029
+          },
+          "state": null,
+          "hwnd": 4394174,
+          "pid": 21324,
+          "ts": 1756406780.871255
+        },
+        {
+          "title": "Search - Wikipedia - Google Chrome",
+          "bounds": {
+            "left": -9,
+            "top": -9,
+            "right": 1929,
+            "bottom": 1029
+          },
+          "state": null,
+          "hwnd": 4394174,
+          "pid": 21324,
+          "ts": 1756406782.200972
+        },
+        {
+          "title": "List of best-selling books - Wikipedia - Google Chrome",
+          "bounds": {
+            "left": -9,
+            "top": -9,
+            "right": 1929,
+            "bottom": 1029
+          },
+          "state": null,
+          "hwnd": 4394174,
+          "pid": 21324,
+          "ts": 1756406842.0187535
+        }
+      ],
+      "last_window": {
+        "title": "List of best-selling books - Wikipedia - Google Chrome",
+        "bounds": {
+          "left": -9,
+          "top": -9,
+          "right": 1929,
+          "bottom": 1029
+        },
+        "state": null,
+        "hwnd": 4394174,
+        "pid": 21324,
+        "ts": 1756407124.3687615
+      },
+      "keystrokes": {
+        "hotkeys": {
+          "Ctrl+Alt+<255>": 3,
+          "Ctrl+Alt+Down": 2,
+          "Ctrl+C": 2,
+          "Ctrl+Home": 2,
+          "Alt+D": 1,
+          "Ctrl+Alt+Left": 1,
+          "Win+E": 1
+        },
+        "screen_reader_commands": {},
+        "other_keys": {
+          "h": 9,
+          "Enter": 7,
+          "Down": 6,
+          "e": 6,
+          "o": 5,
+          "Shift": 5,
+          "Backspace": 4,
+          "Esc": 3,
+          "p": 3,
+          "Tab": 3,
+          "a": 2,
+          "i": 2,
+          "k": 2,
+          "m": 2,
+          "s": 2,
+          "Space": 2,
+          ".": 1,
+          "b": 1,
+          "c": 1,
+          "d": 1,
+          "f": 1,
+          "l": 1,
+          "r": 1,
+          "t": 1,
+          "u": 1,
+          "w": 1
+        },
+        "totals": {
+          "hotkeys": 12,
+          "screen_reader_commands": 0,
+          "other_keys": 73
+        },
+        "intents_by_hotkey": {
+          "copy": 2
+        }
+      }
+    },
+    "EXCEL.EXE": {
+      "order": 4,
+      "log_file": "4_EXCEL.EXE.json",
+      "a11y_tree_files": [
+        "4_EXCEL.EXE_1756406988653_a11y_tree.json",
+        "4_EXCEL.EXE_1756407008975_a11y_tree.json",
+        "4_EXCEL.EXE_1756407056720_a11y_tree.json",
+        "4_EXCEL.EXE_1756407146575_a11y_tree.json"
+      ],
+      "events": 61,
+      "by_type": {
+        "mouse_click": 2,
+        "mouse_up": 1,
+        "mouse_move": 11,
+        "drag_drop": 0,
+        "key_press": 43,
+        "hotkey": 4,
+        "scroll": 0
+      },
+      "display_name": "EXCEL.EXE",
+      "windows_seen": [
+        {
+          "title": "Task ID 60  -  Protected View - Excel",
+          "bounds": {
+            "left": 64,
+            "top": 64,
+            "right": 1467,
+            "bottom": 967
+          },
+          "state": null,
+          "hwnd": 13961492,
+          "pid": 22508,
+          "ts": 1756406989.0608988
+        },
+        {
+          "title": "Task ID 60 - Excel",
+          "bounds": {
+            "left": 93,
+            "top": 93,
+            "right": 1496,
+            "bottom": 996
+          },
+          "state": null,
+          "hwnd": 16122102,
+          "pid": 22508,
+          "ts": 1756407008.9751756
+        }
+      ],
+      "last_window": {
+        "title": "Task ID 60 - Excel",
+        "bounds": {
+          "left": 93,
+          "top": 93,
+          "right": 1496,
+          "bottom": 996
+        },
+        "state": null,
+        "hwnd": 16122102,
+        "pid": 22508,
+        "ts": 1756407153.3976922
+      },
+      "keystrokes": {
+        "hotkeys": {
+          "Ctrl+V": 3,
+          "Ctrl+\u0016": 1
+        },
+        "screen_reader_commands": {},
+        "other_keys": {
+          "Down": 28,
+          "Left": 4,
+          "Up": 2
+        },
+        "totals": {
+          "hotkeys": 4,
+          "screen_reader_commands": 0,
+          "other_keys": 34
+        },
+        "intents_by_hotkey": {
+          "paste": 3
+        }
+      }
+    }
+  },
+  "web": {
+    "tabs_by_order": [
+      {
+        "order": 1,
+        "first_ts": 1756406770311,
+        "url": "https://www.wikipedia.org/",
+        "title": "Wikipedia",
+        "file": "/task_logs/60/web_logs/web_tab1_1756406770311.json",
+        "dom_url": "/task_logs/User 16/60/web_logs/web_tab1_1756406770311.html",
+        "a11y_url": "/task_logs/User 16/60/web_logs/web_tab1_1756406770311_a11y_tree.json"
+      },
+      {
+        "order": 2,
+        "first_ts": 1756406781775,
+        "url": "https://en.wikipedia.org/wiki/Special:Search?search=&go=Go",
+        "title": "Search - Wikipedia",
+        "file": "/task_logs/60/web_logs/web_tab2_1756406781775.json",
+        "dom_url": "/task_logs/User 16/60/web_logs/web_tab2_1756406781775.html",
+        "a11y_url": "/task_logs/User 16/60/web_logs/web_tab2_1756406781775_a11y_tree.json"
+      },
+      {
+        "order": 3,
+        "first_ts": 1756406830205,
+        "url": "https://en.wikipedia.org/wiki/Most_popular_books",
+        "title": "List of best-selling books - Wikipedia",
+        "file": "/task_logs/60/web_logs/web_tab3_1756406830205.json",
+        "dom_url": "/task_logs/User 16/60/web_logs/web_tab3_1756406830205.html",
+        "a11y_url": "/task_logs/User 16/60/web_logs/web_tab3_1756406830205_a11y_tree.json"
+      },
+      {
+        "order": 4,
+        "first_ts": 1756406846692,
+        "url": "https://en.wikipedia.org/wiki/List_of_best-selling_books",
+        "title": "List of best-selling books - Wikipedia",
+        "file": "/task_logs/60/web_logs/web_tab4_1756406846692.json",
+        "dom_url": "/task_logs/User 16/60/web_logs/web_tab4_1756406846692.html",
+        "a11y_url": "/task_logs/User 16/60/web_logs/web_tab4_1756406846692_a11y_tree.json"
+      }
+    ],
+    "events": 62,
+    "by_tab": {
+      "1::1756406770311": 4,
+      "2::1756406781775": 50,
+      "3::1756406830205": 1,
+      "4::1756406846692": 7
+    }
+  },
+  "summary": {
+    "apps": 6,
+    "events": 323,
+    "by_type": {
+      "key_press": 196,
+      "hotkey": 37,
+      "mouse_move": 21,
+      "mouse_click": 3,
+      "mouse_up": 4
+    },
+    "by_app": {
+      "explorer.exe": 71,
+      "Code.exe": 18,
+      "chrome.exe": 111,
+      "EXCEL.EXE": 61
+    },
+    "keystrokes": {
+      "hotkeys": {
+        "Win+D": 5,
+        "Ctrl+Alt+<255>": 3,
+        "Ctrl+V": 3,
+        "Alt+Tab": 2,
+        "Ctrl+Alt+Down": 2,
+        "Ctrl+C": 2,
+        "Ctrl+Home": 2,
+        "Alt+D": 1,
+        "Ctrl+\u0016": 1,
+        "Ctrl+Alt+Left": 1,
+        "Win+E": 1
+      },
+      "screen_reader_commands": {},
+      "other_keys": {
+        "Down": 34,
+        "t": 20,
+        "Enter": 17,
+        "h": 9,
+        "e": 6,
+        "o": 6,
+        "Space": 6,
+        "Backspace": 5,
+        "Shift": 5,
+        "Left": 4,
+        "Esc": 3,
+        "p": 3,
+        "Tab": 3,
+        "a": 2,
+        "c": 2,
+        "i": 2,
+        "k": 2,
+        "m": 2,
+        "s": 2,
+        "Up": 2,
+        ".": 1,
+        "b": 1,
+        "d": 1,
+        "f": 1,
+        "l": 1,
+        "r": 1,
+        "u": 1,
+        "w": 1
+      },
+      "totals": {
+        "hotkeys": 23,
+        "screen_reader_commands": 0,
+        "other_keys": 143
+      },
+      "intents_by_hotkey": {
+        "show_desktop": 5,
+        "paste": 3,
+        "copy": 2,
+        "task_switch": 2
+      }
+    }
+  },
+  "accessibility": {
+    "baseline": {
+      "os": "Windows",
+      "os_version": "10.0.26100",
+      "python_version": "3.13.6",
+      "narrator": {
+        "enabled": false,
+        "startup_enabled": false
+      },
+      "magnifier": {
+        "enabled": false,
+        "zoom": null
+      },
+      "color_filter": {
+        "enabled": false,
+        "type": "blue-yellow"
+      },
+      "high_contrast": {
+        "enabled": false,
+        "flags": "126"
+      },
+      "sticky_keys": {
+        "flags": "510",
+        "maybe_enabled": true
+      },
+      "toggle_keys": {
+        "flags": "62",
+        "maybe_enabled": true
+      },
+      "filter_keys": {
+        "flags": "126",
+        "maybe_enabled": true
+      },
+      "font_smoothing": "2",
+      "display_scaling": null,
+      "mouse_cursor_scheme": "windows aero"
+    },
+    "last": {
+      "os": "Windows",
+      "os_version": "10.0.26100",
+      "python_version": "3.13.6",
+      "narrator": {
+        "enabled": false,
+        "startup_enabled": false
+      },
+      "magnifier": {
+        "enabled": false,
+        "zoom": null
+      },
+      "color_filter": {
+        "enabled": false,
+        "type": "blue-yellow"
+      },
+      "high_contrast": {
+        "enabled": false,
+        "flags": "126"
+      },
+      "sticky_keys": {
+        "flags": "510",
+        "maybe_enabled": true
+      },
+      "toggle_keys": {
+        "flags": "62",
+        "maybe_enabled": true
+      },
+      "filter_keys": {
+        "flags": "126",
+        "maybe_enabled": true
+      },
+      "font_smoothing": "2",
+      "display_scaling": null,
+      "mouse_cursor_scheme": "windows aero"
+    },
+    "changes": []
+  }
+}

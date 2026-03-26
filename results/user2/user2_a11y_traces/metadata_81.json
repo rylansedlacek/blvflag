@@ -1,0 +1,338 @@
+{
+  "task": {
+    "task_id": 81,
+    "task_title": "Take snapshot from a video",
+    "instruction": "Open the video Task ID 81.mp4 in Documents > Task 81 folder and take a screenshot of the frame from the video with food in it.",
+    "task": "Open the video Task ID 81.mp4 in Documents > Task 81 folder and take a screenshot of the frame from the video with food in it.",
+    "context": "I want to share a snapshot of the food from the video I took yesterday in a restaurant I visited",
+    "rand_id_column": "Rand ID 11",
+    "rand_order": 50,
+    "task_group": "Media",
+    "interactions": "",
+    "applications": "Windows Media Player",
+    "familiarity": "Low",
+    "difficulty_before": "Hard",
+    "difficulty_after": "Hard",
+    "success": false,
+    "failure_reason": "Other (specify)",
+    "failure_notes": "Subtitles unavailable. Cannot locate frame with food."
+  },
+  "session": {
+    "started_at": 1755957544.6375768,
+    "last_event_at": 1755957658.6791074,
+    "folder": "task_logs\\User 11\\81",
+    "apps_by_order": [
+      {
+        "order": 1,
+        "app": "explorer.exe",
+        "log_file": "1_explorer.exe.json"
+      },
+      {
+        "order": 2,
+        "app": "ApplicationFrameHost.exe",
+        "log_file": "2_ApplicationFrameHost.exe.json"
+      },
+      {
+        "order": 2,
+        "app": "ApplicationFrameHost.exe::MediaPlayer",
+        "log_file": "2_ApplicationFrameHost.exe_MediaPlayer.json"
+      }
+    ],
+    "ended_at": 1755957681.6955328
+  },
+  "apps": {
+    "explorer.exe": {
+      "order": 1,
+      "log_file": "1_explorer.exe.json",
+      "a11y_tree_files": [
+        "1_explorer.exe_1755957552755_a11y_tree.json",
+        "1_explorer.exe_1755957559448_a11y_tree.json"
+      ],
+      "events": 58,
+      "by_type": {
+        "mouse_click": 0,
+        "mouse_up": 0,
+        "mouse_move": 0,
+        "drag_drop": 0,
+        "key_press": 58,
+        "hotkey": 0,
+        "scroll": 0
+      },
+      "display_name": "explorer.exe",
+      "windows_seen": [
+        {
+          "title": "Run",
+          "bounds": {
+            "left": 9,
+            "top": 736,
+            "right": 481,
+            "bottom": 1016
+          },
+          "state": "normal",
+          "hwnd": 8851374,
+          "pid": 9812,
+          "ts": 1755957552.7550306
+        },
+        {
+          "title": "",
+          "bounds": {
+            "left": 0,
+            "top": 1020,
+            "right": 40,
+            "bottom": 1060
+          },
+          "state": "normal",
+          "hwnd": 13438892,
+          "pid": 9812,
+          "ts": 1755957557.1302304
+        },
+        {
+          "title": "Documents - File Explorer",
+          "bounds": {
+            "left": 933,
+            "top": 75,
+            "right": 1821,
+            "bottom": 825
+          },
+          "state": "normal",
+          "hwnd": 857094,
+          "pid": 9812,
+          "ts": 1755957559.4484398
+        },
+        {
+          "title": "Task 81 - File Explorer",
+          "bounds": {
+            "left": 933,
+            "top": 75,
+            "right": 1821,
+            "bottom": 825
+          },
+          "state": "normal",
+          "hwnd": 857094,
+          "pid": 9812,
+          "ts": 1755957577.2013338
+        }
+      ],
+      "last_window": {
+        "title": "Task 81 - File Explorer",
+        "bounds": {
+          "left": 933,
+          "top": 75,
+          "right": 1821,
+          "bottom": 825
+        },
+        "state": "normal",
+        "hwnd": 857094,
+        "pid": 9812,
+        "ts": 1755957593.452155
+      },
+      "keystrokes": {
+        "hotkeys": {},
+        "screen_reader_commands": {},
+        "other_keys": {
+          "Right": 21,
+          "t": 17,
+          "Enter": 4,
+          "Left": 4,
+          "Down": 2,
+          "c": 1,
+          "d": 1,
+          "e": 1,
+          "m": 1,
+          "n": 1,
+          "o": 1,
+          "s": 1,
+          "Shift": 1,
+          "u": 1
+        },
+        "totals": {
+          "hotkeys": 0,
+          "screen_reader_commands": 0,
+          "other_keys": 57
+        },
+        "intents_by_hotkey": {}
+      }
+    },
+    "ApplicationFrameHost.exe": {
+      "order": 2,
+      "log_file": "2_ApplicationFrameHost.exe.json",
+      "a11y_tree_files": [
+        "2_ApplicationFrameHost.exe_1755957601036_a11y_tree.json"
+      ],
+      "events": 0,
+      "by_type": {
+        "mouse_click": 0,
+        "mouse_up": 0,
+        "mouse_move": 0,
+        "drag_drop": 0,
+        "key_press": 0,
+        "hotkey": 0,
+        "scroll": 0
+      },
+      "keystrokes": {
+        "hotkeys": {},
+        "screen_reader_commands": {},
+        "other_keys": {},
+        "totals": {
+          "hotkeys": 0,
+          "screen_reader_commands": 0,
+          "other_keys": 0
+        },
+        "intents_by_hotkey": {}
+      }
+    },
+    "ApplicationFrameHost.exe::MediaPlayer": {
+      "order": 2,
+      "log_file": "2_ApplicationFrameHost.exe_MediaPlayer.json",
+      "a11y_tree_files": [],
+      "events": 49,
+      "by_type": {
+        "mouse_click": 1,
+        "mouse_up": 1,
+        "mouse_move": 8,
+        "drag_drop": 0,
+        "key_press": 34,
+        "hotkey": 5,
+        "scroll": 0
+      },
+      "display_name": "ApplicationFrameHost (Media Player)",
+      "windows_seen": [
+        {
+          "title": "Media Player",
+          "bounds": {
+            "left": 50,
+            "top": 0,
+            "right": 1348,
+            "bottom": 1010
+          },
+          "state": "normal",
+          "hwnd": 726214,
+          "pid": 25564,
+          "ts": 1755957601.0355215
+        }
+      ],
+      "last_window": {
+        "title": "Media Player",
+        "bounds": {
+          "left": 50,
+          "top": 0,
+          "right": 1348,
+          "bottom": 1010
+        },
+        "state": "normal",
+        "hwnd": 726214,
+        "pid": 25564,
+        "ts": 1755957658.6791074
+      },
+      "keystrokes": {
+        "hotkeys": {},
+        "screen_reader_commands": {},
+        "other_keys": {
+          "Tab": 16,
+          "Down": 5,
+          "Enter": 5,
+          "Shift": 4,
+          "Right": 3,
+          "Space": 2,
+          "Up": 2,
+          "Esc": 1
+        },
+        "totals": {
+          "hotkeys": 0,
+          "screen_reader_commands": 0,
+          "other_keys": 38
+        },
+        "intents_by_hotkey": {}
+      }
+    }
+  },
+  "web": {
+    "tabs_by_order": [],
+    "events": 0,
+    "by_tab": {}
+  },
+  "summary": {
+    "apps": 3,
+    "events": 107,
+    "by_type": {
+      "key_press": 92,
+      "hotkey": 5,
+      "mouse_move": 8,
+      "mouse_click": 1,
+      "mouse_up": 1
+    },
+    "by_app": {
+      "explorer.exe": 58,
+      "ApplicationFrameHost.exe::MediaPlayer": 49
+    },
+    "keystrokes": {
+      "hotkeys": {},
+      "screen_reader_commands": {},
+      "other_keys": {
+        "Right": 24,
+        "t": 17,
+        "Tab": 16,
+        "Enter": 9,
+        "Down": 7,
+        "Shift": 5,
+        "Left": 4,
+        "Space": 2,
+        "Up": 2,
+        "c": 1,
+        "d": 1,
+        "e": 1,
+        "Esc": 1,
+        "m": 1,
+        "n": 1,
+        "o": 1,
+        "s": 1,
+        "u": 1
+      },
+      "totals": {
+        "hotkeys": 0,
+        "screen_reader_commands": 0,
+        "other_keys": 95
+      },
+      "intents_by_hotkey": {}
+    }
+  },
+  "accessibility": {
+    "baseline": {
+      "os": "Windows",
+      "os_version": "10.0.26100",
+      "python_version": "3.13.6",
+      "narrator": {
+        "enabled": false,
+        "startup_enabled": false
+      },
+      "magnifier": {
+        "enabled": false,
+        "zoom": null
+      },
+      "color_filter": {
+        "enabled": false,
+        "type": "blue-yellow"
+      },
+      "high_contrast": {
+        "enabled": false,
+        "flags": "126"
+      },
+      "sticky_keys": {
+        "flags": "510",
+        "maybe_enabled": true
+      },
+      "toggle_keys": {
+        "flags": "62",
+        "maybe_enabled": true
+      },
+      "filter_keys": {
+        "flags": "126",
+        "maybe_enabled": true
+      },
+      "font_smoothing": "2",
+      "display_scaling": null,
+      "mouse_cursor_scheme": "windows aero"
+    },
+    "changes": []
+  }
+}

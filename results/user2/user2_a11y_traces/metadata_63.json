@@ -1,0 +1,629 @@
+{
+  "task": {
+    "task_id": 63,
+    "task_title": "Save a chart from Excel as an image and insert into PowerPoint",
+    "instruction": "Insert the bar chart visualization from Task ID 63.xlsx into PowerPoint Task ID 63.pptx, both in Documents > Task 63 Folder.",
+    "task": "Insert the bar chart visualization from Task ID 63.xlsx into PowerPoint Task ID 63.pptx, both in Documents > Task 63 Folder.",
+    "context": "I want my data visualized in a presentation.",
+    "rand_id_column": "Rand ID 11",
+    "rand_order": 39,
+    "task_group": "Workflow",
+    "interactions": "",
+    "applications": "Excel, PowerPoint",
+    "familiarity": "High",
+    "difficulty_before": "Low",
+    "difficulty_after": "Medium",
+    "success": true
+  },
+  "session": {
+    "started_at": 1755952761.3069248,
+    "last_event_at": 1755953180.845764,
+    "folder": "task_logs\\User 11\\63",
+    "apps_by_order": [
+      {
+        "order": 1,
+        "app": "explorer.exe",
+        "log_file": "1_explorer.exe.json"
+      },
+      {
+        "order": 2,
+        "app": "EXCEL.EXE",
+        "log_file": "2_EXCEL.EXE.json"
+      },
+      {
+        "order": 3,
+        "app": "POWERPNT.EXE",
+        "log_file": "3_POWERPNT.EXE.json"
+      }
+    ],
+    "ended_at": 1755953188.6120138
+  },
+  "apps": {
+    "explorer.exe": {
+      "order": 1,
+      "log_file": "1_explorer.exe.json",
+      "a11y_tree_files": [
+        "1_explorer.exe_1755952768998_a11y_tree.json",
+        "1_explorer.exe_1755952775496_a11y_tree.json",
+        "1_explorer.exe_1755953102492_a11y_tree.json",
+        "1_explorer.exe_1755953105159_a11y_tree.json",
+        "1_explorer.exe_1755953180846_a11y_tree.json"
+      ],
+      "events": 50,
+      "by_type": {
+        "mouse_click": 0,
+        "mouse_up": 1,
+        "mouse_move": 0,
+        "drag_drop": 0,
+        "key_press": 48,
+        "hotkey": 1,
+        "scroll": 0
+      },
+      "display_name": "explorer.exe",
+      "windows_seen": [
+        {
+          "title": "Run",
+          "bounds": {
+            "left": 9,
+            "top": 736,
+            "right": 481,
+            "bottom": 1016
+          },
+          "state": "normal",
+          "hwnd": 16256880,
+          "pid": 9812,
+          "ts": 1755952768.99808
+        },
+        {
+          "title": "Documents - File Explorer",
+          "bounds": {
+            "left": 933,
+            "top": 75,
+            "right": 1821,
+            "bottom": 825
+          },
+          "state": "normal",
+          "hwnd": 15403510,
+          "pid": 9812,
+          "ts": 1755952775.4963028
+        },
+        {
+          "title": "Task 63 - File Explorer",
+          "bounds": {
+            "left": 933,
+            "top": 75,
+            "right": 1821,
+            "bottom": 825
+          },
+          "state": "normal",
+          "hwnd": 15403510,
+          "pid": 9812,
+          "ts": 1755952802.6449163
+        },
+        {
+          "title": "Task Switching",
+          "bounds": {
+            "left": 0,
+            "top": 0,
+            "right": 1920,
+            "bottom": 1020
+          },
+          "state": "normal",
+          "hwnd": 983276,
+          "pid": 9812,
+          "ts": 1755953102.491702
+        },
+        {
+          "title": "Task 63 - File Explorer",
+          "bounds": {
+            "left": 933,
+            "top": 75,
+            "right": 1821,
+            "bottom": 825
+          },
+          "state": "normal",
+          "hwnd": 15403510,
+          "pid": 9812,
+          "ts": 1755953105.158739
+        },
+        {
+          "title": "",
+          "bounds": {
+            "left": 0,
+            "top": 1020,
+            "right": 1920,
+            "bottom": 1080
+          },
+          "state": "normal",
+          "hwnd": 65916,
+          "pid": 9812,
+          "ts": 1755953180.845764
+        }
+      ],
+      "last_window": {
+        "title": "",
+        "bounds": {
+          "left": 0,
+          "top": 1020,
+          "right": 1920,
+          "bottom": 1080
+        },
+        "state": "normal",
+        "hwnd": 65916,
+        "pid": 9812,
+        "ts": 1755953180.845764
+      },
+      "keystrokes": {
+        "hotkeys": {
+          "Alt+Tab": 1
+        },
+        "screen_reader_commands": {},
+        "other_keys": {
+          "t": 17,
+          "Right": 9,
+          "Left": 6,
+          "Enter": 4,
+          "Down": 2,
+          "Up": 2,
+          "c": 1,
+          "d": 1,
+          "e": 1,
+          "m": 1,
+          "n": 1,
+          "o": 1,
+          "s": 1,
+          "u": 1
+        },
+        "totals": {
+          "hotkeys": 1,
+          "screen_reader_commands": 0,
+          "other_keys": 48
+        },
+        "intents_by_hotkey": {
+          "task_switch": 1
+        }
+      }
+    },
+    "EXCEL.EXE": {
+      "order": 2,
+      "log_file": "2_EXCEL.EXE.json",
+      "a11y_tree_files": [
+        "2_EXCEL.EXE_1755952824144_a11y_tree.json",
+        "2_EXCEL.EXE_1755952823364_a11y_tree.json",
+        "2_EXCEL.EXE_1755952832961_a11y_tree.json",
+        "2_EXCEL.EXE_1755952867457_a11y_tree.json",
+        "2_EXCEL.EXE_1755952877320_a11y_tree.json",
+        "2_EXCEL.EXE_1755952881323_a11y_tree.json",
+        "2_EXCEL.EXE_1755952882926_a11y_tree.json",
+        "2_EXCEL.EXE_1755952897079_a11y_tree.json"
+      ],
+      "events": 398,
+      "by_type": {
+        "mouse_click": 10,
+        "mouse_up": 9,
+        "mouse_move": 61,
+        "drag_drop": 1,
+        "key_press": 288,
+        "hotkey": 29,
+        "scroll": 0
+      },
+      "display_name": "EXCEL.EXE",
+      "windows_seen": [
+        {
+          "title": "Microsoft Excel",
+          "bounds": {
+            "left": 588,
+            "top": 470,
+            "right": 1350,
+            "bottom": 623
+          },
+          "state": "normal",
+          "hwnd": 463846,
+          "pid": 22704,
+          "ts": 1755952824.4306695
+        },
+        {
+          "title": "Task ID 63  -  Protected View - Excel",
+          "bounds": {
+            "left": 441,
+            "top": 280,
+            "right": 1881,
+            "bottom": 1020
+          },
+          "state": "normal",
+          "hwnd": 463462,
+          "pid": 22704,
+          "ts": 1755952823.3640785
+        },
+        {
+          "title": "Microsoft Excel",
+          "bounds": {
+            "left": 588,
+            "top": 470,
+            "right": 1350,
+            "bottom": 623
+          },
+          "state": "normal",
+          "hwnd": 463846,
+          "pid": 22704,
+          "ts": 1755952824.9247375
+        },
+        {
+          "title": "Task ID 63  -  Protected View - Excel",
+          "bounds": {
+            "left": 441,
+            "top": 280,
+            "right": 1881,
+            "bottom": 1020
+          },
+          "state": "normal",
+          "hwnd": 463462,
+          "pid": 22704,
+          "ts": 1755952828.7819438
+        },
+        {
+          "title": "Task ID 63 - Excel",
+          "bounds": {
+            "left": 128,
+            "top": 128,
+            "right": 1568,
+            "bottom": 868
+          },
+          "state": "normal",
+          "hwnd": 267252,
+          "pid": 22704,
+          "ts": 1755952832.9611437
+        },
+        {
+          "title": "",
+          "bounds": {
+            "left": 529,
+            "top": 261,
+            "right": 813,
+            "bottom": 781
+          },
+          "state": "normal",
+          "hwnd": 1708770,
+          "pid": 22704,
+          "ts": 1755952867.4572585
+        },
+        {
+          "title": "Task ID 63 - Excel",
+          "bounds": {
+            "left": 128,
+            "top": 128,
+            "right": 1568,
+            "bottom": 868
+          },
+          "state": "normal",
+          "hwnd": 267252,
+          "pid": 22704,
+          "ts": 1755952877.3195229
+        },
+        {
+          "title": "Chart Elements",
+          "bounds": {
+            "left": 1204,
+            "top": 447,
+            "right": 1410,
+            "bottom": 735
+          },
+          "state": "normal",
+          "hwnd": 24183836,
+          "pid": 22704,
+          "ts": 1755952881.3234859
+        },
+        {
+          "title": "Chart Styles",
+          "bounds": {
+            "left": 1204,
+            "top": 494,
+            "right": 1512,
+            "bottom": 1018
+          },
+          "state": "normal",
+          "hwnd": 24249372,
+          "pid": 22704,
+          "ts": 1755952882.9261773
+        },
+        {
+          "title": "Task ID 63 - Excel",
+          "bounds": {
+            "left": 128,
+            "top": 128,
+            "right": 1568,
+            "bottom": 868
+          },
+          "state": "normal",
+          "hwnd": 267252,
+          "pid": 22704,
+          "ts": 1755952897.5288277
+        }
+      ],
+      "last_window": {
+        "title": "Task ID 63 - Excel",
+        "bounds": {
+          "left": -9,
+          "top": -9,
+          "right": 1929,
+          "bottom": 1029
+        },
+        "state": "maximized",
+        "hwnd": 267252,
+        "pid": 22704,
+        "ts": 1755953102.3452969
+      },
+      "keystrokes": {
+        "hotkeys": {
+          "Ctrl+Left": 3,
+          "Ctrl+Right": 3,
+          "Ctrl+\u0001": 2,
+          "Ctrl+\u0003": 2,
+          "Ctrl+Up": 2,
+          "Alt+Left": 1,
+          "Alt+PageUp": 1,
+          "Alt+Space": 1,
+          "Ctrl+Down": 1
+        },
+        "screen_reader_commands": {
+          "Insert+Insert": 15,
+          "Insert+Space": 4,
+          "Insert+Left": 2
+        },
+        "other_keys": {
+          "Left": 84,
+          "Up": 31,
+          "Right": 26,
+          "g": 5,
+          "Shift": 4,
+          "Tab": 3,
+          ",": 2,
+          "<255>": 2,
+          ">": 2,
+          ".": 1,
+          "Down": 1,
+          "h": 1,
+          "n": 1,
+          "PageUp": 1,
+          "t": 1,
+          "x": 1
+        },
+        "totals": {
+          "hotkeys": 16,
+          "screen_reader_commands": 21,
+          "other_keys": 166
+        },
+        "intents_by_hotkey": {}
+      }
+    },
+    "POWERPNT.EXE": {
+      "order": 3,
+      "log_file": "3_POWERPNT.EXE.json",
+      "a11y_tree_files": [
+        "3_POWERPNT.EXE_1755953118411_a11y_tree.json",
+        "3_POWERPNT.EXE_1755953119808_a11y_tree.json",
+        "3_POWERPNT.EXE_1755953126551_a11y_tree.json"
+      ],
+      "events": 89,
+      "by_type": {
+        "mouse_click": 4,
+        "mouse_up": 3,
+        "mouse_move": 16,
+        "drag_drop": 0,
+        "key_press": 59,
+        "hotkey": 7,
+        "scroll": 0
+      },
+      "display_name": "POWERPNT.EXE",
+      "windows_seen": [
+        {
+          "title": "Task ID 63  -  Protected View - PowerPoint",
+          "bounds": {
+            "left": -9,
+            "top": -9,
+            "right": 1929,
+            "bottom": 1029
+          },
+          "state": "maximized",
+          "hwnd": 136060,
+          "pid": 1708,
+          "ts": 1755953118.721318
+        },
+        {
+          "title": "Microsoft PowerPoint",
+          "bounds": {
+            "left": 588,
+            "top": 470,
+            "right": 1350,
+            "bottom": 623
+          },
+          "state": "normal",
+          "hwnd": 1512268,
+          "pid": 1708,
+          "ts": 1755953120.0238912
+        },
+        {
+          "title": "Task ID 63  -  Protected View - PowerPoint",
+          "bounds": {
+            "left": -9,
+            "top": -9,
+            "right": 1929,
+            "bottom": 1029
+          },
+          "state": "maximized",
+          "hwnd": 136060,
+          "pid": 1708,
+          "ts": 1755953122.0176191
+        },
+        {
+          "title": "Task ID 63 - PowerPoint",
+          "bounds": {
+            "left": -9,
+            "top": -9,
+            "right": 1929,
+            "bottom": 1029
+          },
+          "state": "maximized",
+          "hwnd": 332752,
+          "pid": 1708,
+          "ts": 1755953126.55059
+        }
+      ],
+      "last_window": {
+        "title": "Task ID 63 - PowerPoint",
+        "bounds": {
+          "left": -9,
+          "top": -9,
+          "right": 1929,
+          "bottom": 1029
+        },
+        "state": "maximized",
+        "hwnd": 332752,
+        "pid": 1708,
+        "ts": 1755953180.5540242
+      },
+      "keystrokes": {
+        "hotkeys": {
+          "Ctrl+\u0013": 2,
+          "Ctrl+\u0016": 1
+        },
+        "screen_reader_commands": {},
+        "other_keys": {
+          "Tab": 31,
+          "Down": 4,
+          "Enter": 4,
+          "Right": 4,
+          "Up": 3,
+          "Esc": 2,
+          "Left": 2,
+          "Shift": 2,
+          "Space": 1
+        },
+        "totals": {
+          "hotkeys": 3,
+          "screen_reader_commands": 0,
+          "other_keys": 53
+        },
+        "intents_by_hotkey": {}
+      }
+    }
+  },
+  "web": {
+    "tabs_by_order": [],
+    "events": 0,
+    "by_tab": {}
+  },
+  "summary": {
+    "apps": 3,
+    "events": 537,
+    "by_type": {
+      "key_press": 395,
+      "mouse_move": 77,
+      "mouse_click": 14,
+      "mouse_up": 13,
+      "hotkey": 37,
+      "drag_drop": 1
+    },
+    "by_app": {
+      "explorer.exe": 50,
+      "EXCEL.EXE": 398,
+      "POWERPNT.EXE": 89
+    },
+    "keystrokes": {
+      "hotkeys": {
+        "Ctrl+Left": 3,
+        "Ctrl+Right": 3,
+        "Ctrl+\u0001": 2,
+        "Ctrl+\u0003": 2,
+        "Ctrl+\u0013": 2,
+        "Ctrl+Up": 2,
+        "Alt+Left": 1,
+        "Alt+PageUp": 1,
+        "Alt+Space": 1,
+        "Alt+Tab": 1,
+        "Ctrl+\u0016": 1,
+        "Ctrl+Down": 1
+      },
+      "screen_reader_commands": {
+        "Insert+Insert": 15,
+        "Insert+Space": 4,
+        "Insert+Left": 2
+      },
+      "other_keys": {
+        "Left": 92,
+        "Right": 39,
+        "Up": 36,
+        "Tab": 34,
+        "t": 18,
+        "Enter": 8,
+        "Down": 7,
+        "Shift": 6,
+        "g": 5,
+        ",": 2,
+        "<255>": 2,
+        ">": 2,
+        "Esc": 2,
+        "n": 2,
+        ".": 1,
+        "c": 1,
+        "d": 1,
+        "e": 1,
+        "h": 1,
+        "m": 1,
+        "o": 1,
+        "PageUp": 1,
+        "s": 1,
+        "Space": 1,
+        "u": 1,
+        "x": 1
+      },
+      "totals": {
+        "hotkeys": 20,
+        "screen_reader_commands": 21,
+        "other_keys": 267
+      },
+      "intents_by_hotkey": {
+        "task_switch": 1
+      }
+    }
+  },
+  "accessibility": {
+    "baseline": {
+      "os": "Windows",
+      "os_version": "10.0.26100",
+      "python_version": "3.13.6",
+      "narrator": {
+        "enabled": false,
+        "startup_enabled": false
+      },
+      "magnifier": {
+        "enabled": false,
+        "zoom": null
+      },
+      "color_filter": {
+        "enabled": false,
+        "type": "blue-yellow"
+      },
+      "high_contrast": {
+        "enabled": false,
+        "flags": "126"
+      },
+      "sticky_keys": {
+        "flags": "510",
+        "maybe_enabled": true
+      },
+      "toggle_keys": {
+        "flags": "62",
+        "maybe_enabled": true
+      },
+      "filter_keys": {
+        "flags": "126",
+        "maybe_enabled": true
+      },
+      "font_smoothing": "2",
+      "display_scaling": null,
+      "mouse_cursor_scheme": "windows aero"
+    },
+    "changes": []
+  }
+}

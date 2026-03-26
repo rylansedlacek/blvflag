@@ -1,0 +1,339 @@
+{
+  "task": {
+    "task_id": 46,
+    "task_title": "Add a strike-through and highlight to text in Word",
+    "instruction": "Open Task ID 46.docx in Documents > Task 46 folder, make a strikethrough to the title of the article and highlight them.",
+    "task": "Open Task ID 46.docx in Documents > Task 46 folder, make a strikethrough to the title of the article and highlight them.",
+    "context": "I'm reading a word document. I want to suggest changes to the article's title by striking out the title from the document so that the author is aware that he/she should change the title.",
+    "rand_id_column": "Rand ID 11",
+    "rand_order": 25,
+    "task_group": "Document Editing",
+    "interactions": "",
+    "applications": "Word",
+    "familiarity": "High",
+    "difficulty_before": "Low",
+    "difficulty_after": "Medium",
+    "success": true
+  },
+  "session": {
+    "started_at": 1755884041.8969624,
+    "last_event_at": 1755884174.09638,
+    "folder": "task_logs\\User 11\\46",
+    "apps_by_order": [
+      {
+        "order": 1,
+        "app": "explorer.exe",
+        "log_file": "1_explorer.exe.json"
+      },
+      {
+        "order": 2,
+        "app": "WINWORD.EXE",
+        "log_file": "2_WINWORD.EXE.json"
+      }
+    ],
+    "ended_at": 1755884185.7030978
+  },
+  "apps": {
+    "explorer.exe": {
+      "order": 1,
+      "log_file": "1_explorer.exe.json",
+      "a11y_tree_files": [
+        "1_explorer.exe_1755884046743_a11y_tree.json",
+        "1_explorer.exe_1755884050680_a11y_tree.json"
+      ],
+      "events": 22,
+      "by_type": {
+        "mouse_click": 0,
+        "mouse_up": 0,
+        "mouse_move": 0,
+        "drag_drop": 0,
+        "key_press": 22,
+        "hotkey": 0,
+        "scroll": 0
+      },
+      "display_name": "explorer.exe",
+      "windows_seen": [
+        {
+          "title": "Run",
+          "bounds": {
+            "left": 9,
+            "top": 736,
+            "right": 481,
+            "bottom": 1016
+          },
+          "state": "normal",
+          "hwnd": 14617720,
+          "pid": 9812,
+          "ts": 1755884046.7432802
+        },
+        {
+          "title": "",
+          "bounds": {
+            "left": 0,
+            "top": 1020,
+            "right": 40,
+            "bottom": 1060
+          },
+          "state": "normal",
+          "hwnd": 2166958,
+          "pid": 9812,
+          "ts": 1755884049.3001661
+        },
+        {
+          "title": "Documents - File Explorer",
+          "bounds": {
+            "left": 934,
+            "top": 191,
+            "right": 1822,
+            "bottom": 941
+          },
+          "state": "normal",
+          "hwnd": 4067124,
+          "pid": 9812,
+          "ts": 1755884050.6797907
+        },
+        {
+          "title": "Task 46 - File Explorer",
+          "bounds": {
+            "left": 934,
+            "top": 191,
+            "right": 1822,
+            "bottom": 941
+          },
+          "state": "normal",
+          "hwnd": 4067124,
+          "pid": 9812,
+          "ts": 1755884063.1954193
+        }
+      ],
+      "last_window": {
+        "title": "Task 46 - File Explorer",
+        "bounds": {
+          "left": 934,
+          "top": 191,
+          "right": 1822,
+          "bottom": 941
+        },
+        "state": "normal",
+        "hwnd": 4067124,
+        "pid": 9812,
+        "ts": 1755884067.3491595
+      },
+      "keystrokes": {
+        "hotkeys": {},
+        "screen_reader_commands": {},
+        "other_keys": {
+          "t": 5,
+          "Enter": 4,
+          "Right": 4,
+          "c": 1,
+          "d": 1,
+          "Down": 1,
+          "e": 1,
+          "m": 1,
+          "n": 1,
+          "o": 1,
+          "s": 1,
+          "u": 1
+        },
+        "totals": {
+          "hotkeys": 0,
+          "screen_reader_commands": 0,
+          "other_keys": 22
+        },
+        "intents_by_hotkey": {}
+      }
+    },
+    "WINWORD.EXE": {
+      "order": 2,
+      "log_file": "2_WINWORD.EXE.json",
+      "a11y_tree_files": [
+        "2_WINWORD.EXE_1755884072745_a11y_tree.json",
+        "2_WINWORD.EXE_1755884099962_a11y_tree.json",
+        "2_WINWORD.EXE_1755884103645_a11y_tree.json"
+      ],
+      "events": 171,
+      "by_type": {
+        "mouse_click": 2,
+        "mouse_up": 2,
+        "mouse_move": 11,
+        "drag_drop": 0,
+        "key_press": 128,
+        "hotkey": 28,
+        "scroll": 0
+      },
+      "display_name": "WINWORD.EXE",
+      "windows_seen": [
+        {
+          "title": "",
+          "bounds": {
+            "left": 1528,
+            "top": 94,
+            "right": 1916,
+            "bottom": 279
+          },
+          "state": "normal",
+          "hwnd": 5836722,
+          "pid": 3984,
+          "ts": 1755884072.744568
+        },
+        {
+          "title": "Task ID 46  -  Protected View - Word",
+          "bounds": {
+            "left": -9,
+            "top": -9,
+            "right": 1929,
+            "bottom": 1029
+          },
+          "state": "maximized",
+          "hwnd": 200960,
+          "pid": 3984,
+          "ts": 1755884099.9623122
+        },
+        {
+          "title": "Task ID 46 - Word",
+          "bounds": {
+            "left": -9,
+            "top": -9,
+            "right": 1929,
+            "bottom": 1029
+          },
+          "state": "maximized",
+          "hwnd": 7671080,
+          "pid": 3984,
+          "ts": 1755884103.6448016
+        }
+      ],
+      "last_window": {
+        "title": "Task ID 46 - Word",
+        "bounds": {
+          "left": -9,
+          "top": -9,
+          "right": 1929,
+          "bottom": 1029
+        },
+        "state": "maximized",
+        "hwnd": 7671080,
+        "pid": 3984,
+        "ts": 1755884174.09638
+      },
+      "keystrokes": {
+        "hotkeys": {
+          "Ctrl+Up": 15,
+          "Ctrl+Down": 6,
+          "Ctrl+Shift+Up": 3,
+          "Ctrl+\u0013": 2
+        },
+        "screen_reader_commands": {},
+        "other_keys": {
+          "Tab": 50,
+          "Up": 7,
+          "Left": 4,
+          "Down": 2,
+          "Right": 2,
+          "Space": 2,
+          "Shift": 1
+        },
+        "totals": {
+          "hotkeys": 26,
+          "screen_reader_commands": 0,
+          "other_keys": 68
+        },
+        "intents_by_hotkey": {}
+      }
+    }
+  },
+  "web": {
+    "tabs_by_order": [],
+    "events": 0,
+    "by_tab": {}
+  },
+  "summary": {
+    "apps": 2,
+    "events": 193,
+    "by_type": {
+      "key_press": 150,
+      "hotkey": 28,
+      "mouse_move": 11,
+      "mouse_click": 2,
+      "mouse_up": 2
+    },
+    "by_app": {
+      "explorer.exe": 22,
+      "WINWORD.EXE": 171
+    },
+    "keystrokes": {
+      "hotkeys": {
+        "Ctrl+Up": 15,
+        "Ctrl+Down": 6,
+        "Ctrl+Shift+Up": 3,
+        "Ctrl+\u0013": 2
+      },
+      "screen_reader_commands": {},
+      "other_keys": {
+        "Tab": 50,
+        "Up": 7,
+        "Right": 6,
+        "t": 5,
+        "Enter": 4,
+        "Left": 4,
+        "Down": 3,
+        "Space": 2,
+        "c": 1,
+        "d": 1,
+        "e": 1,
+        "m": 1,
+        "n": 1,
+        "o": 1,
+        "s": 1,
+        "Shift": 1,
+        "u": 1
+      },
+      "totals": {
+        "hotkeys": 26,
+        "screen_reader_commands": 0,
+        "other_keys": 90
+      },
+      "intents_by_hotkey": {}
+    }
+  },
+  "accessibility": {
+    "baseline": {
+      "os": "Windows",
+      "os_version": "10.0.26100",
+      "python_version": "3.13.6",
+      "narrator": {
+        "enabled": false,
+        "startup_enabled": false
+      },
+      "magnifier": {
+        "enabled": false,
+        "zoom": null
+      },
+      "color_filter": {
+        "enabled": false,
+        "type": "blue-yellow"
+      },
+      "high_contrast": {
+        "enabled": false,
+        "flags": "126"
+      },
+      "sticky_keys": {
+        "flags": "510",
+        "maybe_enabled": true
+      },
+      "toggle_keys": {
+        "flags": "62",
+        "maybe_enabled": true
+      },
+      "filter_keys": {
+        "flags": "126",
+        "maybe_enabled": true
+      },
+      "font_smoothing": "2",
+      "display_scaling": null,
+      "mouse_cursor_scheme": "windows aero"
+    },
+    "changes": []
+  }
+}
