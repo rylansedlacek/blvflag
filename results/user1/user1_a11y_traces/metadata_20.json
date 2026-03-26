@@ -1,0 +1,220 @@
+{
+  "task": {
+    "task_id": 20,
+    "task_title": "Set an alarm on Clock",
+    "instruction": "Set an alarm for 8.30 AM that repeats every Monday",
+    "task": "Set an alarm for 8.30 AM that repeats every Monday",
+    "context": "I need an alarm to remind me to badge in to work.",
+    "rand_id_column": "Rand ID 3",
+    "rand_order": 15,
+    "task_group": "System Operations",
+    "interactions": "key_press, mouse_click",
+    "applications": "Clock",
+    "familiarity": "Low",
+    "difficulty_before": "Easy",
+    "difficulty_after": "Easy",
+    "success": true
+  },
+  "session": {
+    "started_at": 1755703123.3730874,
+    "last_event_at": 1755703286.685634,
+    "folder": "task_logs\\User 3\\20",
+    "apps_by_order": [
+      {
+        "order": 1,
+        "app": "ApplicationFrameHost.exe",
+        "log_file": "1_ApplicationFrameHost.exe.json"
+      },
+      {
+        "order": 1,
+        "app": "ApplicationFrameHost.exe::HWND_2951384",
+        "log_file": "1_ApplicationFrameHost.exe_HWND_2951384.json"
+      }
+    ],
+    "ended_at": 1755703294.4367373
+  },
+  "apps": {
+    "ApplicationFrameHost.exe": {
+      "order": 1,
+      "log_file": "1_ApplicationFrameHost.exe.json",
+      "a11y_tree_files": [
+        "1_ApplicationFrameHost.exe_1755703142236_a11y_tree.json"
+      ],
+      "events": 0,
+      "by_type": {
+        "mouse_click": 0,
+        "mouse_up": 0,
+        "mouse_move": 0,
+        "drag_drop": 0,
+        "key_press": 0,
+        "hotkey": 0,
+        "scroll": 0
+      },
+      "keystrokes": {
+        "hotkeys": {},
+        "screen_reader_commands": {},
+        "other_keys": {},
+        "totals": {
+          "hotkeys": 0,
+          "screen_reader_commands": 0,
+          "other_keys": 0
+        },
+        "intents_by_hotkey": {}
+      }
+    },
+    "ApplicationFrameHost.exe::HWND_2951384": {
+      "order": 1,
+      "log_file": "1_ApplicationFrameHost.exe_HWND_2951384.json",
+      "a11y_tree_files": [],
+      "events": 273,
+      "by_type": {
+        "mouse_click": 1,
+        "mouse_up": 1,
+        "mouse_move": 33,
+        "drag_drop": 0,
+        "key_press": 217,
+        "hotkey": 21,
+        "scroll": 0
+      },
+      "display_name": "ApplicationFrameHost (AFH_2951384)",
+      "windows_seen": [
+        {
+          "title": "Clock",
+          "bounds": {
+            "left": 980,
+            "top": 127,
+            "right": 1722,
+            "bottom": 937
+          },
+          "state": "normal",
+          "hwnd": 2951384,
+          "pid": 13972,
+          "ts": 1755703142.2359743
+        }
+      ],
+      "last_window": {
+        "title": "Clock",
+        "bounds": {
+          "left": 980,
+          "top": 127,
+          "right": 1722,
+          "bottom": 937
+        },
+        "state": "normal",
+        "hwnd": 2951384,
+        "pid": 13972,
+        "ts": 1755703286.685634
+      },
+      "keystrokes": {
+        "hotkeys": {},
+        "screen_reader_commands": {
+          "Insert+Tab": 10,
+          "Insert+Insert": 5
+        },
+        "other_keys": {
+          "Up": 82,
+          "Tab": 64,
+          "Down": 22,
+          "Right": 16,
+          "Left": 12,
+          "Num_Lock": 8,
+          "Shift": 8,
+          "Enter": 5,
+          "Space": 4,
+          "<96>": 1,
+          "<99>": 1
+        },
+        "totals": {
+          "hotkeys": 0,
+          "screen_reader_commands": 15,
+          "other_keys": 223
+        },
+        "intents_by_hotkey": {}
+      }
+    }
+  },
+  "web": {
+    "tabs_by_order": [],
+    "events": 0,
+    "by_tab": {}
+  },
+  "summary": {
+    "apps": 2,
+    "events": 273,
+    "by_type": {
+      "key_press": 217,
+      "hotkey": 21,
+      "mouse_move": 33,
+      "mouse_click": 1,
+      "mouse_up": 1
+    },
+    "by_app": {
+      "ApplicationFrameHost.exe::HWND_2951384": 273
+    },
+    "keystrokes": {
+      "hotkeys": {},
+      "screen_reader_commands": {
+        "Insert+Tab": 10,
+        "Insert+Insert": 5
+      },
+      "other_keys": {
+        "Up": 82,
+        "Tab": 64,
+        "Down": 22,
+        "Right": 16,
+        "Left": 12,
+        "Num_Lock": 8,
+        "Shift": 8,
+        "Enter": 5,
+        "Space": 4,
+        "<96>": 1,
+        "<99>": 1
+      },
+      "totals": {
+        "hotkeys": 0,
+        "screen_reader_commands": 15,
+        "other_keys": 223
+      },
+      "intents_by_hotkey": {}
+    }
+  },
+  "accessibility": {
+    "baseline": {
+      "os": "Windows",
+      "os_version": "10.0.26100",
+      "python_version": "3.13.7",
+      "narrator": {
+        "enabled": false,
+        "startup_enabled": false
+      },
+      "magnifier": {
+        "enabled": false,
+        "zoom": 100
+      },
+      "color_filter": {
+        "enabled": false,
+        "type": "none"
+      },
+      "high_contrast": {
+        "enabled": false,
+        "flags": "126"
+      },
+      "sticky_keys": {
+        "flags": "510",
+        "maybe_enabled": true
+      },
+      "toggle_keys": {
+        "flags": "62",
+        "maybe_enabled": true
+      },
+      "filter_keys": {
+        "flags": "126",
+        "maybe_enabled": true
+      },
+      "font_smoothing": "2",
+      "display_scaling": null,
+      "mouse_cursor_scheme": "windows aero"
+    },
+    "changes": []
+  }
+}

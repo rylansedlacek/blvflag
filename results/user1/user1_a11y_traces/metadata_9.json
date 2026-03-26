@@ -1,0 +1,469 @@
+{
+  "task": {
+    "task_id": 9,
+    "task_title": "Log in to an account and modify profile",
+    "instruction": "Login to target.com on Chrome with username \"studyparticipants5@gmail.com\" and password \"CUAstudy1!\" and set the store in 95050 as default.",
+    "task": "Login to target.com on Chrome with username \"studyparticipants5@gmail.com\" and password \"CUAstudy1!\" and set the store in 95050 as default.",
+    "context": "I want to do some shopping on Target and I want to tie my purchase with my account.",
+    "rand_id_column": "Rand ID 3",
+    "rand_order": 2,
+    "task_group": "Browsing and Web",
+    "interactions": "key_press, mouse_click, scroll",
+    "applications": "Chrome",
+    "familiarity": "Medium",
+    "difficulty_before": "Medium",
+    "difficulty_after": "Easy",
+    "success": true
+  },
+  "session": {
+    "started_at": 1757160663.8247108,
+    "last_event_at": 1757161007267,
+    "folder": "task_logs\\User 3\\9",
+    "apps_by_order": [
+      {
+        "order": 1,
+        "app": "chrome.exe",
+        "log_file": "1_chrome.exe.json"
+      },
+      {
+        "order": 2,
+        "app": "jfw.exe",
+        "log_file": "2_jfw.exe.json"
+      }
+    ],
+    "ended_at": 1757161014.925621
+  },
+  "apps": {
+    "chrome.exe": {
+      "order": 1,
+      "log_file": "1_chrome.exe.json",
+      "a11y_tree_files": [
+        "1_chrome.exe_1757160684807_a11y_tree.json",
+        "1_chrome.exe_1757160721488_a11y_tree.json"
+      ],
+      "events": 333,
+      "by_type": {
+        "mouse_click": 1,
+        "mouse_up": 1,
+        "mouse_move": 15,
+        "drag_drop": 0,
+        "key_press": 281,
+        "hotkey": 35,
+        "scroll": 0
+      },
+      "display_name": "chrome.exe",
+      "windows_seen": [
+        {
+          "title": "New Tab - Google Chrome",
+          "bounds": {
+            "left": 0,
+            "top": 0,
+            "right": 1920,
+            "bottom": 1008
+          },
+          "state": null,
+          "hwnd": 67402,
+          "pid": 15120,
+          "ts": 1757160684.8067472
+        },
+        {
+          "title": "Target : Expect More. Pay Less. - Google Chrome",
+          "bounds": {
+            "left": 0,
+            "top": 0,
+            "right": 1920,
+            "bottom": 1008
+          },
+          "state": null,
+          "hwnd": 67402,
+          "pid": 15120,
+          "ts": 1757160690.6578565
+        },
+        {
+          "title": "Login: Target - Google Chrome",
+          "bounds": {
+            "left": -11,
+            "top": -11,
+            "right": 1931,
+            "bottom": 1019
+          },
+          "state": null,
+          "hwnd": 67402,
+          "pid": 15120,
+          "ts": 1757160824.0187964
+        },
+        {
+          "title": "Target : Expect More. Pay Less. - Google Chrome",
+          "bounds": {
+            "left": -11,
+            "top": -11,
+            "right": 1931,
+            "bottom": 1019
+          },
+          "state": null,
+          "hwnd": 67402,
+          "pid": 15120,
+          "ts": 1757160903.7852707
+        }
+      ],
+      "last_window": {
+        "title": "Target : Expect More. Pay Less. - Google Chrome",
+        "bounds": {
+          "left": -11,
+          "top": -11,
+          "right": 1931,
+          "bottom": 1019
+        },
+        "state": null,
+        "hwnd": 67402,
+        "pid": 15120,
+        "ts": 1757161006.9312944
+      },
+      "keystrokes": {
+        "hotkeys": {
+          "Ctrl+Home": 3,
+          "Ctrl+\u0001": 2,
+          "Ctrl+<255>": 2,
+          "Ctrl+A": 2,
+          "Ctrl+Left": 2,
+          "Win+Up": 2
+        },
+        "screen_reader_commands": {
+          "Insert+Insert": 11,
+          "Insert+Up": 6,
+          "Insert+F7": 5,
+          "Ctrl+Insert+<255>": 2,
+          "Ctrl+Insert+Home": 2,
+          "Insert+F6": 2,
+          "Insert+F8": 2,
+          "Insert+Tab": 2,
+          "Ctrl+Insert+Ctrl": 1
+        },
+        "other_keys": {
+          "Down": 76,
+          "Up": 17,
+          "b": 15,
+          "Enter": 14,
+          "h": 10,
+          "Shift": 9,
+          "Backspace": 8,
+          "e": 8,
+          "Esc": 7,
+          "a": 6,
+          "t": 6,
+          "c": 5,
+          "Right": 4,
+          "Tab": 4,
+          "u": 4,
+          "5": 3,
+          "i": 3,
+          "m": 3,
+          "s": 3,
+          "!": 2,
+          ".": 2,
+          "0": 2,
+          "9": 2,
+          "@": 2,
+          "d": 2,
+          "g": 2,
+          "Left": 2,
+          "o": 2,
+          "p": 2,
+          "r": 2,
+          "y": 2,
+          "1": 1,
+          "<255>": 1,
+          "l": 1,
+          "n": 1,
+          "Space": 1
+        },
+        "totals": {
+          "hotkeys": 13,
+          "screen_reader_commands": 33,
+          "other_keys": 234
+        },
+        "intents_by_hotkey": {}
+      }
+    },
+    "jfw.exe": {
+      "order": 2,
+      "log_file": "2_jfw.exe.json",
+      "a11y_tree_files": [
+        "2_jfw.exe_1757160711714_a11y_tree.json",
+        "2_jfw.exe_1757160712035_a11y_tree.json"
+      ],
+      "events": 4,
+      "by_type": {
+        "mouse_click": 0,
+        "mouse_up": 0,
+        "mouse_move": 0,
+        "drag_drop": 0,
+        "key_press": 2,
+        "hotkey": 2,
+        "scroll": 0
+      },
+      "display_name": "jfw.exe",
+      "windows_seen": [
+        {
+          "title": "JAWS Annual - Subscription",
+          "bounds": {
+            "left": 20,
+            "top": 20,
+            "right": 615,
+            "bottom": 347
+          },
+          "state": null,
+          "hwnd": 131192,
+          "pid": 9452,
+          "ts": 1757160711.7140927
+        },
+        {
+          "title": "Heading List",
+          "bounds": {
+            "left": 27,
+            "top": 0,
+            "right": 607,
+            "bottom": 551
+          },
+          "state": null,
+          "hwnd": 3606318,
+          "pid": 9452,
+          "ts": 1757160712.0350769
+        },
+        {
+          "title": "JAWS Annual - Subscription",
+          "bounds": {
+            "left": 20,
+            "top": 20,
+            "right": 615,
+            "bottom": 347
+          },
+          "state": null,
+          "hwnd": 131192,
+          "pid": 9452,
+          "ts": 1757160727.525135
+        }
+      ],
+      "last_window": {
+        "title": "JAWS Annual - Subscription",
+        "bounds": {
+          "left": 20,
+          "top": 20,
+          "right": 615,
+          "bottom": 347
+        },
+        "state": null,
+        "hwnd": 131192,
+        "pid": 9452,
+        "ts": 1757160727.525135
+      },
+      "keystrokes": {
+        "hotkeys": {},
+        "screen_reader_commands": {
+          "Insert+F6": 2,
+          "Insert+F7": 1,
+          "Insert+Insert": 1
+        },
+        "other_keys": {},
+        "totals": {
+          "hotkeys": 0,
+          "screen_reader_commands": 4,
+          "other_keys": 0
+        },
+        "intents_by_hotkey": {}
+      }
+    }
+  },
+  "web": {
+    "tabs_by_order": [
+      {
+        "order": 1,
+        "first_ts": 1757160692356,
+        "url": "https://www.target.com/",
+        "title": "Target : Expect More. Pay Less.",
+        "file": "/task_logs/9/web_logs/web_tab1_1757160692356.json",
+        "dom_url": "/task_logs/User 3/9/web_logs/web_tab1_1757160692356.html",
+        "a11y_url": "/task_logs/User 3/9/web_logs/web_tab1_1757160692356_a11y_tree.json"
+      },
+      {
+        "order": 2,
+        "first_ts": 1757160821842,
+        "url": "https://www.target.com/login?client_id=ecom-web-1.0.0&ui_namespace=ui-default&back_button_action=browser&keep_me_signed_in=true&kmsi_default=false&actions=create_session_request_username&signin_amr=true",
+        "title": "Login: Target",
+        "file": "/task_logs/9/web_logs/web_tab2_1757160821842.json",
+        "dom_url": "/task_logs/User 3/9/web_logs/web_tab2_1757160821842.html",
+        "a11y_url": "/task_logs/User 3/9/web_logs/web_tab2_1757160821842_a11y_tree.json"
+      },
+      {
+        "order": 3,
+        "first_ts": 1757160907725,
+        "url": "https://www.target.com/",
+        "title": "Target : Expect More. Pay Less.",
+        "file": "/task_logs/9/web_logs/web_tab3_1757160907725.json",
+        "dom_url": "/task_logs/User 3/9/web_logs/web_tab3_1757160907725.html",
+        "a11y_url": "/task_logs/User 3/9/web_logs/web_tab3_1757160907725_a11y_tree.json"
+      }
+    ],
+    "events": 168,
+    "by_tab": {
+      "1::1757160692356": 21,
+      "2::1757160821842": 91,
+      "3::1757160907725": 56
+    }
+  },
+  "summary": {
+    "apps": 2,
+    "events": 505,
+    "by_type": {
+      "key_press": 283,
+      "hotkey": 37,
+      "mouse_move": 15,
+      "mouse_click": 1,
+      "mouse_up": 1
+    },
+    "by_app": {
+      "chrome.exe": 333,
+      "jfw.exe": 4
+    },
+    "keystrokes": {
+      "hotkeys": {
+        "Ctrl+Home": 3,
+        "Ctrl+\u0001": 2,
+        "Ctrl+<255>": 2,
+        "Ctrl+A": 2,
+        "Ctrl+Left": 2,
+        "Win+Up": 2
+      },
+      "screen_reader_commands": {
+        "Insert+Insert": 12,
+        "Insert+F7": 6,
+        "Insert+Up": 6,
+        "Insert+F6": 4,
+        "Ctrl+Insert+<255>": 2,
+        "Ctrl+Insert+Home": 2,
+        "Insert+F8": 2,
+        "Insert+Tab": 2,
+        "Ctrl+Insert+Ctrl": 1
+      },
+      "other_keys": {
+        "Down": 76,
+        "Up": 17,
+        "b": 15,
+        "Enter": 14,
+        "h": 10,
+        "Shift": 9,
+        "Backspace": 8,
+        "e": 8,
+        "Esc": 7,
+        "a": 6,
+        "t": 6,
+        "c": 5,
+        "Right": 4,
+        "Tab": 4,
+        "u": 4,
+        "5": 3,
+        "i": 3,
+        "m": 3,
+        "s": 3,
+        "!": 2,
+        ".": 2,
+        "0": 2,
+        "9": 2,
+        "@": 2,
+        "d": 2,
+        "g": 2,
+        "Left": 2,
+        "o": 2,
+        "p": 2,
+        "r": 2,
+        "y": 2,
+        "1": 1,
+        "<255>": 1,
+        "l": 1,
+        "n": 1,
+        "Space": 1
+      },
+      "totals": {
+        "hotkeys": 13,
+        "screen_reader_commands": 37,
+        "other_keys": 234
+      },
+      "intents_by_hotkey": {}
+    }
+  },
+  "accessibility": {
+    "baseline": {
+      "os": "Windows",
+      "os_version": "10.0.26100",
+      "python_version": "3.13.7",
+      "narrator": {
+        "enabled": false,
+        "startup_enabled": false
+      },
+      "magnifier": {
+        "enabled": false,
+        "zoom": null
+      },
+      "color_filter": {
+        "enabled": false,
+        "type": "unknown"
+      },
+      "high_contrast": {
+        "enabled": false,
+        "flags": "126"
+      },
+      "sticky_keys": {
+        "flags": "510",
+        "maybe_enabled": true
+      },
+      "toggle_keys": {
+        "flags": "62",
+        "maybe_enabled": true
+      },
+      "filter_keys": {
+        "flags": "126",
+        "maybe_enabled": true
+      },
+      "font_smoothing": "2",
+      "display_scaling": null,
+      "mouse_cursor_scheme": "windows aero"
+    },
+    "last": {
+      "os": "Windows",
+      "os_version": "10.0.26100",
+      "python_version": "3.13.7",
+      "narrator": {
+        "enabled": false,
+        "startup_enabled": false
+      },
+      "magnifier": {
+        "enabled": false,
+        "zoom": null
+      },
+      "color_filter": {
+        "enabled": false,
+        "type": "unknown"
+      },
+      "high_contrast": {
+        "enabled": false,
+        "flags": "126"
+      },
+      "sticky_keys": {
+        "flags": "510",
+        "maybe_enabled": true
+      },
+      "toggle_keys": {
+        "flags": "62",
+        "maybe_enabled": true
+      },
+      "filter_keys": {
+        "flags": "126",
+        "maybe_enabled": true
+      },
+      "font_smoothing": "2",
+      "display_scaling": null,
+      "mouse_cursor_scheme": "windows aero"
+    },
+    "changes": []
+  }
+}

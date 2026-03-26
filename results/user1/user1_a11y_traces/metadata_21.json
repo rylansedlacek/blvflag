@@ -1,0 +1,233 @@
+{
+  "task": {
+    "task_id": 21,
+    "task_title": "Move a document from one folder to another folder",
+    "instruction": "Move image \"MyTravelPhoto.jpg\" from \"Task 21\" folder on Documents to Desktop",
+    "task": "Move image \"MyTravelPhoto.jpg\" from \"Task 21\" folder on Documents to Desktop",
+    "context": "I'm trying to organize my computer. I want to move my images to Documents.",
+    "rand_id_column": "Rand ID 3",
+    "rand_order": 14,
+    "task_group": "System Operations",
+    "interactions": "",
+    "applications": "File Explorer",
+    "familiarity": "High",
+    "difficulty_before": "Easy",
+    "difficulty_after": "Easy",
+    "success": true
+  },
+  "session": {
+    "started_at": 1755702955.59013,
+    "last_event_at": 1755702985.0269732,
+    "folder": "task_logs\\User 3\\21",
+    "apps_by_order": [
+      {
+        "order": 1,
+        "app": "explorer.exe",
+        "log_file": "1_explorer.exe.json"
+      }
+    ],
+    "ended_at": 1755702989.0048332
+  },
+  "apps": {
+    "explorer.exe": {
+      "order": 1,
+      "log_file": "1_explorer.exe.json",
+      "a11y_tree_files": [
+        "1_explorer.exe_1755702962516_a11y_tree.json",
+        "1_explorer.exe_1755702977289_a11y_tree.json"
+      ],
+      "events": 52,
+      "by_type": {
+        "mouse_click": 1,
+        "mouse_up": 1,
+        "mouse_move": 15,
+        "drag_drop": 0,
+        "key_press": 28,
+        "hotkey": 7,
+        "scroll": 0
+      },
+      "display_name": "explorer.exe",
+      "windows_seen": [
+        {
+          "title": "Home - File Explorer",
+          "bounds": {
+            "left": 651,
+            "top": 108,
+            "right": 1851,
+            "bottom": 1008
+          },
+          "state": "normal",
+          "hwnd": 8128724,
+          "pid": 9108,
+          "ts": 1755702962.515981
+        },
+        {
+          "title": "Documents - File Explorer",
+          "bounds": {
+            "left": 651,
+            "top": 108,
+            "right": 1851,
+            "bottom": 1008
+          },
+          "state": "normal",
+          "hwnd": 8128724,
+          "pid": 9108,
+          "ts": 1755702970.610261
+        },
+        {
+          "title": "Task 21 - File Explorer",
+          "bounds": {
+            "left": 651,
+            "top": 108,
+            "right": 1851,
+            "bottom": 1008
+          },
+          "state": "normal",
+          "hwnd": 8128724,
+          "pid": 9108,
+          "ts": 1755702974.015647
+        },
+        {
+          "title": "Program Manager",
+          "bounds": {
+            "left": 0,
+            "top": 0,
+            "right": 1920,
+            "bottom": 1080
+          },
+          "state": "normal",
+          "hwnd": 65802,
+          "pid": 9108,
+          "ts": 1755702977.2891738
+        }
+      ],
+      "last_window": {
+        "title": "Program Manager",
+        "bounds": {
+          "left": 0,
+          "top": 0,
+          "right": 1920,
+          "bottom": 1080
+        },
+        "state": "normal",
+        "hwnd": 65802,
+        "pid": 9108,
+        "ts": 1755702985.0269732
+      },
+      "keystrokes": {
+        "hotkeys": {
+          "Ctrl+\u0016": 1,
+          "Ctrl+\u0018": 1,
+          "Ctrl+V": 1,
+          "Ctrl+X": 1,
+          "Win+D": 1
+        },
+        "screen_reader_commands": {},
+        "other_keys": {
+          "Tab": 6,
+          "Down": 4,
+          "d": 3,
+          "Enter": 2,
+          "Up": 2,
+          "Shift": 1
+        },
+        "totals": {
+          "hotkeys": 5,
+          "screen_reader_commands": 0,
+          "other_keys": 18
+        },
+        "intents_by_hotkey": {
+          "cut": 1,
+          "paste": 1,
+          "show_desktop": 1
+        }
+      }
+    }
+  },
+  "web": {
+    "tabs_by_order": [],
+    "events": 0,
+    "by_tab": {}
+  },
+  "summary": {
+    "apps": 1,
+    "events": 52,
+    "by_type": {
+      "key_press": 28,
+      "hotkey": 7,
+      "mouse_move": 15,
+      "mouse_click": 1,
+      "mouse_up": 1
+    },
+    "by_app": {
+      "explorer.exe": 52
+    },
+    "keystrokes": {
+      "hotkeys": {
+        "Ctrl+\u0016": 1,
+        "Ctrl+\u0018": 1,
+        "Ctrl+V": 1,
+        "Ctrl+X": 1,
+        "Win+D": 1
+      },
+      "screen_reader_commands": {},
+      "other_keys": {
+        "Tab": 6,
+        "Down": 4,
+        "d": 3,
+        "Enter": 2,
+        "Up": 2,
+        "Shift": 1
+      },
+      "totals": {
+        "hotkeys": 5,
+        "screen_reader_commands": 0,
+        "other_keys": 18
+      },
+      "intents_by_hotkey": {
+        "cut": 1,
+        "paste": 1,
+        "show_desktop": 1
+      }
+    }
+  },
+  "accessibility": {
+    "baseline": {
+      "os": "Windows",
+      "os_version": "10.0.26100",
+      "python_version": "3.13.7",
+      "narrator": {
+        "enabled": false,
+        "startup_enabled": false
+      },
+      "magnifier": {
+        "enabled": false,
+        "zoom": 100
+      },
+      "color_filter": {
+        "enabled": false,
+        "type": "none"
+      },
+      "high_contrast": {
+        "enabled": false,
+        "flags": "126"
+      },
+      "sticky_keys": {
+        "flags": "510",
+        "maybe_enabled": true
+      },
+      "toggle_keys": {
+        "flags": "62",
+        "maybe_enabled": true
+      },
+      "filter_keys": {
+        "flags": "126",
+        "maybe_enabled": true
+      },
+      "font_smoothing": "2",
+      "display_scaling": null,
+      "mouse_cursor_scheme": "windows aero"
+    },
+    "changes": []
+  }
+}

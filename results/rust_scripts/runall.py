@@ -2,16 +2,26 @@ import subprocess
 import os
 from pathlib import Path
 import json
-import time
+import shutil
+import re
 
 SCRIPT_DIR = Path("/Users/rylan/blvflag/results/test_scripts")
 HISTORY_DIR = Path("/Users/rylan/blvflag/results/sim_history")
+TRACE_DIR = Path("/Users/rylan/blvflag/results/a11y_traces")
+RESULTS_LOG = Path("/Users/rylan/blvflag/results/sim_results.json")
+
 HISTORY_DIR.mkdir(exist_ok=True)
-CARGO_PROJECT_DIR = "/Users/rylan/blvflag/tool/"  
-A11Y_TASKS_PATH = Path("/Users/rylan/blvflag/results/a11y_tasks.json")
 
-NUM_RUNS = 5  # Number of simulation iterations per script
+CARGO_PROJECT_DIR = "/Users/rylan/blvflag/tool/"
+NUM_RUNS = 1 # change as needed - 1 for now is sufficient based on 4 runs per
 
+
+def extract_number(path: Path):
+    nums = re.findall(r"\d+", path.stem)
+    return int(nums[0]) if nums else 0
+
+
+# run blv diff with flag
 def run_blvdiff(script_path, flags=None):
     cmd = [
         "cargo", "run",
@@ -21,78 +31,173 @@ def run_blvdiff(script_path, flags=None):
     ]
     if flags:
         cmd.extend(flags)
+
     print(f"\n[RUNNING] {' '.join(cmd)}")
     subprocess.run(cmd)
 
-def load_a11y_tasks():
-    if not A11Y_TASKS_PATH.exists():
-        return {}
-    with open(A11Y_TASKS_PATH, 'r') as f:
-        return json.load(f)
 
-def map_task_to_line(lines, task_sequence):
-    if not task_sequence:
-        return 0  # fallback to first line
-    line_idx = 0
-    for action in task_sequence:
-        if action in ["tab", "arrow_down"]:
-            line_idx += 1
-        elif action == "arrow_up":
-            line_idx = max(0, line_idx - 1)
-        elif action == "enter":
-            break
+# meta data parser!
+def parse_metadata(metadata_path):
+    with open(metadata_path, 'r') as f:
+        data = json.load(f)
 
-    line_idx = min(line_idx, len(lines) - 1)
-    # skip blank lines
+    summary = data.get("summary", {})
+    keystrokes = summary.get("keystrokes", {})
+
+    key_freq = keystrokes.get("other_keys", {})
+
+    nav_keys = ["Tab", "F6", "ArrowDown", "ArrowUp"] # all ive seen
+
+    nav_count = sum(key_freq.get(k, 0) for k in nav_keys)
+    enter_count = key_freq.get("Enter", 0)
+    esc_count = key_freq.get("Esc", 0)
+
+    total_events = summary.get("events", 1)
+
+    return {
+        "nav_steps": nav_count,
+        "action_steps": enter_count,
+        "abort_steps": esc_count,
+        "total_events": total_events,
+        "nav_ratio": nav_count / max(total_events, 1)
+    }
+
+
+# map the interactions - get nav steps
+def map_interaction_to_line(lines, interaction_model):
+    nav_depth = interaction_model["nav_steps"]
+    line_idx = min(nav_depth, len(lines) - 1)
+
+    if interaction_model["nav_ratio"] > 0.5:
+        line_idx = max(0, line_idx - 2)
+
     while line_idx < len(lines) and not lines[line_idx].strip():
         line_idx += 1
-    if line_idx >= len(lines):
-        line_idx = len(lines) - 1
-    return line_idx
 
-def modify_script(filepath, task_sequence, iteration):
+    return min(line_idx, len(lines) - 1)
+
+
+# adjust nav steps for tool interactions
+def adjust_for_tool(interaction_model, mode):
+    model = interaction_model.copy()
+
+    if mode == "explain":
+        model["nav_steps"] = int(model["nav_steps"] * 0.7)
+    elif mode == "diff":
+        model["nav_steps"] = int(model["nav_steps"] * 0.5)
+    elif mode == "both":
+        model["nav_steps"] = int(model["nav_steps"] * 0.4)
+
+    return model
+
+
+# modify script copy for diff flag
+def modify_script(filepath, interaction_model, iteration, mode):
     with open(filepath, 'r') as f:
         lines = f.readlines()
 
-    line_idx = map_task_to_line(lines, task_sequence)
+    line_idx = map_interaction_to_line(lines, interaction_model)
 
-    # apply a simulated fix
-    lines[line_idx] = f"# SIMULATED FIX {iteration} based on task sequence\n"
+    if interaction_model["nav_ratio"] < 0.3:
+        fix_type = "GOOD_FIX"
+    elif interaction_model["nav_ratio"] < 0.6:
+        fix_type = "PARTIAL_FIX"
+    else:
+        fix_type = "POOR_FIX"
 
-    hist_path = HISTORY_DIR / f"{filepath.stem}_v{iteration}.py"
+    lines[line_idx] = f"# {fix_type} iteration {iteration} ({mode})\n"
+
+    hist_path = HISTORY_DIR / f"{filepath.stem}_{mode}_v{iteration}.py"
+
     with open(hist_path, 'w') as f:
         f.writelines(lines)
 
-    return hist_path
+    return hist_path, fix_type
 
-def simulate_blv_behavior(script_path, task_sequence, iteration):
-    print(f"\n[SIMULATION] Iteration {iteration} on {script_path.name}")
+# log results in json for figure generation
+def log_result(script, iteration, interaction_model, fix_type, mode):
+    entry = {
+        "script": script.name,
+        "iteration": iteration,
+        "mode": mode,
+        "nav_steps": interaction_model["nav_steps"],
+        "nav_ratio": interaction_model["nav_ratio"],
+        "fix_type": fix_type
+    }
 
-    # 1 run the original script
-    run_blvdiff(script_path)
+    if RESULTS_LOG.exists():
+        with open(RESULTS_LOG, "r") as f:
+            data = json.load(f)
+    else:
+        data = []
 
-    # 2modify the script based on simulated BLV behavior
-    fixed_path = modify_script(script_path, task_sequence, iteration)
+    data.append(entry)
 
-    # 3 re-run modified script
-    run_blvdiff(fixed_path)
+    with open(RESULTS_LOG, "w") as f:
+        json.dump(data, f, indent=2)
 
-    # 4 run BLVDIFF explain + diff for analysis
-    run_blvdiff(script_path, flags=["--explain", "--diff"])
+# isolated fix
+def prepare_working_copy(script_path, iteration, mode):
+    temp_dir = HISTORY_DIR / "working"
+    temp_dir.mkdir(exist_ok=True)
+
+    dest = temp_dir / f"{script_path.stem}_iter{iteration}_{mode}.py"
+    shutil.copy(script_path, dest)
+
+    return dest
+
+# take everything and use parsed steps to run.
+def simulate_blv_behavior(script_path, metadata_path, iteration, mode):
+    print(f"\n[SIMULATION] {mode} | {script_path.name} ↔ {metadata_path.name}")
+
+    base_model = parse_metadata(metadata_path)
+    adjusted_model = adjust_for_tool(base_model, mode)
+
+    working_copy = prepare_working_copy(script_path, iteration, mode)
+
+    fixed_path, fix_type = modify_script(
+        working_copy,
+        adjusted_model,
+        iteration,
+        mode
+    )
+
+    flags = ["--explain", "--diff"]
+    if mode == "explain":
+        flags = ["--explain"]
+    elif mode == "diff":
+        flags = ["--diff"]
+
+    run_blvdiff(fixed_path, flags=flags)
+
+    log_result(script_path, iteration, adjusted_model, fix_type, mode)
 
 
+#cool
 def main():
-    scripts = sorted(SCRIPT_DIR.glob("*.py"))
-    a11y_tasks = load_a11y_tasks()
+    scripts = sorted(SCRIPT_DIR.glob("*.py"), key=extract_number)
+    metadata_files = sorted(TRACE_DIR.glob("metadata_*.json"))
 
-    if not scripts:
-        return
+    print(f"\nFound {len(scripts)} scripts")
+    print(f"Found {len(metadata_files)} metadatas")
+
+    if len(scripts) != len(metadata_files):
+        print("")
+
+    paired = list(zip(scripts, metadata_files))
 
     for run_idx in range(1, NUM_RUNS + 1):
-        print(f"\n=== SIMULATION RUN {run_idx} ===")
-        for script in scripts:
-            task_sequence = a11y_tasks.get(script.name, [])
-            simulate_blv_behavior(script, task_sequence, run_idx)
+        print(f"\nsim run {run_idx}")
+
+        for script, metadata_path in paired:
+            for mode in ["baseline", "explain", "diff", "both"]:
+                simulate_blv_behavior(
+                    script,
+                    metadata_path,
+                    run_idx,
+                    mode
+                )
+
 
 if __name__ == "__main__":
     main()

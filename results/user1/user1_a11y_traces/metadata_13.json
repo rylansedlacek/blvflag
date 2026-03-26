@@ -1,0 +1,406 @@
+{
+  "task": {
+    "task_id": 13,
+    "task_title": "Search video on Youtube and skip to the next video",
+    "instruction": "Visit youtube.com on Chrome and search for \"Machine Learning and Generative AI\"\nWatch the first suggested video for a few seconds. \nSkip to the next video",
+    "task": "Visit youtube.com on Chrome and search for \"Machine Learning and Generative AI\"\nWatch the first suggested video for a few seconds. \nSkip to the next video",
+    "context": "I'm currently watching a lecture on YouTube on \"Machine Learning and Generative AI\". I want to watch a different video as this one doesn't cover the concept I'm looking to learn.",
+    "rand_id_column": "Rand ID 3",
+    "rand_order": 8,
+    "task_group": "Browsing and Web",
+    "interactions": "key_press, mouse_click",
+    "applications": "Chrome",
+    "familiarity": "High",
+    "difficulty_before": "Low",
+    "difficulty_after": "Low",
+    "success": true
+  },
+  "session": {
+    "started_at": 1757162349.799788,
+    "last_event_at": 1757162407.1553757,
+    "folder": "task_logs\\User 3\\13",
+    "apps_by_order": [
+      {
+        "order": 1,
+        "app": "explorer.exe",
+        "log_file": "1_explorer.exe.json"
+      },
+      {
+        "order": 2,
+        "app": "chrome.exe",
+        "log_file": "2_chrome.exe.json"
+      }
+    ],
+    "ended_at": 1757162416.0156832
+  },
+  "apps": {
+    "explorer.exe": {
+      "order": 1,
+      "log_file": "1_explorer.exe.json",
+      "a11y_tree_files": [
+        "1_explorer.exe_1757162352595_a11y_tree.json"
+      ],
+      "events": 2,
+      "by_type": {
+        "mouse_click": 0,
+        "mouse_up": 1,
+        "mouse_move": 0,
+        "drag_drop": 0,
+        "key_press": 1,
+        "hotkey": 0,
+        "scroll": 0
+      },
+      "display_name": "explorer.exe",
+      "windows_seen": [
+        {
+          "title": "Program Manager",
+          "bounds": {
+            "left": 0,
+            "top": 0,
+            "right": 1920,
+            "bottom": 1080
+          },
+          "state": null,
+          "hwnd": 65844,
+          "pid": 8552,
+          "ts": 1757162352.5947149
+        }
+      ],
+      "last_window": {
+        "title": "Program Manager",
+        "bounds": {
+          "left": 0,
+          "top": 0,
+          "right": 1920,
+          "bottom": 1080
+        },
+        "state": null,
+        "hwnd": 65844,
+        "pid": 8552,
+        "ts": 1757162355.8206978
+      },
+      "keystrokes": {
+        "hotkeys": {},
+        "screen_reader_commands": {},
+        "other_keys": {},
+        "totals": {
+          "hotkeys": 0,
+          "screen_reader_commands": 0,
+          "other_keys": 0
+        },
+        "intents_by_hotkey": {}
+      }
+    },
+    "chrome.exe": {
+      "order": 2,
+      "log_file": "2_chrome.exe.json",
+      "a11y_tree_files": [
+        "2_chrome.exe_1757162362756_a11y_tree.json"
+      ],
+      "events": 79,
+      "by_type": {
+        "mouse_click": 1,
+        "mouse_up": 1,
+        "mouse_move": 9,
+        "drag_drop": 0,
+        "key_press": 63,
+        "hotkey": 5,
+        "scroll": 0
+      },
+      "display_name": "chrome.exe",
+      "windows_seen": [
+        {
+          "title": "New Tab - Google Chrome",
+          "bounds": {
+            "left": 0,
+            "top": 0,
+            "right": 1920,
+            "bottom": 1008
+          },
+          "state": null,
+          "hwnd": 853692,
+          "pid": 17652,
+          "ts": 1757162362.7559698
+        },
+        {
+          "title": "YouTube - Google Chrome",
+          "bounds": {
+            "left": 0,
+            "top": 0,
+            "right": 1920,
+            "bottom": 1008
+          },
+          "state": null,
+          "hwnd": 853692,
+          "pid": 17652,
+          "ts": 1757162370.2752373
+        },
+        {
+          "title": "machine learning and generative ai - YouTube - Google Chrome",
+          "bounds": {
+            "left": 0,
+            "top": 0,
+            "right": 1920,
+            "bottom": 1008
+          },
+          "state": null,
+          "hwnd": 853692,
+          "pid": 17652,
+          "ts": 1757162383.842361
+        },
+        {
+          "title": "AI, Machine Learning, Deep Learning and Generative AI Explained - YouTube - Google Chrome",
+          "bounds": {
+            "left": 0,
+            "top": 0,
+            "right": 1920,
+            "bottom": 1008
+          },
+          "state": null,
+          "hwnd": 853692,
+          "pid": 17652,
+          "ts": 1757162396.8691497
+        },
+        {
+          "title": "RAG vs. Fine Tuning - YouTube - Google Chrome",
+          "bounds": {
+            "left": 0,
+            "top": 0,
+            "right": 1920,
+            "bottom": 1008
+          },
+          "state": null,
+          "hwnd": 853692,
+          "pid": 17652,
+          "ts": 1757162403.9253228
+        }
+      ],
+      "last_window": {
+        "title": "RAG vs. Fine Tuning - YouTube - Google Chrome",
+        "bounds": {
+          "left": 0,
+          "top": 0,
+          "right": 1920,
+          "bottom": 1008
+        },
+        "state": null,
+        "hwnd": 853692,
+        "pid": 17652,
+        "ts": 1757162407.1553757
+      },
+      "keystrokes": {
+        "hotkeys": {
+          "Ctrl+Left": 4
+        },
+        "screen_reader_commands": {},
+        "other_keys": {
+          "e": 5,
+          "h": 5,
+          "n": 5,
+          "a": 4,
+          "Down": 4,
+          "Enter": 4,
+          "i": 4,
+          "Space": 4,
+          "g": 2,
+          "Right": 2,
+          "Up": 2,
+          "^A": 1,
+          "^R": 1,
+          "b": 1,
+          "c": 1,
+          "d": 1,
+          "l": 1,
+          "m": 1,
+          "o": 1,
+          "r": 1,
+          "Shift": 1,
+          "t": 1,
+          "v": 1,
+          "y": 1
+        },
+        "totals": {
+          "hotkeys": 4,
+          "screen_reader_commands": 0,
+          "other_keys": 54
+        },
+        "intents_by_hotkey": {}
+      }
+    }
+  },
+  "web": {
+    "tabs_by_order": [
+      {
+        "order": 1,
+        "first_ts": 1757162370318,
+        "url": "https://www.youtube.com/",
+        "title": "YouTube",
+        "file": "/task_logs/13/web_logs/web_tab1_1757162370318.json",
+        "dom_url": "/task_logs/User 3/13/web_logs/web_tab1_1757162370318.html",
+        "a11y_url": "/task_logs/User 3/13/web_logs/web_tab1_1757162370318_a11y_tree.json"
+      },
+      {
+        "order": 2,
+        "first_ts": 1757162382374,
+        "url": "https://www.youtube.com/results?search_query=machine+learning+and+generative+ai",
+        "title": "machine learning and generative ai - YouTube",
+        "file": "/task_logs/13/web_logs/web_tab2_1757162382374.json",
+        "dom_url": null,
+        "a11y_url": null
+      },
+      {
+        "order": 3,
+        "first_ts": 1757162394779,
+        "url": "https://www.youtube.com/watch?v=qYNweeDHiyU",
+        "title": "AI, Machine Learning, Deep Learning and Generative AI Explained - YouTube",
+        "file": "/task_logs/13/web_logs/web_tab3_1757162394779.json",
+        "dom_url": null,
+        "a11y_url": null
+      },
+      {
+        "order": 4,
+        "first_ts": 1757162401951,
+        "url": "https://www.youtube.com/watch?v=00Q0G84kq3M",
+        "title": "AI, Machine Learning, Deep Learning and Generative AI Explained - YouTube",
+        "file": "/task_logs/13/web_logs/web_tab4_1757162401951.json",
+        "dom_url": null,
+        "a11y_url": null
+      }
+    ],
+    "events": 63,
+    "by_tab": {
+      "1::1757162370318": 51,
+      "2::1757162382374": 5,
+      "3::1757162394779": 5,
+      "4::1757162401951": 2
+    }
+  },
+  "summary": {
+    "apps": 2,
+    "events": 144,
+    "by_type": {
+      "mouse_up": 2,
+      "key_press": 64,
+      "hotkey": 5,
+      "mouse_move": 9,
+      "mouse_click": 1
+    },
+    "by_app": {
+      "explorer.exe": 2,
+      "chrome.exe": 79
+    },
+    "keystrokes": {
+      "hotkeys": {
+        "Ctrl+Left": 4
+      },
+      "screen_reader_commands": {},
+      "other_keys": {
+        "e": 5,
+        "h": 5,
+        "n": 5,
+        "a": 4,
+        "Down": 4,
+        "Enter": 4,
+        "i": 4,
+        "Space": 4,
+        "g": 2,
+        "Right": 2,
+        "Up": 2,
+        "^A": 1,
+        "^R": 1,
+        "b": 1,
+        "c": 1,
+        "d": 1,
+        "l": 1,
+        "m": 1,
+        "o": 1,
+        "r": 1,
+        "Shift": 1,
+        "t": 1,
+        "v": 1,
+        "y": 1
+      },
+      "totals": {
+        "hotkeys": 4,
+        "screen_reader_commands": 0,
+        "other_keys": 54
+      },
+      "intents_by_hotkey": {}
+    }
+  },
+  "accessibility": {
+    "baseline": {
+      "os": "Windows",
+      "os_version": "10.0.26100",
+      "python_version": "3.13.7",
+      "narrator": {
+        "enabled": false,
+        "startup_enabled": false
+      },
+      "magnifier": {
+        "enabled": false,
+        "zoom": null
+      },
+      "color_filter": {
+        "enabled": false,
+        "type": "unknown"
+      },
+      "high_contrast": {
+        "enabled": false,
+        "flags": "126"
+      },
+      "sticky_keys": {
+        "flags": "510",
+        "maybe_enabled": true
+      },
+      "toggle_keys": {
+        "flags": "62",
+        "maybe_enabled": true
+      },
+      "filter_keys": {
+        "flags": "126",
+        "maybe_enabled": true
+      },
+      "font_smoothing": "2",
+      "display_scaling": null,
+      "mouse_cursor_scheme": "windows aero"
+    },
+    "last": {
+      "os": "Windows",
+      "os_version": "10.0.26100",
+      "python_version": "3.13.7",
+      "narrator": {
+        "enabled": false,
+        "startup_enabled": false
+      },
+      "magnifier": {
+        "enabled": false,
+        "zoom": null
+      },
+      "color_filter": {
+        "enabled": false,
+        "type": "unknown"
+      },
+      "high_contrast": {
+        "enabled": false,
+        "flags": "126"
+      },
+      "sticky_keys": {
+        "flags": "510",
+        "maybe_enabled": true
+      },
+      "toggle_keys": {
+        "flags": "62",
+        "maybe_enabled": true
+      },
+      "filter_keys": {
+        "flags": "126",
+        "maybe_enabled": true
+      },
+      "font_smoothing": "2",
+      "display_scaling": null,
+      "mouse_cursor_scheme": "windows aero"
+    },
+    "changes": []
+  }
+}

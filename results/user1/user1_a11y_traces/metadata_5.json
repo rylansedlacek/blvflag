@@ -1,0 +1,335 @@
+{
+  "task": {
+    "task_id": 5,
+    "task_title": "Find information on a webpage",
+    "instruction": "Visit apple.com's Macbook Air page on Chrome and find information the tools Apple Intelligence is built into.",
+    "task": "Visit apple.com's Macbook Air page on Chrome and find information the tools Apple Intelligence is built into.",
+    "context": "I'm interested in buying a new laptop",
+    "rand_id_column": "Rand ID 3",
+    "rand_order": 1,
+    "task_group": "Browsing and Web",
+    "interactions": "key_press, mouse_click, scroll",
+    "applications": "Chrome",
+    "familiarity": "High",
+    "difficulty_before": "Easy",
+    "difficulty_after": "Easy",
+    "success": true
+  },
+  "session": {
+    "started_at": 1755698578.833306,
+    "last_event_at": 1755698812.244991,
+    "folder": "task_logs\\User 3\\5",
+    "apps_by_order": [
+      {
+        "order": 1,
+        "app": "explorer.exe",
+        "log_file": "1_explorer.exe.json"
+      },
+      {
+        "order": 2,
+        "app": "chrome.exe",
+        "log_file": "2_chrome.exe.json"
+      }
+    ],
+    "ended_at": 1755698815.9682627
+  },
+  "apps": {
+    "explorer.exe": {
+      "order": 1,
+      "log_file": "1_explorer.exe.json",
+      "a11y_tree_files": [
+        "1_explorer.exe_1755698694441_a11y_tree.json"
+      ],
+      "events": 3,
+      "by_type": {
+        "mouse_click": 0,
+        "mouse_up": 0,
+        "mouse_move": 0,
+        "drag_drop": 0,
+        "key_press": 3,
+        "hotkey": 0,
+        "scroll": 0
+      },
+      "display_name": "explorer.exe",
+      "windows_seen": [
+        {
+          "title": "Program Manager",
+          "bounds": {
+            "left": 0,
+            "top": 0,
+            "right": 1920,
+            "bottom": 1080
+          },
+          "state": "normal",
+          "hwnd": 65802,
+          "pid": 9108,
+          "ts": 1755698694.4405715
+        }
+      ],
+      "last_window": {
+        "title": "Program Manager",
+        "bounds": {
+          "left": 0,
+          "top": 0,
+          "right": 1920,
+          "bottom": 1080
+        },
+        "state": "normal",
+        "hwnd": 65802,
+        "pid": 9108,
+        "ts": 1755698695.7528336
+      },
+      "keystrokes": {
+        "hotkeys": {},
+        "screen_reader_commands": {},
+        "other_keys": {
+          "Enter": 1,
+          "g": 1,
+          "o": 1
+        },
+        "totals": {
+          "hotkeys": 0,
+          "screen_reader_commands": 0,
+          "other_keys": 3
+        },
+        "intents_by_hotkey": {}
+      }
+    },
+    "chrome.exe": {
+      "order": 2,
+      "log_file": "2_chrome.exe.json",
+      "a11y_tree_files": [
+        "2_chrome.exe_1755698699006_a11y_tree.json"
+      ],
+      "events": 136,
+      "by_type": {
+        "mouse_click": 1,
+        "mouse_up": 0,
+        "mouse_move": 37,
+        "drag_drop": 0,
+        "key_press": 76,
+        "hotkey": 22,
+        "scroll": 0
+      },
+      "display_name": "chrome.exe",
+      "windows_seen": [
+        {
+          "title": "New Tab - Google Chrome",
+          "bounds": {
+            "left": 630,
+            "top": 0,
+            "right": 1920,
+            "bottom": 1008
+          },
+          "state": "normal",
+          "hwnd": 984598,
+          "pid": 19308,
+          "ts": 1755698699.0056386
+        },
+        {
+          "title": "Apple - Google Chrome",
+          "bounds": {
+            "left": 630,
+            "top": 0,
+            "right": 1920,
+            "bottom": 1008
+          },
+          "state": "normal",
+          "hwnd": 984598,
+          "pid": 19308,
+          "ts": 1755698700.5799904
+        },
+        {
+          "title": "MacBook Air 13-inch and MacBook Air 15-inch - Apple - Google Chrome",
+          "bounds": {
+            "left": 630,
+            "top": 0,
+            "right": 1920,
+            "bottom": 1008
+          },
+          "state": "normal",
+          "hwnd": 984598,
+          "pid": 19308,
+          "ts": 1755698724.1361904
+        },
+        {
+          "title": "Apple Intelligence - Apple - Google Chrome",
+          "bounds": {
+            "left": 630,
+            "top": 0,
+            "right": 1920,
+            "bottom": 1008
+          },
+          "state": "normal",
+          "hwnd": 984598,
+          "pid": 19308,
+          "ts": 1755698781.1317055
+        }
+      ],
+      "last_window": {
+        "title": "Apple Intelligence - Apple - Google Chrome",
+        "bounds": {
+          "left": 630,
+          "top": 0,
+          "right": 1920,
+          "bottom": 1008
+        },
+        "state": "normal",
+        "hwnd": 984598,
+        "pid": 19308,
+        "ts": 1755698812.244991
+      },
+      "keystrokes": {
+        "hotkeys": {
+          "Ctrl+Down": 16,
+          "Ctrl+Home": 3,
+          "Ctrl+Right": 2,
+          "Ctrl+Left": 1
+        },
+        "screen_reader_commands": {},
+        "other_keys": {
+          "Down": 14,
+          "h": 8,
+          "F6": 4,
+          "Enter": 3,
+          "p": 2,
+          ".": 1,
+          "a": 1,
+          "c": 1,
+          "e": 1,
+          "l": 1,
+          "m": 1,
+          "o": 1,
+          "Up": 1
+        },
+        "totals": {
+          "hotkeys": 22,
+          "screen_reader_commands": 0,
+          "other_keys": 39
+        },
+        "intents_by_hotkey": {}
+      }
+    }
+  },
+  "web": {
+    "tabs_by_order": [
+      {
+        "order": 1,
+        "first_ts": 1755698702005,
+        "url": "https://www.apple.com/",
+        "title": "Apple",
+        "file": "/task_logs/5/web_logs/web_tab1_1755698702005.json",
+        "dom_url": "/task_logs/User 3/5/web_logs/web_tab1_1755698702005.html",
+        "a11y_url": "/task_logs/User 3/5/web_logs/web_tab1_1755698702005_a11y_tree.json"
+      },
+      {
+        "order": 2,
+        "first_ts": 1755698732493,
+        "url": "https://www.apple.com/macbook-air/",
+        "title": "MacBook Air 13-inch and MacBook Air 15-inch - Apple",
+        "file": "/task_logs/5/web_logs/web_tab2_1755698732493.json",
+        "dom_url": "/task_logs/User 3/5/web_logs/web_tab2_1755698732493.html",
+        "a11y_url": "/task_logs/User 3/5/web_logs/web_tab2_1755698732493_a11y_tree.json"
+      },
+      {
+        "order": 3,
+        "first_ts": 1755698793611,
+        "url": "https://www.apple.com/apple-intelligence/",
+        "title": "Apple Intelligence - Apple",
+        "file": "/task_logs/5/web_logs/web_tab3_1755698793611.json",
+        "dom_url": "/task_logs/User 3/5/web_logs/web_tab3_1755698793611.html",
+        "a11y_url": "/task_logs/User 3/5/web_logs/web_tab3_1755698793611_a11y_tree.json"
+      }
+    ],
+    "events": 18,
+    "by_tab": {
+      "1::1755698702005": 5,
+      "2::1755698732493": 11,
+      "3::1755698793611": 2
+    }
+  },
+  "summary": {
+    "apps": 2,
+    "events": 157,
+    "by_type": {
+      "key_press": 79,
+      "hotkey": 22,
+      "mouse_move": 37,
+      "mouse_click": 1
+    },
+    "by_app": {
+      "explorer.exe": 3,
+      "chrome.exe": 136
+    },
+    "keystrokes": {
+      "hotkeys": {
+        "Ctrl+Down": 16,
+        "Ctrl+Home": 3,
+        "Ctrl+Right": 2,
+        "Ctrl+Left": 1
+      },
+      "screen_reader_commands": {},
+      "other_keys": {
+        "Down": 14,
+        "h": 8,
+        "Enter": 4,
+        "F6": 4,
+        "o": 2,
+        "p": 2,
+        ".": 1,
+        "a": 1,
+        "c": 1,
+        "e": 1,
+        "g": 1,
+        "l": 1,
+        "m": 1,
+        "Up": 1
+      },
+      "totals": {
+        "hotkeys": 22,
+        "screen_reader_commands": 0,
+        "other_keys": 42
+      },
+      "intents_by_hotkey": {}
+    }
+  },
+  "accessibility": {
+    "baseline": {
+      "os": "Windows",
+      "os_version": "10.0.26100",
+      "python_version": "3.13.7",
+      "narrator": {
+        "enabled": false,
+        "startup_enabled": false
+      },
+      "magnifier": {
+        "enabled": false,
+        "zoom": 100
+      },
+      "color_filter": {
+        "enabled": false,
+        "type": "none"
+      },
+      "high_contrast": {
+        "enabled": false,
+        "flags": "126"
+      },
+      "sticky_keys": {
+        "flags": "510",
+        "maybe_enabled": true
+      },
+      "toggle_keys": {
+        "flags": "62",
+        "maybe_enabled": true
+      },
+      "filter_keys": {
+        "flags": "126",
+        "maybe_enabled": true
+      },
+      "font_smoothing": "2",
+      "display_scaling": null,
+      "mouse_cursor_scheme": "windows aero"
+    },
+    "changes": []
+  }
+}
