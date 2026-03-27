@@ -1,0 +1,277 @@
+{
+  "task": {
+    "task_id": 25,
+    "task_title": "Turn the brightness down",
+    "instruction": "Reduce the brightness of my computer to 50%",
+    "task": "Reduce the brightness of my computer to 50%",
+    "context": "The brightness on my computer is too high.",
+    "rand_id_column": "Rand ID 22",
+    "rand_order": 19,
+    "task_group": "System Operations",
+    "interactions": "",
+    "applications": "Settings",
+    "familiarity": "High",
+    "difficulty_before": "Low",
+    "difficulty_after": "Low",
+    "success": true
+  },
+  "session": {
+    "started_at": 1756840583.4062648,
+    "last_event_at": 1756840607.312275,
+    "folder": "task_logs\\User 22\\25",
+    "apps_by_order": [
+      {
+        "order": 1,
+        "app": "explorer.exe",
+        "log_file": "1_explorer.exe.json"
+      },
+      {
+        "order": 2,
+        "app": "mblctr.exe",
+        "log_file": "2_mblctr.exe.json"
+      }
+    ],
+    "ended_at": 1756840610.7516866
+  },
+  "apps": {
+    "explorer.exe": {
+      "order": 1,
+      "log_file": "1_explorer.exe.json",
+      "a11y_tree_files": [
+        "1_explorer.exe_1756840587372_a11y_tree.json"
+      ],
+      "events": 4,
+      "by_type": {
+        "mouse_click": 0,
+        "mouse_up": 0,
+        "mouse_move": 0,
+        "drag_drop": 0,
+        "key_press": 4,
+        "hotkey": 0,
+        "scroll": 0
+      },
+      "display_name": "explorer.exe",
+      "windows_seen": [
+        {
+          "title": "",
+          "bounds": {
+            "left": 0,
+            "top": 1020,
+            "right": 1920,
+            "bottom": 1080
+          },
+          "state": null,
+          "hwnd": 66004,
+          "pid": 29104,
+          "ts": 1756840587.3719966
+        }
+      ],
+      "last_window": {
+        "title": "",
+        "bounds": {
+          "left": 0,
+          "top": 1020,
+          "right": 1920,
+          "bottom": 1080
+        },
+        "state": null,
+        "hwnd": 66004,
+        "pid": 29104,
+        "ts": 1756840589.3909662
+      },
+      "keystrokes": {
+        "hotkeys": {},
+        "screen_reader_commands": {},
+        "other_keys": {
+          "Down": 2,
+          "Enter": 1,
+          "Up": 1
+        },
+        "totals": {
+          "hotkeys": 0,
+          "screen_reader_commands": 0,
+          "other_keys": 4
+        },
+        "intents_by_hotkey": {}
+      }
+    },
+    "mblctr.exe": {
+      "order": 2,
+      "log_file": "2_mblctr.exe.json",
+      "a11y_tree_files": [
+        "2_mblctr.exe_1756840593349_a11y_tree.json"
+      ],
+      "events": 21,
+      "by_type": {
+        "mouse_click": 1,
+        "mouse_up": 0,
+        "mouse_move": 2,
+        "drag_drop": 0,
+        "key_press": 18,
+        "hotkey": 0,
+        "scroll": 0
+      },
+      "display_name": "mblctr.exe",
+      "windows_seen": [
+        {
+          "title": "Windows Mobility Center",
+          "bounds": {
+            "left": 551,
+            "top": 306,
+            "right": 1369,
+            "bottom": 713
+          },
+          "state": null,
+          "hwnd": 12062244,
+          "pid": 29024,
+          "ts": 1756840593.3491647
+        }
+      ],
+      "last_window": {
+        "title": "Windows Mobility Center",
+        "bounds": {
+          "left": 551,
+          "top": 306,
+          "right": 1369,
+          "bottom": 713
+        },
+        "state": null,
+        "hwnd": 12062244,
+        "pid": 29024,
+        "ts": 1756840607.312275
+      },
+      "keystrokes": {
+        "hotkeys": {},
+        "screen_reader_commands": {},
+        "other_keys": {
+          "Up": 11,
+          "PageUp": 2,
+          "Down": 1,
+          "End": 1,
+          "Home": 1,
+          "PageDown": 1,
+          "Tab": 1
+        },
+        "totals": {
+          "hotkeys": 0,
+          "screen_reader_commands": 0,
+          "other_keys": 18
+        },
+        "intents_by_hotkey": {}
+      }
+    }
+  },
+  "web": {
+    "tabs_by_order": [],
+    "events": 0,
+    "by_tab": {}
+  },
+  "summary": {
+    "apps": 2,
+    "events": 25,
+    "by_type": {
+      "key_press": 22,
+      "mouse_move": 2,
+      "mouse_click": 1
+    },
+    "by_app": {
+      "explorer.exe": 4,
+      "mblctr.exe": 21
+    },
+    "keystrokes": {
+      "hotkeys": {},
+      "screen_reader_commands": {},
+      "other_keys": {
+        "Up": 12,
+        "Down": 3,
+        "PageUp": 2,
+        "End": 1,
+        "Enter": 1,
+        "Home": 1,
+        "PageDown": 1,
+        "Tab": 1
+      },
+      "totals": {
+        "hotkeys": 0,
+        "screen_reader_commands": 0,
+        "other_keys": 22
+      },
+      "intents_by_hotkey": {}
+    }
+  },
+  "accessibility": {
+    "baseline": {
+      "os": "Windows",
+      "os_version": "10.0.26100",
+      "python_version": "3.13.6",
+      "narrator": {
+        "enabled": false,
+        "startup_enabled": false
+      },
+      "magnifier": {
+        "enabled": false,
+        "zoom": 100
+      },
+      "color_filter": {
+        "enabled": false,
+        "type": "blue-yellow"
+      },
+      "high_contrast": {
+        "enabled": false,
+        "flags": "126"
+      },
+      "sticky_keys": {
+        "flags": "510",
+        "maybe_enabled": true
+      },
+      "toggle_keys": {
+        "flags": "62",
+        "maybe_enabled": true
+      },
+      "filter_keys": {
+        "flags": "126",
+        "maybe_enabled": true
+      },
+      "font_smoothing": "2",
+      "display_scaling": null,
+      "mouse_cursor_scheme": "windows aero"
+    },
+    "last": {
+      "os": "Windows",
+      "os_version": "10.0.26100",
+      "python_version": "3.13.6",
+      "narrator": {
+        "enabled": false,
+        "startup_enabled": false
+      },
+      "magnifier": {
+        "enabled": false,
+        "zoom": 100
+      },
+      "color_filter": {
+        "enabled": false,
+        "type": "blue-yellow"
+      },
+      "high_contrast": {
+        "enabled": false,
+        "flags": "126"
+      },
+      "sticky_keys": {
+        "flags": "510",
+        "maybe_enabled": true
+      },
+      "toggle_keys": {
+        "flags": "62",
+        "maybe_enabled": true
+      },
+      "filter_keys": {
+        "flags": "126",
+        "maybe_enabled": true
+      },
+      "font_smoothing": "2",
+      "display_scaling": null,
+      "mouse_cursor_scheme": "windows aero"
+    },
+    "changes": []
+  }
+}

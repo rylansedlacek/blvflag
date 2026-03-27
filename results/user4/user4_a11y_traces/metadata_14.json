@@ -1,0 +1,433 @@
+{
+  "task": {
+    "task_id": 14,
+    "task_title": "Save webage as PDF",
+    "instruction": "Find the lyrics to \"Baby Shark\" song on Chrome. Once you find the lyrics, save the webpage as a PDF so I can print it.",
+    "task": "Find the lyrics to \"Baby Shark\" song on Chrome. Once you find the lyrics, save the webpage as a PDF so I can print it.",
+    "context": "I want to print the lyrics to \"Baby Shark\" song.",
+    "rand_id_column": "Rand ID 22",
+    "rand_order": 10,
+    "task_group": "Browsing and Web",
+    "interactions": "key_press, mouse_click, scroll",
+    "applications": "Chrome",
+    "familiarity": "High",
+    "difficulty_before": "Low",
+    "difficulty_after": "Low",
+    "success": true
+  },
+  "session": {
+    "started_at": 1756839785.001367,
+    "last_event_at": 1756839866.2770264,
+    "folder": "task_logs\\User 22\\14",
+    "apps_by_order": [
+      {
+        "order": 1,
+        "app": "explorer.exe",
+        "log_file": "1_explorer.exe.json"
+      },
+      {
+        "order": 2,
+        "app": "chrome.exe",
+        "log_file": "2_chrome.exe.json"
+      }
+    ],
+    "ended_at": 1756839869.5074375
+  },
+  "apps": {
+    "explorer.exe": {
+      "order": 1,
+      "log_file": "1_explorer.exe.json",
+      "a11y_tree_files": [
+        "1_explorer.exe_1756839799508_a11y_tree.json",
+        "1_explorer.exe_1756839866277_a11y_tree.json"
+      ],
+      "events": 2,
+      "by_type": {
+        "mouse_click": 0,
+        "mouse_up": 1,
+        "mouse_move": 0,
+        "drag_drop": 0,
+        "key_press": 1,
+        "hotkey": 0,
+        "scroll": 0
+      },
+      "display_name": "explorer.exe",
+      "windows_seen": [
+        {
+          "title": "Program Manager",
+          "bounds": {
+            "left": 0,
+            "top": 0,
+            "right": 1920,
+            "bottom": 1080
+          },
+          "state": null,
+          "hwnd": 66060,
+          "pid": 29104,
+          "ts": 1756839799.507668
+        },
+        {
+          "title": "",
+          "bounds": {
+            "left": 0,
+            "top": 1020,
+            "right": 1920,
+            "bottom": 1080
+          },
+          "state": null,
+          "hwnd": 66004,
+          "pid": 29104,
+          "ts": 1756839866.2770264
+        }
+      ],
+      "last_window": {
+        "title": "",
+        "bounds": {
+          "left": 0,
+          "top": 1020,
+          "right": 1920,
+          "bottom": 1080
+        },
+        "state": null,
+        "hwnd": 66004,
+        "pid": 29104,
+        "ts": 1756839866.2770264
+      },
+      "keystrokes": {
+        "hotkeys": {},
+        "screen_reader_commands": {},
+        "other_keys": {
+          "Enter": 1
+        },
+        "totals": {
+          "hotkeys": 0,
+          "screen_reader_commands": 0,
+          "other_keys": 1
+        },
+        "intents_by_hotkey": {}
+      }
+    },
+    "chrome.exe": {
+      "order": 2,
+      "log_file": "2_chrome.exe.json",
+      "a11y_tree_files": [
+        "2_chrome.exe_1756839802800_a11y_tree.json",
+        "2_chrome.exe_1756839823413_a11y_tree.json",
+        "2_chrome.exe_1756839835527_a11y_tree.json",
+        "2_chrome.exe_1756839857110_a11y_tree.json"
+      ],
+      "events": 101,
+      "by_type": {
+        "mouse_click": 1,
+        "mouse_up": 0,
+        "mouse_move": 4,
+        "drag_drop": 0,
+        "key_press": 86,
+        "hotkey": 10,
+        "scroll": 0
+      },
+      "display_name": "chrome.exe",
+      "windows_seen": [
+        {
+          "title": "New Tab - Google Chrome",
+          "bounds": {
+            "left": -9,
+            "top": -9,
+            "right": 1929,
+            "bottom": 1029
+          },
+          "state": null,
+          "hwnd": 23334160,
+          "pid": 27540,
+          "ts": 1756839802.8000216
+        },
+        {
+          "title": "baby shark lyrics - Google Search - Google Chrome",
+          "bounds": {
+            "left": -9,
+            "top": -9,
+            "right": 1929,
+            "bottom": 1029
+          },
+          "state": null,
+          "hwnd": 23334160,
+          "pid": 27540,
+          "ts": 1756839809.134484
+        },
+        {
+          "title": "\"Baby Shark\" lyrics - Google Chrome",
+          "bounds": {
+            "left": -9,
+            "top": -9,
+            "right": 1929,
+            "bottom": 1029
+          },
+          "state": null,
+          "hwnd": 23334160,
+          "pid": 27540,
+          "ts": 1756839818.0262442
+        },
+        {
+          "title": "Save As",
+          "bounds": {
+            "left": 0,
+            "top": 0,
+            "right": 960,
+            "bottom": 600
+          },
+          "state": null,
+          "hwnd": 6163792,
+          "pid": 21240,
+          "ts": 1756839823.413253
+        },
+        {
+          "title": "\"Baby Shark\" lyrics - Google Chrome",
+          "bounds": {
+            "left": -9,
+            "top": -9,
+            "right": 1929,
+            "bottom": 1029
+          },
+          "state": null,
+          "hwnd": 23334160,
+          "pid": 27540,
+          "ts": 1756839835.526686
+        },
+        {
+          "title": "Save As",
+          "bounds": {
+            "left": 0,
+            "top": 0,
+            "right": 960,
+            "bottom": 600
+          },
+          "state": null,
+          "hwnd": 102172892,
+          "pid": 16540,
+          "ts": 1756839857.1104941
+        },
+        {
+          "title": "\"Baby Shark\" lyrics - Google Chrome",
+          "bounds": {
+            "left": -9,
+            "top": -9,
+            "right": 1929,
+            "bottom": 1029
+          },
+          "state": null,
+          "hwnd": 23334160,
+          "pid": 27540,
+          "ts": 1756839863.5452719
+        }
+      ],
+      "last_window": {
+        "title": "\"Baby Shark\" lyrics - Google Chrome",
+        "bounds": {
+          "left": -9,
+          "top": -9,
+          "right": 1929,
+          "bottom": 1029
+        },
+        "state": null,
+        "hwnd": 23334160,
+        "pid": 27540,
+        "ts": 1756839866.0048027
+      },
+      "keystrokes": {
+        "hotkeys": {
+          "Ctrl+\u0010": 1,
+          "Ctrl+Right": 1,
+          "Ctrl+S": 1,
+          "Win+Down": 1
+        },
+        "screen_reader_commands": {},
+        "other_keys": {
+          "Tab": 23,
+          "Down": 9,
+          "Backspace": 8,
+          "Up": 6,
+          "Enter": 5,
+          "Esc": 3,
+          "Space": 3,
+          "a": 2,
+          "b": 2,
+          "r": 2,
+          "s": 2,
+          "t": 2,
+          "y": 2,
+          "3": 1,
+          "c": 1,
+          "h": 1,
+          "i": 1,
+          "k": 1,
+          "l": 1,
+          "Shift": 1
+        },
+        "totals": {
+          "hotkeys": 4,
+          "screen_reader_commands": 0,
+          "other_keys": 76
+        },
+        "intents_by_hotkey": {
+          "save": 1
+        }
+      }
+    }
+  },
+  "web": {
+    "tabs_by_order": [
+      {
+        "order": 1,
+        "first_ts": 1756839807845,
+        "url": "https://www.google.com/search?q=baby+shark+lyrics&oq=baby+shark+ly&gs_lcrp=EgZjaHJvbWUqCggAEAAYsQMYgAQyCggAEAAYsQMYgAQyBggBEEUYOTIHCAIQABiABDIHCAMQABiABDIHCAQQABiABDIHCAUQABiABDIHCAYQABiABDIHCAcQABiABDIHCAgQABiABDIHCAkQABiABKgCALACAA&sourceid=chrome&ie=UTF-8",
+        "title": "baby shark lyrics - Google Search",
+        "file": "/task_logs/14/web_logs/web_tab1_1756839807845.json",
+        "dom_url": "/task_logs/User 22/14/web_logs/web_tab1_1756839807845.html",
+        "a11y_url": "/task_logs/User 22/14/web_logs/web_tab1_1756839807845_a11y_tree.json"
+      },
+      {
+        "order": 2,
+        "first_ts": 1756839814074,
+        "url": "https://www.google.com/search?q=baby+shark+lyrics&oq=baby+shark+lyrics+&gs_lcrp=EgZjaHJvbWUqBwgAEAAYjwIyBwgAEAAYjwIyBwgBEAAYgAQyBwgCEAAYgAQyBwgDEAAYgAQyBwgEEAAYgAQyBwgFEAAYgAQyBwgGEAAYgAQyBwgHEAAYgAQyBwgIEAAYgAQyBwgJEAAYgATSAQgyOTg5ajBqN6gCALACAA&sourceid=chrome&ie=UTF-8",
+        "title": "baby shark lyrics - Google Search",
+        "file": "/task_logs/14/web_logs/web_tab2_1756839814074.json",
+        "dom_url": "/task_logs/User 22/14/web_logs/web_tab2_1756839814074.html",
+        "a11y_url": "/task_logs/User 22/14/web_logs/web_tab2_1756839814074_a11y_tree.json"
+      }
+    ],
+    "events": 4,
+    "by_tab": {
+      "1::1756839807845": 1,
+      "2::1756839814074": 3
+    }
+  },
+  "summary": {
+    "apps": 2,
+    "events": 107,
+    "by_type": {
+      "key_press": 87,
+      "hotkey": 10,
+      "mouse_move": 4,
+      "mouse_click": 1,
+      "mouse_up": 1
+    },
+    "by_app": {
+      "explorer.exe": 2,
+      "chrome.exe": 101
+    },
+    "keystrokes": {
+      "hotkeys": {
+        "Ctrl+\u0010": 1,
+        "Ctrl+Right": 1,
+        "Ctrl+S": 1,
+        "Win+Down": 1
+      },
+      "screen_reader_commands": {},
+      "other_keys": {
+        "Tab": 23,
+        "Down": 9,
+        "Backspace": 8,
+        "Enter": 6,
+        "Up": 6,
+        "Esc": 3,
+        "Space": 3,
+        "a": 2,
+        "b": 2,
+        "r": 2,
+        "s": 2,
+        "t": 2,
+        "y": 2,
+        "3": 1,
+        "c": 1,
+        "h": 1,
+        "i": 1,
+        "k": 1,
+        "l": 1,
+        "Shift": 1
+      },
+      "totals": {
+        "hotkeys": 4,
+        "screen_reader_commands": 0,
+        "other_keys": 77
+      },
+      "intents_by_hotkey": {
+        "save": 1
+      }
+    }
+  },
+  "accessibility": {
+    "baseline": {
+      "os": "Windows",
+      "os_version": "10.0.26100",
+      "python_version": "3.13.6",
+      "narrator": {
+        "enabled": false,
+        "startup_enabled": false
+      },
+      "magnifier": {
+        "enabled": false,
+        "zoom": 100
+      },
+      "color_filter": {
+        "enabled": false,
+        "type": "blue-yellow"
+      },
+      "high_contrast": {
+        "enabled": false,
+        "flags": "126"
+      },
+      "sticky_keys": {
+        "flags": "510",
+        "maybe_enabled": true
+      },
+      "toggle_keys": {
+        "flags": "62",
+        "maybe_enabled": true
+      },
+      "filter_keys": {
+        "flags": "126",
+        "maybe_enabled": true
+      },
+      "font_smoothing": "2",
+      "display_scaling": null,
+      "mouse_cursor_scheme": "windows aero"
+    },
+    "last": {
+      "os": "Windows",
+      "os_version": "10.0.26100",
+      "python_version": "3.13.6",
+      "narrator": {
+        "enabled": false,
+        "startup_enabled": false
+      },
+      "magnifier": {
+        "enabled": false,
+        "zoom": 100
+      },
+      "color_filter": {
+        "enabled": false,
+        "type": "blue-yellow"
+      },
+      "high_contrast": {
+        "enabled": false,
+        "flags": "126"
+      },
+      "sticky_keys": {
+        "flags": "510",
+        "maybe_enabled": true
+      },
+      "toggle_keys": {
+        "flags": "62",
+        "maybe_enabled": true
+      },
+      "filter_keys": {
+        "flags": "126",
+        "maybe_enabled": true
+      },
+      "font_smoothing": "2",
+      "display_scaling": null,
+      "mouse_cursor_scheme": "windows aero"
+    },
+    "changes": []
+  }
+}

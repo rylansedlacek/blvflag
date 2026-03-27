@@ -1,0 +1,345 @@
+{
+  "task": {
+    "task_id": 77,
+    "task_title": "Adjust brightness on photo",
+    "instruction": "Open Task ID 77.jpg in Documents > Task 77 folder on Photos app. Turn down the brightness to -1.",
+    "task": "Open Task ID 77.jpg in Documents > Task 77 folder on Photos app. Turn down the brightness to -1.",
+    "context": "The default brightness setting of The Eiffel Tower photo is too high",
+    "rand_id_column": "Rand ID 22",
+    "rand_order": 52,
+    "task_group": "Media",
+    "interactions": "",
+    "applications": "Photos",
+    "familiarity": "High",
+    "difficulty_before": "Low",
+    "difficulty_after": "Low",
+    "success": true
+  },
+  "session": {
+    "started_at": 1756924912.7130258,
+    "last_event_at": 1756925006.6623528,
+    "folder": "task_logs\\User 22\\77",
+    "apps_by_order": [
+      {
+        "order": 1,
+        "app": "msedge.exe",
+        "log_file": "1_msedge.exe.json"
+      },
+      {
+        "order": 2,
+        "app": "explorer.exe",
+        "log_file": "2_explorer.exe.json"
+      },
+      {
+        "order": 3,
+        "app": "Photos.exe",
+        "log_file": "3_Photos.exe.json"
+      }
+    ],
+    "ended_at": 1756925010.5886717
+  },
+  "apps": {
+    "msedge.exe": {
+      "order": 1,
+      "log_file": "1_msedge.exe.json",
+      "a11y_tree_files": [
+        "1_msedge.exe_1756924923051_a11y_tree.json"
+      ],
+      "events": 3,
+      "by_type": {
+        "mouse_click": 0,
+        "mouse_up": 0,
+        "mouse_move": 0,
+        "drag_drop": 0,
+        "key_press": 2,
+        "hotkey": 1,
+        "scroll": 0
+      },
+      "display_name": "msedge.exe",
+      "windows_seen": [
+        {
+          "title": "taslk 77 - Search and 1 more page - Personal - Microsoft​ Edge",
+          "bounds": {
+            "left": -9,
+            "top": -9,
+            "right": 1929,
+            "bottom": 1029
+          },
+          "state": null,
+          "hwnd": 3475422,
+          "pid": 11168,
+          "ts": 1756924923.0512938
+        }
+      ],
+      "last_window": {
+        "title": "taslk 77 - Search and 1 more page - Personal - Microsoft​ Edge",
+        "bounds": {
+          "left": -9,
+          "top": -9,
+          "right": 1929,
+          "bottom": 1029
+        },
+        "state": null,
+        "hwnd": 3475422,
+        "pid": 11168,
+        "ts": 1756924923.3167238
+      },
+      "keystrokes": {
+        "hotkeys": {
+          "Alt+F4": 1
+        },
+        "screen_reader_commands": {},
+        "other_keys": {},
+        "totals": {
+          "hotkeys": 1,
+          "screen_reader_commands": 0,
+          "other_keys": 0
+        },
+        "intents_by_hotkey": {
+          "close_window": 1
+        }
+      }
+    },
+    "explorer.exe": {
+      "order": 2,
+      "log_file": "2_explorer.exe.json",
+      "a11y_tree_files": [
+        "2_explorer.exe_1756924934108_a11y_tree.json"
+      ],
+      "events": 2,
+      "by_type": {
+        "mouse_click": 0,
+        "mouse_up": 0,
+        "mouse_move": 0,
+        "drag_drop": 0,
+        "key_press": 2,
+        "hotkey": 0,
+        "scroll": 0
+      },
+      "display_name": "explorer.exe",
+      "windows_seen": [
+        {
+          "title": "Task 77 - File Explorer",
+          "bounds": {
+            "left": 489,
+            "top": 144,
+            "right": 1803,
+            "bottom": 804
+          },
+          "state": null,
+          "hwnd": 1182304,
+          "pid": 1332,
+          "ts": 1756924934.1077209
+        }
+      ],
+      "last_window": {
+        "title": "Task 77 - File Explorer",
+        "bounds": {
+          "left": 489,
+          "top": 144,
+          "right": 1803,
+          "bottom": 804
+        },
+        "state": null,
+        "hwnd": 1182304,
+        "pid": 1332,
+        "ts": 1756924935.4196324
+      },
+      "keystrokes": {
+        "hotkeys": {},
+        "screen_reader_commands": {},
+        "other_keys": {
+          "Enter": 1,
+          "Space": 1
+        },
+        "totals": {
+          "hotkeys": 0,
+          "screen_reader_commands": 0,
+          "other_keys": 2
+        },
+        "intents_by_hotkey": {}
+      }
+    },
+    "Photos.exe": {
+      "order": 3,
+      "log_file": "3_Photos.exe.json",
+      "a11y_tree_files": [
+        "3_Photos.exe_1756924938385_a11y_tree.json"
+      ],
+      "events": 73,
+      "by_type": {
+        "mouse_click": 1,
+        "mouse_up": 0,
+        "mouse_move": 1,
+        "drag_drop": 0,
+        "key_press": 70,
+        "hotkey": 1,
+        "scroll": 0
+      },
+      "display_name": "Photos.exe",
+      "windows_seen": [
+        {
+          "title": "Task 77.jpg",
+          "bounds": {
+            "left": 160,
+            "top": 160,
+            "right": 1600,
+            "bottom": 900
+          },
+          "state": null,
+          "hwnd": 1772188,
+          "pid": 14532,
+          "ts": 1756924938.3854969
+        }
+      ],
+      "last_window": {
+        "title": "Task 77.jpg",
+        "bounds": {
+          "left": 160,
+          "top": 160,
+          "right": 1600,
+          "bottom": 900
+        },
+        "state": null,
+        "hwnd": 1772188,
+        "pid": 14532,
+        "ts": 1756925006.6623528
+      },
+      "keystrokes": {
+        "hotkeys": {
+          "Ctrl+Home": 1
+        },
+        "screen_reader_commands": {},
+        "other_keys": {
+          "Tab": 30,
+          "Down": 25,
+          "Up": 10,
+          "Enter": 3
+        },
+        "totals": {
+          "hotkeys": 1,
+          "screen_reader_commands": 0,
+          "other_keys": 68
+        },
+        "intents_by_hotkey": {}
+      }
+    }
+  },
+  "web": {
+    "tabs_by_order": [],
+    "events": 0,
+    "by_tab": {}
+  },
+  "summary": {
+    "apps": 3,
+    "events": 78,
+    "by_type": {
+      "key_press": 74,
+      "hotkey": 2,
+      "mouse_move": 1,
+      "mouse_click": 1
+    },
+    "by_app": {
+      "msedge.exe": 3,
+      "explorer.exe": 2,
+      "Photos.exe": 73
+    },
+    "keystrokes": {
+      "hotkeys": {
+        "Alt+F4": 1,
+        "Ctrl+Home": 1
+      },
+      "screen_reader_commands": {},
+      "other_keys": {
+        "Tab": 30,
+        "Down": 25,
+        "Up": 10,
+        "Enter": 4,
+        "Space": 1
+      },
+      "totals": {
+        "hotkeys": 2,
+        "screen_reader_commands": 0,
+        "other_keys": 70
+      },
+      "intents_by_hotkey": {
+        "close_window": 1
+      }
+    }
+  },
+  "accessibility": {
+    "baseline": {
+      "os": "Windows",
+      "os_version": "10.0.26100",
+      "python_version": "3.13.6",
+      "narrator": {
+        "enabled": false,
+        "startup_enabled": false
+      },
+      "magnifier": {
+        "enabled": false,
+        "zoom": 100
+      },
+      "color_filter": {
+        "enabled": false,
+        "type": "blue-yellow"
+      },
+      "high_contrast": {
+        "enabled": false,
+        "flags": "126"
+      },
+      "sticky_keys": {
+        "flags": "510",
+        "maybe_enabled": true
+      },
+      "toggle_keys": {
+        "flags": "62",
+        "maybe_enabled": true
+      },
+      "filter_keys": {
+        "flags": "126",
+        "maybe_enabled": true
+      },
+      "font_smoothing": "2",
+      "display_scaling": null,
+      "mouse_cursor_scheme": "windows aero"
+    },
+    "last": {
+      "os": "Windows",
+      "os_version": "10.0.26100",
+      "python_version": "3.13.6",
+      "narrator": {
+        "enabled": false,
+        "startup_enabled": false
+      },
+      "magnifier": {
+        "enabled": false,
+        "zoom": 100
+      },
+      "color_filter": {
+        "enabled": false,
+        "type": "blue-yellow"
+      },
+      "high_contrast": {
+        "enabled": false,
+        "flags": "126"
+      },
+      "sticky_keys": {
+        "flags": "510",
+        "maybe_enabled": true
+      },
+      "toggle_keys": {
+        "flags": "62",
+        "maybe_enabled": true
+      },
+      "filter_keys": {
+        "flags": "126",
+        "maybe_enabled": true
+      },
+      "font_smoothing": "2",
+      "display_scaling": null,
+      "mouse_cursor_scheme": "windows aero"
+    },
+    "changes": []
+  }
+}

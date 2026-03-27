@@ -1,0 +1,404 @@
+{
+  "task": {
+    "task_id": 76,
+    "task_title": "Add a song to a playlist",
+    "instruction": "Create the playlist \"Fun with Kids\" on Media Player and add Task ID 76.mp3 in Documents > Task 76 folder to the playlist.",
+    "task": "Create the playlist \"Fun with Kids\" on Media Player and add Task ID 76.mp3 in Documents > Task 76 folder to the playlist.",
+    "context": "I want to make a new playlist to organize my music better. I want to add \"Baby Shark\" video in my playlist.",
+    "rand_id_column": "Rand ID 22",
+    "rand_order": 59,
+    "task_group": "Media",
+    "interactions": "",
+    "applications": "Music",
+    "familiarity": "High",
+    "difficulty_before": "Low",
+    "difficulty_after": "Low",
+    "success": true
+  },
+  "session": {
+    "started_at": 1756925766.326646,
+    "last_event_at": 1756926182.9562469,
+    "folder": "task_logs\\User 22\\76",
+    "apps_by_order": [
+      {
+        "order": 1,
+        "app": "explorer.exe",
+        "log_file": "1_explorer.exe.json"
+      },
+      {
+        "order": 2,
+        "app": "ApplicationFrameHost.exe",
+        "log_file": "2_ApplicationFrameHost.exe.json"
+      },
+      {
+        "order": 2,
+        "app": "ApplicationFrameHost.exe::MediaPlayer",
+        "log_file": "2_ApplicationFrameHost.exe_MediaPlayer.json"
+      }
+    ],
+    "ended_at": 1756926186.2671378
+  },
+  "apps": {
+    "explorer.exe": {
+      "order": 1,
+      "log_file": "1_explorer.exe.json",
+      "a11y_tree_files": [
+        "1_explorer.exe_1756925779619_a11y_tree.json"
+      ],
+      "events": 29,
+      "by_type": {
+        "mouse_click": 0,
+        "mouse_up": 0,
+        "mouse_move": 0,
+        "drag_drop": 0,
+        "key_press": 24,
+        "hotkey": 5,
+        "scroll": 0
+      },
+      "display_name": "explorer.exe",
+      "windows_seen": [
+        {
+          "title": "Task 76 - File Explorer",
+          "bounds": {
+            "left": 489,
+            "top": 144,
+            "right": 1803,
+            "bottom": 804
+          },
+          "state": null,
+          "hwnd": 3279276,
+          "pid": 1332,
+          "ts": 1756925779.618744
+        },
+        {
+          "title": "Task Switching",
+          "bounds": {
+            "left": 0,
+            "top": 0,
+            "right": 1920,
+            "bottom": 1020
+          },
+          "state": null,
+          "hwnd": 13763396,
+          "pid": 1332,
+          "ts": 1756925984.9055867
+        },
+        {
+          "title": "Task 76 - File Explorer",
+          "bounds": {
+            "left": 489,
+            "top": 144,
+            "right": 1803,
+            "bottom": 804
+          },
+          "state": null,
+          "hwnd": 3279276,
+          "pid": 1332,
+          "ts": 1756925984.9905996
+        },
+        {
+          "title": "",
+          "bounds": {
+            "left": 0,
+            "top": 0,
+            "right": 0,
+            "bottom": 0
+          },
+          "state": null,
+          "hwnd": 66068,
+          "pid": 1332,
+          "ts": 1756925986.485608
+        }
+      ],
+      "last_window": {
+        "title": "",
+        "bounds": {
+          "left": 0,
+          "top": 0,
+          "right": 0,
+          "bottom": 0
+        },
+        "state": null,
+        "hwnd": 66068,
+        "pid": 1332,
+        "ts": 1756925986.485608
+      },
+      "keystrokes": {
+        "hotkeys": {
+          "Alt+Tab": 2
+        },
+        "screen_reader_commands": {},
+        "other_keys": {
+          "Down": 6,
+          "Menu": 6,
+          "Up": 4,
+          "a": 3,
+          "Shift": 3,
+          "Enter": 1,
+          "Space": 1
+        },
+        "totals": {
+          "hotkeys": 2,
+          "screen_reader_commands": 0,
+          "other_keys": 24
+        },
+        "intents_by_hotkey": {
+          "task_switch": 2
+        }
+      }
+    },
+    "ApplicationFrameHost.exe": {
+      "order": 2,
+      "log_file": "2_ApplicationFrameHost.exe.json",
+      "a11y_tree_files": [
+        "2_ApplicationFrameHost.exe_1756925808042_a11y_tree.json",
+        "2_ApplicationFrameHost.exe_1756925988510_a11y_tree.json"
+      ],
+      "events": 0,
+      "by_type": {
+        "mouse_click": 0,
+        "mouse_up": 0,
+        "mouse_move": 0,
+        "drag_drop": 0,
+        "key_press": 0,
+        "hotkey": 0,
+        "scroll": 0
+      },
+      "keystrokes": {
+        "hotkeys": {},
+        "screen_reader_commands": {},
+        "other_keys": {},
+        "totals": {
+          "hotkeys": 0,
+          "screen_reader_commands": 0,
+          "other_keys": 0
+        },
+        "intents_by_hotkey": {}
+      }
+    },
+    "ApplicationFrameHost.exe::MediaPlayer": {
+      "order": 2,
+      "log_file": "2_ApplicationFrameHost.exe_MediaPlayer.json",
+      "a11y_tree_files": [],
+      "events": 432,
+      "by_type": {
+        "mouse_click": 3,
+        "mouse_up": 3,
+        "mouse_move": 10,
+        "drag_drop": 0,
+        "key_press": 381,
+        "hotkey": 35,
+        "scroll": 0
+      },
+      "display_name": "ApplicationFrameHost (Media Player)",
+      "windows_seen": [
+        {
+          "title": "Media Player",
+          "bounds": {
+            "left": -9,
+            "top": -9,
+            "right": 1929,
+            "bottom": 1029
+          },
+          "state": null,
+          "hwnd": 5179818,
+          "pid": 13748,
+          "ts": 1756925808.041777
+        }
+      ],
+      "last_window": {
+        "title": "Media Player",
+        "bounds": {
+          "left": -9,
+          "top": -9,
+          "right": 1929,
+          "bottom": 1029
+        },
+        "state": null,
+        "hwnd": 5179818,
+        "pid": 13748,
+        "ts": 1756926182.9562469
+      },
+      "keystrokes": {
+        "hotkeys": {
+          "Ctrl+\u0010": 2,
+          "Ctrl+\u0001": 1,
+          "Ctrl+\u000f": 1
+        },
+        "screen_reader_commands": {},
+        "other_keys": {
+          "Tab": 170,
+          "Down": 54,
+          "Shift": 51,
+          "Enter": 20,
+          "Up": 17,
+          "Space": 12,
+          "Right": 11,
+          "Left": 10,
+          "Esc": 6,
+          "Backspace": 5,
+          "k": 4,
+          "s": 4,
+          "t": 4,
+          "a": 3,
+          "6": 2,
+          "7": 2,
+          "d": 2,
+          "i": 2,
+          "Menu": 2,
+          "f": 1,
+          "h": 1,
+          "l": 1,
+          "n": 1,
+          "u": 1,
+          "w": 1
+        },
+        "totals": {
+          "hotkeys": 4,
+          "screen_reader_commands": 0,
+          "other_keys": 387
+        },
+        "intents_by_hotkey": {}
+      }
+    }
+  },
+  "web": {
+    "tabs_by_order": [],
+    "events": 0,
+    "by_tab": {}
+  },
+  "summary": {
+    "apps": 3,
+    "events": 461,
+    "by_type": {
+      "key_press": 405,
+      "hotkey": 40,
+      "mouse_move": 10,
+      "mouse_click": 3,
+      "mouse_up": 3
+    },
+    "by_app": {
+      "explorer.exe": 29,
+      "ApplicationFrameHost.exe::MediaPlayer": 432
+    },
+    "keystrokes": {
+      "hotkeys": {
+        "Alt+Tab": 2,
+        "Ctrl+\u0010": 2,
+        "Ctrl+\u0001": 1,
+        "Ctrl+\u000f": 1
+      },
+      "screen_reader_commands": {},
+      "other_keys": {
+        "Tab": 170,
+        "Down": 60,
+        "Shift": 54,
+        "Enter": 21,
+        "Up": 21,
+        "Space": 13,
+        "Right": 11,
+        "Left": 10,
+        "Menu": 8,
+        "a": 6,
+        "Esc": 6,
+        "Backspace": 5,
+        "k": 4,
+        "s": 4,
+        "t": 4,
+        "6": 2,
+        "7": 2,
+        "d": 2,
+        "i": 2,
+        "f": 1,
+        "h": 1,
+        "l": 1,
+        "n": 1,
+        "u": 1,
+        "w": 1
+      },
+      "totals": {
+        "hotkeys": 6,
+        "screen_reader_commands": 0,
+        "other_keys": 411
+      },
+      "intents_by_hotkey": {
+        "task_switch": 2
+      }
+    }
+  },
+  "accessibility": {
+    "baseline": {
+      "os": "Windows",
+      "os_version": "10.0.26100",
+      "python_version": "3.13.6",
+      "narrator": {
+        "enabled": false,
+        "startup_enabled": false
+      },
+      "magnifier": {
+        "enabled": false,
+        "zoom": 100
+      },
+      "color_filter": {
+        "enabled": false,
+        "type": "blue-yellow"
+      },
+      "high_contrast": {
+        "enabled": false,
+        "flags": "126"
+      },
+      "sticky_keys": {
+        "flags": "510",
+        "maybe_enabled": true
+      },
+      "toggle_keys": {
+        "flags": "62",
+        "maybe_enabled": true
+      },
+      "filter_keys": {
+        "flags": "126",
+        "maybe_enabled": true
+      },
+      "font_smoothing": "2",
+      "display_scaling": null,
+      "mouse_cursor_scheme": "windows aero"
+    },
+    "last": {
+      "os": "Windows",
+      "os_version": "10.0.26100",
+      "python_version": "3.13.6",
+      "narrator": {
+        "enabled": false,
+        "startup_enabled": false
+      },
+      "magnifier": {
+        "enabled": false,
+        "zoom": 100
+      },
+      "color_filter": {
+        "enabled": false,
+        "type": "blue-yellow"
+      },
+      "high_contrast": {
+        "enabled": false,
+        "flags": "126"
+      },
+      "sticky_keys": {
+        "flags": "510",
+        "maybe_enabled": true
+      },
+      "toggle_keys": {
+        "flags": "62",
+        "maybe_enabled": true
+      },
+      "filter_keys": {
+        "flags": "126",
+        "maybe_enabled": true
+      },
+      "font_smoothing": "2",
+      "display_scaling": null,
+      "mouse_cursor_scheme": "windows aero"
+    },
+    "changes": []
+  }
+}

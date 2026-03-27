@@ -1,0 +1,452 @@
+{
+  "task": {
+    "task_id": 49,
+    "task_title": "Add a comment to replace a string of words in Word documents",
+    "instruction": "Open Task ID 49.docx in Documents > Task 49 folder. Go to \"Knowledge of the Solar System\" section. Add a comment to modify the sentence \"The solar system has been a topic of study from the beginning of history\" to \"The solar system is one of the most unique entities in history\".",
+    "task": "Open Task ID 49.docx in Documents > Task 49 folder. Go to \"Knowledge of the Solar System\" section. Add a comment to modify the sentence \"The solar system has been a topic of study from the beginning of history\" to \"The solar system is one of the most unique entities in history\".",
+    "context": "I am editing my essay report on Word. There is a sentence that I want to revise in one of the sections.",
+    "rand_id_column": "Rand ID 20",
+    "rand_order": 31,
+    "task_group": "Document Editing",
+    "interactions": "",
+    "applications": "Word",
+    "familiarity": "Low",
+    "difficulty_before": "Medium",
+    "difficulty_after": "Easy",
+    "success": true
+  },
+  "session": {
+    "started_at": 1756741609.0747728,
+    "last_event_at": 1756741892.4897792,
+    "folder": "task_logs\\User 20\\49",
+    "apps_by_order": [
+      {
+        "order": 1,
+        "app": "explorer.exe",
+        "log_file": "1_explorer.exe.json"
+      },
+      {
+        "order": 2,
+        "app": "WINWORD.EXE",
+        "log_file": "2_WINWORD.EXE.json"
+      }
+    ],
+    "ended_at": 1756741900.935791
+  },
+  "apps": {
+    "explorer.exe": {
+      "order": 1,
+      "log_file": "1_explorer.exe.json",
+      "a11y_tree_files": [
+        "1_explorer.exe_1756741615538_a11y_tree.json"
+      ],
+      "events": 19,
+      "by_type": {
+        "mouse_click": 0,
+        "mouse_up": 0,
+        "mouse_move": 0,
+        "drag_drop": 0,
+        "key_press": 19,
+        "hotkey": 0,
+        "scroll": 0
+      },
+      "display_name": "explorer.exe",
+      "windows_seen": [
+        {
+          "title": "Run",
+          "bounds": {
+            "left": 11,
+            "top": 657,
+            "right": 601,
+            "bottom": 1004
+          },
+          "state": null,
+          "hwnd": 4327814,
+          "pid": 9080,
+          "ts": 1756741615.5376244
+        },
+        {
+          "title": "File Explorer",
+          "bounds": {
+            "left": 370,
+            "top": 64,
+            "right": 1811,
+            "bottom": 964
+          },
+          "state": null,
+          "hwnd": 1509216,
+          "pid": 9080,
+          "ts": 1756741617.2348375
+        },
+        {
+          "title": "Documents - File Explorer",
+          "bounds": {
+            "left": 370,
+            "top": 64,
+            "right": 1811,
+            "bottom": 964
+          },
+          "state": null,
+          "hwnd": 1509216,
+          "pid": 9080,
+          "ts": 1756741619.653452
+        },
+        {
+          "title": "Task 49 - File Explorer",
+          "bounds": {
+            "left": 370,
+            "top": 64,
+            "right": 1811,
+            "bottom": 964
+          },
+          "state": null,
+          "hwnd": 1509216,
+          "pid": 9080,
+          "ts": 1756741624.6550617
+        }
+      ],
+      "last_window": {
+        "title": "Task 49 - File Explorer",
+        "bounds": {
+          "left": 370,
+          "top": 64,
+          "right": 1811,
+          "bottom": 964
+        },
+        "state": null,
+        "hwnd": 1509216,
+        "pid": 9080,
+        "ts": 1756741626.8079977
+      },
+      "keystrokes": {
+        "hotkeys": {},
+        "screen_reader_commands": {},
+        "other_keys": {
+          "Down": 4,
+          "Enter": 4,
+          "c": 1,
+          "d": 1,
+          "e": 1,
+          "m": 1,
+          "n": 1,
+          "o": 1,
+          "PageDown": 1,
+          "s": 1,
+          "Space": 1,
+          "t": 1,
+          "u": 1
+        },
+        "totals": {
+          "hotkeys": 0,
+          "screen_reader_commands": 0,
+          "other_keys": 19
+        },
+        "intents_by_hotkey": {}
+      }
+    },
+    "WINWORD.EXE": {
+      "order": 2,
+      "log_file": "2_WINWORD.EXE.json",
+      "a11y_tree_files": [
+        "2_WINWORD.EXE_1756741637200_a11y_tree.json",
+        "2_WINWORD.EXE_1756741651076_a11y_tree.json",
+        "2_WINWORD.EXE_1756741659585_a11y_tree.json",
+        "2_WINWORD.EXE_1756741760721_a11y_tree.json"
+      ],
+      "events": 469,
+      "by_type": {
+        "mouse_click": 1,
+        "mouse_up": 0,
+        "mouse_move": 15,
+        "drag_drop": 0,
+        "key_press": 381,
+        "hotkey": 67,
+        "scroll": 5
+      },
+      "display_name": "WINWORD.EXE",
+      "windows_seen": [
+        {
+          "title": "",
+          "bounds": {
+            "left": 1450,
+            "top": 112,
+            "right": 1916,
+            "bottom": 334
+          },
+          "state": null,
+          "hwnd": 4196226,
+          "pid": 7760,
+          "ts": 1756741637.1997435
+        },
+        {
+          "title": "Task ID 49  -  Protected View - Word",
+          "bounds": {
+            "left": -11,
+            "top": -11,
+            "right": 1931,
+            "bottom": 1019
+          },
+          "state": null,
+          "hwnd": 1902806,
+          "pid": 7760,
+          "ts": 1756741651.0764902
+        },
+        {
+          "title": "Task ID 49 - Word",
+          "bounds": {
+            "left": -11,
+            "top": -11,
+            "right": 1931,
+            "bottom": 1019
+          },
+          "state": null,
+          "hwnd": 4786022,
+          "pid": 7760,
+          "ts": 1756741659.5851996
+        },
+        {
+          "title": "",
+          "bounds": {
+            "left": 767,
+            "top": 259,
+            "right": 1101,
+            "bottom": 899
+          },
+          "state": null,
+          "hwnd": 3475124,
+          "pid": 7760,
+          "ts": 1756741760.7208002
+        },
+        {
+          "title": "Task ID 49 - Word",
+          "bounds": {
+            "left": -11,
+            "top": -11,
+            "right": 1931,
+            "bottom": 1019
+          },
+          "state": null,
+          "hwnd": 4786022,
+          "pid": 7760,
+          "ts": 1756741785.4376292
+        }
+      ],
+      "last_window": {
+        "title": "Task ID 49 - Word",
+        "bounds": {
+          "left": -11,
+          "top": -11,
+          "right": 1931,
+          "bottom": 1019
+        },
+        "state": null,
+        "hwnd": 4786022,
+        "pid": 7760,
+        "ts": 1756741892.4897792
+      },
+      "keystrokes": {
+        "hotkeys": {
+          "Ctrl+Left": 24,
+          "Ctrl+Right": 20,
+          "Ctrl+Shift+Right": 16,
+          "Ctrl+\u0006": 2,
+          "Alt+Enter": 1,
+          "Ctrl+Enter": 1,
+          "Ctrl+Home": 1,
+          "Ctrl+Shift+Left": 1
+        },
+        "screen_reader_commands": {},
+        "other_keys": {
+          "Down": 68,
+          "Backspace": 32,
+          "Right": 32,
+          "Space": 18,
+          "Up": 18,
+          "Left": 16,
+          "t": 14,
+          "e": 12,
+          "i": 10,
+          "o": 10,
+          "s": 9,
+          "n": 8,
+          "Enter": 7,
+          "Esc": 5,
+          "h": 4,
+          "Home": 4,
+          "m": 4,
+          "y": 4,
+          "f": 3,
+          "l": 3,
+          "r": 3,
+          "Shift": 3,
+          "a": 2,
+          "d": 2,
+          "F6": 2,
+          "Tab": 2,
+          "u": 2,
+          "g": 1,
+          "k": 1,
+          "Menu": 1,
+          "q": 1,
+          "w": 1
+        },
+        "totals": {
+          "hotkeys": 66,
+          "screen_reader_commands": 0,
+          "other_keys": 302
+        },
+        "intents_by_hotkey": {}
+      }
+    }
+  },
+  "web": {
+    "tabs_by_order": [],
+    "events": 0,
+    "by_tab": {}
+  },
+  "summary": {
+    "apps": 2,
+    "events": 488,
+    "by_type": {
+      "key_press": 400,
+      "hotkey": 67,
+      "mouse_move": 15,
+      "scroll": 5,
+      "mouse_click": 1
+    },
+    "by_app": {
+      "explorer.exe": 19,
+      "WINWORD.EXE": 469
+    },
+    "keystrokes": {
+      "hotkeys": {
+        "Ctrl+Left": 24,
+        "Ctrl+Right": 20,
+        "Ctrl+Shift+Right": 16,
+        "Ctrl+\u0006": 2,
+        "Alt+Enter": 1,
+        "Ctrl+Enter": 1,
+        "Ctrl+Home": 1,
+        "Ctrl+Shift+Left": 1
+      },
+      "screen_reader_commands": {},
+      "other_keys": {
+        "Down": 72,
+        "Backspace": 32,
+        "Right": 32,
+        "Space": 19,
+        "Up": 18,
+        "Left": 16,
+        "t": 15,
+        "e": 13,
+        "Enter": 11,
+        "o": 11,
+        "i": 10,
+        "s": 10,
+        "n": 9,
+        "Esc": 5,
+        "m": 5,
+        "h": 4,
+        "Home": 4,
+        "y": 4,
+        "d": 3,
+        "f": 3,
+        "l": 3,
+        "r": 3,
+        "Shift": 3,
+        "u": 3,
+        "a": 2,
+        "F6": 2,
+        "Tab": 2,
+        "c": 1,
+        "g": 1,
+        "k": 1,
+        "Menu": 1,
+        "PageDown": 1,
+        "q": 1,
+        "w": 1
+      },
+      "totals": {
+        "hotkeys": 66,
+        "screen_reader_commands": 0,
+        "other_keys": 321
+      },
+      "intents_by_hotkey": {}
+    }
+  },
+  "accessibility": {
+    "baseline": {
+      "os": "Windows",
+      "os_version": "10.0.26100",
+      "python_version": "3.13.7",
+      "narrator": {
+        "enabled": false,
+        "startup_enabled": false
+      },
+      "magnifier": {
+        "enabled": false,
+        "zoom": null
+      },
+      "color_filter": {
+        "enabled": false,
+        "type": "unknown"
+      },
+      "high_contrast": {
+        "enabled": false,
+        "flags": "126"
+      },
+      "sticky_keys": {
+        "flags": "510",
+        "maybe_enabled": true
+      },
+      "toggle_keys": {
+        "flags": "62",
+        "maybe_enabled": true
+      },
+      "filter_keys": {
+        "flags": "126",
+        "maybe_enabled": true
+      },
+      "font_smoothing": "2",
+      "display_scaling": null,
+      "mouse_cursor_scheme": "windows aero"
+    },
+    "last": {
+      "os": "Windows",
+      "os_version": "10.0.26100",
+      "python_version": "3.13.7",
+      "narrator": {
+        "enabled": false,
+        "startup_enabled": false
+      },
+      "magnifier": {
+        "enabled": false,
+        "zoom": null
+      },
+      "color_filter": {
+        "enabled": false,
+        "type": "unknown"
+      },
+      "high_contrast": {
+        "enabled": false,
+        "flags": "126"
+      },
+      "sticky_keys": {
+        "flags": "510",
+        "maybe_enabled": true
+      },
+      "toggle_keys": {
+        "flags": "62",
+        "maybe_enabled": true
+      },
+      "filter_keys": {
+        "flags": "126",
+        "maybe_enabled": true
+      },
+      "font_smoothing": "2",
+      "display_scaling": null,
+      "mouse_cursor_scheme": "windows aero"
+    },
+    "changes": []
+  }
+}

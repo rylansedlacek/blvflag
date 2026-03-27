@@ -1,0 +1,409 @@
+{
+  "task": {
+    "task_id": 13,
+    "task_title": "Search video on Youtube and skip to the next video",
+    "instruction": "Visit youtube.com on Chrome and search for \"Machine Learning and Generative AI\"\nWatch the first suggested video for a few seconds. \nSkip to the next video",
+    "task": "Visit youtube.com on Chrome and search for \"Machine Learning and Generative AI\"\nWatch the first suggested video for a few seconds. \nSkip to the next video",
+    "context": "I'm currently watching a lecture on YouTube on \"Machine Learning and Generative AI\". I want to watch a different video as this one doesn't cover the concept I'm looking to learn.",
+    "rand_id_column": "Rand ID 22",
+    "rand_order": 8,
+    "task_group": "Browsing and Web",
+    "interactions": "key_press, mouse_click",
+    "applications": "Chrome",
+    "familiarity": "High",
+    "difficulty_before": "Low",
+    "difficulty_after": "Low",
+    "success": true
+  },
+  "session": {
+    "started_at": 1756839390.0397646,
+    "last_event_at": 1756839503737,
+    "folder": "task_logs\\User 22\\13",
+    "apps_by_order": [
+      {
+        "order": 1,
+        "app": "explorer.exe",
+        "log_file": "1_explorer.exe.json"
+      },
+      {
+        "order": 2,
+        "app": "chrome.exe",
+        "log_file": "2_chrome.exe.json"
+      }
+    ],
+    "ended_at": 1756839506.8103406
+  },
+  "apps": {
+    "explorer.exe": {
+      "order": 1,
+      "log_file": "1_explorer.exe.json",
+      "a11y_tree_files": [
+        "1_explorer.exe_1756839394779_a11y_tree.json",
+        "1_explorer.exe_1756839503906_a11y_tree.json"
+      ],
+      "events": 3,
+      "by_type": {
+        "mouse_click": 0,
+        "mouse_up": 1,
+        "mouse_move": 0,
+        "drag_drop": 0,
+        "key_press": 2,
+        "hotkey": 0,
+        "scroll": 0
+      },
+      "display_name": "explorer.exe",
+      "windows_seen": [
+        {
+          "title": "Program Manager",
+          "bounds": {
+            "left": 0,
+            "top": 0,
+            "right": 1920,
+            "bottom": 1080
+          },
+          "state": null,
+          "hwnd": 66060,
+          "pid": 29104,
+          "ts": 1756839394.7788959
+        },
+        {
+          "title": "",
+          "bounds": {
+            "left": 0,
+            "top": 1020,
+            "right": 1920,
+            "bottom": 1080
+          },
+          "state": null,
+          "hwnd": 66004,
+          "pid": 29104,
+          "ts": 1756839503.9062953
+        }
+      ],
+      "last_window": {
+        "title": "",
+        "bounds": {
+          "left": 0,
+          "top": 1020,
+          "right": 1920,
+          "bottom": 1080
+        },
+        "state": null,
+        "hwnd": 66004,
+        "pid": 29104,
+        "ts": 1756839503.9062953
+      },
+      "keystrokes": {
+        "hotkeys": {},
+        "screen_reader_commands": {},
+        "other_keys": {
+          "Enter": 1,
+          "g": 1
+        },
+        "totals": {
+          "hotkeys": 0,
+          "screen_reader_commands": 0,
+          "other_keys": 2
+        },
+        "intents_by_hotkey": {}
+      }
+    },
+    "chrome.exe": {
+      "order": 2,
+      "log_file": "2_chrome.exe.json",
+      "a11y_tree_files": [
+        "2_chrome.exe_1756839398157_a11y_tree.json"
+      ],
+      "events": 175,
+      "by_type": {
+        "mouse_click": 1,
+        "mouse_up": 0,
+        "mouse_move": 4,
+        "drag_drop": 0,
+        "key_press": 148,
+        "hotkey": 22,
+        "scroll": 0
+      },
+      "display_name": "chrome.exe",
+      "windows_seen": [
+        {
+          "title": "New Tab - Google Chrome",
+          "bounds": {
+            "left": 0,
+            "top": 0,
+            "right": 1935,
+            "bottom": 1030
+          },
+          "state": null,
+          "hwnd": 5114590,
+          "pid": 23392,
+          "ts": 1756839398.156966
+        },
+        {
+          "title": "YouTube - Google Chrome",
+          "bounds": {
+            "left": 0,
+            "top": 0,
+            "right": 1935,
+            "bottom": 1030
+          },
+          "state": null,
+          "hwnd": 5114590,
+          "pid": 23392,
+          "ts": 1756839402.2000835
+        },
+        {
+          "title": "ai machine learning deep learning and generative ai explained by ibm technology - YouTube - Google Chrome",
+          "bounds": {
+            "left": 0,
+            "top": 0,
+            "right": 1935,
+            "bottom": 1030
+          },
+          "state": null,
+          "hwnd": 5114590,
+          "pid": 23392,
+          "ts": 1756839419.949498
+        },
+        {
+          "title": "AI, Machine Learning, Deep Learning and Generative AI Explained - YouTube - Google Chrome",
+          "bounds": {
+            "left": 0,
+            "top": 0,
+            "right": 1935,
+            "bottom": 1030
+          },
+          "state": null,
+          "hwnd": 5114590,
+          "pid": 23392,
+          "ts": 1756839429.4633343
+        },
+        {
+          "title": "Cybersecurity Modernization - YouTube - Google Chrome",
+          "bounds": {
+            "left": 0,
+            "top": 0,
+            "right": 1935,
+            "bottom": 1030
+          },
+          "state": null,
+          "hwnd": 5114590,
+          "pid": 23392,
+          "ts": 1756839500.367455
+        }
+      ],
+      "last_window": {
+        "title": "Cybersecurity Modernization - YouTube - Google Chrome",
+        "bounds": {
+          "left": 0,
+          "top": 0,
+          "right": 1935,
+          "bottom": 1030
+        },
+        "state": null,
+        "hwnd": 5114590,
+        "pid": 23392,
+        "ts": 1756839503.5852556
+      },
+      "keystrokes": {
+        "hotkeys": {
+          "Ctrl+Left": 2,
+          "Alt+D": 1,
+          "Ctrl+Enter": 1,
+          "Ctrl+Home": 1
+        },
+        "screen_reader_commands": {},
+        "other_keys": {
+          "Tab": 56,
+          "Right": 18,
+          "Shift": 13,
+          "e": 8,
+          "Enter": 8,
+          "n": 7,
+          "Space": 6,
+          "Up": 6,
+          "a": 5,
+          "h": 4,
+          "i": 4,
+          "Down": 2,
+          "g": 2,
+          "r": 2,
+          "t": 2,
+          "u": 2,
+          "b": 1,
+          "c": 1,
+          "d": 1,
+          "l": 1,
+          "m": 1,
+          "o": 1,
+          "v": 1,
+          "y": 1
+        },
+        "totals": {
+          "hotkeys": 5,
+          "screen_reader_commands": 0,
+          "other_keys": 153
+        },
+        "intents_by_hotkey": {}
+      }
+    }
+  },
+  "web": {
+    "tabs_by_order": [
+      {
+        "order": 1,
+        "first_ts": 1756839464465,
+        "url": "https://www.youtube.com/watch?v=qYNweeDHiyU",
+        "title": "AI, Machine Learning, Deep Learning and Generative AI Explained - YouTube",
+        "file": "/task_logs/13/web_logs/web_tab1_1756839464465.json",
+        "dom_url": null,
+        "a11y_url": null
+      },
+      {
+        "order": 2,
+        "first_ts": 1756839498774,
+        "url": "https://www.youtube.com/watch?v=ObeUOeh1eck",
+        "title": "Cybersecurity Modernization - YouTube",
+        "file": "/task_logs/13/web_logs/web_tab2_1756839498774.json",
+        "dom_url": null,
+        "a11y_url": null
+      }
+    ],
+    "events": 25,
+    "by_tab": {
+      "1::1756839464465": 22,
+      "2::1756839498774": 3
+    }
+  },
+  "summary": {
+    "apps": 2,
+    "events": 203,
+    "by_type": {
+      "key_press": 150,
+      "hotkey": 22,
+      "mouse_move": 4,
+      "mouse_click": 1,
+      "mouse_up": 1
+    },
+    "by_app": {
+      "explorer.exe": 3,
+      "chrome.exe": 175
+    },
+    "keystrokes": {
+      "hotkeys": {
+        "Ctrl+Left": 2,
+        "Alt+D": 1,
+        "Ctrl+Enter": 1,
+        "Ctrl+Home": 1
+      },
+      "screen_reader_commands": {},
+      "other_keys": {
+        "Tab": 56,
+        "Right": 18,
+        "Shift": 13,
+        "Enter": 9,
+        "e": 8,
+        "n": 7,
+        "Space": 6,
+        "Up": 6,
+        "a": 5,
+        "h": 4,
+        "i": 4,
+        "g": 3,
+        "Down": 2,
+        "r": 2,
+        "t": 2,
+        "u": 2,
+        "b": 1,
+        "c": 1,
+        "d": 1,
+        "l": 1,
+        "m": 1,
+        "o": 1,
+        "v": 1,
+        "y": 1
+      },
+      "totals": {
+        "hotkeys": 5,
+        "screen_reader_commands": 0,
+        "other_keys": 155
+      },
+      "intents_by_hotkey": {}
+    }
+  },
+  "accessibility": {
+    "baseline": {
+      "os": "Windows",
+      "os_version": "10.0.26100",
+      "python_version": "3.13.6",
+      "narrator": {
+        "enabled": false,
+        "startup_enabled": false
+      },
+      "magnifier": {
+        "enabled": false,
+        "zoom": 100
+      },
+      "color_filter": {
+        "enabled": false,
+        "type": "blue-yellow"
+      },
+      "high_contrast": {
+        "enabled": false,
+        "flags": "126"
+      },
+      "sticky_keys": {
+        "flags": "510",
+        "maybe_enabled": true
+      },
+      "toggle_keys": {
+        "flags": "62",
+        "maybe_enabled": true
+      },
+      "filter_keys": {
+        "flags": "126",
+        "maybe_enabled": true
+      },
+      "font_smoothing": "2",
+      "display_scaling": null,
+      "mouse_cursor_scheme": "windows aero"
+    },
+    "last": {
+      "os": "Windows",
+      "os_version": "10.0.26100",
+      "python_version": "3.13.6",
+      "narrator": {
+        "enabled": false,
+        "startup_enabled": false
+      },
+      "magnifier": {
+        "enabled": false,
+        "zoom": 100
+      },
+      "color_filter": {
+        "enabled": false,
+        "type": "blue-yellow"
+      },
+      "high_contrast": {
+        "enabled": false,
+        "flags": "126"
+      },
+      "sticky_keys": {
+        "flags": "510",
+        "maybe_enabled": true
+      },
+      "toggle_keys": {
+        "flags": "62",
+        "maybe_enabled": true
+      },
+      "filter_keys": {
+        "flags": "126",
+        "maybe_enabled": true
+      },
+      "font_smoothing": "2",
+      "display_scaling": null,
+      "mouse_cursor_scheme": "windows aero"
+    },
+    "changes": []
+  }
+}

@@ -1,0 +1,584 @@
+{
+  "task": {
+    "task_id": 63,
+    "task_title": "Save a chart from Excel as an image and insert into PowerPoint",
+    "instruction": "Insert the bar chart visualization from Task ID 63.xlsx into PowerPoint Task ID 63.pptx, both in Documents > Task 63 Folder.",
+    "task": "Insert the bar chart visualization from Task ID 63.xlsx into PowerPoint Task ID 63.pptx, both in Documents > Task 63 Folder.",
+    "context": "I want my data visualized in a presentation.",
+    "rand_id_column": "Rand ID 20",
+    "rand_order": 40,
+    "task_group": "Workflow",
+    "interactions": "",
+    "applications": "Excel, PowerPoint",
+    "familiarity": "Low",
+    "difficulty_before": "Medium",
+    "difficulty_after": "Medium",
+    "success": false,
+    "failure_reason": "Other (specify)",
+    "failure_notes": "the participant can't locate the visualization in the excel sheet."
+  },
+  "session": {
+    "started_at": 1756745114.9704542,
+    "last_event_at": 1756745408.170637,
+    "folder": "task_logs\\User 20\\63",
+    "apps_by_order": [
+      {
+        "order": 1,
+        "app": "explorer.exe",
+        "log_file": "1_explorer.exe.json"
+      },
+      {
+        "order": 2,
+        "app": "chrome.exe",
+        "log_file": "2_chrome.exe.json"
+      },
+      {
+        "order": 3,
+        "app": "EXCEL.EXE",
+        "log_file": "3_EXCEL.EXE.json"
+      }
+    ],
+    "ended_at": 1756745428.1444957
+  },
+  "apps": {
+    "explorer.exe": {
+      "order": 1,
+      "log_file": "1_explorer.exe.json",
+      "a11y_tree_files": [
+        "1_explorer.exe_1756745118342_a11y_tree.json",
+        "1_explorer.exe_1756745122581_a11y_tree.json",
+        "1_explorer.exe_1756745125303_a11y_tree.json",
+        "1_explorer.exe_1756745216739_a11y_tree.json",
+        "1_explorer.exe_1756745218743_a11y_tree.json",
+        "1_explorer.exe_1756745220720_a11y_tree.json"
+      ],
+      "events": 60,
+      "by_type": {
+        "mouse_click": 0,
+        "mouse_up": 1,
+        "mouse_move": 0,
+        "drag_drop": 0,
+        "key_press": 53,
+        "hotkey": 6,
+        "scroll": 0
+      },
+      "display_name": "explorer.exe",
+      "windows_seen": [
+        {
+          "title": "Program Manager",
+          "bounds": {
+            "left": 0,
+            "top": 0,
+            "right": 1920,
+            "bottom": 1080
+          },
+          "state": null,
+          "hwnd": 65802,
+          "pid": 9080,
+          "ts": 1756745118.341792
+        },
+        {
+          "title": "Run",
+          "bounds": {
+            "left": 11,
+            "top": 657,
+            "right": 601,
+            "bottom": 1004
+          },
+          "state": null,
+          "hwnd": 1116812,
+          "pid": 9080,
+          "ts": 1756745122.580927
+        },
+        {
+          "title": "File Explorer",
+          "bounds": {
+            "left": 370,
+            "top": 64,
+            "right": 1811,
+            "bottom": 964
+          },
+          "state": null,
+          "hwnd": 4917590,
+          "pid": 9080,
+          "ts": 1756745125.3030407
+        },
+        {
+          "title": "Documents - File Explorer",
+          "bounds": {
+            "left": 370,
+            "top": 64,
+            "right": 1811,
+            "bottom": 964
+          },
+          "state": null,
+          "hwnd": 4917590,
+          "pid": 9080,
+          "ts": 1756745127.104292
+        },
+        {
+          "title": "Task 63 - File Explorer",
+          "bounds": {
+            "left": 370,
+            "top": 64,
+            "right": 1811,
+            "bottom": 964
+          },
+          "state": null,
+          "hwnd": 4917590,
+          "pid": 9080,
+          "ts": 1756745139.0592833
+        },
+        {
+          "title": "Program Manager",
+          "bounds": {
+            "left": 0,
+            "top": 0,
+            "right": 1920,
+            "bottom": 1080
+          },
+          "state": null,
+          "hwnd": 65802,
+          "pid": 9080,
+          "ts": 1756745147.014856
+        },
+        {
+          "title": "",
+          "bounds": {
+            "left": 0,
+            "top": 1008,
+            "right": 1920,
+            "bottom": 1080
+          },
+          "state": null,
+          "hwnd": 131234,
+          "pid": 9080,
+          "ts": 1756745216.7389028
+        },
+        {
+          "title": "Task Switching",
+          "bounds": {
+            "left": 0,
+            "top": 0,
+            "right": 1920,
+            "bottom": 1008
+          },
+          "state": null,
+          "hwnd": 198120,
+          "pid": 9080,
+          "ts": 1756745218.7430544
+        },
+        {
+          "title": "Task 63 - File Explorer",
+          "bounds": {
+            "left": 370,
+            "top": 64,
+            "right": 1811,
+            "bottom": 964
+          },
+          "state": null,
+          "hwnd": 4917590,
+          "pid": 9080,
+          "ts": 1756745220.7202199
+        }
+      ],
+      "last_window": {
+        "title": "Task 63 - File Explorer",
+        "bounds": {
+          "left": 370,
+          "top": 64,
+          "right": 1811,
+          "bottom": 964
+        },
+        "state": null,
+        "hwnd": 4917590,
+        "pid": 9080,
+        "ts": 1756745224.071236
+      },
+      "keystrokes": {
+        "hotkeys": {
+          "Ctrl+Left": 2,
+          "Alt+Tab": 1,
+          "Ctrl+\u0017": 1,
+          "Win+M": 1,
+          "Win+R": 1
+        },
+        "screen_reader_commands": {},
+        "other_keys": {
+          "Down": 18,
+          "Left": 8,
+          "Enter": 5,
+          "Right": 4,
+          "a": 1,
+          "g": 1,
+          "k": 1,
+          "PageDown": 1,
+          "s": 1,
+          "t": 1,
+          "Up": 1
+        },
+        "totals": {
+          "hotkeys": 6,
+          "screen_reader_commands": 0,
+          "other_keys": 42
+        },
+        "intents_by_hotkey": {
+          "task_switch": 1
+        }
+      }
+    },
+    "chrome.exe": {
+      "order": 2,
+      "log_file": "2_chrome.exe.json",
+      "a11y_tree_files": [
+        "2_chrome.exe_1756745153868_a11y_tree.json"
+      ],
+      "events": 84,
+      "by_type": {
+        "mouse_click": 0,
+        "mouse_up": 0,
+        "mouse_move": 0,
+        "drag_drop": 0,
+        "key_press": 84,
+        "hotkey": 0,
+        "scroll": 0
+      },
+      "display_name": "chrome.exe",
+      "windows_seen": [
+        {
+          "title": "New Tab - Google Chrome",
+          "bounds": {
+            "left": 15,
+            "top": 15,
+            "right": 1590,
+            "bottom": 993
+          },
+          "state": null,
+          "hwnd": 1574394,
+          "pid": 18092,
+          "ts": 1756745153.868072
+        },
+        {
+          "title": "how can i insert a barchart from excel to powerpoint - Google Search - Google Chrome",
+          "bounds": {
+            "left": 15,
+            "top": 15,
+            "right": 1590,
+            "bottom": 993
+          },
+          "state": null,
+          "hwnd": 1574394,
+          "pid": 18092,
+          "ts": 1756745163.0779047
+        }
+      ],
+      "last_window": {
+        "title": "how can i insert a barchart from excel to powerpoint - Google Search - Google Chrome",
+        "bounds": {
+          "left": 15,
+          "top": 15,
+          "right": 1590,
+          "bottom": 993
+        },
+        "state": null,
+        "hwnd": 1574394,
+        "pid": 18092,
+        "ts": 1756745216.6533298
+      },
+      "keystrokes": {
+        "hotkeys": {},
+        "screen_reader_commands": {},
+        "other_keys": {
+          "Down": 15,
+          "Space": 9,
+          "Up": 8,
+          "h": 6,
+          "o": 5,
+          "r": 5,
+          "a": 4,
+          "e": 4,
+          "t": 4,
+          "c": 3,
+          "Enter": 3,
+          "i": 3,
+          "n": 3,
+          "p": 2,
+          "w": 2,
+          "b": 1,
+          "f": 1,
+          "l": 1,
+          "m": 1,
+          "s": 1,
+          "x": 1
+        },
+        "totals": {
+          "hotkeys": 0,
+          "screen_reader_commands": 0,
+          "other_keys": 82
+        },
+        "intents_by_hotkey": {}
+      }
+    },
+    "EXCEL.EXE": {
+      "order": 3,
+      "log_file": "3_EXCEL.EXE.json",
+      "a11y_tree_files": [
+        "3_EXCEL.EXE_1756745229972_a11y_tree.json",
+        "3_EXCEL.EXE_1756745356542_a11y_tree.json",
+        "3_EXCEL.EXE_1756745360209_a11y_tree.json"
+      ],
+      "events": 236,
+      "by_type": {
+        "mouse_click": 1,
+        "mouse_up": 1,
+        "mouse_move": 9,
+        "drag_drop": 0,
+        "key_press": 195,
+        "hotkey": 30,
+        "scroll": 0
+      },
+      "display_name": "EXCEL.EXE",
+      "windows_seen": [
+        {
+          "title": "Task ID 63 - Excel",
+          "bounds": {
+            "left": -11,
+            "top": -11,
+            "right": 1931,
+            "bottom": 1019
+          },
+          "state": null,
+          "hwnd": 1704806,
+          "pid": 3856,
+          "ts": 1756745229.9715998
+        },
+        {
+          "title": "",
+          "bounds": {
+            "left": 0,
+            "top": 760,
+            "right": 442,
+            "bottom": 976
+          },
+          "state": null,
+          "hwnd": 6816234,
+          "pid": 3856,
+          "ts": 1756745356.5422144
+        },
+        {
+          "title": "Task ID 63 - Excel",
+          "bounds": {
+            "left": -11,
+            "top": -11,
+            "right": 1931,
+            "bottom": 1019
+          },
+          "state": null,
+          "hwnd": 1704806,
+          "pid": 3856,
+          "ts": 1756745360.2087564
+        }
+      ],
+      "last_window": {
+        "title": "Task ID 63 - Excel",
+        "bounds": {
+          "left": -11,
+          "top": -11,
+          "right": 1931,
+          "bottom": 1019
+        },
+        "state": null,
+        "hwnd": 1704806,
+        "pid": 3856,
+        "ts": 1756745408.170637
+      },
+      "keystrokes": {
+        "hotkeys": {
+          "Ctrl+Left": 12,
+          "Ctrl+Right": 8,
+          "Ctrl+Down": 4,
+          "Ctrl+Up": 4,
+          "Ctrl+Home": 2
+        },
+        "screen_reader_commands": {},
+        "other_keys": {
+          "Right": 37,
+          "Left": 24,
+          "Down": 19,
+          "Up": 14,
+          "F6": 8,
+          "Esc": 3,
+          "Tab": 3,
+          "Enter": 1
+        },
+        "totals": {
+          "hotkeys": 30,
+          "screen_reader_commands": 0,
+          "other_keys": 109
+        },
+        "intents_by_hotkey": {}
+      }
+    }
+  },
+  "web": {
+    "tabs_by_order": [
+      {
+        "order": 1,
+        "first_ts": 1756745163345,
+        "url": "https://www.google.com/search?q=how+can+i+insert+a+barchart+from+excel+to+powerpoint&rlz=1C1GCEB_enUS1177US1177&oq=how+can+i+insert+a+barchart+from+excel+to+powerpoint&gs_lcrp=EgZjaHJvbWUyBggAEEUYOTIICAEQABgWGB4yDQgCEAAYhgMYgAQYigUyDQgDEAAYhgMYgAQYigUyCggEEAAYgAQYogQyCggFEAAYogQYiQXSAQg4MDIyajBqN6gCALACAA&sourceid=chrome&ie=UTF-8",
+        "title": "how can i insert a barchart from excel to powerpoint - Google Search",
+        "file": "/task_logs/63/web_logs/web_tab1_1756745163345.json",
+        "dom_url": "/task_logs/User 20/63/web_logs/web_tab1_1756745163345.html",
+        "a11y_url": "/task_logs/User 20/63/web_logs/web_tab1_1756745163345_a11y_tree.json"
+      }
+    ],
+    "events": 2,
+    "by_tab": {
+      "1::1756745163345": 2
+    }
+  },
+  "summary": {
+    "apps": 3,
+    "events": 382,
+    "by_type": {
+      "mouse_up": 2,
+      "key_press": 332,
+      "hotkey": 36,
+      "mouse_move": 9,
+      "mouse_click": 1
+    },
+    "by_app": {
+      "explorer.exe": 60,
+      "chrome.exe": 84,
+      "EXCEL.EXE": 236
+    },
+    "keystrokes": {
+      "hotkeys": {
+        "Ctrl+Left": 14,
+        "Ctrl+Right": 8,
+        "Ctrl+Down": 4,
+        "Ctrl+Up": 4,
+        "Ctrl+Home": 2,
+        "Alt+Tab": 1,
+        "Ctrl+\u0017": 1,
+        "Win+M": 1,
+        "Win+R": 1
+      },
+      "screen_reader_commands": {},
+      "other_keys": {
+        "Down": 52,
+        "Right": 41,
+        "Left": 32,
+        "Up": 23,
+        "Enter": 9,
+        "Space": 9,
+        "F6": 8,
+        "h": 6,
+        "a": 5,
+        "o": 5,
+        "r": 5,
+        "t": 5,
+        "e": 4,
+        "c": 3,
+        "Esc": 3,
+        "i": 3,
+        "n": 3,
+        "Tab": 3,
+        "p": 2,
+        "s": 2,
+        "w": 2,
+        "b": 1,
+        "f": 1,
+        "g": 1,
+        "k": 1,
+        "l": 1,
+        "m": 1,
+        "PageDown": 1,
+        "x": 1
+      },
+      "totals": {
+        "hotkeys": 36,
+        "screen_reader_commands": 0,
+        "other_keys": 233
+      },
+      "intents_by_hotkey": {
+        "task_switch": 1
+      }
+    }
+  },
+  "accessibility": {
+    "baseline": {
+      "os": "Windows",
+      "os_version": "10.0.26100",
+      "python_version": "3.13.7",
+      "narrator": {
+        "enabled": false,
+        "startup_enabled": false
+      },
+      "magnifier": {
+        "enabled": false,
+        "zoom": null
+      },
+      "color_filter": {
+        "enabled": false,
+        "type": "unknown"
+      },
+      "high_contrast": {
+        "enabled": false,
+        "flags": "126"
+      },
+      "sticky_keys": {
+        "flags": "510",
+        "maybe_enabled": true
+      },
+      "toggle_keys": {
+        "flags": "62",
+        "maybe_enabled": true
+      },
+      "filter_keys": {
+        "flags": "126",
+        "maybe_enabled": true
+      },
+      "font_smoothing": "2",
+      "display_scaling": null,
+      "mouse_cursor_scheme": "windows aero"
+    },
+    "last": {
+      "os": "Windows",
+      "os_version": "10.0.26100",
+      "python_version": "3.13.7",
+      "narrator": {
+        "enabled": false,
+        "startup_enabled": false
+      },
+      "magnifier": {
+        "enabled": false,
+        "zoom": null
+      },
+      "color_filter": {
+        "enabled": false,
+        "type": "unknown"
+      },
+      "high_contrast": {
+        "enabled": false,
+        "flags": "126"
+      },
+      "sticky_keys": {
+        "flags": "510",
+        "maybe_enabled": true
+      },
+      "toggle_keys": {
+        "flags": "62",
+        "maybe_enabled": true
+      },
+      "filter_keys": {
+        "flags": "126",
+        "maybe_enabled": true
+      },
+      "font_smoothing": "2",
+      "display_scaling": null,
+      "mouse_cursor_scheme": "windows aero"
+    },
+    "changes": []
+  }
+}

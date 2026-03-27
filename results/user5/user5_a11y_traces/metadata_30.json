@@ -1,0 +1,323 @@
+{
+  "task": {
+    "task_id": 30,
+    "task_title": "Checking weather conditions of a city",
+    "instruction": "Using the Weather app, check the weather in Austin for the following week in Celcius scale",
+    "task": "Using the Weather app, check the weather in Austin for the following week in Celcius scale",
+    "context": "I'm flying to Austin next week. I want to check how the weather is and pack accordingly.",
+    "rand_id_column": "Rand ID 20",
+    "rand_order": 23,
+    "task_group": "System Operations",
+    "interactions": "",
+    "applications": "Weather",
+    "familiarity": "Low",
+    "difficulty_before": "Medium",
+    "difficulty_after": "Medium",
+    "success": false,
+    "failure_reason": "Other (specify)",
+    "failure_notes": "the app does not seem accessible"
+  },
+  "session": {
+    "started_at": 1756736739.5773485,
+    "last_event_at": 1756737180.4081101,
+    "folder": "task_logs\\User 20\\30",
+    "apps_by_order": [
+      {
+        "order": 1,
+        "app": "explorer.exe",
+        "log_file": "1_explorer.exe.json"
+      },
+      {
+        "order": 2,
+        "app": "ApplicationFrameHost.exe",
+        "log_file": "2_ApplicationFrameHost.exe.json"
+      },
+      {
+        "order": 2,
+        "app": "ApplicationFrameHost.exe::HWND_2950444",
+        "log_file": "2_ApplicationFrameHost.exe_HWND_2950444.json"
+      }
+    ],
+    "ended_at": 1756737208.906621
+  },
+  "apps": {
+    "explorer.exe": {
+      "order": 1,
+      "log_file": "1_explorer.exe.json",
+      "a11y_tree_files": [
+        "1_explorer.exe_1756736742823_a11y_tree.json"
+      ],
+      "events": 2,
+      "by_type": {
+        "mouse_click": 0,
+        "mouse_up": 1,
+        "mouse_move": 0,
+        "drag_drop": 0,
+        "key_press": 1,
+        "hotkey": 0,
+        "scroll": 0
+      },
+      "display_name": "explorer.exe",
+      "windows_seen": [
+        {
+          "title": "Program Manager",
+          "bounds": {
+            "left": 0,
+            "top": 0,
+            "right": 1920,
+            "bottom": 1080
+          },
+          "state": null,
+          "hwnd": 65802,
+          "pid": 9080,
+          "ts": 1756736742.8227508
+        }
+      ],
+      "last_window": {
+        "title": "Program Manager",
+        "bounds": {
+          "left": 0,
+          "top": 0,
+          "right": 1920,
+          "bottom": 1080
+        },
+        "state": null,
+        "hwnd": 65802,
+        "pid": 9080,
+        "ts": 1756736744.8859303
+      },
+      "keystrokes": {
+        "hotkeys": {},
+        "screen_reader_commands": {},
+        "other_keys": {},
+        "totals": {
+          "hotkeys": 0,
+          "screen_reader_commands": 0,
+          "other_keys": 0
+        },
+        "intents_by_hotkey": {}
+      }
+    },
+    "ApplicationFrameHost.exe": {
+      "order": 2,
+      "log_file": "2_ApplicationFrameHost.exe.json",
+      "a11y_tree_files": [
+        "2_ApplicationFrameHost.exe_1756736756120_a11y_tree.json"
+      ],
+      "events": 0,
+      "by_type": {
+        "mouse_click": 0,
+        "mouse_up": 0,
+        "mouse_move": 0,
+        "drag_drop": 0,
+        "key_press": 0,
+        "hotkey": 0,
+        "scroll": 0
+      },
+      "keystrokes": {
+        "hotkeys": {},
+        "screen_reader_commands": {},
+        "other_keys": {},
+        "totals": {
+          "hotkeys": 0,
+          "screen_reader_commands": 0,
+          "other_keys": 0
+        },
+        "intents_by_hotkey": {}
+      }
+    },
+    "ApplicationFrameHost.exe::HWND_2950444": {
+      "order": 2,
+      "log_file": "2_ApplicationFrameHost.exe_HWND_2950444.json",
+      "a11y_tree_files": [],
+      "events": 722,
+      "by_type": {
+        "mouse_click": 1,
+        "mouse_up": 1,
+        "mouse_move": 10,
+        "drag_drop": 0,
+        "key_press": 669,
+        "hotkey": 41,
+        "scroll": 0
+      },
+      "display_name": "ApplicationFrameHost (AFH_2950444)",
+      "windows_seen": [
+        {
+          "title": "Weather",
+          "bounds": {
+            "left": 59,
+            "top": 48,
+            "right": 1281,
+            "bottom": 1008
+          },
+          "state": null,
+          "hwnd": 2950444,
+          "pid": 14672,
+          "ts": 1756736756.120161
+        }
+      ],
+      "last_window": {
+        "title": "Weather",
+        "bounds": {
+          "left": 59,
+          "top": 48,
+          "right": 1281,
+          "bottom": 1008
+        },
+        "state": null,
+        "hwnd": 2950444,
+        "pid": 14672,
+        "ts": 1756737180.4081101
+      },
+      "keystrokes": {
+        "hotkeys": {
+          "Ctrl+Home": 12,
+          "Ctrl+End": 2,
+          "Ctrl+\u0006": 1
+        },
+        "screen_reader_commands": {},
+        "other_keys": {
+          "Down": 281,
+          "Tab": 143,
+          "b": 88,
+          "Shift": 52,
+          "Up": 36,
+          "h": 35,
+          "Enter": 13,
+          "Space": 6,
+          "Backspace": 3,
+          "e": 3,
+          "f": 1
+        },
+        "totals": {
+          "hotkeys": 15,
+          "screen_reader_commands": 0,
+          "other_keys": 661
+        },
+        "intents_by_hotkey": {}
+      }
+    }
+  },
+  "web": {
+    "tabs_by_order": [],
+    "events": 0,
+    "by_tab": {}
+  },
+  "summary": {
+    "apps": 3,
+    "events": 724,
+    "by_type": {
+      "mouse_up": 2,
+      "key_press": 670,
+      "hotkey": 41,
+      "mouse_move": 10,
+      "mouse_click": 1
+    },
+    "by_app": {
+      "explorer.exe": 2,
+      "ApplicationFrameHost.exe::HWND_2950444": 722
+    },
+    "keystrokes": {
+      "hotkeys": {
+        "Ctrl+Home": 12,
+        "Ctrl+End": 2,
+        "Ctrl+\u0006": 1
+      },
+      "screen_reader_commands": {},
+      "other_keys": {
+        "Down": 281,
+        "Tab": 143,
+        "b": 88,
+        "Shift": 52,
+        "Up": 36,
+        "h": 35,
+        "Enter": 13,
+        "Space": 6,
+        "Backspace": 3,
+        "e": 3,
+        "f": 1
+      },
+      "totals": {
+        "hotkeys": 15,
+        "screen_reader_commands": 0,
+        "other_keys": 661
+      },
+      "intents_by_hotkey": {}
+    }
+  },
+  "accessibility": {
+    "baseline": {
+      "os": "Windows",
+      "os_version": "10.0.26100",
+      "python_version": "3.13.7",
+      "narrator": {
+        "enabled": false,
+        "startup_enabled": false
+      },
+      "magnifier": {
+        "enabled": false,
+        "zoom": null
+      },
+      "color_filter": {
+        "enabled": false,
+        "type": "unknown"
+      },
+      "high_contrast": {
+        "enabled": false,
+        "flags": "126"
+      },
+      "sticky_keys": {
+        "flags": "510",
+        "maybe_enabled": true
+      },
+      "toggle_keys": {
+        "flags": "62",
+        "maybe_enabled": true
+      },
+      "filter_keys": {
+        "flags": "126",
+        "maybe_enabled": true
+      },
+      "font_smoothing": "2",
+      "display_scaling": null,
+      "mouse_cursor_scheme": "windows aero"
+    },
+    "last": {
+      "os": "Windows",
+      "os_version": "10.0.26100",
+      "python_version": "3.13.7",
+      "narrator": {
+        "enabled": false,
+        "startup_enabled": false
+      },
+      "magnifier": {
+        "enabled": false,
+        "zoom": null
+      },
+      "color_filter": {
+        "enabled": false,
+        "type": "unknown"
+      },
+      "high_contrast": {
+        "enabled": false,
+        "flags": "126"
+      },
+      "sticky_keys": {
+        "flags": "510",
+        "maybe_enabled": true
+      },
+      "toggle_keys": {
+        "flags": "62",
+        "maybe_enabled": true
+      },
+      "filter_keys": {
+        "flags": "126",
+        "maybe_enabled": true
+      },
+      "font_smoothing": "2",
+      "display_scaling": null,
+      "mouse_cursor_scheme": "windows aero"
+    },
+    "changes": []
+  }
+}

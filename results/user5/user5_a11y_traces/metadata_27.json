@@ -1,0 +1,318 @@
+{
+  "task": {
+    "task_id": 27,
+    "task_title": "Change the wallpaper",
+    "instruction": "Change the wallpaper to any Solid Color in Settings.",
+    "task": "Change the wallpaper to any Solid Color in Settings.",
+    "context": "The wallpaper on my screen is set to the default one and I want to change it to something colorful.",
+    "rand_id_column": "Rand ID 20",
+    "rand_order": 17,
+    "task_group": "System Operations",
+    "interactions": "",
+    "applications": "Settings",
+    "familiarity": "Low",
+    "difficulty_before": "Medium",
+    "difficulty_after": "Easy",
+    "success": true
+  },
+  "session": {
+    "started_at": 1756667452.9246795,
+    "last_event_at": 1756667540.322305,
+    "folder": "task_logs\\User 20\\27",
+    "apps_by_order": [
+      {
+        "order": 1,
+        "app": "explorer.exe",
+        "log_file": "1_explorer.exe.json"
+      },
+      {
+        "order": 2,
+        "app": "ApplicationFrameHost.exe",
+        "log_file": "2_ApplicationFrameHost.exe.json"
+      },
+      {
+        "order": 2,
+        "app": "ApplicationFrameHost.exe::Settings",
+        "log_file": "2_ApplicationFrameHost.exe_Settings.json"
+      }
+    ],
+    "ended_at": 1756667553.069868
+  },
+  "apps": {
+    "explorer.exe": {
+      "order": 1,
+      "log_file": "1_explorer.exe.json",
+      "a11y_tree_files": [
+        "1_explorer.exe_1756667458793_a11y_tree.json"
+      ],
+      "events": 3,
+      "by_type": {
+        "mouse_click": 0,
+        "mouse_up": 0,
+        "mouse_move": 0,
+        "drag_drop": 0,
+        "key_press": 2,
+        "hotkey": 1,
+        "scroll": 0
+      },
+      "display_name": "explorer.exe",
+      "windows_seen": [
+        {
+          "title": "Program Manager",
+          "bounds": {
+            "left": 0,
+            "top": 0,
+            "right": 1920,
+            "bottom": 1080
+          },
+          "state": null,
+          "hwnd": 65782,
+          "pid": 5556,
+          "ts": 1756667458.7930725
+        }
+      ],
+      "last_window": {
+        "title": "Program Manager",
+        "bounds": {
+          "left": 0,
+          "top": 0,
+          "right": 1920,
+          "bottom": 1080
+        },
+        "state": null,
+        "hwnd": 65782,
+        "pid": 5556,
+        "ts": 1756667458.9788604
+      },
+      "keystrokes": {
+        "hotkeys": {
+          "Win+I": 1
+        },
+        "screen_reader_commands": {},
+        "other_keys": {},
+        "totals": {
+          "hotkeys": 1,
+          "screen_reader_commands": 0,
+          "other_keys": 0
+        },
+        "intents_by_hotkey": {}
+      }
+    },
+    "ApplicationFrameHost.exe": {
+      "order": 2,
+      "log_file": "2_ApplicationFrameHost.exe.json",
+      "a11y_tree_files": [
+        "2_ApplicationFrameHost.exe_1756667461609_a11y_tree.json"
+      ],
+      "events": 0,
+      "by_type": {
+        "mouse_click": 0,
+        "mouse_up": 0,
+        "mouse_move": 0,
+        "drag_drop": 0,
+        "key_press": 0,
+        "hotkey": 0,
+        "scroll": 0
+      },
+      "keystrokes": {
+        "hotkeys": {},
+        "screen_reader_commands": {},
+        "other_keys": {},
+        "totals": {
+          "hotkeys": 0,
+          "screen_reader_commands": 0,
+          "other_keys": 0
+        },
+        "intents_by_hotkey": {}
+      }
+    },
+    "ApplicationFrameHost.exe::Settings": {
+      "order": 2,
+      "log_file": "2_ApplicationFrameHost.exe_Settings.json",
+      "a11y_tree_files": [],
+      "events": 75,
+      "by_type": {
+        "mouse_click": 1,
+        "mouse_up": 0,
+        "mouse_move": 3,
+        "drag_drop": 0,
+        "key_press": 64,
+        "hotkey": 7,
+        "scroll": 0
+      },
+      "display_name": "ApplicationFrameHost (Settings)",
+      "windows_seen": [
+        {
+          "title": "Settings",
+          "bounds": {
+            "left": 59,
+            "top": 48,
+            "right": 1281,
+            "bottom": 1008
+          },
+          "state": null,
+          "hwnd": 265002,
+          "pid": 14304,
+          "ts": 1756667461.609151
+        }
+      ],
+      "last_window": {
+        "title": "Settings",
+        "bounds": {
+          "left": 59,
+          "top": 48,
+          "right": 1281,
+          "bottom": 1008
+        },
+        "state": null,
+        "hwnd": 265002,
+        "pid": 14304,
+        "ts": 1756667540.322305
+      },
+      "keystrokes": {
+        "hotkeys": {},
+        "screen_reader_commands": {},
+        "other_keys": {
+          "Tab": 25,
+          "Down": 14,
+          "Up": 6,
+          "Enter": 5,
+          "Backspace": 4,
+          "Right": 4,
+          "Shift": 3,
+          "Space": 3,
+          "a": 2,
+          "l": 2,
+          "p": 1,
+          "w": 1
+        },
+        "totals": {
+          "hotkeys": 0,
+          "screen_reader_commands": 0,
+          "other_keys": 70
+        },
+        "intents_by_hotkey": {}
+      }
+    }
+  },
+  "web": {
+    "tabs_by_order": [],
+    "events": 0,
+    "by_tab": {}
+  },
+  "summary": {
+    "apps": 3,
+    "events": 78,
+    "by_type": {
+      "key_press": 66,
+      "hotkey": 8,
+      "mouse_move": 3,
+      "mouse_click": 1
+    },
+    "by_app": {
+      "explorer.exe": 3,
+      "ApplicationFrameHost.exe::Settings": 75
+    },
+    "keystrokes": {
+      "hotkeys": {
+        "Win+I": 1
+      },
+      "screen_reader_commands": {},
+      "other_keys": {
+        "Tab": 25,
+        "Down": 14,
+        "Up": 6,
+        "Enter": 5,
+        "Backspace": 4,
+        "Right": 4,
+        "Shift": 3,
+        "Space": 3,
+        "a": 2,
+        "l": 2,
+        "p": 1,
+        "w": 1
+      },
+      "totals": {
+        "hotkeys": 1,
+        "screen_reader_commands": 0,
+        "other_keys": 70
+      },
+      "intents_by_hotkey": {}
+    }
+  },
+  "accessibility": {
+    "baseline": {
+      "os": "Windows",
+      "os_version": "10.0.26100",
+      "python_version": "3.13.7",
+      "narrator": {
+        "enabled": false,
+        "startup_enabled": false
+      },
+      "magnifier": {
+        "enabled": false,
+        "zoom": null
+      },
+      "color_filter": {
+        "enabled": false,
+        "type": "unknown"
+      },
+      "high_contrast": {
+        "enabled": false,
+        "flags": "126"
+      },
+      "sticky_keys": {
+        "flags": "510",
+        "maybe_enabled": true
+      },
+      "toggle_keys": {
+        "flags": "62",
+        "maybe_enabled": true
+      },
+      "filter_keys": {
+        "flags": "126",
+        "maybe_enabled": true
+      },
+      "font_smoothing": "2",
+      "display_scaling": null,
+      "mouse_cursor_scheme": "windows aero"
+    },
+    "last": {
+      "os": "Windows",
+      "os_version": "10.0.26100",
+      "python_version": "3.13.7",
+      "narrator": {
+        "enabled": false,
+        "startup_enabled": false
+      },
+      "magnifier": {
+        "enabled": false,
+        "zoom": null
+      },
+      "color_filter": {
+        "enabled": false,
+        "type": "unknown"
+      },
+      "high_contrast": {
+        "enabled": false,
+        "flags": "126"
+      },
+      "sticky_keys": {
+        "flags": "510",
+        "maybe_enabled": true
+      },
+      "toggle_keys": {
+        "flags": "62",
+        "maybe_enabled": true
+      },
+      "filter_keys": {
+        "flags": "126",
+        "maybe_enabled": true
+      },
+      "font_smoothing": "2",
+      "display_scaling": null,
+      "mouse_cursor_scheme": "windows aero"
+    },
+    "changes": []
+  }
+}

@@ -1,0 +1,498 @@
+{
+  "task": {
+    "task_id": 37,
+    "task_title": "Create a new Word document, add heading, change its color, and align it",
+    "instruction": "Create a new document, add the text \"Solar System\" in any shade of green. Then, make it a heading and align it to the center side of the document.",
+    "task": "Create a new document, add the text \"Solar System\" in any shade of green. Then, make it a heading and align it to the center side of the document.",
+    "context": "I'm reading an interesting article on solar system in Word. I want to take some notes in a separate document.",
+    "rand_id_column": "Rand ID 22",
+    "rand_order": 28,
+    "task_group": "Document Editing",
+    "interactions": "",
+    "applications": "Word",
+    "familiarity": "High",
+    "difficulty_before": "Low",
+    "difficulty_after": "Low",
+    "success": false,
+    "failure_reason": "Couldn't find the required info"
+  },
+  "session": {
+    "started_at": 1756841808.9705749,
+    "last_event_at": 1756842132.1230884,
+    "folder": "task_logs\\User 22\\37",
+    "apps_by_order": [
+      {
+        "order": 1,
+        "app": "explorer.exe",
+        "log_file": "1_explorer.exe.json"
+      },
+      {
+        "order": 2,
+        "app": "WINWORD.EXE",
+        "log_file": "2_WINWORD.EXE.json"
+      }
+    ],
+    "ended_at": 1756842137.7396164
+  },
+  "apps": {
+    "explorer.exe": {
+      "order": 1,
+      "log_file": "1_explorer.exe.json",
+      "a11y_tree_files": [
+        "1_explorer.exe_1756841846595_a11y_tree.json",
+        "1_explorer.exe_1756841848443_a11y_tree.json",
+        "1_explorer.exe_1756842132123_a11y_tree.json"
+      ],
+      "events": 20,
+      "by_type": {
+        "mouse_click": 0,
+        "mouse_up": 1,
+        "mouse_move": 0,
+        "drag_drop": 0,
+        "key_press": 16,
+        "hotkey": 3,
+        "scroll": 0
+      },
+      "display_name": "explorer.exe",
+      "windows_seen": [
+        {
+          "title": "Run",
+          "bounds": {
+            "left": 9,
+            "top": 736,
+            "right": 481,
+            "bottom": 1016
+          },
+          "state": null,
+          "hwnd": 659584,
+          "pid": 29104,
+          "ts": 1756841846.594637
+        },
+        {
+          "title": "Program Manager",
+          "bounds": {
+            "left": 0,
+            "top": 0,
+            "right": 1920,
+            "bottom": 1080
+          },
+          "state": null,
+          "hwnd": 66060,
+          "pid": 29104,
+          "ts": 1756841848.4431517
+        },
+        {
+          "title": "",
+          "bounds": {
+            "left": 0,
+            "top": 1020,
+            "right": 1920,
+            "bottom": 1080
+          },
+          "state": null,
+          "hwnd": 66004,
+          "pid": 29104,
+          "ts": 1756842132.1230884
+        }
+      ],
+      "last_window": {
+        "title": "",
+        "bounds": {
+          "left": 0,
+          "top": 1020,
+          "right": 1920,
+          "bottom": 1080
+        },
+        "state": null,
+        "hwnd": 66004,
+        "pid": 29104,
+        "ts": 1756842132.1230884
+      },
+      "keystrokes": {
+        "hotkeys": {
+          "Ctrl+Backspace": 2,
+          "Ctrl+Enter": 1
+        },
+        "screen_reader_commands": {},
+        "other_keys": {
+          "w": 4,
+          "i": 2,
+          "o": 2,
+          "d": 1,
+          "n": 1,
+          "r": 1
+        },
+        "totals": {
+          "hotkeys": 3,
+          "screen_reader_commands": 0,
+          "other_keys": 11
+        },
+        "intents_by_hotkey": {}
+      }
+    },
+    "WINWORD.EXE": {
+      "order": 2,
+      "log_file": "2_WINWORD.EXE.json",
+      "a11y_tree_files": [
+        "2_WINWORD.EXE_1756841853136_a11y_tree.json",
+        "2_WINWORD.EXE_1756841856442_a11y_tree.json",
+        "2_WINWORD.EXE_1756841903473_a11y_tree.json",
+        "2_WINWORD.EXE_1756841920292_a11y_tree.json",
+        "2_WINWORD.EXE_1756841934183_a11y_tree.json",
+        "2_WINWORD.EXE_1756841982792_a11y_tree.json",
+        "2_WINWORD.EXE_1756841990512_a11y_tree.json",
+        "2_WINWORD.EXE_1756842014317_a11y_tree.json",
+        "2_WINWORD.EXE_1756842068019_a11y_tree.json"
+      ],
+      "events": 309,
+      "by_type": {
+        "mouse_click": 1,
+        "mouse_up": 0,
+        "mouse_move": 6,
+        "drag_drop": 0,
+        "key_press": 288,
+        "hotkey": 14,
+        "scroll": 0
+      },
+      "display_name": "WINWORD.EXE",
+      "windows_seen": [
+        {
+          "title": "Font",
+          "bounds": {
+            "left": 660,
+            "top": 163,
+            "right": 1260,
+            "bottom": 828
+          },
+          "state": null,
+          "hwnd": 528204,
+          "pid": 14276,
+          "ts": 1756841903.4731524
+        },
+        {
+          "title": "",
+          "bounds": {
+            "left": 717,
+            "top": 469,
+            "right": 1061,
+            "bottom": 882
+          },
+          "state": null,
+          "hwnd": 1904770,
+          "pid": 14276,
+          "ts": 1756841920.292133
+        },
+        {
+          "title": "Font",
+          "bounds": {
+            "left": 660,
+            "top": 163,
+            "right": 1260,
+            "bottom": 828
+          },
+          "state": null,
+          "hwnd": 528204,
+          "pid": 14276,
+          "ts": 1756841934.1832266
+        },
+        {
+          "title": "Document2 - Word",
+          "bounds": {
+            "left": -9,
+            "top": -9,
+            "right": 1929,
+            "bottom": 1029
+          },
+          "state": null,
+          "hwnd": 2559392,
+          "pid": 14276,
+          "ts": 1756841953.8276644
+        },
+        {
+          "title": "",
+          "bounds": {
+            "left": 1005,
+            "top": 389,
+            "right": 1284,
+            "bottom": 847
+          },
+          "state": null,
+          "hwnd": 38734658,
+          "pid": 14276,
+          "ts": 1756841982.7917018
+        },
+        {
+          "title": "Paragraph",
+          "bounds": {
+            "left": 660,
+            "top": 139,
+            "right": 1260,
+            "bottom": 852
+          },
+          "state": null,
+          "hwnd": 397258,
+          "pid": 14276,
+          "ts": 1756841990.5119662
+        },
+        {
+          "title": "Document2 - Word",
+          "bounds": {
+            "left": -9,
+            "top": -9,
+            "right": 1929,
+            "bottom": 1029
+          },
+          "state": null,
+          "hwnd": 2559392,
+          "pid": 14276,
+          "ts": 1756842012.420149
+        },
+        {
+          "title": "",
+          "bounds": {
+            "left": 893,
+            "top": 389,
+            "right": 1172,
+            "bottom": 922
+          },
+          "state": null,
+          "hwnd": 921546,
+          "pid": 14276,
+          "ts": 1756842014.3167639
+        },
+        {
+          "title": "Document2 - Word",
+          "bounds": {
+            "left": -9,
+            "top": -9,
+            "right": 1929,
+            "bottom": 1029
+          },
+          "state": null,
+          "hwnd": 2559392,
+          "pid": 14276,
+          "ts": 1756842036.4869375
+        },
+        {
+          "title": "",
+          "bounds": {
+            "left": 824,
+            "top": 112,
+            "right": 1402,
+            "bottom": 529
+          },
+          "state": null,
+          "hwnd": 1118334,
+          "pid": 14276,
+          "ts": 1756842068.0189166
+        }
+      ],
+      "last_window": {
+        "title": "",
+        "bounds": {
+          "left": 824,
+          "top": 112,
+          "right": 1402,
+          "bottom": 529
+        },
+        "state": null,
+        "hwnd": 1118334,
+        "pid": 14276,
+        "ts": 1756842131.7655773
+      },
+      "keystrokes": {
+        "hotkeys": {
+          "Ctrl+\u0001": 2,
+          "Ctrl+End": 2,
+          "Alt+Down": 1,
+          "Alt+F": 1,
+          "Ctrl+\u0005": 1,
+          "Ctrl+\u000e": 1,
+          "Ctrl+1": 1,
+          "Ctrl+<49>": 1,
+          "Ctrl+E": 1
+        },
+        "screen_reader_commands": {},
+        "other_keys": {
+          "Down": 66,
+          "Right": 32,
+          "Left": 26,
+          "Tab": 25,
+          "Up": 18,
+          "Home": 8,
+          "Esc": 7,
+          "Shift": 5,
+          "Space": 5,
+          "Enter": 4,
+          "s": 3,
+          "Backspace": 2,
+          "End": 2,
+          "Menu": 2,
+          "r": 2,
+          "t": 2,
+          "a": 1,
+          "e": 1,
+          "f": 1,
+          "g": 1,
+          "l": 1,
+          "m": 1,
+          "o": 1,
+          "y": 1
+        },
+        "totals": {
+          "hotkeys": 11,
+          "screen_reader_commands": 0,
+          "other_keys": 217
+        },
+        "intents_by_hotkey": {}
+      }
+    }
+  },
+  "web": {
+    "tabs_by_order": [],
+    "events": 0,
+    "by_tab": {}
+  },
+  "summary": {
+    "apps": 2,
+    "events": 329,
+    "by_type": {
+      "key_press": 304,
+      "hotkey": 17,
+      "mouse_move": 6,
+      "mouse_click": 1,
+      "mouse_up": 1
+    },
+    "by_app": {
+      "explorer.exe": 20,
+      "WINWORD.EXE": 309
+    },
+    "keystrokes": {
+      "hotkeys": {
+        "Ctrl+\u0001": 2,
+        "Ctrl+Backspace": 2,
+        "Ctrl+End": 2,
+        "Alt+Down": 1,
+        "Alt+F": 1,
+        "Ctrl+\u0005": 1,
+        "Ctrl+\u000e": 1,
+        "Ctrl+1": 1,
+        "Ctrl+<49>": 1,
+        "Ctrl+E": 1,
+        "Ctrl+Enter": 1
+      },
+      "screen_reader_commands": {},
+      "other_keys": {
+        "Down": 66,
+        "Right": 32,
+        "Left": 26,
+        "Tab": 25,
+        "Up": 18,
+        "Home": 8,
+        "Esc": 7,
+        "Shift": 5,
+        "Space": 5,
+        "Enter": 4,
+        "w": 4,
+        "o": 3,
+        "r": 3,
+        "s": 3,
+        "Backspace": 2,
+        "End": 2,
+        "i": 2,
+        "Menu": 2,
+        "t": 2,
+        "a": 1,
+        "d": 1,
+        "e": 1,
+        "f": 1,
+        "g": 1,
+        "l": 1,
+        "m": 1,
+        "n": 1,
+        "y": 1
+      },
+      "totals": {
+        "hotkeys": 14,
+        "screen_reader_commands": 0,
+        "other_keys": 228
+      },
+      "intents_by_hotkey": {}
+    }
+  },
+  "accessibility": {
+    "baseline": {
+      "os": "Windows",
+      "os_version": "10.0.26100",
+      "python_version": "3.13.6",
+      "narrator": {
+        "enabled": false,
+        "startup_enabled": false
+      },
+      "magnifier": {
+        "enabled": false,
+        "zoom": 100
+      },
+      "color_filter": {
+        "enabled": false,
+        "type": "blue-yellow"
+      },
+      "high_contrast": {
+        "enabled": false,
+        "flags": "126"
+      },
+      "sticky_keys": {
+        "flags": "510",
+        "maybe_enabled": true
+      },
+      "toggle_keys": {
+        "flags": "62",
+        "maybe_enabled": true
+      },
+      "filter_keys": {
+        "flags": "126",
+        "maybe_enabled": true
+      },
+      "font_smoothing": "2",
+      "display_scaling": null,
+      "mouse_cursor_scheme": "windows aero"
+    },
+    "last": {
+      "os": "Windows",
+      "os_version": "10.0.26100",
+      "python_version": "3.13.6",
+      "narrator": {
+        "enabled": false,
+        "startup_enabled": false
+      },
+      "magnifier": {
+        "enabled": false,
+        "zoom": 100
+      },
+      "color_filter": {
+        "enabled": false,
+        "type": "blue-yellow"
+      },
+      "high_contrast": {
+        "enabled": false,
+        "flags": "126"
+      },
+      "sticky_keys": {
+        "flags": "510",
+        "maybe_enabled": true
+      },
+      "toggle_keys": {
+        "flags": "62",
+        "maybe_enabled": true
+      },
+      "filter_keys": {
+        "flags": "126",
+        "maybe_enabled": true
+      },
+      "font_smoothing": "2",
+      "display_scaling": null,
+      "mouse_cursor_scheme": "windows aero"
+    },
+    "changes": []
+  }
+}

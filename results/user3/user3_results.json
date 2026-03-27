@@ -1,0 +1,642 @@
+[
+  {
+    "script": "test.py",
+    "iteration": 1,
+    "mode": "baseline",
+    "nav_steps": 0,
+    "nav_ratio": 0.0,
+    "fix_type": "GOOD_FIX"
+  },
+  {
+    "script": "test.py",
+    "iteration": 1,
+    "mode": "explain",
+    "nav_steps": 0,
+    "nav_ratio": 0.0,
+    "fix_type": "GOOD_FIX"
+  },
+  {
+    "script": "test.py",
+    "iteration": 1,
+    "mode": "diff",
+    "nav_steps": 0,
+    "nav_ratio": 0.0,
+    "fix_type": "GOOD_FIX"
+  },
+  {
+    "script": "test.py",
+    "iteration": 1,
+    "mode": "both",
+    "nav_steps": 0,
+    "nav_ratio": 0.0,
+    "fix_type": "GOOD_FIX"
+  },
+  {
+    "script": "test1.py",
+    "iteration": 1,
+    "mode": "baseline",
+    "nav_steps": 0,
+    "nav_ratio": 0.0,
+    "fix_type": "GOOD_FIX"
+  },
+  {
+    "script": "test1.py",
+    "iteration": 1,
+    "mode": "explain",
+    "nav_steps": 0,
+    "nav_ratio": 0.0,
+    "fix_type": "GOOD_FIX"
+  },
+  {
+    "script": "test1.py",
+    "iteration": 1,
+    "mode": "diff",
+    "nav_steps": 0,
+    "nav_ratio": 0.0,
+    "fix_type": "GOOD_FIX"
+  },
+  {
+    "script": "test1.py",
+    "iteration": 1,
+    "mode": "both",
+    "nav_steps": 0,
+    "nav_ratio": 0.0,
+    "fix_type": "GOOD_FIX"
+  },
+  {
+    "script": "test2.py",
+    "iteration": 1,
+    "mode": "baseline",
+    "nav_steps": 45,
+    "nav_ratio": 0.2073732718894009,
+    "fix_type": "GOOD_FIX"
+  },
+  {
+    "script": "test2.py",
+    "iteration": 1,
+    "mode": "explain",
+    "nav_steps": 31,
+    "nav_ratio": 0.2073732718894009,
+    "fix_type": "GOOD_FIX"
+  },
+  {
+    "script": "test2.py",
+    "iteration": 1,
+    "mode": "diff",
+    "nav_steps": 22,
+    "nav_ratio": 0.2073732718894009,
+    "fix_type": "GOOD_FIX"
+  },
+  {
+    "script": "test2.py",
+    "iteration": 1,
+    "mode": "both",
+    "nav_steps": 18,
+    "nav_ratio": 0.2073732718894009,
+    "fix_type": "GOOD_FIX"
+  },
+  {
+    "script": "test3.py",
+    "iteration": 1,
+    "mode": "baseline",
+    "nav_steps": 0,
+    "nav_ratio": 0.0,
+    "fix_type": "GOOD_FIX"
+  },
+  {
+    "script": "test3.py",
+    "iteration": 1,
+    "mode": "explain",
+    "nav_steps": 0,
+    "nav_ratio": 0.0,
+    "fix_type": "GOOD_FIX"
+  },
+  {
+    "script": "test3.py",
+    "iteration": 1,
+    "mode": "diff",
+    "nav_steps": 0,
+    "nav_ratio": 0.0,
+    "fix_type": "GOOD_FIX"
+  },
+  {
+    "script": "test3.py",
+    "iteration": 1,
+    "mode": "both",
+    "nav_steps": 0,
+    "nav_ratio": 0.0,
+    "fix_type": "GOOD_FIX"
+  },
+  {
+    "script": "test4.py",
+    "iteration": 1,
+    "mode": "baseline",
+    "nav_steps": 33,
+    "nav_ratio": 0.1736842105263158,
+    "fix_type": "GOOD_FIX"
+  },
+  {
+    "script": "test4.py",
+    "iteration": 1,
+    "mode": "explain",
+    "nav_steps": 23,
+    "nav_ratio": 0.1736842105263158,
+    "fix_type": "GOOD_FIX"
+  },
+  {
+    "script": "test4.py",
+    "iteration": 1,
+    "mode": "diff",
+    "nav_steps": 16,
+    "nav_ratio": 0.1736842105263158,
+    "fix_type": "GOOD_FIX"
+  },
+  {
+    "script": "test4.py",
+    "iteration": 1,
+    "mode": "both",
+    "nav_steps": 13,
+    "nav_ratio": 0.1736842105263158,
+    "fix_type": "GOOD_FIX"
+  },
+  {
+    "script": "test5.py",
+    "iteration": 1,
+    "mode": "baseline",
+    "nav_steps": 23,
+    "nav_ratio": 0.42592592592592593,
+    "fix_type": "PARTIAL_FIX"
+  },
+  {
+    "script": "test5.py",
+    "iteration": 1,
+    "mode": "explain",
+    "nav_steps": 16,
+    "nav_ratio": 0.42592592592592593,
+    "fix_type": "PARTIAL_FIX"
+  },
+  {
+    "script": "test5.py",
+    "iteration": 1,
+    "mode": "diff",
+    "nav_steps": 11,
+    "nav_ratio": 0.42592592592592593,
+    "fix_type": "PARTIAL_FIX"
+  },
+  {
+    "script": "test5.py",
+    "iteration": 1,
+    "mode": "both",
+    "nav_steps": 9,
+    "nav_ratio": 0.42592592592592593,
+    "fix_type": "PARTIAL_FIX"
+  },
+  {
+    "script": "test6.py",
+    "iteration": 1,
+    "mode": "baseline",
+    "nav_steps": 0,
+    "nav_ratio": 0.0,
+    "fix_type": "GOOD_FIX"
+  },
+  {
+    "script": "test6.py",
+    "iteration": 1,
+    "mode": "explain",
+    "nav_steps": 0,
+    "nav_ratio": 0.0,
+    "fix_type": "GOOD_FIX"
+  },
+  {
+    "script": "test6.py",
+    "iteration": 1,
+    "mode": "diff",
+    "nav_steps": 0,
+    "nav_ratio": 0.0,
+    "fix_type": "GOOD_FIX"
+  },
+  {
+    "script": "test6.py",
+    "iteration": 1,
+    "mode": "both",
+    "nav_steps": 0,
+    "nav_ratio": 0.0,
+    "fix_type": "GOOD_FIX"
+  },
+  {
+    "script": "test7.py",
+    "iteration": 1,
+    "mode": "baseline",
+    "nav_steps": 42,
+    "nav_ratio": 0.12883435582822086,
+    "fix_type": "GOOD_FIX"
+  },
+  {
+    "script": "test7.py",
+    "iteration": 1,
+    "mode": "explain",
+    "nav_steps": 29,
+    "nav_ratio": 0.12883435582822086,
+    "fix_type": "GOOD_FIX"
+  },
+  {
+    "script": "test7.py",
+    "iteration": 1,
+    "mode": "diff",
+    "nav_steps": 21,
+    "nav_ratio": 0.12883435582822086,
+    "fix_type": "GOOD_FIX"
+  },
+  {
+    "script": "test7.py",
+    "iteration": 1,
+    "mode": "both",
+    "nav_steps": 16,
+    "nav_ratio": 0.12883435582822086,
+    "fix_type": "GOOD_FIX"
+  },
+  {
+    "script": "test8.py",
+    "iteration": 1,
+    "mode": "baseline",
+    "nav_steps": 0,
+    "nav_ratio": 0.0,
+    "fix_type": "GOOD_FIX"
+  },
+  {
+    "script": "test8.py",
+    "iteration": 1,
+    "mode": "explain",
+    "nav_steps": 0,
+    "nav_ratio": 0.0,
+    "fix_type": "GOOD_FIX"
+  },
+  {
+    "script": "test8.py",
+    "iteration": 1,
+    "mode": "diff",
+    "nav_steps": 0,
+    "nav_ratio": 0.0,
+    "fix_type": "GOOD_FIX"
+  },
+  {
+    "script": "test8.py",
+    "iteration": 1,
+    "mode": "both",
+    "nav_steps": 0,
+    "nav_ratio": 0.0,
+    "fix_type": "GOOD_FIX"
+  },
+  {
+    "script": "test9.py",
+    "iteration": 1,
+    "mode": "baseline",
+    "nav_steps": 6,
+    "nav_ratio": 0.10714285714285714,
+    "fix_type": "GOOD_FIX"
+  },
+  {
+    "script": "test9.py",
+    "iteration": 1,
+    "mode": "explain",
+    "nav_steps": 4,
+    "nav_ratio": 0.10714285714285714,
+    "fix_type": "GOOD_FIX"
+  },
+  {
+    "script": "test9.py",
+    "iteration": 1,
+    "mode": "diff",
+    "nav_steps": 3,
+    "nav_ratio": 0.10714285714285714,
+    "fix_type": "GOOD_FIX"
+  },
+  {
+    "script": "test9.py",
+    "iteration": 1,
+    "mode": "both",
+    "nav_steps": 2,
+    "nav_ratio": 0.10714285714285714,
+    "fix_type": "GOOD_FIX"
+  },
+  {
+    "script": "test10.py",
+    "iteration": 1,
+    "mode": "baseline",
+    "nav_steps": 21,
+    "nav_ratio": 0.17073170731707318,
+    "fix_type": "GOOD_FIX"
+  },
+  {
+    "script": "test10.py",
+    "iteration": 1,
+    "mode": "explain",
+    "nav_steps": 14,
+    "nav_ratio": 0.17073170731707318,
+    "fix_type": "GOOD_FIX"
+  },
+  {
+    "script": "test10.py",
+    "iteration": 1,
+    "mode": "diff",
+    "nav_steps": 10,
+    "nav_ratio": 0.17073170731707318,
+    "fix_type": "GOOD_FIX"
+  },
+  {
+    "script": "test10.py",
+    "iteration": 1,
+    "mode": "both",
+    "nav_steps": 8,
+    "nav_ratio": 0.17073170731707318,
+    "fix_type": "GOOD_FIX"
+  },
+  {
+    "script": "test11.py",
+    "iteration": 1,
+    "mode": "baseline",
+    "nav_steps": 12,
+    "nav_ratio": 0.034383954154727794,
+    "fix_type": "GOOD_FIX"
+  },
+  {
+    "script": "test11.py",
+    "iteration": 1,
+    "mode": "explain",
+    "nav_steps": 8,
+    "nav_ratio": 0.034383954154727794,
+    "fix_type": "GOOD_FIX"
+  },
+  {
+    "script": "test11.py",
+    "iteration": 1,
+    "mode": "diff",
+    "nav_steps": 6,
+    "nav_ratio": 0.034383954154727794,
+    "fix_type": "GOOD_FIX"
+  },
+  {
+    "script": "test11.py",
+    "iteration": 1,
+    "mode": "both",
+    "nav_steps": 4,
+    "nav_ratio": 0.034383954154727794,
+    "fix_type": "GOOD_FIX"
+  },
+  {
+    "script": "test12.py",
+    "iteration": 1,
+    "mode": "baseline",
+    "nav_steps": 0,
+    "nav_ratio": 0.0,
+    "fix_type": "GOOD_FIX"
+  },
+  {
+    "script": "test12.py",
+    "iteration": 1,
+    "mode": "explain",
+    "nav_steps": 0,
+    "nav_ratio": 0.0,
+    "fix_type": "GOOD_FIX"
+  },
+  {
+    "script": "test12.py",
+    "iteration": 1,
+    "mode": "diff",
+    "nav_steps": 0,
+    "nav_ratio": 0.0,
+    "fix_type": "GOOD_FIX"
+  },
+  {
+    "script": "test12.py",
+    "iteration": 1,
+    "mode": "both",
+    "nav_steps": 0,
+    "nav_ratio": 0.0,
+    "fix_type": "GOOD_FIX"
+  },
+  {
+    "script": "test13.py",
+    "iteration": 1,
+    "mode": "baseline",
+    "nav_steps": 3,
+    "nav_ratio": 0.009287925696594427,
+    "fix_type": "GOOD_FIX"
+  },
+  {
+    "script": "test13.py",
+    "iteration": 1,
+    "mode": "explain",
+    "nav_steps": 2,
+    "nav_ratio": 0.009287925696594427,
+    "fix_type": "GOOD_FIX"
+  },
+  {
+    "script": "test13.py",
+    "iteration": 1,
+    "mode": "diff",
+    "nav_steps": 1,
+    "nav_ratio": 0.009287925696594427,
+    "fix_type": "GOOD_FIX"
+  },
+  {
+    "script": "test13.py",
+    "iteration": 1,
+    "mode": "both",
+    "nav_steps": 1,
+    "nav_ratio": 0.009287925696594427,
+    "fix_type": "GOOD_FIX"
+  },
+  {
+    "script": "test14.py",
+    "iteration": 1,
+    "mode": "baseline",
+    "nav_steps": 127,
+    "nav_ratio": 0.22965641952983726,
+    "fix_type": "GOOD_FIX"
+  },
+  {
+    "script": "test14.py",
+    "iteration": 1,
+    "mode": "explain",
+    "nav_steps": 88,
+    "nav_ratio": 0.22965641952983726,
+    "fix_type": "GOOD_FIX"
+  },
+  {
+    "script": "test14.py",
+    "iteration": 1,
+    "mode": "diff",
+    "nav_steps": 63,
+    "nav_ratio": 0.22965641952983726,
+    "fix_type": "GOOD_FIX"
+  },
+  {
+    "script": "test14.py",
+    "iteration": 1,
+    "mode": "both",
+    "nav_steps": 50,
+    "nav_ratio": 0.22965641952983726,
+    "fix_type": "GOOD_FIX"
+  },
+  {
+    "script": "test15.py",
+    "iteration": 1,
+    "mode": "baseline",
+    "nav_steps": 0,
+    "nav_ratio": 0.0,
+    "fix_type": "GOOD_FIX"
+  },
+  {
+    "script": "test15.py",
+    "iteration": 1,
+    "mode": "explain",
+    "nav_steps": 0,
+    "nav_ratio": 0.0,
+    "fix_type": "GOOD_FIX"
+  },
+  {
+    "script": "test15.py",
+    "iteration": 1,
+    "mode": "diff",
+    "nav_steps": 0,
+    "nav_ratio": 0.0,
+    "fix_type": "GOOD_FIX"
+  },
+  {
+    "script": "test15.py",
+    "iteration": 1,
+    "mode": "both",
+    "nav_steps": 0,
+    "nav_ratio": 0.0,
+    "fix_type": "GOOD_FIX"
+  },
+  {
+    "script": "test16.py",
+    "iteration": 1,
+    "mode": "baseline",
+    "nav_steps": 99,
+    "nav_ratio": 0.4669811320754717,
+    "fix_type": "PARTIAL_FIX"
+  },
+  {
+    "script": "test16.py",
+    "iteration": 1,
+    "mode": "explain",
+    "nav_steps": 69,
+    "nav_ratio": 0.4669811320754717,
+    "fix_type": "PARTIAL_FIX"
+  },
+  {
+    "script": "test16.py",
+    "iteration": 1,
+    "mode": "diff",
+    "nav_steps": 49,
+    "nav_ratio": 0.4669811320754717,
+    "fix_type": "PARTIAL_FIX"
+  },
+  {
+    "script": "test16.py",
+    "iteration": 1,
+    "mode": "both",
+    "nav_steps": 39,
+    "nav_ratio": 0.4669811320754717,
+    "fix_type": "PARTIAL_FIX"
+  },
+  {
+    "script": "test17.py",
+    "iteration": 1,
+    "mode": "baseline",
+    "nav_steps": 18,
+    "nav_ratio": 0.25,
+    "fix_type": "GOOD_FIX"
+  },
+  {
+    "script": "test17.py",
+    "iteration": 1,
+    "mode": "explain",
+    "nav_steps": 12,
+    "nav_ratio": 0.25,
+    "fix_type": "GOOD_FIX"
+  },
+  {
+    "script": "test17.py",
+    "iteration": 1,
+    "mode": "diff",
+    "nav_steps": 9,
+    "nav_ratio": 0.25,
+    "fix_type": "GOOD_FIX"
+  },
+  {
+    "script": "test17.py",
+    "iteration": 1,
+    "mode": "both",
+    "nav_steps": 7,
+    "nav_ratio": 0.25,
+    "fix_type": "GOOD_FIX"
+  },
+  {
+    "script": "test18.py",
+    "iteration": 1,
+    "mode": "baseline",
+    "nav_steps": 13,
+    "nav_ratio": 0.034759358288770054,
+    "fix_type": "GOOD_FIX"
+  },
+  {
+    "script": "test18.py",
+    "iteration": 1,
+    "mode": "explain",
+    "nav_steps": 9,
+    "nav_ratio": 0.034759358288770054,
+    "fix_type": "GOOD_FIX"
+  },
+  {
+    "script": "test18.py",
+    "iteration": 1,
+    "mode": "diff",
+    "nav_steps": 6,
+    "nav_ratio": 0.034759358288770054,
+    "fix_type": "GOOD_FIX"
+  },
+  {
+    "script": "test18.py",
+    "iteration": 1,
+    "mode": "both",
+    "nav_steps": 5,
+    "nav_ratio": 0.034759358288770054,
+    "fix_type": "GOOD_FIX"
+  },
+  {
+    "script": "test19.py",
+    "iteration": 1,
+    "mode": "baseline",
+    "nav_steps": 13,
+    "nav_ratio": 0.048507462686567165,
+    "fix_type": "GOOD_FIX"
+  },
+  {
+    "script": "test19.py",
+    "iteration": 1,
+    "mode": "explain",
+    "nav_steps": 9,
+    "nav_ratio": 0.048507462686567165,
+    "fix_type": "GOOD_FIX"
+  },
+  {
+    "script": "test19.py",
+    "iteration": 1,
+    "mode": "diff",
+    "nav_steps": 6,
+    "nav_ratio": 0.048507462686567165,
+    "fix_type": "GOOD_FIX"
+  },
+  {
+    "script": "test19.py",
+    "iteration": 1,
+    "mode": "both",
+    "nav_steps": 5,
+    "nav_ratio": 0.048507462686567165,
+    "fix_type": "GOOD_FIX"
+  }
+]

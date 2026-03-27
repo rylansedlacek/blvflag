@@ -1,0 +1,483 @@
+{
+  "task": {
+    "task_id": 70,
+    "task_title": "Create a desktop shortcut to a folder and log its path in Excel",
+    "instruction": "Create new shortcuts to Pictures, Music, and Videos from Desktop and add each of their paths in Task ID 70.xlsx in Documents > Task 70.",
+    "task": "Create new shortcuts to Pictures, Music, and Videos from Desktop and add each of their paths in Task ID 70.xlsx in Documents > Task 70.",
+    "context": "I want quick access to media folders from Desktop",
+    "rand_id_column": "Rand ID 20",
+    "rand_order": 45,
+    "task_group": "Workflow",
+    "interactions": "",
+    "applications": "File Explorer, Excel",
+    "familiarity": "Medium",
+    "difficulty_before": "Easy",
+    "difficulty_after": "Easy",
+    "success": true
+  },
+  "session": {
+    "started_at": 1756909976.5218563,
+    "last_event_at": 1756910177.0626073,
+    "folder": "task_logs\\User 20\\70",
+    "apps_by_order": [
+      {
+        "order": 1,
+        "app": "explorer.exe",
+        "log_file": "1_explorer.exe.json"
+      },
+      {
+        "order": 2,
+        "app": "EXCEL.EXE",
+        "log_file": "2_EXCEL.EXE.json"
+      }
+    ],
+    "ended_at": 1756910185.358976
+  },
+  "apps": {
+    "explorer.exe": {
+      "order": 1,
+      "log_file": "1_explorer.exe.json",
+      "a11y_tree_files": [
+        "1_explorer.exe_1756909978830_a11y_tree.json",
+        "1_explorer.exe_1756909986172_a11y_tree.json",
+        "1_explorer.exe_1756910005165_a11y_tree.json",
+        "1_explorer.exe_1756910057515_a11y_tree.json",
+        "1_explorer.exe_1756910060377_a11y_tree.json",
+        "1_explorer.exe_1756910078002_a11y_tree.json",
+        "1_explorer.exe_1756910079018_a11y_tree.json",
+        "1_explorer.exe_1756910136230_a11y_tree.json",
+        "1_explorer.exe_1756910154290_a11y_tree.json"
+      ],
+      "events": 180,
+      "by_type": {
+        "mouse_click": 0,
+        "mouse_up": 1,
+        "mouse_move": 0,
+        "drag_drop": 0,
+        "key_press": 157,
+        "hotkey": 22,
+        "scroll": 0
+      },
+      "display_name": "explorer.exe",
+      "windows_seen": [
+        {
+          "title": "Task 70 - File Explorer",
+          "bounds": {
+            "left": 408,
+            "top": 102,
+            "right": 1849,
+            "bottom": 1002
+          },
+          "state": null,
+          "hwnd": 133166,
+          "pid": 9576,
+          "ts": 1756910069.018518
+        },
+        {
+          "title": "Task Switching",
+          "bounds": {
+            "left": 0,
+            "top": 0,
+            "right": 1920,
+            "bottom": 1008
+          },
+          "state": null,
+          "hwnd": 68134,
+          "pid": 9576,
+          "ts": 1756910078.0016453
+        },
+        {
+          "title": "Task 70 - File Explorer",
+          "bounds": {
+            "left": 408,
+            "top": 102,
+            "right": 1849,
+            "bottom": 1002
+          },
+          "state": null,
+          "hwnd": 133166,
+          "pid": 9576,
+          "ts": 1756910079.0179238
+        },
+        {
+          "title": "Task Switching",
+          "bounds": {
+            "left": 0,
+            "top": 0,
+            "right": 1920,
+            "bottom": 1008
+          },
+          "state": null,
+          "hwnd": 68134,
+          "pid": 9576,
+          "ts": 1756910089.9164174
+        },
+        {
+          "title": "blind6 - File Explorer",
+          "bounds": {
+            "left": 370,
+            "top": 64,
+            "right": 1811,
+            "bottom": 964
+          },
+          "state": null,
+          "hwnd": 4851466,
+          "pid": 9576,
+          "ts": 1756910093.4234383
+        },
+        {
+          "title": "Task Switching",
+          "bounds": {
+            "left": 0,
+            "top": 0,
+            "right": 1920,
+            "bottom": 1008
+          },
+          "state": null,
+          "hwnd": 68134,
+          "pid": 9576,
+          "ts": 1756910102.5421615
+        },
+        {
+          "title": "blind6 - File Explorer",
+          "bounds": {
+            "left": 370,
+            "top": 64,
+            "right": 1811,
+            "bottom": 964
+          },
+          "state": null,
+          "hwnd": 4851466,
+          "pid": 9576,
+          "ts": 1756910118.2335086
+        },
+        {
+          "title": "Task Switching",
+          "bounds": {
+            "left": 0,
+            "top": 0,
+            "right": 1920,
+            "bottom": 1008
+          },
+          "state": null,
+          "hwnd": 68134,
+          "pid": 9576,
+          "ts": 1756910136.2298017
+        },
+        {
+          "title": "blind6 - File Explorer",
+          "bounds": {
+            "left": 370,
+            "top": 64,
+            "right": 1811,
+            "bottom": 964
+          },
+          "state": null,
+          "hwnd": 4851466,
+          "pid": 9576,
+          "ts": 1756910159.5364609
+        },
+        {
+          "title": "Task Switching",
+          "bounds": {
+            "left": 0,
+            "top": 0,
+            "right": 1920,
+            "bottom": 1008
+          },
+          "state": null,
+          "hwnd": 68134,
+          "pid": 9576,
+          "ts": 1756910163.6177046
+        }
+      ],
+      "last_window": {
+        "title": "Task Switching",
+        "bounds": {
+          "left": 0,
+          "top": 0,
+          "right": 1920,
+          "bottom": 1008
+        },
+        "state": null,
+        "hwnd": 68134,
+        "pid": 9576,
+        "ts": 1756910166.7670815
+      },
+      "keystrokes": {
+        "hotkeys": {
+          "Alt+Tab": 12,
+          "Alt+Shift+Tab": 2,
+          "Win+R": 2
+        },
+        "screen_reader_commands": {},
+        "other_keys": {
+          "Up": 47,
+          "Down": 13,
+          "Menu": 13,
+          "Enter": 10,
+          "Shift": 7,
+          "Right": 6,
+          "Left": 3,
+          "m": 3,
+          "a": 2,
+          "PageDown": 2,
+          "u": 2,
+          "v": 2,
+          ".": 1,
+          "c": 1,
+          "d": 1,
+          "e": 1,
+          "Esc": 1,
+          "i": 1,
+          "n": 1,
+          "o": 1,
+          "p": 1,
+          "s": 1,
+          "Space": 1,
+          "t": 1
+        },
+        "totals": {
+          "hotkeys": 16,
+          "screen_reader_commands": 0,
+          "other_keys": 122
+        },
+        "intents_by_hotkey": {
+          "task_switch": 14
+        }
+      }
+    },
+    "EXCEL.EXE": {
+      "order": 2,
+      "log_file": "2_EXCEL.EXE.json",
+      "a11y_tree_files": [
+        "2_EXCEL.EXE_1756910077039_a11y_tree.json",
+        "2_EXCEL.EXE_1756910089104_a11y_tree.json"
+      ],
+      "events": 80,
+      "by_type": {
+        "mouse_click": 1,
+        "mouse_up": 1,
+        "mouse_move": 6,
+        "drag_drop": 0,
+        "key_press": 64,
+        "hotkey": 8,
+        "scroll": 0
+      },
+      "display_name": "EXCEL.EXE",
+      "windows_seen": [
+        {
+          "title": "Task ID 70  -  Protected View - Excel",
+          "bounds": {
+            "left": -11,
+            "top": -11,
+            "right": 1931,
+            "bottom": 1019
+          },
+          "state": null,
+          "hwnd": 67828,
+          "pid": 16272,
+          "ts": 1756910077.03893
+        },
+        {
+          "title": "Task ID 70 - Excel",
+          "bounds": {
+            "left": -11,
+            "top": -11,
+            "right": 1931,
+            "bottom": 1019
+          },
+          "state": null,
+          "hwnd": 264204,
+          "pid": 16272,
+          "ts": 1756910089.10385
+        }
+      ],
+      "last_window": {
+        "title": "Task ID 70 - Excel",
+        "bounds": {
+          "left": -11,
+          "top": -11,
+          "right": 1931,
+          "bottom": 1019
+        },
+        "state": null,
+        "hwnd": 264204,
+        "pid": 16272,
+        "ts": 1756910177.0626073
+      },
+      "keystrokes": {
+        "hotkeys": {
+          "Ctrl+\u0016": 3,
+          "Ctrl+V": 3,
+          "Alt+Tab": 1,
+          "Ctrl+W": 1
+        },
+        "screen_reader_commands": {},
+        "other_keys": {
+          "Left": 14,
+          "Right": 14,
+          "Up": 8,
+          "Down": 6,
+          "F6": 2,
+          "Enter": 1,
+          "Tab": 1
+        },
+        "totals": {
+          "hotkeys": 8,
+          "screen_reader_commands": 0,
+          "other_keys": 46
+        },
+        "intents_by_hotkey": {
+          "paste": 3,
+          "close_tab": 1,
+          "task_switch": 1
+        }
+      }
+    }
+  },
+  "web": {
+    "tabs_by_order": [],
+    "events": 0,
+    "by_tab": {}
+  },
+  "summary": {
+    "apps": 2,
+    "events": 260,
+    "by_type": {
+      "mouse_up": 2,
+      "key_press": 221,
+      "hotkey": 30,
+      "mouse_move": 6,
+      "mouse_click": 1
+    },
+    "by_app": {
+      "explorer.exe": 180,
+      "EXCEL.EXE": 80
+    },
+    "keystrokes": {
+      "hotkeys": {
+        "Alt+Tab": 13,
+        "Ctrl+\u0016": 3,
+        "Ctrl+V": 3,
+        "Alt+Shift+Tab": 2,
+        "Win+R": 2,
+        "Ctrl+W": 1
+      },
+      "screen_reader_commands": {},
+      "other_keys": {
+        "Up": 55,
+        "Right": 20,
+        "Down": 19,
+        "Left": 17,
+        "Menu": 13,
+        "Enter": 11,
+        "Shift": 7,
+        "m": 3,
+        "a": 2,
+        "F6": 2,
+        "PageDown": 2,
+        "u": 2,
+        "v": 2,
+        ".": 1,
+        "c": 1,
+        "d": 1,
+        "e": 1,
+        "Esc": 1,
+        "i": 1,
+        "n": 1,
+        "o": 1,
+        "p": 1,
+        "s": 1,
+        "Space": 1,
+        "t": 1,
+        "Tab": 1
+      },
+      "totals": {
+        "hotkeys": 24,
+        "screen_reader_commands": 0,
+        "other_keys": 168
+      },
+      "intents_by_hotkey": {
+        "task_switch": 15,
+        "paste": 3,
+        "close_tab": 1
+      }
+    }
+  },
+  "accessibility": {
+    "baseline": {
+      "os": "Windows",
+      "os_version": "10.0.26100",
+      "python_version": "3.13.7",
+      "narrator": {
+        "enabled": false,
+        "startup_enabled": false
+      },
+      "magnifier": {
+        "enabled": false,
+        "zoom": null
+      },
+      "color_filter": {
+        "enabled": false,
+        "type": "unknown"
+      },
+      "high_contrast": {
+        "enabled": false,
+        "flags": "126"
+      },
+      "sticky_keys": {
+        "flags": "510",
+        "maybe_enabled": true
+      },
+      "toggle_keys": {
+        "flags": "62",
+        "maybe_enabled": true
+      },
+      "filter_keys": {
+        "flags": "126",
+        "maybe_enabled": true
+      },
+      "font_smoothing": "2",
+      "display_scaling": null,
+      "mouse_cursor_scheme": "windows aero"
+    },
+    "last": {
+      "os": "Windows",
+      "os_version": "10.0.26100",
+      "python_version": "3.13.7",
+      "narrator": {
+        "enabled": false,
+        "startup_enabled": false
+      },
+      "magnifier": {
+        "enabled": false,
+        "zoom": null
+      },
+      "color_filter": {
+        "enabled": false,
+        "type": "unknown"
+      },
+      "high_contrast": {
+        "enabled": false,
+        "flags": "126"
+      },
+      "sticky_keys": {
+        "flags": "510",
+        "maybe_enabled": true
+      },
+      "toggle_keys": {
+        "flags": "62",
+        "maybe_enabled": true
+      },
+      "filter_keys": {
+        "flags": "126",
+        "maybe_enabled": true
+      },
+      "font_smoothing": "2",
+      "display_scaling": null,
+      "mouse_cursor_scheme": "windows aero"
+    },
+    "changes": []
+  }
+}

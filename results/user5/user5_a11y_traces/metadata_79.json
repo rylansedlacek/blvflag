@@ -1,0 +1,304 @@
+{
+  "task": {
+    "task_id": 79,
+    "task_title": "Recover a photo from Trash",
+    "instruction": "Recover the file Task ID 79.jpg from Recycle Bin and verify whether it is restored to its previous location in Documents > Task 79 folder.",
+    "task": "Recover the file Task ID 79.jpg from Recycle Bin and verify whether it is restored to its previous location in Documents > Task 79 folder.",
+    "context": "I accidentally deleted a file with the name Task ID 79.jpg.",
+    "rand_id_column": "Rand ID 20",
+    "rand_order": 16,
+    "task_group": "System Operation",
+    "interactions": "",
+    "applications": "Recycle bin",
+    "familiarity": "High",
+    "difficulty_before": "Easy",
+    "difficulty_after": "Easy",
+    "success": true
+  },
+  "session": {
+    "started_at": 1756667331.6895938,
+    "last_event_at": 1756667396.699448,
+    "folder": "task_logs\\User 20\\79",
+    "apps_by_order": [
+      {
+        "order": 1,
+        "app": "explorer.exe",
+        "log_file": "1_explorer.exe.json"
+      }
+    ],
+    "ended_at": 1756667403.247316
+  },
+  "apps": {
+    "explorer.exe": {
+      "order": 1,
+      "log_file": "1_explorer.exe.json",
+      "a11y_tree_files": [
+        "1_explorer.exe_1756667337538_a11y_tree.json",
+        "1_explorer.exe_1756667341869_a11y_tree.json",
+        "1_explorer.exe_1756667358768_a11y_tree.json",
+        "1_explorer.exe_1756667359721_a11y_tree.json",
+        "1_explorer.exe_1756667362974_a11y_tree.json"
+      ],
+      "events": 73,
+      "by_type": {
+        "mouse_click": 1,
+        "mouse_up": 0,
+        "mouse_move": 5,
+        "drag_drop": 0,
+        "key_press": 63,
+        "hotkey": 4,
+        "scroll": 0
+      },
+      "display_name": "explorer.exe",
+      "windows_seen": [
+        {
+          "title": "Program Manager",
+          "bounds": {
+            "left": 0,
+            "top": 0,
+            "right": 1920,
+            "bottom": 1080
+          },
+          "state": null,
+          "hwnd": 65782,
+          "pid": 5556,
+          "ts": 1756667337.5376148
+        },
+        {
+          "title": "Recycle Bin - File Explorer",
+          "bounds": {
+            "left": 370,
+            "top": 64,
+            "right": 1811,
+            "bottom": 964
+          },
+          "state": null,
+          "hwnd": 1312640,
+          "pid": 5556,
+          "ts": 1756667341.8692224
+        },
+        {
+          "title": "",
+          "bounds": {
+            "left": 0,
+            "top": 1008,
+            "right": 1920,
+            "bottom": 1080
+          },
+          "state": null,
+          "hwnd": 327892,
+          "pid": 5556,
+          "ts": 1756667358.767711
+        },
+        {
+          "title": "Run",
+          "bounds": {
+            "left": 11,
+            "top": 657,
+            "right": 601,
+            "bottom": 1004
+          },
+          "state": null,
+          "hwnd": 330440,
+          "pid": 5556,
+          "ts": 1756667359.7207856
+        },
+        {
+          "title": "File Explorer",
+          "bounds": {
+            "left": 370,
+            "top": 64,
+            "right": 1811,
+            "bottom": 964
+          },
+          "state": null,
+          "hwnd": 722750,
+          "pid": 5556,
+          "ts": 1756667362.9743476
+        },
+        {
+          "title": "Documents - File Explorer",
+          "bounds": {
+            "left": 370,
+            "top": 64,
+            "right": 1811,
+            "bottom": 964
+          },
+          "state": null,
+          "hwnd": 722750,
+          "pid": 5556,
+          "ts": 1756667364.172505
+        },
+        {
+          "title": "Task 79 - File Explorer",
+          "bounds": {
+            "left": 370,
+            "top": 64,
+            "right": 1811,
+            "bottom": 964
+          },
+          "state": null,
+          "hwnd": 722750,
+          "pid": 5556,
+          "ts": 1756667393.6393921
+        }
+      ],
+      "last_window": {
+        "title": "Task 79 - File Explorer",
+        "bounds": {
+          "left": 370,
+          "top": 64,
+          "right": 1811,
+          "bottom": 964
+        },
+        "state": null,
+        "hwnd": 722750,
+        "pid": 5556,
+        "ts": 1756667396.699448
+      },
+      "keystrokes": {
+        "hotkeys": {
+          "Ctrl+Left": 2,
+          "Ctrl+\u0017": 1,
+          "Win+R": 1
+        },
+        "screen_reader_commands": {},
+        "other_keys": {
+          "Down": 40,
+          "Enter": 5,
+          "Up": 5,
+          "a": 1,
+          "k": 1,
+          "Menu": 1,
+          "r": 1,
+          "s": 1,
+          "t": 1
+        },
+        "totals": {
+          "hotkeys": 4,
+          "screen_reader_commands": 0,
+          "other_keys": 56
+        },
+        "intents_by_hotkey": {}
+      }
+    }
+  },
+  "web": {
+    "tabs_by_order": [],
+    "events": 0,
+    "by_tab": {}
+  },
+  "summary": {
+    "apps": 1,
+    "events": 73,
+    "by_type": {
+      "key_press": 63,
+      "hotkey": 4,
+      "mouse_move": 5,
+      "mouse_click": 1
+    },
+    "by_app": {
+      "explorer.exe": 73
+    },
+    "keystrokes": {
+      "hotkeys": {
+        "Ctrl+Left": 2,
+        "Ctrl+\u0017": 1,
+        "Win+R": 1
+      },
+      "screen_reader_commands": {},
+      "other_keys": {
+        "Down": 40,
+        "Enter": 5,
+        "Up": 5,
+        "a": 1,
+        "k": 1,
+        "Menu": 1,
+        "r": 1,
+        "s": 1,
+        "t": 1
+      },
+      "totals": {
+        "hotkeys": 4,
+        "screen_reader_commands": 0,
+        "other_keys": 56
+      },
+      "intents_by_hotkey": {}
+    }
+  },
+  "accessibility": {
+    "baseline": {
+      "os": "Windows",
+      "os_version": "10.0.26100",
+      "python_version": "3.13.7",
+      "narrator": {
+        "enabled": false,
+        "startup_enabled": false
+      },
+      "magnifier": {
+        "enabled": false,
+        "zoom": null
+      },
+      "color_filter": {
+        "enabled": false,
+        "type": "unknown"
+      },
+      "high_contrast": {
+        "enabled": false,
+        "flags": "126"
+      },
+      "sticky_keys": {
+        "flags": "510",
+        "maybe_enabled": true
+      },
+      "toggle_keys": {
+        "flags": "62",
+        "maybe_enabled": true
+      },
+      "filter_keys": {
+        "flags": "126",
+        "maybe_enabled": true
+      },
+      "font_smoothing": "2",
+      "display_scaling": null,
+      "mouse_cursor_scheme": "windows aero"
+    },
+    "last": {
+      "os": "Windows",
+      "os_version": "10.0.26100",
+      "python_version": "3.13.7",
+      "narrator": {
+        "enabled": false,
+        "startup_enabled": false
+      },
+      "magnifier": {
+        "enabled": false,
+        "zoom": null
+      },
+      "color_filter": {
+        "enabled": false,
+        "type": "unknown"
+      },
+      "high_contrast": {
+        "enabled": false,
+        "flags": "126"
+      },
+      "sticky_keys": {
+        "flags": "510",
+        "maybe_enabled": true
+      },
+      "toggle_keys": {
+        "flags": "62",
+        "maybe_enabled": true
+      },
+      "filter_keys": {
+        "flags": "126",
+        "maybe_enabled": true
+      },
+      "font_smoothing": "2",
+      "display_scaling": null,
+      "mouse_cursor_scheme": "windows aero"
+    },
+    "changes": []
+  }
+}
