@@ -41,20 +41,20 @@ def compute_reduction(df):
 def plot_nav_steps(df):
     plt.figure()
     df.groupby("mode")["nav_steps"].mean().plot(kind="bar")
-    plt.title(" User 4 - Average Navigation Steps by Mode")
+    plt.title(" User 5 - Average Navigation Steps by Mode")
     plt.ylabel("Nav Steps")
     plt.tight_layout()
-    plt.savefig(OUT_DIR / "U4_fig_nav_steps.png")
+    plt.savefig(OUT_DIR / "U5_fig_nav_steps.png")
     plt.close()
 
 #fix quality
 def plot_fix_quality(df):
     plt.figure()
     df.groupby("mode")["fix_score"].mean().plot(kind="bar")
-    plt.title("User 4 - Average Fix Quality by Mode")
+    plt.title("User 5 - Average Fix Quality by Mode")
     plt.ylabel("Fix Score")
     plt.tight_layout()
-    plt.savefig(OUT_DIR / "U4_fig_fix_quality.png")
+    plt.savefig(OUT_DIR / "U5_fig_fix_quality.png")
     plt.close()
 
 
@@ -62,11 +62,11 @@ def plot_fix_quality(df):
 def plot_boxplot(df):
     plt.figure()
     df.boxplot(column="nav_steps", by="mode")
-    plt.title("User 4 - Navigation Steps Distribution")
+    plt.title("User 5 - Navigation Steps Distribution")
     plt.suptitle("")
     plt.ylabel("Nav Steps")
     plt.tight_layout()
-    plt.savefig(OUT_DIR / "U4_fig_nav_boxplot.png")
+    plt.savefig(OUT_DIR / "U5_fig_nav_boxplot.png")
     plt.close()
 
 #tradeoofs
@@ -79,10 +79,10 @@ def plot_tradeoff(df):
 
     plt.xlabel("Navigation Steps")
     plt.ylabel("Fix Score")
-    plt.title("User 4 - Navigation vs Fix Quality Tradeoff")
+    plt.title("User 5 - Navigation vs Fix Quality Tradeoff")
     plt.legend()
     plt.tight_layout()
-    plt.savefig(OUT_DIR / "U4_fig_tradeoff.png")
+    plt.savefig(OUT_DIR / "U5_fig_tradeoff.png")
     plt.close()
 
 # improvements
@@ -102,11 +102,11 @@ def plot_improvement(df):
 
     plt.figure()
     df["improvement"].dropna().hist(bins=20)
-    plt.title(" User 4- Navigation Improvement (Baseline - Tool)")
+    plt.title(" User 5- Navigation Improvement (Baseline - Tool)")
     plt.xlabel("Improvement")
     plt.ylabel("Frequency")
     plt.tight_layout()
-    plt.savefig(OUT_DIR / "U4_fig_improvement_hist.png")
+    plt.savefig(OUT_DIR / "U5_fig_improvement_hist.png")
     plt.close()
 
 def main():
