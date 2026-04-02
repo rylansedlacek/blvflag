@@ -25,7 +25,8 @@ pub async fn process_script(script_path: &str, explain: bool, diff: bool, revert
     */
 
     match out {
-            //Standard Out
+
+            //Standard Out ----------------------------
             Ok((commands::OutputType::Stdout, output)) => { 
 
                 if !diff { println!("{}", output); } // if we dont have a flag just give back
@@ -52,12 +53,6 @@ pub async fn process_script(script_path: &str, explain: bool, diff: bool, revert
                     );
                  }
                  // ---
-
-                /*
-                    Here we are going to read through both of the history sub dirs, std_history & err_history.
-                    This allows use to get the MOST recent file that has been saved from our check. It's going
-                    to save regardless of std_out or std_err.
-                */
 
                 let prefix = script_name.trim_end_matches(".py");
                 let mut all_versions: Vec<PathBuf> = vec![];
@@ -90,7 +85,7 @@ pub async fn process_script(script_path: &str, explain: bool, diff: bool, revert
                     all_versions.extend(err_versions); // append err
                     all_versions.sort(); // sort to get the most recent
 
-                    // revert flag
+                    // revert flag 
                     if revert {
                         if all_versions.len() < 2 {
                             println!("No previous version to revert to!");
@@ -123,7 +118,7 @@ pub async fn process_script(script_path: &str, explain: bool, diff: bool, revert
                         println!("\nAuto-Saving contents to: {:?}", full_path);
                     }
                 
-                    //FLAGS:
+                    //FLAGS: (see Revert Above)
                     if diff {
                         if !all_versions.is_empty() {
                             let last_version = all_versions.last().unwrap();
@@ -157,7 +152,8 @@ pub async fn process_script(script_path: &str, explain: bool, diff: bool, revert
                     }
             } // end Standard Out -------------------------------
             
-            // Standard Error
+
+            // Standard Error ------------------------
              Ok((commands::OutputType::Stderr, error_output)) => { 
 
                 if !diff && !explain && !context {
@@ -260,7 +256,7 @@ pub async fn process_script(script_path: &str, explain: bool, diff: bool, revert
                         println!("\nAuto-Saving contents to: {:?}", full_path);
                     }
                 
-                    //FLAGS:
+                    //FLAGS: (See Revert Above)
                     if diff { 
                         if !all_versions.is_empty() {
                             let last_version = all_versions.last().unwrap();
@@ -335,7 +331,6 @@ pub async fn process_script(script_path: &str, explain: bool, diff: bool, revert
                             // call model
                             let explanation = model::call_llm(prompt).await?;
                             println!("Error Explanation:\n{}", explanation);
-
                     } // end explain
 
                    //context checks
@@ -344,7 +339,7 @@ pub async fn process_script(script_path: &str, explain: bool, diff: bool, revert
                    let automatic_context = auto_context && !fixed_cycles.is_empty();
 
                     if manual_context || automatic_context {
-                        // NO FIXED - explain fall back
+                        // NO FIXED CYCLES - explain fall back
                         if fixed_cycles.is_empty() {
                             let prompt = format!(
                                 "Provide the error line number and explain in a compact screen readable format for \
@@ -453,8 +448,9 @@ pub async fn process_script(script_path: &str, explain: bool, diff: bool, revert
                         } else {
                             println!("Context:\n\n{}", context_response);
                         }
-                    }
-            } // end stderr match block -------------------------------
+                    } // end context
+            } // end STDERR -------------------------------
+
         Err(_) => {
             eprintln!("\nFailed to execute the script. Use -help for help");
         }

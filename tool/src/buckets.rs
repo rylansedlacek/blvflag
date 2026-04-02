@@ -2,7 +2,7 @@ use std::fs;
 use std::path::PathBuf;
 use chrono::Local;
 use dirs_next;
-use serde::{Deserialize, Serialize};
+use serde::{Deserialize, Serialize}; 
 use std::collections::hash_map::DefaultHasher;
 use std::hash::{Hash, Hasher};
 
@@ -11,12 +11,13 @@ use std::hash::{Hash, Hasher};
 pub struct RunRecord {
     pub script_id: String,
     pub run_id: String,
-    pub timestamp: String,
+    //pub timestamp: String,
     pub run_contents: String,
     pub is_error: bool,
     pub is_fixed: bool,
 }
 
+// script id
 fn generate_script_id(script_name: &str) -> String {
     let mut hasher = DefaultHasher::new();
     script_name.trim_end_matches(".py").hash(&mut hasher);
@@ -27,7 +28,7 @@ fn generate_script_id(script_name: &str) -> String {
 pub fn record_run(error_type: &str, script_name: &str, run_contents: &str, 
     is_error: bool, is_fixed: bool,) -> std::io::Result<()> {
 
-    let mut base = dirs_next::home_dir().expect("Failed to get home dir");
+    let mut base = dirs_next::home_dir().expect("Failed to get home directory");
     base.push("blvflag/tool/buckets");
     base.push(error_type);
     base.push(script_name.trim_end_matches(".py"));
@@ -72,7 +73,7 @@ pub fn record_run(error_type: &str, script_name: &str, run_contents: &str,
     runs.push(RunRecord {
         script_id: script_id.clone(),
         run_id: format!("run_{}", Local::now().timestamp()),
-        timestamp: Local::now().to_rfc3339(),
+       // timestamp: Local::now().to_rfc3339(),
         run_contents: run_contents.to_string(),
         is_error,
         is_fixed,
@@ -92,10 +93,8 @@ pub fn find_last_error_type(script_name: &str) -> Option<String> {
 
     for entry in entries.flatten() {
         let error_type = entry.file_name().to_string_lossy().to_string();
-        let script_dir = entry
-            .path()
-            .join(script_name.trim_end_matches(".py"));
 
+        let script_dir = entry.path().join(script_name.trim_end_matches(".py"));
         if !script_dir.exists() { continue; }
 
         let mut cycles: Vec<PathBuf> = fs::read_dir(&script_dir)
@@ -124,7 +123,7 @@ pub fn find_last_error_type(script_name: &str) -> Option<String> {
 pub fn fixed_cycles(error_type: &str) -> Vec<Vec<RunRecord>> {
     let mut recovered = Vec::new();
 
-    let mut root = dirs_next::home_dir().expect("Failed to get home dir");
+    let mut root = dirs_next::home_dir().expect("Failed to get home directory");
     root.push("blvflag/tool/buckets");
     root.push(error_type);
 
@@ -201,5 +200,5 @@ pub fn identical_error (error_type: &str, script_name: &str) -> bool {
     let last = &runs[runs.len() - 1];
     let prev = &runs[runs.len() - 2];
 
-    last.is_error && prev.is_error && last.run_contents == prev.run_contents
+    last.is_error && prev.is_error && last.run_contents == prev.run_contents // returns true if all true
 }

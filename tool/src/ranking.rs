@@ -27,24 +27,20 @@ pub fn extract_error_line_number(stderr: &str) -> Option<usize> {
 } // end extract
 
 pub fn get_line_from_script(script: &str, line_number: usize) -> Option<String> {
-     script
-        .lines()
-        .nth(line_number.saturating_sub(1))
-        .map(|s| s.to_string())
+     script.lines().nth(line_number.saturating_sub(1)).map(|s| s.to_string())
 } // end get_line_from_script
 
 fn error_line_score(current_line: &str, historical_script: &str) -> f64 {
     if current_line.trim().is_empty() { return 0.0; }
 
     let re = Regex::new(r"\W+").unwrap(); // regex thanks
+    let current_tokens: Vec<&str> = re.split(current_line).filter(|s| !s.is_empty()).collect(); // splint current by whitespace
 
-    let current_tokens: Vec<&str> = re.split(current_line).filter(|s| !s.is_empty()).collect();
     if current_tokens.is_empty() { return 0.0; }
 
-    let historical_tokens: Vec<&str> = re.split(historical_script).filter(|s| !s.is_empty()).collect();
+    let historical_tokens: Vec<&str> = re.split(historical_script).filter(|s| !s.is_empty()).collect(); // split historical
 
-    let overlap = current_tokens.iter().filter(|t| historical_tokens.contains(t)).count();
-
+    let overlap = current_tokens.iter().filter(|t| historical_tokens.contains(t)).count(); // check overlap
     overlap  as f64 / current_tokens.len() as f64
 } // end error_line
 
@@ -54,7 +50,7 @@ fn compute_patch_score(pre_fix: &str, post_fix: &str, current_script: &str) -> f
 
     if hist_changes == 0 { return 0.0;}
 
-    1.0 / (1.0 + (hist_changes as f64 - curr_changes as f64).abs())
+    1.0 / (1.0 + (hist_changes as f64 - curr_changes as f64).abs()) // diff changes comparison
 } // end patch
 
 fn extract_vector(script: &str) -> Vec<f64> {
@@ -62,13 +58,16 @@ fn extract_vector(script: &str) -> Vec<f64> {
         script.lines().count() as f64,
         script.matches("def ").count() as f64,
         script.matches("if ").count() as f64,
+        script.matches("else ").count() as f64,
+        script.matches("while ").count() as f64,
+        script.matches("for ").count() as f64,
         script.len() as f64,
     ]
 } // end vector
 
 fn dot_product(a: &[f64], b: &[f64]) -> f64 {
     if a.len() != b.len() { return 0.0; }
-    a.iter().zip(b.iter()).map(|(x, y)| x * y).sum()
+    a.iter().zip(b.iter()).map(|(x, y)| x * y).sum() // easy dot product
 } // end dot
 
 fn cosine_similarity(a: &[f64], b: &[f64]) -> f64 {
@@ -94,8 +93,8 @@ pub fn generate_ranking(current_error_line: &str, current_script: &str,
     for cycle in cycles.into_iter() {
         if cycle.len() < 2 { continue; }
 
-        let pre_fix = &cycle[cycle.len() - 2].run_contents; // pre before
-        let post_fix = &cycle[cycle.len() - 1].run_contents; // post current
+        let pre_fix = &cycle[cycle.len() - 2].run_contents; // pre = before
+        let post_fix = &cycle[cycle.len() - 1].run_contents; // post = current
 
         let line_score = error_line_score(current_error_line, pre_fix);
 
