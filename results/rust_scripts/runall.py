@@ -43,9 +43,7 @@ def parse_metadata(metadata_path):
 
     summary = data.get("summary", {})
     keystrokes = summary.get("keystrokes", {})
-
     key_freq = keystrokes.get("other_keys", {})
-
     nav_keys = ["Tab", "F6", "ArrowDown", "ArrowUp"] # all ive seen
 
     nav_count = sum(key_freq.get(k, 0) for k in nav_keys)
