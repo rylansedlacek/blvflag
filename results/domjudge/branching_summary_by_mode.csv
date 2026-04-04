@@ -1,0 +1,5 @@
+mode,n,success_rate_mean,success_rate_ci_low,success_rate_ci_high,steps_to_fix_mean,steps_to_fix_ci_low,steps_to_fix_ci_high,steps_taken_mean,steps_taken_ci_low,steps_taken_ci_high
+baseline,9000,0.9,0.8936,0.9058,2.4444,2.4028,2.4854,2.6333,2.5941,2.6744
+diff,9000,0.9,0.8938,0.9061,2.1021,2.0731,2.1307,2.3252,2.2933,2.3544
+explain,9000,0.9,0.8941,0.9063,2.177,2.1452,2.2096,2.3927,2.3607,2.4243
+both,9000,0.9,0.8936,0.9061,1.9943,1.9691,2.0205,2.2282,2.2009,2.2573
