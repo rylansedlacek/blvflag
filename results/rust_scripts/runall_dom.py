@@ -1,234 +1,214 @@
 #!/usr/bin/env python3
 
-from __future__ import annotations
-import argparse
 import csv
-import json
 import os
 import random
 import subprocess
-import tempfile
-from collections import defaultdict
-from dataclasses import dataclass
-from pathlib import Path
 from statistics import mean
 
-
-OUT_DIR = Path("/Users/rylan/blvflag/results/domjudge_sim")
-OUT_DIR.mkdir(parents=True, exist_ok=True)
-
+OUT_DIR = "/Users/rylan/blvflag/results/domjudge_2"
 ACCEPT_SET = {"accepted", "correct"}
+MYSQL_HOST = "127.0.0.1"
+MYSQL_PORT = "3306"
+MYSQL_DB = "domjudge_data"
+MYSQL_USER = "root"
+MYSQL_PASSWORD = "BooneFart56"
 
-@dataclass
-class SubmissionRow:
-    submitid: int
-    teamid: int
-    probid: int
-    submittime: str
-    result: str
-    filename: str
-    sourcecode: str
+# controls
+MAX_CYCLES = 30
+MAX_STEPS_PER_CYCLE = 12
+MAX_RUNS = 300
+RANDOM_SEED = 42
+ONLY_PROBID = None
+ONLY_TEAMID = None
 
+os.makedirs(OUT_DIR, exist_ok=True)
 
-def parse_args() -> argparse.Namespace:
-    p = argparse.ArgumentParser(description="Branching Domjudge simulator for BLVDIFF modes")
-    p.add_argument("--max-cycles", type=int, default=30)
-    p.add_argument("--max-steps-per-cycle", type=int, default=12)
-    p.add_argument("--runs", type=int, default=300, help="Monte Carlo runs per cycle and mode")
-    p.add_argument("--seed", type=int, default=42)
-    p.add_argument("--only-probid", type=int, default=None)
-    p.add_argument("--only-teamid", type=int, default=None)
-    return p.parse_args()
-
-
-def env_or_default(name: str, default: str) -> str:
-    v = os.getenv(name)
-    return v if v else default
-
-
-def mysql_query(sql: str) -> list[SubmissionRow]:
-    user = os.getenv("DOMJUDGE_DB_USER")
-    password = os.getenv("DOMJUDGE_DB_PASSWORD")
-    if not user or not password:
-        raise RuntimeError("DOMJUDGE_DB_USER and DOMJUDGE_DB_PASSWORD are required")
-
-    host = env_or_default("DOMJUDGE_DB_HOST", "127.0.0.1")
-    port = env_or_default("DOMJUDGE_DB_PORT", "3306")
-    db_name = env_or_default("DOMJUDGE_DB_NAME", "domjudge_data")
-
-    with tempfile.NamedTemporaryFile("w", delete=False, encoding="utf-8") as tmp:
-        tmp.write("[client]\n")
-        tmp.write(f"user={user}\n")
-        tmp.write(f"password={password}\n")
-        tmp.write(f"host={host}\n")
-        tmp.write(f"port={port}\n")
-        tmp.write(f"database={db_name}\n")
-        defaults_file = tmp.name
-
-    cmd = [
+# runs a query and returns parsed rows - from H3
+def mysql_query(sql):
+    
+    command = [
         "mysql",
-        f"--defaults-extra-file={defaults_file}",
+        "-h",
+        MYSQL_HOST,
+        "-P",
+        MYSQL_PORT,
+        "-u",
+        MYSQL_USER,
+        f"-p{MYSQL_PASSWORD}",
         "--batch",
         "--raw",
         "--skip-column-names",
         "-e",
         sql,
+        MYSQL_DB,
     ]
 
-    try:
-        cp = subprocess.run(cmd, capture_output=True, text=True, check=False)
-    finally:
-        try:
-            os.remove(defaults_file)
-        except OSError:
-            pass
+    result = subprocess.run(command, capture_output=True, text=True, check=False)
+    if result.returncode != 0:
+        raise RuntimeError("mysql query failed")
 
-    if cp.returncode != 0:
-        raise RuntimeError(cp.stderr.strip() or "mysql query failed")
+    rows = []
+    reader = csv.reader(result.stdout.splitlines(), delimiter="\t")
 
-    out: list[SubmissionRow] = []
-    reader = csv.reader(cp.stdout.splitlines(), delimiter="\t")
-    for rec in reader:
-        if len(rec) != 7:
+    for record in reader:
+        if len(record) != 7:
             continue
         try:
-            out.append(
-                SubmissionRow(
-                    submitid=int(rec[0]),
-                    teamid=int(rec[1]),
-                    probid=int(rec[2]),
-                    submittime=rec[3],
-                    result=(rec[4] or "").strip().lower(),
-                    filename=rec[5],
-                    sourcecode=rec[6],
-                )
-            )
+            row = {
+                "submitid": int(record[0]),
+                "teamid": int(record[1]),
+                "probid": int(record[2]),
+                "submittime": record[3],
+                "result": (record[4]).strip().lower(),
+                "filename": record[5],
+                "sourcecode": record[6],
+            }
+
         except ValueError:
             continue
-    return out
+        rows.append(row)
+
+    return rows
 
 
-def load_cycles(max_cycles: int, only_probid: int | None, only_teamid: int | None) -> dict[str, list[SubmissionRow]]:
-    where = ["sf.filename LIKE '%.py'"]
+# loads grouped submission cycles by team 
+def load_cycles(max_cycles, only_probid, only_teamid):
+    where_parts = ["sf.filename like '%.py'"]
     if only_probid is not None:
-        where.append(f"s.probid = {only_probid}")
+        where_parts.append(f"s.probid = {only_probid}")
     if only_teamid is not None:
-        where.append(f"s.teamid = {only_teamid}")
+        where_parts.append(f"s.teamid = {only_teamid}")
 
-    sql = f"""
-SELECT
+    sql = """
+select
   s.submitid,
   s.teamid,
   s.probid,
   s.submittime,
   j.result,
   sf.filename,
-  CONVERT(sf.sourcecode USING utf8mb4) AS sourcecode
-FROM submission s
-JOIN judging j ON s.submitid = j.submitid
-JOIN submission_file sf ON s.submitid = sf.submitid
-WHERE {' AND '.join(where)}
-ORDER BY s.teamid, s.probid, s.submittime, s.submitid;
-""".strip()
+  convert(sf.sourcecode using utf8mb4) as sourcecode
+from submission s
+join judging j on s.submitid = j.submitid
+join submission_file sf on s.submitid = sf.submitid
+where {where_clause}
+order by s.teamid, s.probid, s.submittime, s.submitid;
+""".strip().format(where_clause=" and ".join(where_parts))
 
     rows = mysql_query(sql)
+    grouped = {}
 
-    grouped: dict[str, list[SubmissionRow]] = defaultdict(list)
-    for r in rows:
-        key = f"team{r.teamid}_prob{r.probid}"
-        grouped[key].append(r)
+    for row in rows:
+        key = f"team{row['teamid']}_prob{row['probid']}"
 
-    # stable truncation to first N cycles
-    items = list(grouped.items())[:max_cycles]
-    out: dict[str, list[SubmissionRow]] = {}
-    for k, v in items:
-        out[k] = v
-    return out
+        if key not in grouped:
+            grouped[key] = []
+
+        grouped[key].append(row)
+
+    cycles = {}
+    count = 0
+    for key, value in grouped.items():
+        if count >= max_cycles:
+            break
+        cycles[key] = value
+        count += 1
+    return cycles
 
 
-def count_changed_lines(a: str, b: str) -> int:
-    a_lines = a.splitlines()
-    b_lines = b.splitlines()
-    m = min(len(a_lines), len(b_lines))
-    changed = sum(1 for i in range(m) if a_lines[i] != b_lines[i])
-    changed += abs(len(a_lines) - len(b_lines))
+# counts line level differences between two code snippets - like s0 -> s1
+def count_changed_lines(old_text, new_text):
+    old_lines = old_text.splitlines()
+    new_lines = new_text.splitlines()
+    shared_count = min(len(old_lines), len(new_lines))
+    changed = 0
+
+    for index in range(shared_count):
+        if old_lines[index] != new_lines[index]:
+            changed += 1
+
+    changed += abs(len(old_lines) - len(new_lines))
     return changed
 
 
-def find_next_diff_verdict_idx(seq: list[SubmissionRow], i: int, limit: int = 4) -> int | None:
-    curr = seq[i].result
-    for j in range(i + 1, min(len(seq), i + 1 + limit)):
-        if seq[j].result != curr:
-            return j
+# finds the next nearby index where the judging result changes - error -> fix
+def find_diff_idx(sequence, start_index, limit=4):
+    current_result = sequence[start_index]["result"]
+    stop_index = min(len(sequence), start_index + 1 + limit)
+    for index in range(start_index + 1, stop_index):
+        if sequence[index]["result"] != current_result:
+            return index
     return None
 
 
-def transition_index(mode: str, seq: list[SubmissionRow], i: int, rng: random.Random) -> int:
-    if i >= len(seq) - 1:
-        return i
+# chooses the next submission index based on mode - 
+# baseline (same)
+# diff (move a little)
+# explain (move a little more)
+# both (move the most)
+# To simulate usefulness
+def transition_index(mode, sequence, index, rng):
+    if index >= len(sequence) - 1:
+        return index
 
-    # always legal next
-    next_i = i + 1
-
-    curr = seq[i]
-    nxt = seq[next_i]
-    repeated_error = (curr.result not in ACCEPT_SET) and (nxt.result == curr.result)
-    small_patch = count_changed_lines(curr.sourcecode, nxt.sourcecode) <= 2
+    next_index = index + 1
+    current_row = sequence[index]
+    next_row = sequence[next_index]
+    repeated_error = current_row["result"] not in ACCEPT_SET and next_row["result"] == current_row["result"]
+    small_patch = count_changed_lines(current_row["sourcecode"], next_row["sourcecode"]) <= 2
 
     if mode == "baseline":
-        return next_i
+        return next_index
 
-    # diff helps when changes are tiny/redundant
     if mode == "diff":
         if repeated_error and small_patch and rng.random() < 0.55:
-            jump = find_next_diff_verdict_idx(seq, i, limit=4)
-            if jump is not None:
-                return jump
-            return min(i + 2, len(seq) - 1)
-        return next_i
+            jump_index = find_diff_idx(sequence, index, limit=4)
+            if jump_index is not None:
+                return jump_index
+            return min(index + 2, len(sequence) - 1)
+        return next_index
 
-    # explain helps break repeated-error loops, but can add occasional detours
     if mode == "explain":
         if repeated_error and rng.random() < 0.50:
-            return min(i + 2, len(seq) - 1)
+            return min(index + 2, len(sequence) - 1)
         if rng.random() < 0.08:
-            return next_i  # small overhead/noise, no skip
-        return next_i
+            return next_index
+        return next_index
 
-    # both gets strongest skip behavior on repeated errors
     if mode == "both":
         if repeated_error and rng.random() < 0.70:
-            jump = find_next_diff_verdict_idx(seq, i, limit=5)
-            if jump is not None:
-                return jump
-            return min(i + 2, len(seq) - 1)
-        return next_i
+            jump_index = find_diff_idx(sequence, index, limit=5)
+            if jump_index is not None:
+                return jump_index
+            return min(index + 2, len(sequence) - 1)
+        return next_index
 
-    return next_i
+    return next_index
 
 
-def run_mode_once(mode: str, seq: list[SubmissionRow], max_steps: int, rng: random.Random) -> dict:
-    i = 0
+# simulates one mode run and records success, steps, and path
+def run_mode_once(mode, sequence, max_steps, rng):
+    index = 0
     visited = 0
     reached_accept = False
-    submit_path: list[int] = []
+    submit_path = []
 
-    while visited < max_steps and i < len(seq):
-        row = seq[i]
-        submit_path.append(row.submitid)
+    while visited < max_steps and index < len(sequence):
+        row = sequence[index]
+        submit_path.append(row["submitid"])
         visited += 1
 
-        if row.result in ACCEPT_SET:
+        if row["result"] in ACCEPT_SET:
             reached_accept = True
             break
 
-        ni = transition_index(mode, seq, i, rng)
-        if ni <= i:
-            ni = i + 1
-        i = min(ni, len(seq) - 1)
+        next_index = transition_index(mode, sequence, index, rng)
+        if next_index <= index:
+            next_index = index + 1
+        index = min(next_index, len(sequence) - 1)
 
-        # prevent infinite loops in degenerate conditions
-        if visited >= len(seq) + 3:
+        if visited >= len(sequence) + 3:
             break
 
     return {
@@ -239,89 +219,94 @@ def run_mode_once(mode: str, seq: list[SubmissionRow], max_steps: int, rng: rand
     }
 
 
-def bootstrap_ci(values: list[float], rng: random.Random, n_boot: int = 2000, alpha: float = 0.05) -> tuple[float, float, float]:
+# computes mean and confidence interval for values - user interaction sim
+def boot(values, rng, n_boot=2000, alpha=0.05):
     if not values:
         return 0.0, 0.0, 0.0
-    n = len(values)
-    means = []
+
+    sample_means = []
+    value_count = len(values)
+
     for _ in range(n_boot):
-        sample = [values[rng.randrange(n)] for _ in range(n)]
-        means.append(mean(sample))
-    means.sort()
-    lo = means[int((alpha / 2) * n_boot)]
-    hi = means[int((1 - alpha / 2) * n_boot) - 1]
-    return mean(values), lo, hi
+        sample = []
+        for _ in range(value_count):
+            sample.append(values[rng.randrange(value_count)])
+        sample_means.append(mean(sample))
+
+    sample_means.sort()
+    low_index = int((alpha / 2) * n_boot)
+    high_index = int((1 - alpha / 2) * n_boot) - 1
+    return mean(values), sample_means[low_index], sample_means[high_index]
 
 
-def main() -> None:
-    args = parse_args()
-    rng = random.Random(args.seed)
-
-    cycles = load_cycles(args.max_cycles, args.only_probid, args.only_teamid)
+# executes all simulation modes and writes the csv for figure generation
+def main():
+    rng = random.Random(RANDOM_SEED)
+    cycles = load_cycles(MAX_CYCLES, ONLY_PROBID, ONLY_TEAMID)
     modes = ["baseline", "diff", "explain", "both"]
 
     run_rows = []
-    for cycle_key, seq in cycles.items():
+    for cycle_key, sequence in cycles.items():
         for mode in modes:
-            for run_id in range(1, args.runs + 1):
-                rec = run_mode_once(mode, seq, args.max_steps_per_cycle, rng)
+            for run_id in range(1, MAX_RUNS + 1):
+                result = run_mode_once(mode, sequence, MAX_STEPS_PER_CYCLE, rng)
                 run_rows.append({
                     "cycle_key": cycle_key,
                     "mode": mode,
                     "run_id": run_id,
-                    "success": rec["success"],
-                    "steps_to_fix": rec["steps_to_fix"] if rec["steps_to_fix"] is not None else "",
-                    "steps_taken": rec["steps_taken"],
-                    "submit_path": "|".join(str(x) for x in rec["path"]),
+                    "success": result["success"],
+                    "steps_to_fix": result["steps_to_fix"] if result["steps_to_fix"] is not None else "",
+                    "steps_taken": result["steps_taken"],
+                    "submit_path": "|".join(str(item) for item in result["path"]),
                 })
 
-    raw_csv = OUT_DIR / "branching_runs.csv"
-    with raw_csv.open("w", newline="", encoding="utf-8") as f:
-        w = csv.DictWriter(f, fieldnames=["cycle_key", "mode", "run_id", "success", "steps_to_fix", "steps_taken", "submit_path"])
-        w.writeheader()
-        w.writerows(run_rows)
-
-    # aggregate by mode
-    grouped = defaultdict(list)
-    for r in run_rows:
-        grouped[r["mode"]].append(r)
+    rows_by_mode = {}
+    for mode in modes:
+        rows_by_mode[mode] = []
+    for row in run_rows:
+        rows_by_mode[row["mode"]].append(row)
 
     summary = []
     for mode in modes:
-        rows = grouped[mode]
-        succ = [float(r["success"]) for r in rows]
-        stf = [float(r["steps_to_fix"]) for r in rows if str(r["steps_to_fix"]).strip()]
-        staken = [float(r["steps_taken"]) for r in rows]
+        rows = rows_by_mode[mode]
+        success_values = []
+        steps_to_fix_values = []
+        steps_taken_values = []
 
-        succ_m, succ_lo, succ_hi = bootstrap_ci(succ, rng)
-        stf_m, stf_lo, stf_hi = bootstrap_ci(stf, rng)
-        stk_m, stk_lo, stk_hi = bootstrap_ci(staken, rng)
+        for row in rows:
+            success_values.append(float(row["success"]))
+            if str(row["steps_to_fix"]).strip():
+                steps_to_fix_values.append(float(row["steps_to_fix"]))
+            steps_taken_values.append(float(row["steps_taken"]))
+
+        success_mean, success_low, success_high = boot(success_values, rng)
+        steps_to_fix_mean, steps_to_fix_low, steps_to_fix_high = boot(steps_to_fix_values, rng)
+        steps_taken_mean, steps_taken_low, steps_taken_high = boot(steps_taken_values, rng)
 
         summary.append({
             "mode": mode,
             "n": len(rows),
-            "success_rate_mean": round(succ_m, 4),
-            "success_rate_ci_low": round(succ_lo, 4),
-            "success_rate_ci_high": round(succ_hi, 4),
-            "steps_to_fix_mean": round(stf_m, 4),
-            "steps_to_fix_ci_low": round(stf_lo, 4),
-            "steps_to_fix_ci_high": round(stf_hi, 4),
-            "steps_taken_mean": round(stk_m, 4),
-            "steps_taken_ci_low": round(stk_lo, 4),
-            "steps_taken_ci_high": round(stk_hi, 4),
+            "success_rate_mean": round(success_mean, 4),
+            "success_rate_ci_low": round(success_low, 4),
+            "success_rate_ci_high": round(success_high, 4),
+            "steps_to_fix_mean": round(steps_to_fix_mean, 4),
+            "steps_to_fix_ci_low": round(steps_to_fix_low, 4),
+            "steps_to_fix_ci_high": round(steps_to_fix_high, 4),
+            "steps_taken_mean": round(steps_taken_mean, 4),
+            "steps_taken_ci_low": round(steps_taken_low, 4),
+            "steps_taken_ci_high": round(steps_taken_high, 4),
         })
 
-    summary_csv = OUT_DIR / "branching_summary_by_mode.csv"
-    with summary_csv.open("w", newline="", encoding="utf-8") as f:
-        w = csv.DictWriter(f, fieldnames=list(summary[0].keys()))
-        w.writeheader()
-        w.writerows(summary)
+    summary_csv = os.path.join(OUT_DIR, "branching_summary_by_mode.csv")
+    with open(summary_csv, "w", newline="", encoding="utf-8") as file_handle:
+        writer = csv.DictWriter(file_handle, fieldnames=list(summary[0].keys()))
+        writer.writeheader()
+        writer.writerows(summary)
 
-    print(f"Wrote: {raw_csv}")
     print(f"Wrote: {summary_csv}")
     print("\nSummary:")
-    for s in summary:
-        print(s)
+    for row in summary:
+        print(row)
 
 
 if __name__ == "__main__":
