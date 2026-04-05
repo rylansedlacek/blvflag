@@ -46,7 +46,7 @@ def mysql_query(sql):
 
     result = subprocess.run(command, capture_output=True, text=True, check=False)
     if result.returncode != 0:
-        raise RuntimeError("mysql query failed")
+        raise RuntimeError("query failed")
 
     rows = []
     reader = csv.reader(result.stdout.splitlines(), delimiter="\t")
